@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'login-general-user',
     loadChildren: () => import('./login-general-user/login-general-user.module').then( m => m.LoginGeneralUserPageModule)
   },
+  {
+    path: 'register-general-user',
+    loadChildren: () => import('./register-general-user/register-general-user.module').then( m => m.RegisterGeneralUserPageModule)
+  },
 ];
 
 @NgModule({
