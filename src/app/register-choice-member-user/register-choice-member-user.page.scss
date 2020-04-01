@@ -1,0 +1,33 @@
+#container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1, p {
+    color: #ffffff;
+}
+ion-content ion-toolbar {
+    --background: translucent;
+}
+ion-content {
+    --background: url('/assets/background.jpg') no-repeat center center / cover;
+}
+
+ion-content {
+    --background: url('/assets/background.jpg') no-repeat center center / cover;
+}
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --border-color: transparent;
+}
+.footer-md::before,
+.header-md::after {
+    display: none;
+}
+ion-footer {
+    --background: transparent;
+}

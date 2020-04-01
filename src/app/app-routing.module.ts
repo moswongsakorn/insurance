@@ -12,6 +12,38 @@ const routes: Routes = [
     path: 'register-general-user',
     loadChildren: () => import('./register-general-user/register-general-user.module').then( m => m.RegisterGeneralUserPageModule)
   },
+  {
+    path: 'confirm-register-general-user',
+    loadChildren: () => import('./confirm-register-general-user/confirm-register-general-user.module').then( m => m.ConfirmRegisterGeneralUserPageModule)
+  },
+  {
+    path: 'forget-password',
+    loadChildren: () => import('./forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
+  {
+    path: 'login-member-user',
+    loadChildren: () => import('./login-member-user/login-member-user.module').then( m => m.LoginMemberUserPageModule)
+  },
+  {
+    path: 'register-choice-member-user',
+    loadChildren: () => import('./register-choice-member-user/register-choice-member-user.module').then( m => m.RegisterChoiceMemberUserPageModule)
+  },
+  {
+    path: 'register-leader-member-user',
+    loadChildren: () => import('./register-leader-member-user/register-leader-member-user.module').then( m => m.RegisterLeaderMemberUserPageModule)
+  },
+  {
+    path: 'register-agent-member-user',
+    loadChildren: () => import('./register-agent-member-user/register-agent-member-user.module').then( m => m.RegisterAgentMemberUserPageModule)
+  },
+  {
+    path: 'confirm-register-leader-member-user',
+    loadChildren: () => import('./confirm-register-leader-member-user/confirm-register-leader-member-user.module').then( m => m.ConfirmRegisterLeaderMemberUserPageModule)
+  },
+  {
+    path: 'confirm-register-agent-member-user',
+    loadChildren: () => import('./confirm-register-agent-member-user/confirm-register-agent-member-user.module').then( m => m.ConfirmRegisterAgentMemberUserPageModule)
+  },
 ];
 
 @NgModule({
