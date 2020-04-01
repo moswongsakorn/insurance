@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'confirm-register-general-user',
     loadChildren: () => import('./confirm-register-general-user/confirm-register-general-user.module').then( m => m.ConfirmRegisterGeneralUserPageModule)
   },
+  {
+    path: 'forget-password',
+    loadChildren: () => import('./forget-password/forget-password.module').then( m => m.ForgetPasswordPageModule)
+  },
 ];
 
 @NgModule({
