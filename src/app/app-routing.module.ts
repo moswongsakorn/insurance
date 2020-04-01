@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'register-choice-member-user',
     loadChildren: () => import('./register-choice-member-user/register-choice-member-user.module').then( m => m.RegisterChoiceMemberUserPageModule)
   },
+  {
+    path: 'register-leader-member-user',
+    loadChildren: () => import('./register-leader-member-user/register-leader-member-user.module').then( m => m.RegisterLeaderMemberUserPageModule)
+  },
 ];
 
 @NgModule({
