@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register-choice-member-user',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterChoiceMemberUserPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public navController: NavController
+  ) { }
 
   ngOnInit() {
   }

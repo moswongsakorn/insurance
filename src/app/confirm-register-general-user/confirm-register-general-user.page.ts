@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
+import { DataCenterService } from '../services/data-center.service';
+import { NavController } from '@ionic/angular';
+import { UserCrudModel } from '../interfaces/index'
 
 @Component({
   selector: 'app-confirm-register-general-user',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmRegisterGeneralUserPage implements OnInit {
 
-  constructor() { }
+  public user: UserCrudModel;
+
+  constructor(
+    private userService: UserServiceService,
+    private dataCenter: DataCenterService,
+    public navController: NavController,
+  ) { }
 
   ngOnInit() {
+    this.user = this.dataCenter.GetUserConfirm();
+  }
+
+  public async Confirm() {
+    var result = await this.userService.RegisterUser(this.user);
+    if (result.status == true) {
+      console.log(result)
+      this.navController.navigateRoot(['login-general-user']);
+    }
+    else {
+      console.log(result)
+    }
   }
 
 }

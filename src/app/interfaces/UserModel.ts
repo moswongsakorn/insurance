@@ -1,5 +1,5 @@
-export class UserModel{
-    public email: string;
-    public password: string;
-    public role: string;
+export class UserModel {
+    public Email: string;
+    public Password: string;
+
 }
