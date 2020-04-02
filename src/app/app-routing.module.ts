@@ -44,6 +44,10 @@ const routes: Routes = [
     path: 'confirm-register-agent-member-user',
     loadChildren: () => import('./confirm-register-agent-member-user/confirm-register-agent-member-user.module').then( m => m.ConfirmRegisterAgentMemberUserPageModule)
   },
+  {
+    path: 'policy-list-general-user',
+    loadChildren: () => import('./policy-list-general-user/policy-list-general-user.module').then( m => m.PolicyListGeneralUserPageModule)
+  },
 ];
 
 @NgModule({

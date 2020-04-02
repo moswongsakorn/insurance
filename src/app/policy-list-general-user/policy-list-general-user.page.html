@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>รายการแบบประกัน</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar mode="ios" placeholder="ค้นหา"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item detail="true" button="true">
+      <ion-label>
+        1.อลิอันซ์ อยุธยา ประกันชีวิต ธนอนันต์15/15
+      </ion-label>
+    </ion-item>
+    <ion-item detail="true" button="true">
+      <ion-label>
+        2.ไทยประกันชีวิต คุ้มทรัพย์ 85/15
+      </ion-label>
+    </ion-item>
+  </ion-list>  
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button fill="clear" shape="round">ออกจากระบบ</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
