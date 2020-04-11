@@ -48,6 +48,51 @@ const routes: Routes = [
     path: 'policy-list-general-user',
     loadChildren: () => import('./policy-list-general-user/policy-list-general-user.module').then( m => m.PolicyListGeneralUserPageModule)
   },
+  {
+    path: 'add-policy-general-user',
+    loadChildren: () => import('./add-policy-general-user/add-policy-general-user.module').then( m => m.AddPolicyGeneralUserPageModule)
+  },  {
+    path: 'add-policy-repay-general-user',
+    loadChildren: () => import('./add-policy-repay-general-user/add-policy-repay-general-user.module').then( m => m.AddPolicyRepayGeneralUserPageModule)
+  },
+  {
+    path: 'add-policy-protection-general-user',
+    loadChildren: () => import('./add-policy-protection-general-user/add-policy-protection-general-user.module').then( m => m.AddPolicyProtectionGeneralUserPageModule)
+  },
+  {
+    path: 'add-policy-confirm-general-user',
+    loadChildren: () => import('./add-policy-confirm-general-user/add-policy-confirm-general-user.module').then( m => m.AddPolicyConfirmGeneralUserPageModule)
+  },
+  {
+    path: 'policy-detail-general-user',
+    loadChildren: () => import('./policy-detail-general-user/policy-detail-general-user.module').then( m => m.PolicyDetailGeneralUserPageModule)
+  },
+  {
+    path: 'edit-policy-general-user',
+    loadChildren: () => import('./edit-policy-general-user/edit-policy-general-user.module').then( m => m.EditPolicyGeneralUserPageModule)
+  },
+  {
+    path: 'edit-policy-repay-general-user',
+    loadChildren: () => import('./edit-policy-repay-general-user/edit-policy-repay-general-user.module').then( m => m.EditPolicyRepayGeneralUserPageModule)
+  },
+  {
+    path: 'edit-policy-protection-general-user',
+    loadChildren: () => import('./edit-policy-protection-general-user/edit-policy-protection-general-user.module').then( m => m.EditPolicyProtectionGeneralUserPageModule)
+  },
+  {
+    path: 'edit-policy-confirm-general-user',
+    loadChildren: () => import('./edit-policy-confirm-general-user/edit-policy-confirm-general-user.module').then( m => m.EditPolicyConfirmGeneralUserPageModule)
+  },
+  {
+    path: 'personal-information-general-user',
+    loadChildren: () => import('./personal-information-general-user/personal-information-general-user.module').then( m => m.PersonalInformationGeneralUserPageModule)
+  },
+  {
+    path: 'edit-personal-information-general-user',
+    loadChildren: () => import('./edit-personal-information-general-user/edit-personal-information-general-user.module').then( m => m.EditPersonalInformationGeneralUserPageModule)
+  },
+
+
 ];
 
 @NgModule({

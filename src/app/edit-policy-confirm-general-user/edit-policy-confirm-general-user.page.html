@@ -1,0 +1,230 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ข้อมูลแบบประกัน</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col>
+        <div>ชื่อบริษัท</div>
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <div>ไทยประกันชีวิต</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div>ชื่อแบบประกัน</div>
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <div>ธนทวี 10/5</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>จำนวนปีที่คุ้มครอง</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div>10</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>ปี</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>จำนวนปีที่จ่ายเบี้ย</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div>5</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>ปี</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>ทุนประกัน</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div>1,000,000</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>บาท</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>เบี้ยประกัน</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div>99,000</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>บาท</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>ลดหย่อนภาษี</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div></div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>ได้</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>ประกันสุขภาพ</div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <div></div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-center">
+        <div>ไม่ได้</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <div>เงินครบกำหนดสัญญา</div>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center">
+        <div>500 % ของเงินประกัน</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center ion-margin-top">
+        <div>เงินจ่ายคืนสินปีกรมธรรม์</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="6" style="display: flex;">
+        <div style="width: 15%;" class="ion-align-self-center">
+          ปีที่
+        </div>
+        <div style="width: 25%;" class="ion-text-center">
+          1
+        </div>
+        <div style="width: 15%;" class="ion-align-self-center">
+          ถึง
+        </div>
+        <div style="width: 25%;"  class="ion-text-center">
+          10
+        </div>
+      </ion-col>
+      <ion-col size="6" class="ion-text-center">
+        10 % ของทุนประกัน
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center ion-margin-top">
+        <div>เงินคุ้มครองเมื่อเสียชีวิต</div>
+      </ion-col>
+    </ion-row>
+
+    <div *ngFor="let item of items;let i = index">
+      <ion-row class="ion-justify-content-between ion-align-items-center">
+        <ion-col size="6" style="display: flex;">
+          <div style="width: 15%;" class="ion-align-self-center">
+            ปีที่
+          </div>
+          <div style="width: 25%;" class="ion-text-center">
+            {{i+1}}
+          </div>
+          <div style="width: 15%;" class="ion-align-self-center">
+           
+          </div>
+          <div style="width: 25%;"  class="ion-text-center">
+            
+          </div>
+        </ion-col>
+        <ion-col size="6" class="ion-text-center">
+         {{(i+1)*100}} % ของทุนประกัน
+        </ion-col>
+      </ion-row>
+    </div>
+    
+
+    <ion-row class="ion-margin-top">
+      <ion-col size="10">
+        <div>อัตราผลตอบแทนภายใน(IRR)</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end">
+        <div>2.63</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="10">
+        <div>อัตราความคุ้มครอง</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end">
+        <div>0.25</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="10">
+        <div>ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบี้ยครบ</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end">
+        <div>1.06</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="10">
+        <div>ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบี้ยครบ</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end">
+        <div>1.15</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <div>อัตราความคุ้มค่า</div>
+      </ion-col>
+      <ion-col size="2" class="ion-text-end">
+        <div>1</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center ion-margin-top">
+        <div style="text-decoration: underline;font-size: 22px;">ต้องการยืนยันข้อมูลข้างต้นใช่หรือไม่</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-around ion-margin-top">
+      <ion-col size="10">
+        <ion-button expand="block" shape="round"   (click)="Login()"
+          >ใช่</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="10">
+        <ion-button expand="block" color="medium" shape="round"   (click)="Login()"
+          >ไม่ใช่</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

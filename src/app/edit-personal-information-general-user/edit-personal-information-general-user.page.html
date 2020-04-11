@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>แก้ไขข้อมูลส่วนตัว</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-margin-top ion-padding">
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          เลขบัตรประชาชน
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          1234567890123
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          คำนำหน้าชื่อ
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-select
+              
+              value="brown"
+              okText="ตกลง"
+              cancelText="ยกเลิก"
+            >
+              <ion-select-option value="brown">นาย</ion-select-option>
+              <ion-select-option value="blonde">นาง</ion-select-option>
+              <ion-select-option value="black">นางสาว</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          ชื่อ - นามสกุล
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          วัน/เดือน/ปี เกิด
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          3 มีนาคม 2541
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          เบอร์โทรศัพท์
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          อีเมล์
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-start">
+          <ion-item>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          รหัสผ่าน
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          ยืนยันรหัสผ่าน
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input  type="text"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-col size="1"></ion-col>
+      <ion-col>
+        <ion-button expand="block" shape="round" (click)="Login()"
+          >ยืนยัน</ion-button
+        >
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

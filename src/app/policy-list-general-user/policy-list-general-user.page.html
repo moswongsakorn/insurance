@@ -2,8 +2,8 @@
   <ion-toolbar>
     <ion-title>รายการแบบประกัน</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      <ion-button [routerLink]="['/personal-information-general-user']">
+        <ion-icon slot="icon-only" name="person-outline"   ></ion-icon>
       </ion-button>
       <ion-button>
         <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
@@ -41,7 +41,7 @@
 </ion-footer>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button>
+  <ion-fab-button  [routerLink]="['/add-policy-general-user']">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
