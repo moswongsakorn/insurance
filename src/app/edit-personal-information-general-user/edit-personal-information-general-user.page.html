@@ -16,7 +16,9 @@
       </ion-col>
       <ion-col class="ion-text-start">
         <div>
-          {{user.IdCard}}
+          <ion-item>
+            <ion-input [(ngModel)]="user.IdCard" readonly></ion-input>
+          </ion-item>
         </div>
       </ion-col>
     </ion-row>
@@ -90,7 +92,7 @@
       <ion-col>
         <div class="ion-text-start">
           <ion-item>
-            <ion-input [(ngModel)]="user.Email"></ion-input>
+            <ion-input [(ngModel)]="user.Email" readonly></ion-input>
           </ion-item>
         </div>
       </ion-col>
