@@ -20,7 +20,7 @@ export class ConfirmRegisterGeneralUserPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = this.dataCenter.GetUserConfirm();
+    this.user = this.dataCenter.GetUserCrudModel();
   }
 
   public async Confirm() {

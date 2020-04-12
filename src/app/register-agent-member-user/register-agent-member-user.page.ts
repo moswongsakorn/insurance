@@ -13,7 +13,7 @@ import { NavController } from '@ionic/angular';
 })
 export class RegisterAgentMemberUserPage implements OnInit {
 
-  public user: UserCrudModel = new UserCrudModel(MagicNumber.user);
+  public user: UserCrudModel = new UserCrudModel();
 
   constructor(
     private userService: UserServiceService,
@@ -23,18 +23,18 @@ export class RegisterAgentMemberUserPage implements OnInit {
 
   ngOnInit() {
   }
-  
-  public async Register() {
 
+  public async Register() {
+    this.user.InitRole(MagicNumber.user);
     var pinIsExist = await this.userService.PinIsExist(this.user.Pin);
     var passwordIsMatch = this.user.PasswordIsMatch()
     if (passwordIsMatch && pinIsExist) {
-      this.dataCenter.SetUserConfirm(this.user);
+      this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(['confirm-register-general-user']);
     }
     else {
       if (!passwordIsMatch) console.log("Password is not match!");
-      if(!pinIsExist)console.log("This is not exist!");
+      if (!pinIsExist) console.log("This is not exist!");
     }
   }
 

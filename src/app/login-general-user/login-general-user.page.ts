@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserModel } from '../interfaces/index';
+import { UserModel, UidRoleModel } from '../interfaces/index';
 import { MagicNumber } from '../interfaces/MagicNumber'
 import { UserServiceService } from '../services/user-service.service';
 import { DataCenterService } from '../services/data-center.service';
@@ -20,13 +20,17 @@ export class LoginGeneralUserPage implements OnInit {
     public navController: NavController,
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    var isLogin = await this.userService.IsLogin();
+    if (isLogin.status) this.navController.navigateRoot(['policy-list-general-user']);
   }
 
   public async Login() {
     var result = await this.userService.Login(this.user);
     if (result.status) {
+      // var user = <UidRoleModel>result.detail;
       console.log(result)
+      this.navController.navigateRoot(['policy-list-general-user'])
     }
     else {
       console.log(result)

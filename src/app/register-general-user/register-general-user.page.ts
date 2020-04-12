@@ -20,7 +20,7 @@ export class RegisterGeneralUserPage implements OnInit {
 
   ) { }
 
-  public user: UserCrudModel = new UserCrudModel(MagicNumber.quest);
+  public user: UserCrudModel = new UserCrudModel();
 
   ngOnInit() {
   }
@@ -30,8 +30,9 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   public async Register() {
+    this.user.InitRole(MagicNumber.quest);
     if (this.user.PasswordIsMatch()) {
-      this.dataCenter.SetUserConfirm(this.user);
+      this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(['confirm-register-general-user']);
     }
     else {

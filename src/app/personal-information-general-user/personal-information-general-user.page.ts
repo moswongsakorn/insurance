@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCrudModel, UidRoleModel } from '../interfaces/index';
+import { UserServiceService } from '../services/user-service.service';
+import { DataCenterService } from '../services/data-center.service';
 
 @Component({
   selector: 'app-personal-information-general-user',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalInformationGeneralUserPage implements OnInit {
 
-  constructor() { }
+  public user: UserCrudModel = new UserCrudModel();
+
+  constructor(
+    private UserService: UserServiceService,
+    private DataCenterService: DataCenterService
+  ) { }
 
   ngOnInit() {
+
+  }
+
+  async  ionViewDidEnter() {
+    var isLogin = await this.UserService.IsLogin();
+    if (isLogin.status) {
+      var isLoginDetail = isLogin.detail as UidRoleModel;
+      this.UserService.GetUserProfilePromise(isLoginDetail.Uid)
+        .then(user => {
+          this.user = user;
+          this.DataCenterService.SetUserCrudModel(this.user);
+        });
+    }
   }
 
 }

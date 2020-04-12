@@ -13,7 +13,7 @@ import { NavController } from '@ionic/angular';
 })
 export class RegisterLeaderMemberUserPage implements OnInit {
 
-  public user: UserCrudModel = new UserCrudModel(MagicNumber.master);
+  public user: UserCrudModel = new UserCrudModel();
 
   constructor(
     private userService: UserServiceService,
@@ -29,8 +29,9 @@ export class RegisterLeaderMemberUserPage implements OnInit {
   }
 
   public async Register() {
+    this.user.InitRole(MagicNumber.master);
     if (this.user.PasswordIsMatch()) {
-      this.dataCenter.SetUserConfirm(this.user);
+      this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(['confirm-register-general-user']);
     }
     else {

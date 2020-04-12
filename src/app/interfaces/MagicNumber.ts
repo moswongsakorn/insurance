@@ -8,7 +8,6 @@ export const MagicNumber = {
 
     pinLength: 4,
 
-
-    UserTable: "User"
-
+    UserTable: "User",
+    PolicyTable: "Policy"
 }

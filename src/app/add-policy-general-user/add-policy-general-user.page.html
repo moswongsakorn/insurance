@@ -8,16 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid  class="ion-margin">
+  <ion-grid class="ion-margin">
     <ion-row>
-      <ion-col class="ion-align-self-center" >
+      <ion-col class="ion-align-self-center">
         <div>
           ชื่อบริษัท
         </div>
-        
       </ion-col>
       <ion-col>
-        <ion-select class="input-fild" value="brown" okText="ตกลง" cancelText="ยกเลิก">
+        <ion-select class="input-fild" [(ngModel)]="policy.CompanyName" okText="ตกลง" cancelText="ยกเลิก">
           <ion-select-option value="brown">Brown</ion-select-option>
           <ion-select-option value="blonde">Blonde</ion-select-option>
           <ion-select-option value="black">Black</ion-select-option>
@@ -27,11 +26,11 @@
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-align-self-center" >
+      <ion-col class="ion-align-self-center">
         ชื่อแบบประกัน
       </ion-col>
       <ion-col>
-        <ion-input  class="input-fild"  class="input-fild" type="text"></ion-input>
+        <ion-input class="input-fild" [(ngModel)]="policy.PolicyName" class="input-fild" type="text"></ion-input>
       </ion-col>
     </ion-row>
 
@@ -40,12 +39,12 @@
         <div>จำนวนปีที่คุ้มครอง</div>
       </ion-col>
       <ion-col size="3">
-        <ion-input class="input-fild" type="number"></ion-input>
+        <ion-input class="input-fild" type="number" [(ngModel)]="policy.YearOfProtect" ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>ปี</div>
       </ion-col>
-     
+
     </ion-row>
 
     <ion-row>
@@ -53,7 +52,7 @@
         <div>จำนวนปีที่จ่ายเบี้ย</div>
       </ion-col>
       <ion-col size="3">
-        <ion-input class="input-fild" type="number"></ion-input>
+        <ion-input class="input-fild" type="number" [(ngModel)]="policy.YearToPaid"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>ปี</div>
@@ -65,10 +64,10 @@
         <div>ทุนประกัน</div>
       </ion-col>
       <ion-col size="5">
-        <ion-input class="input-fild" type="number"></ion-input>
+        <ion-input class="input-fild" type="number" [(ngModel)]="policy.SumInsured"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-       <div style="width: 100%;">บาท</div>
+        <div style="width: 100%;">บาท</div>
       </ion-col>
     </ion-row>
 
@@ -77,10 +76,10 @@
         <div>เบี้ยประกัน</div>
       </ion-col>
       <ion-col size="5">
-        <ion-input class="input-fild" type="number"></ion-input>
+        <ion-input class="input-fild" type="number" [(ngModel)]="policy.InsurancePremium"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-      <div style="width: 100%;">บาท</div>
+        <div style="width: 100%;">บาท</div>
       </ion-col>
     </ion-row>
 
@@ -89,7 +88,7 @@
         <div>ลดหย่อนภาษี</div>
       </ion-col>
       <ion-col class="input-toggle">
-        <ion-toggle></ion-toggle>
+        <ion-toggle [(ngModel)]="policy.IsTaxDeduct"></ion-toggle>
       </ion-col>
     </ion-row>
 
@@ -98,7 +97,7 @@
         <div>ประกันสุขภาพ</div>
       </ion-col>
       <ion-col class="input-toggle">
-        <ion-toggle></ion-toggle>
+        <ion-toggle [(ngModel)]="policy.IsHealth"></ion-toggle>
       </ion-col>
     </ion-row>
 
@@ -107,36 +106,30 @@
         <div>เงินครบกำหนดสัญญา</div>
       </ion-col>
       <ion-col size="2">
-        <ion-input class="input-fild" type="number"></ion-input>
+        <ion-input class="input-fild" type="number" [(ngModel)]="policy.DueMoney"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="4">
-       <div> ของทุนประกัน</div>
+        <div> ของทุนประกัน</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <ion-button color="medium" expand="block" shape="round"
-        [routerLink]="['/add-policy-repay-general-user']"
-          >เงินจ่ายคืนสิ้นปีกรมธรรม์</ion-button
-        >
+        <ion-button color="medium" expand="block" shape="round" [routerLink]="['/add-policy-repay-general-user']">
+          เงินจ่ายคืนสิ้นปีกรมธรรม์</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button color="medium" expand="block" shape="round"
-        [routerLink]="['/add-policy-protection-general-user']"
-          >ความคุ้มครองเมื่อเสียชีวิต</ion-button
-        >
+        <ion-button color="medium" expand="block" shape="round" [routerLink]="['/add-policy-protection-general-user']">
+          ความคุ้มครองเมื่อเสียชีวิต</ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col size="2"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" size="large" (click)="Login()"
-          >ยืนยัน</ion-button
-        >
+        <ion-button expand="block" shape="round" size="large" (click)="Save()">ยืนยัน</ion-button>
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>

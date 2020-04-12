@@ -10,11 +10,27 @@ export class DataCenterService {
 
   private user: UserCrudModel;
 
-  public GetUserConfirm(): UserCrudModel {
+  private ThisUserProfile: UserCrudModel;
+
+  public CloneUserCrudModel(): UserCrudModel {
+    var clone = new UserCrudModel();
+    clone.MapData(this.user);
+    return clone;
+  }
+
+  public GetUserCrudModel(): UserCrudModel {
     return this.user;
   }
-  
-  public SetUserConfirm(user: UserCrudModel): void {
+
+  public SetUserCrudModel(user: UserCrudModel): void {
     this.user = user;
+  }
+
+  public SetThisUserProfile(user: UserCrudModel): void {
+    this.ThisUserProfile = user;
+  }
+
+  public GetThisUserProfile(): UserCrudModel {
+    return this.ThisUserProfile;
   }
 }
