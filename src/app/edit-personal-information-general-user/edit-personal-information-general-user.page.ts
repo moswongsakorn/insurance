@@ -4,6 +4,7 @@ import { UserCrudModel } from '../interfaces';
 import { UserServiceService } from '../services/user-service.service';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MagicNumber } from '../interfaces/MagicNumber';
 
 @Component({
   selector: 'app-edit-personal-information-general-user',
@@ -30,8 +31,11 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
     console.log(this.user)
     if (this.user.PasswordIsMatch()) {
       var result = await this.UserService.UpdateUser(this.user);
-      if (result.status) {
-        this.Router.navigate(['/personal-information-general-user']);
+      if (result.message == MagicNumber.ReEntry) {
+        this.NavController.navigateForward(['home']);
+      }
+      else if (result.status) {
+        this.NavController.back();
       }
       else {
         console.log(result.message)

@@ -2,6 +2,9 @@
   <ion-toolbar>
     <ion-title>รายการแบบประกัน</ion-title>
     <ion-buttons slot="end">
+      <ion-button *ngIf="userProfile.Role === 'master'" [routerLink]="['/user-agent-list']">
+        <ion-icon slot="icon-only" name="people-outline"></ion-icon>
+      </ion-button>
       <ion-button [routerLink]="['/personal-information-general-user']">
         <ion-icon slot="icon-only" name="person-outline"></ion-icon>
       </ion-button>

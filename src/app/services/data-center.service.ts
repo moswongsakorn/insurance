@@ -9,8 +9,8 @@ export class DataCenterService {
   constructor() { }
 
   private user: UserCrudModel;
-
   private ThisUserProfile: UserCrudModel;
+  private agentUser: UserCrudModel;
 
   public CloneUserCrudModel(): UserCrudModel {
     var clone = new UserCrudModel();
@@ -24,6 +24,21 @@ export class DataCenterService {
 
   public SetUserCrudModel(user: UserCrudModel): void {
     this.user = user;
+  }
+
+
+  public CloneAgentUserCrudModel(): UserCrudModel {
+    var clone = new UserCrudModel();
+    clone.MapData(this.agentUser);
+    return clone;
+  }
+
+  public GetAgentUserCrudModel(): UserCrudModel {
+    return this.agentUser;
+  }
+
+  public SetAgentUserCrudModel(user: UserCrudModel): void {
+    this.agentUser = user;
   }
 
   public SetThisUserProfile(user: UserCrudModel): void {

@@ -9,5 +9,7 @@ export const MagicNumber = {
     pinLength: 4,
 
     UserTable: "User",
-    PolicyTable: "Policy"
+    PolicyTable: "Policy",
+
+    ReEntry: "Re-entry",
 }

@@ -95,10 +95,23 @@ const routes: Routes = [
   {
     path: 'policy-search',
     loadChildren: () => import('./policy-search/policy-search.module').then( m => m.PolicySearchPageModule)
-  },  {
+  },
+  {
     path: 'policy-search-result',
     loadChildren: () => import('./policy-search-result/policy-search-result.module').then( m => m.PolicySearchResultPageModule)
   },
+  {
+    path: 'user-agent-list',
+    loadChildren: () => import('./user-agent-list/user-agent-list.module').then( m => m.UserAgentListPageModule)
+  },
+  {
+    path: 'agent-information',
+    loadChildren: () => import('./agent-information/agent-information.module').then( m => m.AgentInformationPageModule)
+  },  {
+    path: 'edit-agent-information',
+    loadChildren: () => import('./edit-agent-information/edit-agent-information.module').then( m => m.EditAgentInformationPageModule)
+  },
+
 
 
 

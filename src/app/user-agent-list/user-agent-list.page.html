@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)=" back()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>รายการแบบประกัน</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar mode="ios" placeholder="ค้นหา" (ionChange)="Searchbar($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let user of userAgentList;index as i; " detail="true" button="true" (click)="userAgentInformation(user?.Uid)">
+      <ion-label>
+        {{i+1}}. {{user?.Name}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

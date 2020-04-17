@@ -26,7 +26,7 @@ export class PolicyListGeneralUserPage implements OnInit {
   public policyList: PolicyCrudModel[];
   public policyListForSearch: PolicyCrudModel[];
 
-  public userProfile: UserCrudModel;
+  public userProfile: UserCrudModel = new UserCrudModel();
   public activeStatus:boolean=false;
   public skeletonArray = new Array(15)
 

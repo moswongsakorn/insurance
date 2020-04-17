@@ -17,6 +17,19 @@ export class UserServiceService {
     public DataCenterService: DataCenterService
   ) { }
 
+
+  public GetUserAgentListByPin(pin: string): Promise<UserCrudModel[]> {
+    return new Promise(resolve => {
+      this.AngularFireDatabase.list(MagicNumber.UserTable, ref => ref.orderByChild('Pin').equalTo(pin))
+        .valueChanges()
+        .subscribe(user => {
+          resolve(user.map(data => data as UserCrudModel));
+        }, error => {
+          resolve(new Array<UserCrudModel>());
+        })
+    })
+  }
+
   public async IsLogin(): Promise<ResponseModel> {
     return new Promise((resolve) => {
       this.AngularFireAuth.authState.subscribe(async (user) => {
@@ -108,6 +121,26 @@ export class UserServiceService {
   public async UpdateUser(input: UserCrudModel): Promise<ResponseModel> {
     try {
       input.ConfirmPassword = null;
+      var oldUserProfile = await this.GetUserProfile(input.Uid);
+      if (oldUserProfile.Password != input.Password) {
+        await this.AngularFireAuth.auth.signInWithEmailAndPassword(oldUserProfile.Email, oldUserProfile.Password);
+        var updatePassword = await this.AngularFireAuth.auth.currentUser.updatePassword(input.Password);
+        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);        
+        var signOut = await this.AngularFireAuth.auth.signOut();
+        return new ResponseModel().Success(result, MagicNumber.ReEntry);
+      }
+      else {
+        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);
+        return new ResponseModel().Success(result);
+      }
+    } catch (error) {
+      return new ResponseModel().Failed(error, error.message);
+    }
+  }
+
+  public async UpdateAgentUser(input: UserCrudModel): Promise<ResponseModel> {
+    try {
+      input.ConfirmPassword = null;
       var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);
       return new ResponseModel().Success(result);
     } catch (error) {
@@ -171,6 +204,20 @@ export class UserServiceService {
     return character.toUpperCase();
   }
 
+  public SendMailResetPassword(email: string): Promise<ResponseModel> {
+    return new Promise(resolve => {
+      this.AngularFireAuth.auth.sendPasswordResetEmail(email)
+        .then(result => {
+          var response = new ResponseModel().Success(result);
+          resolve(response)
+        })
+        .catch(error => {
+          var response = new ResponseModel().Failed(error, error.message);
+          resolve(response)
+        })
+    })
+  }
+
   private ValueChange(obj: any) {
     var data = [];
     for (var i in obj) {
@@ -178,5 +225,7 @@ export class UserServiceService {
     }
     return data;
   }
+
+
 
 }
