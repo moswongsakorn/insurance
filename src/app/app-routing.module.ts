@@ -51,7 +51,8 @@ const routes: Routes = [
   {
     path: 'add-policy-general-user',
     loadChildren: () => import('./add-policy-general-user/add-policy-general-user.module').then( m => m.AddPolicyGeneralUserPageModule)
-  },  {
+  },
+  {
     path: 'add-policy-repay-general-user',
     loadChildren: () => import('./add-policy-repay-general-user/add-policy-repay-general-user.module').then( m => m.AddPolicyRepayGeneralUserPageModule)
   },
@@ -91,6 +92,14 @@ const routes: Routes = [
     path: 'edit-personal-information-general-user',
     loadChildren: () => import('./edit-personal-information-general-user/edit-personal-information-general-user.module').then( m => m.EditPersonalInformationGeneralUserPageModule)
   },
+  {
+    path: 'policy-search',
+    loadChildren: () => import('./policy-search/policy-search.module').then( m => m.PolicySearchPageModule)
+  },  {
+    path: 'policy-search-result',
+    loadChildren: () => import('./policy-search-result/policy-search-result.module').then( m => m.PolicySearchResultPageModule)
+  },
+
 
 
 ];

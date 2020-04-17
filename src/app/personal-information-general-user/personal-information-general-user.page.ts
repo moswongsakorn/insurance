@@ -14,7 +14,7 @@ export class PersonalInformationGeneralUserPage implements OnInit {
 
   constructor(
     private UserService: UserServiceService,
-    private DataCenterService: DataCenterService
+    private DataCenterService: DataCenterService,
   ) { }
 
   ngOnInit() {
@@ -29,6 +29,7 @@ export class PersonalInformationGeneralUserPage implements OnInit {
         .then(user => {
           this.user = user;
           this.DataCenterService.SetUserCrudModel(this.user);
+          console.log('user', this.user)
         });
     }
   }

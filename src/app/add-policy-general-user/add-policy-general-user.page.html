@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -88,7 +88,7 @@
         <div>ลดหย่อนภาษี</div>
       </ion-col>
       <ion-col class="input-toggle">
-        <ion-toggle [(ngModel)]="policy.IsTaxDeduct"></ion-toggle>
+        <ion-toggle mode="ios" [(ngModel)]="policy.IsTaxDeduct"></ion-toggle>
       </ion-col>
     </ion-row>
 
@@ -97,7 +97,7 @@
         <div>ประกันสุขภาพ</div>
       </ion-col>
       <ion-col class="input-toggle">
-        <ion-toggle [(ngModel)]="policy.IsHealth"></ion-toggle>
+        <ion-toggle mode="ios"  [(ngModel)]="policy.IsHealth"></ion-toggle>
       </ion-col>
     </ion-row>
 
@@ -126,10 +126,10 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="ion-margin-top">
       <ion-col size="2"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" size="large" (click)="Save()">ยืนยัน</ion-button>
+        <ion-button expand="block" shape="round"  (click)="Save()">ยืนยัน</ion-button>
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>

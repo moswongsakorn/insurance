@@ -28,9 +28,11 @@ export class DataCenterService {
 
   public SetThisUserProfile(user: UserCrudModel): void {
     this.ThisUserProfile = user;
+    localStorage.setItem("User",JSON.stringify(this.ThisUserProfile))
   }
 
   public GetThisUserProfile(): UserCrudModel {
+    this.ThisUserProfile = JSON.parse(localStorage.getItem("User"))
     return this.ThisUserProfile;
   }
 }

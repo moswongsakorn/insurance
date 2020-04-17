@@ -24,5 +24,18 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/core.scss";
 
+.custom-loader-class{
+    --background:none;
+    --backdrop-opacity:0.5;
+    .loading-wrapper {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+}
+
+.input-fild{
+  border-bottom: solid 1px;
+}
 

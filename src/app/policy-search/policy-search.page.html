@@ -1,0 +1,168 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ความต้องการ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-margin-top ion-padding">
+    <ion-row class="ion-justify-content-between ion-margin-bottom">
+      <ion-col>
+        <div style="text-decoration: underline;" class="ion-text-end">
+          *ผลรวมของค่าที่กรอกต้องเท่ากับ 100
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="10" style="display: flex;">
+        <div style="width: 80%;" class="ion-align-self-center">
+          อัตราผลตอบแทนภายใน IRR
+        </div>
+        <div style="width: 20%;">
+          <ion-input class="input-fild" type="number"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="ion-align-self-center">
+        <div>
+          %
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="10" style="display: flex;">
+        <div style="width: 80%;" class="ion-align-self-center">
+          ความคุ้มครอง
+        </div>
+        <div style="width: 20%;">
+          <ion-input class="input-fild" type="number"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="ion-align-self-center">
+        <div>
+          %
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="10" style="display: flex;">
+        <div style="width: 80%;" class="ion-align-self-center">
+          จำนวนปีที่คุ้มครอง
+        </div>
+        <div style="width: 20%;">
+          <ion-input class="input-fild" type="number"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="ion-align-self-center">
+        <div></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="10" style="display: flex;">
+        <div style="width: 80%;" class="ion-align-self-center">
+          จำนวนเงินเบี้ยประกันต่อปี
+        </div>
+        <div style="width: 20%;">
+          <ion-input class="input-fild" type="number"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="ion-align-self-center">
+        <div>
+          บาท
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-margin-bottom">
+      <ion-col class="ion-align-self-center">
+        <div>
+          <span style="text-decoration: underline;"
+            >*กรณีไม่ทำเครื่องหมาย
+          </span>
+          <span class="ion-padding">
+            <ion-checkbox
+              mode="ios"
+              checked="true"
+              color="primary"
+            ></ion-checkbox>
+          </span>
+          <span style="text-decoration: underline;">คือการไม่นำมาพิจารณา </span>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="4">
+        <div class="ion-align-self-center">
+          ลดหย่อนภาษี
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div style="display: flex;">
+          <div style="width: 30%;">
+            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+          </div>
+          <div style="width: 70%;" class="ion-align-self-center">
+            ไม่ได้
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div style="display: flex;">
+          <div style="width: 30%;">
+            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+          </div>
+          <div style="width: 70%;" class="ion-align-self-center">
+            ได้
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-between ion-align-items-center">
+      <ion-col size="4">
+        <div class="ion-align-self-center">
+          ประกันสุขภาพ
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div style="display: flex;">
+          <div style="width: 30%;">
+            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+          </div>
+          <div style="width: 70%;" class="ion-align-self-center">
+            ไม่ได้
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div style="display: flex;">
+          <div style="width: 30%;">
+            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+          </div>
+          <div style="width: 70%;" class="ion-align-self-center">
+            ได้
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button expand="block" shape="round" (click)="searchPolicy()"
+          >ยืนยัน</ion-button
+        >
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer> </ion-footer>

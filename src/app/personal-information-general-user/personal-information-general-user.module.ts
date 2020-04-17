@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PersonalInformationGeneralUserPageRoutingModule } from './personal-information-general-user-routing.module';
 
 import { PersonalInformationGeneralUserPage } from './personal-information-general-user.page';
+import { PipesModule } from '../pipes/pips.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PersonalInformationGeneralUserPageRoutingModule
+    PersonalInformationGeneralUserPageRoutingModule,
+    PipesModule
   ],
   declarations: [PersonalInformationGeneralUserPage]
 })

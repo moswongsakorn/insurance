@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>แบบประกันที่เหมาะสม</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin-top">
+    <ion-list>
+      <ion-item
+        *ngFor="let policy of policyList;index as i; "
+        detail="true"
+        button="true"
+      >
+        <ion-label>
+          {{i+1}}. ไทยประกันชีวิต ทุนทวี 10/5
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

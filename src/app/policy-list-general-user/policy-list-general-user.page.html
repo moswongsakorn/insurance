@@ -5,31 +5,57 @@
       <ion-button [routerLink]="['/personal-information-general-user']">
         <ion-icon slot="icon-only" name="person-outline"></ion-icon>
       </ion-button>
-      <ion-button>
+      <ion-button [routerLink]="['/policy-search']">
         <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar mode="ios" placeholder="ค้นหา" (ionChange)='Searchbar($event)'></ion-searchbar>
+    <ion-searchbar
+      mode="ios"
+      placeholder="ค้นหา"
+      (ionChange)="Searchbar($event)"
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let policy of policyList;index as i; " detail="true" button="true">
-      <ion-label>
-        {{i+1}}. {{policy.CompanyName}} {{policy.PolicyName}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="activeStatus">
+    <ion-list>
+      <ion-item
+        *ngFor="let policy of policyList;index as i; "
+        detail="true"
+        button="true"
+      >
+        <ion-label>
+          {{i+1}}. {{policy?.CompanyName}} {{policy?.PolicyName}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!activeStatus">
+    <ion-list>
+      <ion-item
+        *ngFor="let skeleton of skeletonArray "
+        detail="true"
+        button="true"
+      >
+        <ion-label>
+          <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 
 <ion-footer>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button fill="clear" shape="round" (click)="Logout()">ออกจากระบบ</ion-button>
+        <ion-button fill="clear" shape="round" (click)="Logout()">
+          <span style="font-weight: bold;font-size: 18px;"> ออกจากระบบ</span>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -138,6 +138,7 @@ export class UserServiceService {
 
   public async Logout(): Promise<ResponseModel> {
     try {
+      localStorage.removeItem("User")
       var result = await this.AngularFireAuth.auth.signOut();
       return new ResponseModel().Success(result);
     } catch (error) {
