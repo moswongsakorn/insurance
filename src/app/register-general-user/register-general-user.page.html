@@ -58,7 +58,7 @@
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">เบอร์โทรศัพท์</ion-label>
-          <ion-input inputmode="tel" [(ngModel)]="user.Telephone"></ion-input>
+          <ion-input inputmode="tel"  maxlength="10" [(ngModel)]="user.Telephone"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
@@ -70,7 +70,12 @@
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">รหัสผ่าน</ion-label>
-          <ion-input type="password" [(ngModel)]="user.Password"></ion-input>
+          <ion-input [type]="passwordType" [(ngModel)]="user.Password"></ion-input>
+          <span class="eye-button" (click)="togglePassword()">
+            <ion-icon *ngIf="!showPassword" name="eye-outline"></ion-icon>
+            <ion-icon *ngIf="showPassword"  name="eye-off-outline"></ion-icon>
+          </span>
+
         </ion-item>
       </ion-col>
       <ion-col size="12">

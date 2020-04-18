@@ -20,7 +20,8 @@ export class RegisterGeneralUserPage implements OnInit {
   ) {}
 
   public user: UserCrudModel = new UserCrudModel();
-
+  public showPassword: boolean = false;
+  private passwordType: string = "password";
   ngOnInit() {}
 
   public async PinGenerate() {
@@ -61,5 +62,12 @@ export class RegisterGeneralUserPage implements OnInit {
       // console.log('CASE 3')
       return true;
     }
+  }
+
+  private togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.showPassword
+      ? (this.passwordType = "text")
+      : (this.passwordType = "password");
   }
 }
