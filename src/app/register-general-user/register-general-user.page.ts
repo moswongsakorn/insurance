@@ -21,7 +21,9 @@ export class RegisterGeneralUserPage implements OnInit {
 
   public user: UserCrudModel = new UserCrudModel();
   public showPassword: boolean = false;
-  private passwordType: string = "password";
+  public showConfirmPassword: boolean = false;
+  public passwordType: string = "password";
+  public confirmPasswordType: string = "password";
   ngOnInit() {}
 
   public async PinGenerate() {
@@ -29,6 +31,11 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   public async Register() {
+    if(!this.user.IsValidModel()){
+      this.UiService.presentAlert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      return;
+    }
+
     if (this.checkIDCard(this.user.IdCard) === false) {
       this.UiService.presentAlert("เลขบัตรประชาชนไม่ถูกต้อง");
       return;
@@ -64,10 +71,17 @@ export class RegisterGeneralUserPage implements OnInit {
     }
   }
 
-  private togglePassword() {
+  public togglePassword() {
     this.showPassword = !this.showPassword;
     this.showPassword
       ? (this.passwordType = "text")
       : (this.passwordType = "password");
+  }
+
+  public toggleConfirmPassword(){
+    this.showConfirmPassword = !this.showConfirmPassword;
+    this.showConfirmPassword
+      ? (this.confirmPasswordType = "text")
+      : (this.confirmPasswordType = "password");
   }
 }

@@ -111,6 +111,10 @@ const routes: Routes = [
     path: 'edit-agent-information',
     loadChildren: () => import('./edit-agent-information/edit-agent-information.module').then( m => m.EditAgentInformationPageModule)
   },
+  {
+    path: 'policy-detail',
+    loadChildren: () => import('./policy-detail/policy-detail.module').then( m => m.PolicyDetailPageModule)
+  },
 
 
 

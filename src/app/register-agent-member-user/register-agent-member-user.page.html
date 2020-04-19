@@ -56,14 +56,24 @@
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">รหัสผ่าน</ion-label>
-          <ion-input type="password" [(ngModel)]="user.Password"></ion-input>
-        </ion-item>        
+          <ion-input [type]="passwordType" [(ngModel)]="user.Password"></ion-input>
+          <span class="eye-button" (click)="togglePassword()">
+            <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
+            <ion-icon size="small" *ngIf="showPassword" name="eye-off"></ion-icon>
+          </span>
+
+        </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
           <ion-label position="stacked">ยืนยันรหัสผ่าน</ion-label>
-          <ion-input type="password" [(ngModel)]="user.ConfirmPassword"></ion-input>
-        </ion-item>        
+          <ion-input [type]="confirmPasswordType" [(ngModel)]="user.ConfirmPassword"></ion-input>
+          <span class="eye-button" (click)="toggleConfirmPassword()">
+            <ion-icon size="small" *ngIf="!showConfirmPassword" name="eye"></ion-icon>
+            <ion-icon size="small" *ngIf="showConfirmPassword" name="eye-off"></ion-icon>
+          </span>
+
+        </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>

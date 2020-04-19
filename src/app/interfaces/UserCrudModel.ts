@@ -18,8 +18,23 @@ export class UserCrudModel {
     constructor() {
     }
 
+    public IsValidModel(): Boolean {
+        console.log("***********")
+        console.log(this)
+        if (this.IdCard == null || this.PrefixName == null || this.Name == null ||
+            this.BirthDay == null || this.Telephone == null || this.Email == null ||
+            this.Password == null || this.Pin == null || 
+            this.IdCard == "" || this.PrefixName == "" || this.Name == "" ||
+            this.BirthDay == "" || this.Telephone == "" || this.Email == "" ||
+            this.Password == "" || this.Pin == "") {
+            return false;
+        }
+        else return true;
+    }
+
     public InitRole(role: string): void {
         this.Role = role;
+        this.Verify = false;
     }
 
     public PasswordIsMatch(): boolean {

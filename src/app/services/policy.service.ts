@@ -20,9 +20,20 @@ export class PolicyService {
 
   public async InsertPolicy(policy: PolicyCrudModel): Promise<ResponseModel> {
     try {
-      policy.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push()).key;
-      var result = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
-      return new ResponseModel().Success(result);
+      console.log(policy)
+
+      if (policy.Key == null || policy.Key == "") {
+        console.log("pushhhhhhhhhhh")
+        policy.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push()).key;
+        var resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
+        return new ResponseModel().Success(resultPush);
+      }
+      else {
+        console.log('Updateeeee')
+        var resultUpdate = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
+        return new ResponseModel().Success(resultUpdate);
+      }
+
     } catch (error) {
       return new ResponseModel().Failed(error, error.message);
     }

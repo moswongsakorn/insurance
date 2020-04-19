@@ -49,4 +49,13 @@ export class LoginGeneralUserPage implements OnInit {
     this.navController.navigateBack(['home'])
   }
 
+  public showPassword: boolean = false;
+  public passwordType: string = "password";
+  public togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.showPassword
+      ? (this.passwordType = "text")
+      : (this.passwordType = "password");
+  }
+
 }

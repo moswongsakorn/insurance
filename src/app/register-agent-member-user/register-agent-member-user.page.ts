@@ -38,4 +38,23 @@ export class RegisterAgentMemberUserPage implements OnInit {
     }
   }
 
+
+  public showPassword: boolean = false;
+  public showConfirmPassword: boolean = false;
+  private passwordType: string = "password";
+  private confirmPasswordType: string = "password";
+  private togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.showPassword
+      ? (this.passwordType = "text")
+      : (this.passwordType = "password");
+  }
+
+  private toggleConfirmPassword(){
+    this.showConfirmPassword = !this.showConfirmPassword;
+    this.showConfirmPassword
+      ? (this.confirmPasswordType = "text")
+      : (this.confirmPasswordType = "password");
+  }
+
 }

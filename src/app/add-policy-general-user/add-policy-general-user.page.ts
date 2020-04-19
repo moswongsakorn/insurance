@@ -17,19 +17,24 @@ export class AddPolicyGeneralUserPage implements OnInit {
   constructor(
     private DataCenterService: DataCenterService,
     private PolicyService: PolicyService,
-    private NavController:NavController
+    private NavController: NavController
   ) { }
 
   ngOnInit() {
   }
 
+  async ionViewDidEnter() {
+    this.policy = this.DataCenterService.ClonePolicyDetail();
+    console.log(this.policy);
+  }
+
   public async Save() {
+    if(this.policy.CompanyName != 'specific') this.policy.SpecificCampany = "";
     var userProfile = this.DataCenterService.GetThisUserProfile();
     this.policy.Pin = userProfile.Pin;
     var isValid = this.policy.ValidateModel();
     if (isValid.status) {
       var result = await this.PolicyService.InsertPolicy(this.policy);
-      console.log(result)
       this.NavController.navigateBack(['policy-list-general-user'])
     }
     else {

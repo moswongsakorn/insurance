@@ -14,24 +14,17 @@
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar
-      mode="ios"
-      placeholder="ค้นหา"
-      (ionChange)="Searchbar($event)"
-    ></ion-searchbar>
+    <ion-searchbar mode="ios" placeholder="ค้นหา" (ionChange)="Searchbar($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div *ngIf="activeStatus">
     <ion-list>
-      <ion-item
-        *ngFor="let policy of policyList;index as i; "
-        detail="true"
-        button="true"
-      >
+      <ion-item *ngFor="let policy of policyList;index as i; " detail="true" button="true" (click)="PolicyDetail(policy)" >
         <ion-label>
-          {{i+1}}. {{policy?.CompanyName}} {{policy?.PolicyName}}
+          {{i+1}}. {{policy?.CompanyName=='specific' ? policy?.SpecificCampany: policy?.CompanyName}}
+          {{policy?.PolicyName}}
         </ion-label>
       </ion-item>
     </ion-list>
@@ -39,11 +32,7 @@
 
   <div *ngIf="!activeStatus">
     <ion-list>
-      <ion-item
-        *ngFor="let skeleton of skeletonArray "
-        detail="true"
-        button="true"
-      >
+      <ion-item *ngFor="let skeleton of skeletonArray " detail="true" button="true">
         <ion-label>
           <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
         </ion-label>
@@ -65,7 +54,7 @@
 </ion-footer>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button [routerLink]="['/add-policy-general-user']">
+  <ion-fab-button (click)="Add()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>

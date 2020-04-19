@@ -2,6 +2,7 @@ import { ResponseModel } from '../interfaces/ResponseModel';
 
 export class PolicyCrudModel {
     public CompanyName: string;
+    public SpecificCampany: string = "";
     public PolicyName: string;
     public YearOfProtect: number;
     public YearToPaid: number;
@@ -19,9 +20,27 @@ export class PolicyCrudModel {
     public Key: string;
 
 
-    constructor(){
+    constructor() {
         this.IsTaxDeduct = false;
         this.IsHealth = false;
+    }
+
+    public MapData(data: PolicyCrudModel) {
+        this.CompanyName = data.CompanyName;
+        this.SpecificCampany = data.SpecificCampany;
+        this.PolicyName = data.PolicyName;
+        this.YearOfProtect = data.YearOfProtect;
+        this.YearToPaid = data.YearToPaid;
+        this.SumInsured = data.SumInsured;
+        this.InsurancePremium = data.InsurancePremium;
+        this.IsTaxDeduct = data.IsTaxDeduct;
+        this.IsHealth = data.IsHealth;
+        this.DueMoney = data.DueMoney;
+        this.ComissionList = data.ComissionList == null ? null : data.ComissionList;
+        this.ProtectList = data.ProtectList == null ? null : data.ProtectList;
+        this.ReturnList = data.ReturnList == null ? null : data.ReturnList;
+        this.Pin = data.Pin;
+        this.Key = data.Key;
     }
 
     public ValidateModel(): ResponseModel {
@@ -31,10 +50,10 @@ export class PolicyCrudModel {
             this.YearOfProtect == 0 ||
             this.YearToPaid == 0 ||
             this.SumInsured == 0 ||
-            this.InsurancePremium == 0 ) {
+            this.InsurancePremium == 0) {
             return response.Failed(null, "กรุณากรอกข้อมูลให้ครบถ้วน!");
         }
-      
+
         // else if (this.ComissionList == null || this.ComissionList.length == 0) {
         //     return response.Failed(null, "กรุณากรอกข้อมูลเงินจ่ายคือสิ้นปีกรมธรรม์");
         // }

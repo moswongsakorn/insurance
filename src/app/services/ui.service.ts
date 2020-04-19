@@ -6,7 +6,7 @@ import { LoadingController, AlertController } from '@ionic/angular';
 })
 export class UiService {
   private isLoading = false;
-  constructor(public loadingController: LoadingController,public alertController:AlertController) {}
+  constructor(public loadingController: LoadingController, public alertController: AlertController) { }
 
   async presentLoading() {
     this.isLoading = true;
@@ -28,7 +28,7 @@ export class UiService {
         <div class="sk-chase-dot"></div>
         <div class="sk-chase-dot"></div>
       </div>`,
-      cssClass:'custom-loader-class',
+      cssClass: 'custom-loader-class',
       duration: 10000,
     }).then(a => {
       a.present().then(() => {
@@ -45,7 +45,7 @@ export class UiService {
     return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
 
-  async presentAlert(text:string,) {
+  async presentAlert(text: string, ) {
     const alert = await this.alertController.create({
       header: 'แจ้งเตือน',
       message: text,
@@ -56,13 +56,13 @@ export class UiService {
           cssClass: 'secondary',
         }
       ]
-      
+
     });
 
-   return await alert.present();
+    return await alert.present();
   }
 
-  async presentAlertConfirm(text:string,confirmFunc:any) {
+  async presentAlertConfirm(text: string, confirmFunc: any) {
     const alert = await this.alertController.create({
       header: 'ยืนยัน',
       message: text,
@@ -76,11 +76,11 @@ export class UiService {
           }
         }, {
           text: 'ตกลง',
-          handler:()=>{confirmFunc()}
+          handler: () => { confirmFunc() }
         }
       ]
     });
 
-   return await alert.present();
+    return await alert.present();
   }
 }

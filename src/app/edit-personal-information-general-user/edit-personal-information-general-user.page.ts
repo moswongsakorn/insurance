@@ -28,7 +28,6 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
-    console.log(this.user)
     if (this.user.PasswordIsMatch()) {
       var result = await this.UserService.UpdateUser(this.user);
       if (result.message == MagicNumber.ReEntry) {

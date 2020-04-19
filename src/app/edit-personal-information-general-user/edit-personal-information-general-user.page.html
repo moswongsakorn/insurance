@@ -128,6 +128,21 @@
       </ion-col>
     </ion-row>
 
+    <ion-row class="ion-justify-content-between" *ngIf="user.Role=='user'">
+      <ion-col class="ion-align-self-center">
+        <div>
+          PIN
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input [(ngModel)]="user.Pin"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
     <ion-row class="ion-margin-top">
       <ion-col size="1"></ion-col>
       <ion-col>

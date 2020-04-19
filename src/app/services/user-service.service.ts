@@ -125,12 +125,12 @@ export class UserServiceService {
       if (oldUserProfile.Password != input.Password) {
         await this.AngularFireAuth.auth.signInWithEmailAndPassword(oldUserProfile.Email, oldUserProfile.Password);
         var updatePassword = await this.AngularFireAuth.auth.currentUser.updatePassword(input.Password);
-        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);        
+        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
         var signOut = await this.AngularFireAuth.auth.signOut();
         return new ResponseModel().Success(result, MagicNumber.ReEntry);
       }
       else {
-        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);
+        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
         return new ResponseModel().Success(result);
       }
     } catch (error) {

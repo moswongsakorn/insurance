@@ -21,13 +21,13 @@ export class PolicyListGeneralUserPage implements OnInit {
     private PolicyService: PolicyService,
     private DataCenterService: DataCenterService,
     public uiService: UiService
-  ) {}
+  ) { }
 
   public policyList: PolicyCrudModel[];
   public policyListForSearch: PolicyCrudModel[];
 
   public userProfile: UserCrudModel = new UserCrudModel();
-  public activeStatus:boolean=false;
+  public activeStatus: boolean = false;
   public skeletonArray = new Array(15)
 
   async ngOnInit() {
@@ -45,7 +45,7 @@ export class PolicyListGeneralUserPage implements OnInit {
       this.skeletonArray = null
     } catch (error) {
     }
-  
+
   }
 
   navigate() {
@@ -79,4 +79,21 @@ export class PolicyListGeneralUserPage implements OnInit {
     });
     this.policyList = searchData;
   }
+
+
+  PolicyDetail(policy: PolicyCrudModel) {
+    this.DataCenterService.SetPolicyDetail(policy);
+    this.NavController.navigateForward(['policy-detail']);
+  }
+
+
+  Add(){
+    var policy = new PolicyCrudModel();
+    policy.ComissionList = undefined;
+    policy.ProtectList = undefined;
+    policy.ReturnList = undefined;
+    this.DataCenterService.SetPolicyDetail(policy);
+    this.NavController.navigateForward(['add-policy-general-user']);
+  }
+
 }

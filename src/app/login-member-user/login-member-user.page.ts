@@ -47,4 +47,14 @@ export class LoginMemberUserPage implements OnInit {
     this.navController.navigateForward(['register-choice-member-user']);
   }
 
+
+  public showPassword: boolean = false;
+  private passwordType: string = "password";
+  private togglePassword() {
+    this.showPassword = !this.showPassword;
+    this.showPassword
+      ? (this.passwordType = "text")
+      : (this.passwordType = "password");
+  }
+
 }

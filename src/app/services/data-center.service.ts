@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserCrudModel } from '../interfaces/index';
+import { UserCrudModel, PolicyCrudModel } from '../interfaces/index';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,8 @@ import { UserCrudModel } from '../interfaces/index';
 export class DataCenterService {
 
   constructor() { }
+
+  private policy: PolicyCrudModel;
 
   private user: UserCrudModel;
   private ThisUserProfile: UserCrudModel;
@@ -43,11 +45,29 @@ export class DataCenterService {
 
   public SetThisUserProfile(user: UserCrudModel): void {
     this.ThisUserProfile = user;
-    localStorage.setItem("User",JSON.stringify(this.ThisUserProfile))
+    localStorage.setItem("User", JSON.stringify(this.ThisUserProfile))
   }
 
   public GetThisUserProfile(): UserCrudModel {
     this.ThisUserProfile = JSON.parse(localStorage.getItem("User"))
     return this.ThisUserProfile;
   }
+
+  
+
+  public SetPolicyDetail(policy: PolicyCrudModel): void {
+    this.policy = policy;
+  }
+
+  public GetPolicyDetail(): PolicyCrudModel {
+    return this.policy;
+  }
+
+
+  public ClonePolicyDetail(): PolicyCrudModel {
+    var clone = new PolicyCrudModel();
+    clone.MapData(this.policy);
+    return clone;
+  }
+
 }
