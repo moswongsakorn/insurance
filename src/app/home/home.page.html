@@ -1,17 +1,42 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <div id="container">
+    <div class="language-section">
+      <span>
+        <button (click)="changeLanguage('th')" class="language-button">
+          ไทย
+        </button>
+      </span>
+      <span>
+        /
+      </span>
+      <span>
+        <button (click)="changeLanguage('en')" class="language-button">
+          English
+        </button>
+      </span>
+    </div>
     <div class="ion-padding">
-      <h1>การประกันชีวิต</h1>
-      <p>แอพพลิเคชั่นสำหรับคัดเลือกแบบประกันที่เหมาะสม</p>
+      <h1>{{ 'HOME.TITLE'  | translate }}</h1>
+      <p>{{ 'HOME.SUB_TITLE'  | translate }}</p>
     </div>
     <div class="ion-padding">
       <div>
-        <ion-button expand="block" shape="round" color="light" [routerLink]="['/login-general-user']">สำหรับบุคคลทั่วไป</ion-button>
+        <ion-button
+          expand="block"
+          shape="round"
+          color="light"
+          [routerLink]="['/login-general-user']"
+          >{{ 'HOME.BUTTON_1'  | translate }}</ion-button
+        >
       </div>
       <div class="ion-margin-top">
-        <ion-button expand="block" shape="round" [routerLink]="['/login-member-user']">สำหรับสายงาน</ion-button>
+        <ion-button
+          expand="block"
+          shape="round"
+          [routerLink]="['/login-member-user']"
+          >{{ 'HOME.BUTTON_2'  | translate }}</ion-button
+        >
       </div>
     </div>
   </div>
- 
 </ion-content>

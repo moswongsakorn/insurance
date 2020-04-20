@@ -7,6 +7,9 @@ import { UserCrudModel, PolicyCrudModel } from "../interfaces";
 import { DataCenterService } from "../services/data-center.service";
 import { UiService } from "../services/ui.service";
 import { async } from "@angular/core/testing";
+import {TranslateService} from '@ngx-translate/core';
+
+
 
 @Component({
   selector: "app-policy-list-general-user",
@@ -20,7 +23,9 @@ export class PolicyListGeneralUserPage implements OnInit {
     private NavController: NavController,
     private PolicyService: PolicyService,
     private DataCenterService: DataCenterService,
-    public uiService: UiService
+    public uiService: UiService,
+    protected translateService: TranslateService
+
   ) { }
 
   public policyList: PolicyCrudModel[];
