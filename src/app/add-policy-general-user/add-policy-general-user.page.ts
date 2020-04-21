@@ -4,6 +4,7 @@ import { DataCenterService } from '../services/data-center.service';
 import { PolicyService } from '../services/policy.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { UiService } from '../services/ui.service';
 
 @Component({
   selector: 'app-add-policy-general-user',
@@ -17,7 +18,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
   constructor(
     private DataCenterService: DataCenterService,
     private PolicyService: PolicyService,
-    private NavController: NavController
+    private NavController: NavController,
+    private uiService:UiService
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
   async ionViewDidEnter() {
     this.policy = this.DataCenterService.ClonePolicyDetail();
-    console.log(this.policy);
+    console.log('add policy',this.policy);
   }
 
   public async Save() {
@@ -35,9 +37,12 @@ export class AddPolicyGeneralUserPage implements OnInit {
     var isValid = this.policy.ValidateModel();
     if (isValid.status) {
       var result = await this.PolicyService.InsertPolicy(this.policy);
+      console.log('result', result)
+      this.uiService.presentAlert(result.detail)
       this.NavController.navigateBack(['policy-list-general-user'])
     }
     else {
+      this.uiService.presentAlert("กรุณากรอกข้อมูลให้ครบถ้วน")
       console.log(isValid)
     }
   }

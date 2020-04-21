@@ -25,13 +25,14 @@ export class PolicyService {
       if (policy.Key == null || policy.Key == "") {
         console.log("pushhhhhhhhhhh")
         policy.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push()).key;
-        var resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
-        return new ResponseModel().Success(resultPush);
+        // let resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
+        let resultPush = await this.AngularFireDatabase.list(MagicNumber.PolicyTable).set( policy.Key ,policy);
+        return new ResponseModel().Success("เพิ่มข้อมูลเรียบร้อยแล้ว");
       }
       else {
         console.log('Updateeeee')
-        var resultUpdate = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
-        return new ResponseModel().Success(resultUpdate);
+        let resultUpdate = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
+        return new ResponseModel().Success("แก้ไขเรียบร้อยแล้ว");
       }
 
     } catch (error) {
