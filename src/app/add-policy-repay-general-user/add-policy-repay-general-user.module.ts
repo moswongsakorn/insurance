@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AddPolicyRepayGeneralUserPageRoutingModule } from './add-policy-repay-general-user-routing.module';
 
 import { AddPolicyRepayGeneralUserPage } from './add-policy-repay-general-user.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     AddPolicyRepayGeneralUserPageRoutingModule
   ],
   declarations: [AddPolicyRepayGeneralUserPage]

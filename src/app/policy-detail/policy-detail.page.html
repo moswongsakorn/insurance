@@ -3,25 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>แบบประกัน</ion-title>
+    <ion-title>{{ 'POLICY_DETAIL.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="ion-margin">
-
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        ชื่อบริษัท
+        {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
       </ion-col>
       <ion-col>
-        {{policy?.CompanyName=='specific' ? policy?.SpecificCampany: policy?.CompanyName}}
+        {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
+        policy?.CompanyName}}
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        ชื่อแบบประกัน
+        {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
       </ion-col>
       <ion-col>
         {{policy.PolicyName}}
@@ -30,90 +30,107 @@
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        <div>จำนวนปีที่คุ้มครอง</div>
+        <div>{{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}</div>
       </ion-col>
       <ion-col class="ion-align-self-center">
-        <div>{{policy.YearOfProtect}} ปี</div>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>จำนวนปีที่จ่ายเบี้ย</div>
-      </ion-col>
-      <ion-col class="ion-align-self-center">
-        <div>{{policy.YearToPaid}} ปี</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7"> 
-        <div>ทุนประกัน</div>
-      </ion-col>
-      <ion-col class="ion-align-self-center">
-        <div style="width: 100%;">{{policy.SumInsured}} บาท</div>
+        <div>{{policy.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        <div>เบี้ยประกัน</div>
+        <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
       </ion-col>
       <ion-col class="ion-align-self-center">
-        <div style="width: 100%;">{{policy.InsurancePremium}} บาท</div>
+        <div>{{policy.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div style="width: 100%;">
+          {{policy.SumInsured}} {{ 'CODE.BATH' | translate }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div style="width: 100%;">
+          {{policy.InsurancePremium}} {{ 'CODE.BATH' | translate }}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col size="6" class="ion-align-self-center" size="7">
-        <div>ลดหย่อนภาษี</div>
+        <div>
+          {{ 'POLICY_DETAIL.TAX_DEDUCT' | translate }}
+        </div>
       </ion-col>
       <ion-col class="ion-align-self-center">
-        <div> {{policy.IsTaxDeduct ? 'ได้ ': 'ไม่ได้'}}</div>
+        <div>
+          {{policy.IsTaxDeduct ? 'CODE.HAVE':'CODE.DO_NOT_HAVE' | translate}}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        <div>ประกันสุขภาพ</div>
+        <div>
+          {{ 'POLICY_DETAIL.HEALTH_CARE' | translate }}
+        </div>
       </ion-col>
       <ion-col class="ion-align-self-center">
-        <div> {{policy.IsHealth ? 'ได้' : 'ไม่ได้'}}</div>
+        <div>
+          {{policy.IsHealth ? 'CODE.HAVE':'CODE.DO_NOT_HAVE' | translate}}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
-        <div>เงินครบกำหนดสัญญา</div>
+        <div>
+          {{ 'POLICY_DETAIL.DUE_MONEY' | translate }}
+        </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" >
-        <div>{{policy.DueMoney}} ของทุนประกัน</div>
+      <ion-col class="ion-align-self-center">
+        <div>
+          {{policy.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>เงินจ่ายคืนสิ้นปีกรมธรรม์</div>
+        <div>
+          {{ 'POLICY_DETAIL.LAST_YEAR_INSURANCE_MONEY' | translate }}
+        </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="4">
-
-      </ion-col>
+      <ion-col class="ion-align-self-center" size="4"> </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>ความคุ้มครองเมื่อเสียชีวิต</div>
+        <div>
+          {{ 'POLICY_DETAIL.DEATH_COVERAGE' | translate }}
+        </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="4">
-
-      </ion-col>
+      <ion-col class="ion-align-self-center" size="4"> </ion-col>
     </ion-row>
 
     <ion-row class="ion-margin-top">
       <ion-col size="2"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" (click)="Edit()">แก้ไข</ion-button>
+        <ion-button expand="block" shape="round" (click)="Edit()">
+          {{ 'CODE.EDIT' | translate }}
+        </ion-button>
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>

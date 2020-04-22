@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-policy-repay-general-user',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPolicyRepayGeneralUserPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private translateService:TranslateService
+  ) { }
 
   ngOnInit() {
   }

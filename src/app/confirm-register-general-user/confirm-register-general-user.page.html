@@ -5,47 +5,47 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1 class="ion-text-center">ข้อมูล</h1>
+  <h1 class="ion-text-center">{{ 'CONFIRM_GENERAL.TITLE'  | translate }}</h1>
   <ion-grid>
     <ion-row class="ion-padding">
       <ion-col size="6">
-        <ion-text>เลขบัตรประชาชน</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.ID_CARD'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.IdCard}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>คำนำหน้า</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.PREFIX_NAME'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.PrefixName}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>ชื่อ-นามสกุล</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.FULL_NAME'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.Name}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>วัน/เดือน/ปีเกิด</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.BIRTH_DATE'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.BirthDay  | thaiDate}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>เบอร์โทรศัพท์</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.PHONE_NUMBER'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.Telephone}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>อีเมล</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.EMAIL'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.Email}}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>รหัสผ่าน</ion-text>
+        <ion-text>{{ 'CONFIRM_GENERAL.PASSWORD'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{user.Password}}</ion-text>
@@ -60,12 +60,12 @@
 
       </ion-col>
       <ion-col size="12" class="ion-text-center">
-        <ion-text><u>ต้องการยืนยันข้อมูลใช่หรือไม่</u></ion-text>
+        <ion-text><u>{{ 'CONFIRM_GENERAL.CONFIRM_TEXT'  | translate }}</u></ion-text>
       </ion-col>
       <ion-col size="12" class="ion-padding">
-        <ion-button expand="block" shape="round" color="light" (click)="Confirm()">ใช่</ion-button>
+        <ion-button expand="block" shape="round" color="light" (click)="Confirm()">{{ 'CODE.OK'  | translate }}</ion-button>
         <div class="ion-margin-top"></div>
-        <ion-button expand="block" shape="round" (click)="navController.back()">ไม่ใช่</ion-button>
+        <ion-button expand="block" shape="round" (click)="navController.back()">{{ 'CODE.CANCEL'  | translate }}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

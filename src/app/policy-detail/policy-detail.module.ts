@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { PolicyDetailPageRoutingModule } from './policy-detail-routing.module';
 
 import { PolicyDetailPage } from './policy-detail.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     PolicyDetailPageRoutingModule
   ],
   declarations: [PolicyDetailPage]

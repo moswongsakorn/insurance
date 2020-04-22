@@ -4,6 +4,7 @@ import { DataCenterService } from "../services/data-center.service";
 import { NavController } from "@ionic/angular";
 import { UserCrudModel } from "../interfaces/index";
 import { UiService } from "../services/ui.service";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-confirm-register-general-user",
@@ -17,7 +18,8 @@ export class ConfirmRegisterGeneralUserPage implements OnInit {
     private userService: UserServiceService,
     private dataCenter: DataCenterService,
     public navController: NavController,
-    public UiService: UiService
+    public UiService: UiService,
+    public translateService:TranslateService
   ) {}
 
   ngOnInit() {
@@ -29,18 +31,18 @@ export class ConfirmRegisterGeneralUserPage implements OnInit {
     var result = await this.userService.RegisterUser(this.user);
     if (result.status == true) {
       console.log(result);
+      const resultText: string = this.translateService.instant('CONFIRM_GENERAL.result_text_1');
+      this.UiService.presentAlert(resultText);
       this.navController.navigateRoot(["login-general-user"]);
       this.UiService.dismissLoading();
     } else {
       this.UiService.dismissLoading();
       if (result.detail["code"] === "auth/email-already-in-use") {
-        this.UiService.presentAlert(
-          "ทำรายการไม่สำเร็จ อีเมล์นี้ได้ลงทะเบียนเรียบร้อยแล้ว กรุณาเช้าสู่ระบบ"
-        );
+        const resultText: string = this.translateService.instant('CONFIRM_GENERAL.result_text_2');
+        this.UiService.presentAlert(resultText);
       } else {
-        this.UiService.presentAlert(
-          "ทำรายการไม่สำเร็จ กรุณาทำรายการใหม่อีกครั้ง"
-        );
+        const resultText: string = this.translateService.instant('CONFIRM_GENERAL.result_text_3');
+      this.UiService.presentAlert(resultText);
       }
       console.log(result);
     }

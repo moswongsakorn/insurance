@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>เพิ่มแบบประกัน</ion-title>
+    <ion-title>{{ 'ADD_POLICY.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,11 +12,16 @@
     <ion-row>
       <ion-col class="ion-align-self-center">
         <div>
-          ชื่อบริษัท
+          {{ 'ADD_POLICY.COMPANY_NAME' | translate }}
         </div>
       </ion-col>
       <ion-col>
-        <ion-select class="input-fild" [(ngModel)]="policy.CompanyName" okText="ตกลง" cancelText="ยกเลิก">
+        <ion-select
+          class="input-fild"
+          [(ngModel)]="policy.CompanyName"
+          okText="{{ 'CODE.OK'  | translate }}"
+          cancelText="{{ 'CODE.CANCEL'  | translate }}"
+        >
           <ion-select-option value="brown">Brown</ion-select-option>
           <ion-select-option value="blonde">Blonde</ion-select-option>
           <ion-select-option value="black">Black</ion-select-option>
@@ -28,130 +33,189 @@
 
     <ion-row *ngIf="policy.CompanyName=='specific'">
       <ion-col class="ion-align-self-center">
-        ชื่อบริษัทอื่นๆ
+        {{ 'ADD_POLICY.OTHER_COMPANY_NAME' | translate }}
       </ion-col>
       <ion-col>
-        <ion-input class="input-fild" [(ngModel)]="policy.SpecificCampany" class="input-fild" type="text"></ion-input>
+        <ion-input
+          class="input-fild"
+          [(ngModel)]="policy.SpecificCampany"
+          class="input-fild"
+          type="text"
+        ></ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        ชื่อแบบประกัน
+        {{ 'ADD_POLICY.POLICY_NAME' | translate }}
       </ion-col>
       <ion-col>
-        <ion-input class="input-fild" [(ngModel)]="policy.PolicyName" class="input-fild" type="text"></ion-input>
+        <ion-input
+          class="input-fild"
+          [(ngModel)]="policy.PolicyName"
+          class="input-fild"
+          type="text"
+        ></ion-input>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>จำนวนปีที่คุ้มครอง</div>
+        <div>
+          {{ 'ADD_POLICY.YEAR_OF_PROTECT' | translate }}
+        </div>
       </ion-col>
       <ion-col size="3">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.YearOfProtect"></ion-input>
+        <ion-input
+          class="input-fild"
+          type="number"
+          [(ngModel)]="policy.YearOfProtect"
+        ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-        <div>ปี</div>
+        <div>{{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
-
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>จำนวนปีที่จ่ายเบี้ย</div>
+        <div>
+          {{ 'ADD_POLICY.YEAR_OF_PAID' | translate }}
+        </div>
       </ion-col>
       <ion-col size="3">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.YearToPaid"></ion-input>
+        <ion-input
+          class="input-fild"
+          type="number"
+          [(ngModel)]="policy.YearToPaid"
+        ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-        <div>ปี</div>
+        <div>{{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>ทุนประกัน</div>
+        <div>
+          {{ 'ADD_POLICY.SUM_INSURED' | translate }}
+        </div>
       </ion-col>
       <ion-col size="5">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.SumInsured"></ion-input>
+        <ion-input
+          class="input-fild"
+          type="number"
+          [(ngModel)]="policy.SumInsured"
+        ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-        <div style="width: 100%;">บาท</div>
+        <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>เบี้ยประกัน</div>
+        <div>
+          {{ 'ADD_POLICY.INSURANCE_PREMIUM' | translate }}
+        </div>
       </ion-col>
       <ion-col size="5">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.InsurancePremium"></ion-input>
+        <ion-input
+          class="input-fild"
+          type="number"
+          [(ngModel)]="policy.InsurancePremium"
+        ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
-        <div style="width: 100%;">บาท</div>
+        <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col size="6" class="ion-align-self-center">
-        <div>ลดหย่อนภาษี</div>
+        <div>
+          {{ 'ADD_POLICY.TAX_DEDUCT' | translate }}
+        </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
-        <div> ไม่ได้</div>
+        <div>{{ 'CODE.DO_NOT_HAVE' | translate }}</div>
       </ion-col>
       <ion-col size="2" class="input-toggle">
         <ion-toggle mode="ios" [(ngModel)]="policy.IsTaxDeduct"></ion-toggle>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
-        <div> ได้</div>
+        <div>{{ 'CODE.HAVE' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col size="6" class="ion-align-self-center">
-        <div>ประกันสุขภาพ</div>
+        <div>
+          {{ 'ADD_POLICY.HEALTH_CARE' | translate }}
+        </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
-        <div> ไม่ได้</div>
+        <div>{{ 'CODE.DO_NOT_HAVE' | translate }}</div>
       </ion-col>
       <ion-col size="2" class="input-toggle">
         <ion-toggle mode="ios" [(ngModel)]="policy.IsHealth"></ion-toggle>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
-        <div> ได้</div>
+        <div>{{ 'CODE.HAVE' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>เงินครบกำหนดสัญญา</div>
+        <div>
+          {{ 'ADD_POLICY.DUE_MONEY' | translate }}
+        </div>
       </ion-col>
       <ion-col size="2">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.DueMoney"></ion-input>
+        <ion-input
+          class="input-fild"
+          type="number"
+          [(ngModel)]="policy.DueMoney"
+        ></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="4">
-        <div> ของทุนประกัน</div>
+        <div>
+          {{ 'ADD_POLICY.SUB_DUE_MONEY' | translate }}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <ion-button color="medium" expand="block" shape="round" [routerLink]="['/add-policy-repay-general-user']">
-          เงินจ่ายคืนสิ้นปีกรมธรรม์</ion-button>
+        <ion-button
+          color="medium"
+          expand="block"
+          shape="round"
+          [routerLink]="['/add-policy-repay-general-user']"
+        >
+          {{ 'ADD_POLICY.LAST_YEAR_INSURANCE_MONEY' | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button color="medium" expand="block" shape="round" [routerLink]="['/add-policy-protection-general-user']">
-          ความคุ้มครองเมื่อเสียชีวิต</ion-button>
+        <ion-button
+          color="medium"
+          expand="block"
+          shape="round"
+          [routerLink]="['/add-policy-protection-general-user']"
+        >
+          {{ 'ADD_POLICY.DEATH_COVERAGE' | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-margin-top">
       <ion-col size="2"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" (click)="Save()">ยืนยัน</ion-button>
+        <ion-button expand="block" shape="round" (click)="Save()">
+          {{ 'CODE.CONFIRM' | translate }}
+        </ion-button>
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>

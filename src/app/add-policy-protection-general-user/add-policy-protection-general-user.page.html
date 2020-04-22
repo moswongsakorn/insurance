@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>ความคุ้มครองเมื่อเสียชีวิต</ion-title>
+    <ion-title>{{ 'POLICY_PROTECTION.TITLE'  | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="6" style="display:flex" >
         <div style="width: 15%;" class="ion-align-self-center">
-          ปีที่
+          {{ 'POLICY_PROTECTION.YEAR_AT'  | translate }}
         </div>
         <div style="width: 25%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -24,20 +24,21 @@
         </div>
       </ion-col>
       <ion-col size="4" class="ion-align-self-center ion-justify-content-end" >
-        % ของทุนประกัน
+        {{ 'POLICY_PROTECTION.SUB_TEAR_AT'  | translate }}
+
       </ion-col>
     </ion-row>
     
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="6" style="display:flex" >
         <div style="width: 15%;" class="ion-align-self-center">
-          ปีที่
+          {{ 'POLICY_PROTECTION.YEAR_AT'  | translate }}
         </div>
         <div style="width: 25%;">
           <ion-input class="input-fild" type="number"></ion-input>
         </div>
         <div style="width: 15%;" class="ion-align-self-center">
-          ถึง
+          {{ 'POLICY_PROTECTION.TO'  | translate }}
         </div>
         <div style="width: 25%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -49,21 +50,23 @@
         </div>
       </ion-col>
       <ion-col size="4" class="ion-align-self-center ion-justify-content-end" >
-        % ของทุนประกัน
+        {{ 'POLICY_PROTECTION.SUB_TEAR_AT'  | translate }}
+
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-end ion-margin-top">
       <ion-col size="4">
         <ion-button  expand="block" shape="round"  (click)="Login()"
-          >เพิ่มแบบปีเดียว</ion-button
+          >        {{ 'POLICY_PROTECTION.ONE_YEAR_ADD'  | translate }}
+          </ion-button
         >
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-end">
       <ion-col size="4">
         <ion-button  expand="block" shape="round"  (click)="Login()"
-          >เพิ่มแบบช่วงปี</ion-button
+          > {{ 'POLICY_PROTECTION.RANGE_YEAR_ADD'  | translate }}</ion-button
         >
       </ion-col>
     </ion-row>
@@ -71,7 +74,9 @@
     <ion-row class="ion-justify-content-around ion-margin-top">
       <ion-col size="6">
         <ion-button expand="block" shape="round"  (click)="Login()"
-          >ตกลง</ion-button
+          >
+          {{ 'CODE.OK'  | translate }}
+          </ion-button
         >
       </ion-col>
     </ion-row>

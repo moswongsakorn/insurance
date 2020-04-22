@@ -59,8 +59,8 @@ export class PolicyListGeneralUserPage implements OnInit {
   }
 
   async Logout() {
-    this.uiService.presentAlertConfirm(
-      "ต้องการออกจากระบบใช่หรือไม่",
+    const resultText: string = this.translateService.instant('POLICY_LIST_PAGE.LOGOUT_CONFIRM');
+    this.uiService.presentAlertConfirm(resultText,
       async () => {
         this.uiService.presentLoading();
         var result = await this.UserService.Logout();

@@ -5,6 +5,7 @@ import { PolicyService } from '../services/policy.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-policy-general-user',
@@ -19,7 +20,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
     private DataCenterService: DataCenterService,
     private PolicyService: PolicyService,
     private NavController: NavController,
-    private uiService:UiService
+    private uiService:UiService,
+    private translateService:TranslateService,
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
       this.NavController.navigateBack(['policy-list-general-user'])
     }
     else {
-      this.uiService.presentAlert("กรุณากรอกข้อมูลให้ครบถ้วน")
+      const errorText:string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT")
+      this.uiService.presentAlert(errorText)
       console.log(isValid)
     }
   }

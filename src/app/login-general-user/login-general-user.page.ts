@@ -5,6 +5,7 @@ import { UserServiceService } from '../services/user-service.service';
 import { DataCenterService } from '../services/data-center.service';
 import { NavController } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-general-user',
@@ -19,7 +20,8 @@ export class LoginGeneralUserPage implements OnInit {
     private userService: UserServiceService,
     private dataCenter: DataCenterService,
     public navController: NavController,
-    public UiService:UiService
+    public UiService:UiService,
+    public translateService:TranslateService
   ) { }
 
   async ngOnInit() {
@@ -35,12 +37,14 @@ export class LoginGeneralUserPage implements OnInit {
       console.log(result)
       this.UiService.dismissLoading() //Dismiss Loading
       this.navController.navigateRoot(['policy-list-general-user'])
-      this.UiService.presentAlert("เข้าสู่ระบบเรียบร้อยแล้ว")
+      const resultText: string = this.translateService.instant('GENERAL_LOGIN.SUCCESS_LOGIN');
+      this.UiService.presentAlert(resultText)
 
     }
     else {
       this.UiService.dismissLoading() //Dismiss Loading
-      this.UiService.presentAlert("ไม่สามารถเข้าสู่ระบบได้กรุณาตรวจสอบอีเมล์และรหัสผ่านของท่าน")
+      const resultText: string = this.translateService.instant('GENERAL_LOGIN.FAIL_LOGIN');
+      this.UiService.presentAlert(resultText)
       console.log(result)
     }
   }

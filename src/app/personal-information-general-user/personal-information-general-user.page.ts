@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserCrudModel, UidRoleModel } from '../interfaces/index';
 import { UserServiceService } from '../services/user-service.service';
 import { DataCenterService } from '../services/data-center.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-personal-information-general-user',
@@ -15,6 +16,7 @@ export class PersonalInformationGeneralUserPage implements OnInit {
   constructor(
     private UserService: UserServiceService,
     private DataCenterService: DataCenterService,
+    private translateService:TranslateService
   ) { }
 
   ngOnInit() {

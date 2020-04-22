@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataCenterService } from '../services/data-center.service';
 import { PolicyCrudModel } from '../interfaces';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-policy-detail',
@@ -14,7 +15,8 @@ export class PolicyDetailPage implements OnInit {
   public policy: PolicyCrudModel = new PolicyCrudModel();
   constructor(
     private DataCenterService: DataCenterService,
-    private NavController: NavController
+    private NavController: NavController,
+    private translateService:TranslateService
   ) { }
 
   ngOnInit() {

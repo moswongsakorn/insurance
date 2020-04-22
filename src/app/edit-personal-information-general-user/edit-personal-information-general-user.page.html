@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar  color="primary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>แก้ไขข้อมูลส่วนตัว</ion-title>
+    <ion-title>{{ 'EDIT_PERSONAL_INFORMATION.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -11,7 +11,7 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          เลขบัตรประชาชน
+          {{ 'EDIT_PERSONAL_INFORMATION.ID_CARD' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -26,16 +26,26 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          คำนำหน้าชื่อ
+          {{ 'EDIT_PERSONAL_INFORMATION.PREFIX_NAME' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
         <div>
           <ion-item>
-            <ion-select [(ngModel)]="user.PrefixName" okText="ตกลง" cancelText="ยกเลิก">
-              <ion-select-option value="นาย">นาย</ion-select-option>
-              <ion-select-option value="นาง">นาง</ion-select-option>
-              <ion-select-option value="นางสาว">นางสาว</ion-select-option>
+            <ion-select
+              [(ngModel)]="user.PrefixName"
+              okText="{{ 'CODE.OK' | translate }}"
+              cancelText="{{ 'CODE.CANCEL' | translate }}"
+            >
+              <ion-select-option value="{{ 'CODE.MR' | translate }}">
+                {{ 'CODE.MR' | translate }}
+              </ion-select-option>
+              <ion-select-option value=" {{ 'CODE.MS' | translate }}">
+                {{ 'CODE.MS' | translate }}</ion-select-option
+              >
+              <ion-select-option value="  {{ 'CODE.MISS' | translate }}">
+                {{ 'CODE.MISS' | translate }}</ion-select-option
+              >
             </ion-select>
           </ion-item>
         </div>
@@ -45,7 +55,7 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          ชื่อ - นามสกุล
+          {{ 'EDIT_PERSONAL_INFORMATION.FULL_NAME' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -60,18 +70,24 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          วัน/เดือน/ปี เกิด
+          {{ 'EDIT_PERSONAL_INFORMATION.BIRTH_DATE' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
-        <ion-datetime [(ngModel)]="user.BirthDay" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" value="2002-09-23T15:03:46.789"></ion-datetime>
+        <ion-datetime
+          [(ngModel)]="user.BirthDay"
+          displayFormat="MM/DD/YYYY"
+          min="1994-03-14"
+          max="2012-12-09"
+          value="2002-09-23T15:03:46.789"
+        ></ion-datetime>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          เบอร์โทรศัพท์
+          {{ 'EDIT_PERSONAL_INFORMATION.PHONE_NUMBER' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -86,7 +102,7 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          อีเมล์
+          {{ 'EDIT_PERSONAL_INFORMATION.EMAIL' | translate }}
         </div>
       </ion-col>
       <ion-col>
@@ -101,7 +117,7 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          รหัสผ่าน
+          {{ 'EDIT_PERSONAL_INFORMATION.PASSWORD' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -116,7 +132,7 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          ยืนยันรหัสผ่าน
+          {{ 'EDIT_PERSONAL_INFORMATION.RE_PASSWORD' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -131,7 +147,7 @@
     <ion-row class="ion-justify-content-between" *ngIf="user.Role=='user'">
       <ion-col class="ion-align-self-center">
         <div>
-          PIN
+          {{ 'EDIT_PERSONAL_INFORMATION.PIN' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
@@ -146,7 +162,9 @@
     <ion-row class="ion-margin-top">
       <ion-col size="1"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" (click)="Save()">ยืนยัน</ion-button>
+        <ion-button expand="block" shape="round" (click)="Save()">
+          {{ 'CODE.CONFIRM' | translate }}
+        </ion-button>
       </ion-col>
       <ion-col size="1"></ion-col>
     </ion-row>

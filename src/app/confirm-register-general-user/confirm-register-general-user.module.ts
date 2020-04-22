@@ -9,11 +9,13 @@ import { ConfirmRegisterGeneralUserPageRoutingModule } from './confirm-register-
 import { ConfirmRegisterGeneralUserPage } from './confirm-register-general-user.page';
 import { ThaiDatePipe } from '../pipes/thai-date.pipe';
 import { PipesModule } from '../pipes/pips.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule.forChild(),
     IonicModule,
     ConfirmRegisterGeneralUserPageRoutingModule,
     PipesModule

@@ -5,6 +5,7 @@ import { MagicNumber } from "../interfaces/MagicNumber";
 import { DataCenterService } from "../services/data-center.service";
 import { NavController } from "@ionic/angular";
 import { UiService } from "../services/ui.service";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-register-general-user",
@@ -16,7 +17,8 @@ export class RegisterGeneralUserPage implements OnInit {
     private userService: UserServiceService,
     private dataCenter: DataCenterService,
     public navController: NavController,
-    public UiService: UiService
+    public UiService: UiService,
+    private translateService:TranslateService
   ) {}
 
   public user: UserCrudModel = new UserCrudModel();
@@ -31,13 +33,16 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   public async Register() {
+
     if(!this.user.IsValidModel()){
-      this.UiService.presentAlert("กรุณากรอกข้อมูลให้ครบถ้วน");
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
+      this.UiService.presentAlert(resultText);
       return;
     }
 
     if (this.checkIDCard(this.user.IdCard) === false) {
-      this.UiService.presentAlert("เลขบัตรประชาชนไม่ถูกต้อง");
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert(resultText);
       return;
     }
 
@@ -46,6 +51,8 @@ export class RegisterGeneralUserPage implements OnInit {
       this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(["confirm-register-general-user"]);
     } else {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_3');
+      this.UiService.presentAlert(resultText);
       console.log("Password is not match!");
     }
   }

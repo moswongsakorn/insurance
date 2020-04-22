@@ -8,12 +8,14 @@ import { PersonalInformationGeneralUserPageRoutingModule } from './personal-info
 
 import { PersonalInformationGeneralUserPage } from './personal-information-general-user.page';
 import { PipesModule } from '../pipes/pips.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     PersonalInformationGeneralUserPageRoutingModule,
     PipesModule
   ],
