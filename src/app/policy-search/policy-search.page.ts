@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController } from "@ionic/angular";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: "app-policy-search",
@@ -9,6 +10,7 @@ import { NavController } from "@ionic/angular";
 export class PolicySearchPage implements OnInit {
   constructor(
     private NavController: NavController,
+    private translateService:TranslateService
     ) {}
 
   ngOnInit() {

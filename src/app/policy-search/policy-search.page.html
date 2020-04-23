@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>ความต้องการ</ion-title>
+    <ion-title>{{ 'POLICY_SEARCH.TITLE'  | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-row class="ion-justify-content-between ion-margin-bottom">
       <ion-col>
         <div style="text-decoration: underline;" class="ion-text-end">
-          *ผลรวมของค่าที่กรอกต้องเท่ากับ 100
+          {{ 'POLICY_SEARCH.SUB_TITLE'  | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -20,7 +20,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-          อัตราผลตอบแทนภายใน IRR
+         {{ 'POLICY_SEARCH.TEXT_IRR'  | translate }}
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -36,7 +36,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-          ความคุ้มครอง
+          {{ 'POLICY_SEARCH.TEXT_PROTECTION'  | translate }}
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -52,7 +52,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-          จำนวนปีที่คุ้มครอง
+          {{ 'POLICY_SEARCH.TEXT_YEAR_PROTECTION'  | translate }}
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -66,7 +66,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-          จำนวนเงินเบี้ยประกันต่อปี
+          {{ 'POLICY_SEARCH.TEXT_YEAR_PAID'  | translate }}
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -83,7 +83,8 @@
       <ion-col class="ion-align-self-center">
         <div>
           <span style="text-decoration: underline;"
-            >*กรณีไม่ทำเครื่องหมาย
+            >
+            {{ 'POLICY_SEARCH.TEXT_DETAIL_1'  | translate }}
           </span>
           <span class="ion-padding">
             <ion-checkbox
@@ -92,7 +93,7 @@
               color="primary"
             ></ion-checkbox>
           </span>
-          <span style="text-decoration: underline;">คือการไม่นำมาพิจารณา </span>
+          <span style="text-decoration: underline;">  {{ 'POLICY_SEARCH.TEXT_DETAIL_2'  | translate }} </span>
         </div>
       </ion-col>
     </ion-row>
@@ -100,7 +101,8 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="4">
         <div class="ion-align-self-center">
-          ลดหย่อนภาษี
+          <!-- ลดหย่อนภาษี -->
+          {{ 'POLICY_SEARCH.TAX'  | translate }}
         </div>
       </ion-col>
       <ion-col size="4">
@@ -109,7 +111,7 @@
             <ion-checkbox mode="ios" color="primary"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center">
-            ไม่ได้
+            {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
@@ -119,7 +121,7 @@
             <ion-checkbox mode="ios" color="primary"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center">
-            ได้
+            {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
@@ -128,7 +130,8 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="4">
         <div class="ion-align-self-center">
-          ประกันสุขภาพ
+          <!-- ประกันสุขภาพ -->
+          {{ 'POLICY_SEARCH.HEALTH'  | translate }}
         </div>
       </ion-col>
       <ion-col size="4">
@@ -137,7 +140,7 @@
             <ion-checkbox mode="ios" color="primary"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center">
-            ไม่ได้
+            {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
@@ -147,7 +150,7 @@
             <ion-checkbox mode="ios" color="primary"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center">
-            ได้
+            {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
@@ -157,7 +160,9 @@
       <ion-col size="2"></ion-col>
       <ion-col>
         <ion-button expand="block" shape="round" (click)="searchPolicy()"
-          >ยืนยัน</ion-button
+          >
+          {{ 'CODE.CONFIRM'  | translate }}
+          </ion-button
         >
       </ion-col>
       <ion-col size="2"></ion-col>

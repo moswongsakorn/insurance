@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PolicyCrudModel } from '../interfaces';
 import { UiService } from '../services/ui.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-policy-search-result',
@@ -11,7 +12,8 @@ export class PolicySearchResultPage implements OnInit {
   public activeStatus:boolean =false;
   public policyList
   constructor(
-    private UiService:UiService
+    private UiService:UiService,
+    private translateService:TranslateService
   ) { }
 
   ngOnInit() {
