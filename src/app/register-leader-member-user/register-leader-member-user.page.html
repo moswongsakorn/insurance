@@ -10,52 +10,52 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1 class="ion-text-center">ลงทะเบียน</h1>
+  <h1 class="ion-text-center">{{ 'REGISTER_GENERAL.TITLE'  | translate }}</h1>
   <ion-grid>
     <ion-row>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked" >กรุณากรอกเลขประชาชน 13 หลัก</ion-label>
+          <ion-label position="stacked" >{{ 'REGISTER_GENERAL.ID_CARD'  | translate }}</ion-label>
           <ion-input inputmode="numeric" [(ngModel)]="user.IdCard"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked" >คำนำหน้า</ion-label>
+          <ion-label position="stacked" >{{ 'REGISTER_GENERAL.PREFIX_NAME'  | translate }}</ion-label>
           <ion-select [(ngModel)]="user.PrefixName">
-            <ion-select-option value="นาย">นาย</ion-select-option>
-            <ion-select-option value="นาง">นาง</ion-select-option>
-            <ion-select-option value="นางสาว">นางสาว</ion-select-option>
+            <ion-select-option value="{{ 'REGISTER_GENERAL.MR'  | translate }}">{{ 'REGISTER_GENERAL.MR'  | translate }}</ion-select-option>
+            <ion-select-option value="{{ 'REGISTER_GENERAL.MS'  | translate }}">{{ 'REGISTER_GENERAL.MS'  | translate }}</ion-select-option>
+            <ion-select-option value="{{ 'REGISTER_GENERAL.MIS'  | translate }}">{{ 'REGISTER_GENERAL.MIS'  | translate }}</ion-select-option>
           </ion-select>
         </ion-item>        
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">ชื่อ-นามสกุล</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.FULL_NAME'  | translate }}</ion-label>
           <ion-input [(ngModel)]="user.Name"></ion-input>
         </ion-item>        
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">วัน/เดือน/ปีเกิด</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.BIRTH_DATE'  | translate }}</ion-label>
           <ion-datetime [(ngModel)]="user.BirthDay" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09" value="2002-09-23T15:03:46.789"></ion-datetime>
         </ion-item>        
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">เบอร์โทรศัพท์</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.PHONE_NUMBER'  | translate }}</ion-label>
           <ion-input inputmode="tel" [(ngModel)]="user.Telephone"></ion-input>
         </ion-item>        
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">อีเมล</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.EMAIL'  | translate }}</ion-label>
           <ion-input inputmode="email" [(ngModel)]="user.Email"></ion-input>
         </ion-item>        
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">รหัสผ่าน</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.PASSWORD'  | translate }}</ion-label>
           <ion-input [type]="passwordType" [(ngModel)]="user.Password"></ion-input>
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
@@ -66,7 +66,7 @@
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">ยืนยันรหัสผ่าน</ion-label>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.RE_PASSWORD'  | translate }}</ion-label>
           <ion-input [type]="confirmPasswordType" [(ngModel)]="user.ConfirmPassword"></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon size="small" *ngIf="!showConfirmPassword" name="eye"></ion-icon>
@@ -76,13 +76,13 @@
         </ion-item>
       </ion-col>
       <ion-col size="12" class="ion-text-center">
-        <ion-button shape="round" size="small" color="secondary" (click)="PinGenerate()">สร้าง PIN</ion-button>  
+        <ion-button shape="round" size="small" color="secondary" (click)="PinGenerate()">{{ 'REGISTER_GENERAL.GENERATE_PIN'  | translate }}</ion-button>  
       </ion-col>
       <ion-col size="12" class="ion-text-center">
         <div class="box-pin">{{user.Pin}}</div>
       </ion-col>
       <ion-col size="12" class="ion-padding">
-        <ion-button expand="block" shape="round" size="large" (click)="Register()">ยืนยัน</ion-button>  
+        <ion-button expand="block" shape="round" size="large" (click)="Register()">{{ 'CODE.CONFIRM'  | translate }}</ion-button>  
       </ion-col>
     </ion-row>
   </ion-grid>
