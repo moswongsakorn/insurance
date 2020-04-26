@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { LoginMemberUserPageRoutingModule } from './login-member-user-routing.module';
 
 import { LoginMemberUserPage } from './login-member-user.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     LoginMemberUserPageRoutingModule
   ],
   declarations: [LoginMemberUserPage]

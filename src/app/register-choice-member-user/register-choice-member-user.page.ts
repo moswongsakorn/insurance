@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register-choice-member-user',
@@ -9,7 +10,8 @@ import { NavController } from '@ionic/angular';
 export class RegisterChoiceMemberUserPage implements OnInit {
 
   constructor(
-    public navController: NavController
+    public navController: NavController,
+    private translateService:TranslateService
   ) { }
 
   ngOnInit() {
