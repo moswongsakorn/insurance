@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button mode="ios"></ion-back-button>
+      <ion-button size="large" (click)="back()">
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="light"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title>{{ 'POLICY_REPAY.TITLE' | translate }}</ion-title>
   </ion-toolbar>
@@ -9,70 +11,50 @@
 
 <ion-content>
   <ion-grid class="ion-margin-top">
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="6" style="display: flex;">
-        <div style="width: 15%;" class="ion-align-self-center">
-          {{ 'POLICY_REPAY.YEAR_AT' | translate }}
-        </div>
-        <div style="width: 25%;">
-          <ion-input class="input-fild" type="number"></ion-input>
-        </div>
-      </ion-col>
-      <ion-col size="2">
-        <div>
-          <ion-input class="input-fild" type="number"></ion-input>
-        </div>
-      </ion-col>
-      <ion-col size="4" class="ion-align-self-center ion-justify-content-end">
-        {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
-      </ion-col>
-    </ion-row>
 
-    <ion-row class="ion-justify-content-between ion-align-items-center">
+    <ion-row *ngFor="let item of lengthYearAmountList ; let i = index;" class="ion-justify-content-between ion-align-items-center">
       <ion-col size="6" style="display: flex;">
         <div style="width: 15%;" class="ion-align-self-center">
           {{ 'POLICY_REPAY.YEAR_AT' | translate }}
         </div>
         <div style="width: 25%;">
-          <ion-input class="input-fild" type="number"></ion-input>
+          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].Start"></ion-input>
         </div>
-        <div style="width: 15%;" class="ion-align-self-center">
+        <div style="width: 15%;" class="ion-align-self-center" *ngIf="item.IsRange">
           {{ 'POLICY_REPAY.TO' | translate }}
         </div>
-        <div style="width: 25%;">
-          <ion-input class="input-fild" type="number"></ion-input>
+        <div style="width: 25%;" *ngIf="item.IsRange">
+          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].End"></ion-input>
         </div>
       </ion-col>
       <ion-col size="2">
         <div>
-          <ion-input class="input-fild" type="number"></ion-input>
+          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].Amount"></ion-input>
         </div>
       </ion-col>
-      <ion-col size="4" class="ion-align-self-center ion-justify-content-end">
+      <ion-col size="3" class="ion-align-self-center ion-justify-content-end">
         {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
-      </ion-col>
+      </ion-col >
+      <ion-icon size="1" name="close-circle" (click)="delete(i)"> </ion-icon>
     </ion-row>
 
     <ion-row class="ion-justify-content-end ion-margin-top">
       <ion-col size="4">
-        <ion-button expand="block" shape="round" (click)="Login()"
-          >{{ 'POLICY_REPAY.ONE_YEAR_ADD' | translate }}</ion-button
-        >
+        <ion-button expand="block" shape="round" (click)="addSingle()">{{ 'POLICY_REPAY.ONE_YEAR_ADD' | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
+
     <ion-row class="ion-justify-content-end">
       <ion-col size="4">
-        <ion-button expand="block" shape="round" (click)="Login()"
-          >{{ 'POLICY_REPAY.RANGE_YEAR_ADD' | translate }}</ion-button
-        >
+        <ion-button expand="block" shape="round" (click)="addRange()">{{ 'POLICY_REPAY.RANGE_YEAR_ADD' | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-around ion-margin-top">
       <ion-col size="6">
-        <ion-button expand="block" shape="round" (click)="Login()"
-          >{{ 'CODE.CONFIRM' | translate }}</ion-button
-        >
+        <ion-button expand="block" shape="round" (click)="submit()">{{ 'CODE.CONFIRM' | translate }}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

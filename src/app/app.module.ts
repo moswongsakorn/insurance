@@ -18,6 +18,8 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { TranslateLoader, TranslateModule,  } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
+import { AddPolicyRepayGeneralUserPageModule} from '../app/add-policy-repay-general-user/add-policy-repay-general-user.module'
+
 // AoT requires an exported function for factories
 export function exportTranslateStaticLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
@@ -38,6 +40,7 @@ export function exportTranslateStaticLoader(httpClient: HttpClient) {
     AngularFireAuthModule,
     AngularFirestoreModule,
     HttpClientModule,
+    AddPolicyRepayGeneralUserPageModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     TranslateModule.forRoot({
