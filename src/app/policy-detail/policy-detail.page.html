@@ -76,10 +76,10 @@
       </ion-col>
       <ion-col class="ion-align-self-center">
         <div>
-          {{policy.IsTaxDeduct ? 'CODE.HAVE':'CODE.DO_NOT_HAVE' | translate}}
+          {{(policy.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
         </div>
       </ion-col>
-    </ion-row>
+    </ion-row>        
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="7">
@@ -89,7 +89,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center">
         <div>
-          {{policy.IsHealth ? 'CODE.HAVE':'CODE.DO_NOT_HAVE' | translate}}
+          {{(policy.IsHealtht ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -109,9 +109,10 @@
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>
+        <div class="ion-text-center ion-margin-top">
           {{ 'POLICY_DETAIL.LAST_YEAR_INSURANCE_MONEY' | translate }}
         </div>
+        <br>
         <ion-row *ngFor="let item of policy.ReturnList ; let i = index;"
         class="ion-justify-content-between ion-align-items-center">
         <ion-col size="5" style="display: flex;">
@@ -143,9 +144,10 @@
 
     <ion-row>
       <ion-col class="ion-align-self-center">
-        <div>
+        <div  class="ion-text-center ion-margin-top">
           {{ 'POLICY_DETAIL.DEATH_COVERAGE' | translate }}
         </div>
+        <br>
         <ion-row *ngFor="let item of policy.ProtectList ; let i = index;"
           class="ion-justify-content-between ion-align-items-center">
           <ion-col size="5" style="display: flex;">

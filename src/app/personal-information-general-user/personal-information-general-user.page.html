@@ -108,6 +108,27 @@
           </div>
         </ion-col>
       </ion-row>
+
+      <ion-row class="ion-justify-content-between">
+        <ion-col>
+          <div>
+            {{ 'PERSONAL_INFORMATION.PASSWORD' | translate }}
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-start">
+          <div>
+          <button class="btn-info" (click)="changePassword()">
+            <span>
+              <ion-icon name="key-outline"></ion-icon>
+            </span>
+            <span>
+              {{ 'PERSONAL_INFORMATION.CHANGE_PASSWORD' | translate }}
+            </span>
+          </button>
+          </div>
+        </ion-col>
+      </ion-row>
+
     </ion-grid>
   </div>
 
@@ -175,6 +196,19 @@
           <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>
         </ion-col>
       </ion-row>
+      <ion-row class="ion-justify-content-between">
+        <ion-col>
+          <div>
+            {{ 'PERSONAL_INFORMATION.PASSWORD' | translate }}
+          </div>
+        </ion-col>
+        <ion-col class="ion-text-start">
+          <div>
+            <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+          </div>
+        </ion-col>
+      </ion-row>
+
     </ion-grid>
   </div>
   <!-- ------------------ End  Skeleton Section ------------------  -->

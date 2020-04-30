@@ -9,6 +9,7 @@ import { PersonalInformationGeneralUserPageRoutingModule } from './personal-info
 import { PersonalInformationGeneralUserPage } from './personal-information-general-user.page';
 import { PipesModule } from '../pipes/pips.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { EditChangePasswordPageModule } from '../edit-change-password/edit-change-password.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     TranslateModule.forChild(),
     PersonalInformationGeneralUserPageRoutingModule,
-    PipesModule
+    PipesModule,EditChangePasswordPageModule
   ],
   declarations: [PersonalInformationGeneralUserPage]
 })

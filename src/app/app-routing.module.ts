@@ -107,14 +107,19 @@ const routes: Routes = [
   {
     path: 'agent-information',
     loadChildren: () => import('./agent-information/agent-information.module').then( m => m.AgentInformationPageModule)
-  },  {
+  },
+  {
     path: 'edit-agent-information',
     loadChildren: () => import('./edit-agent-information/edit-agent-information.module').then( m => m.EditAgentInformationPageModule)
   },
   {
     path: 'policy-detail',
     loadChildren: () => import('./policy-detail/policy-detail.module').then( m => m.PolicyDetailPageModule)
+  },  {
+    path: 'edit-change-password',
+    loadChildren: () => import('./edit-change-password/edit-change-password.module').then( m => m.EditChangePasswordPageModule)
   },
+
 
 
 

@@ -17,7 +17,8 @@
   },
   "HOME": {
     "TITLE": "INSURANCE",
-    "SUB_TITLE": "An application for the selection of suitable insurance plans.",
+    "SUB_TITLE1": "แอพพลิเคชั่นสำหรับคัดเลือก",
+    "SUB_TITLE2": "แบบประกันที่เหมาะสม",
     "BUTTON_1": "For General",
     "BUTTON_2": "For work"
   },
@@ -179,5 +180,8 @@
     "TITLE": "เลือกสิทธิ์ลงทะเบียน",
     "SUPERVISOR": "หัวหน้าสายงาน",
     "EMPLOYEE": "ตัวแทนประกัน"
+  },
+  "CHANGE_PASSWORD":{
+    "TITLE":"เปลี่ยนรหัสผ่าน"
   }
 }
