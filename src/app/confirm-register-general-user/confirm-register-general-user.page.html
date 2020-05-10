@@ -18,7 +18,7 @@
         <ion-text>{{ 'CONFIRM_GENERAL.PREFIX_NAME'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>{{user.PrefixName}}</ion-text>
+        <ion-text>{{user.PrefixName=='specific'? user?.SpecificPrefixName: user?.PrefixName}}</ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{ 'CONFIRM_GENERAL.FULL_NAME'  | translate }}</ion-text>
@@ -63,9 +63,11 @@
         <ion-text><u>{{ 'CONFIRM_GENERAL.CONFIRM_TEXT'  | translate }}</u></ion-text>
       </ion-col>
       <ion-col size="12" class="ion-padding">
-        <ion-button expand="block" shape="round" color="light" (click)="Confirm()">{{ 'CODE.OK'  | translate }}</ion-button>
+        <ion-button expand="block" shape="round" color="light" (click)="Confirm()">{{ 'CODE.OK'  | translate }}
+        </ion-button>
         <div class="ion-margin-top"></div>
-        <ion-button expand="block" shape="round" (click)="navController.back()">{{ 'CODE.CANCEL'  | translate }}</ion-button>
+        <ion-button expand="block" shape="round" (click)="navController.back()">{{ 'CODE.CANCEL'  | translate }}
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

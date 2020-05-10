@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LengthYearAmount } from '../interfaces/LengthYearAmount';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, NavParams } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
 
 @Component({
@@ -11,20 +11,29 @@ import { UiService } from '../services/ui.service';
 })
 export class AddPolicyRepayGeneralUserPage implements OnInit {
 
+  public lengthYearAmountList: LengthYearAmount[] = new Array<LengthYearAmount>();
+
   constructor(
     private translateService: TranslateService,
     private NavController: NavController,
     private uiService: UiService,
     private modalController: ModalController,
-  ) { }
+  ) {
+  }
 
 
   @Input('name') name: string;
   @Input('yearToPaid') yearToPaid: number;
   @Input('yearOfProtect') yearOfProtect: number;
-  @Input('lengthYearAmountList') lengthYearAmountList: LengthYearAmount[];
+  @Input('thisLengthYearAmountList') thisLengthYearAmountList: LengthYearAmount[];
+
 
   ngOnInit() {
+
+  }
+
+  ionViewDidEnter() {
+    this.lengthYearAmountList = [...this.thisLengthYearAmountList];
     if (this.lengthYearAmountList.length == 0) {
       var lengthYearAmount1 = new LengthYearAmount();
       lengthYearAmount1.IsRange = false;
@@ -38,19 +47,35 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
 
   back() {
-    this.modalController.dismiss('false')
+    this.modalController.dismiss(false)
   }
 
   async submit() {
     var IsSubmit = true;
-    for (let key in this.lengthYearAmountList) {
-      var element = this.lengthYearAmountList[key];
+    for (let i = this.lengthYearAmountList.length - 1; i >= 0; i--) {
+      var element = this.lengthYearAmountList[i];
+      if (element.Start == null &&
+        element.End == null &&
+        element.Amount == null) {
+        this.delete(i);
+        continue;
+      }
+
+
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;
 
       if (element.End < element.Start) {
         let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
         errorText = "กรุณากรอกข้อมูลให้ถูกต้อง";
+        await this.uiService.presentAlert(errorText);
+        IsSubmit = false;
+        return;
+      }
+
+      if (this.name != 'ReturnList' && element.End > this.yearToPaid) {
+        let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
+        errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
@@ -64,9 +89,27 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      if (this.name == 'ComissionList' && element.End > this.yearOfProtect) {
+      if (this.name == 'ComissionList' && element.End > this.yearToPaid) {
         let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
-        errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearOfProtect + " ปี";
+        errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+        await this.uiService.presentAlert(errorText);
+        IsSubmit = false;
+        return;
+      }
+
+      if (element.Start == null &&
+        element.End == null &&
+        element.Amount == null) {
+        this.delete(i);
+        continue;
+      }
+
+
+      if (element.Start == null || element.Start == 0 ||
+        element.End == null || element.End == 0 ||
+        element.Amount == null || element.Amount == 0) {
+        let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
+        errorText = "กรุณากรอกข้อมูลให้ครบถ้วน";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;

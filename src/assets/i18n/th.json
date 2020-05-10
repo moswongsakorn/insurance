@@ -38,6 +38,7 @@
     "MR": "นาย",
     "MS": "นาง",
     "MIS": "นางสาว",
+    "Other": "อื่นๆ",
     "FULL_NAME": "ชื่อ-นามสกุล",
     "BIRTH_DATE": "วัน/เดือน/ปีเกิด",
     "PHONE_NUMBER": "เบอร์โทรศัพท์",
@@ -110,10 +111,11 @@
     "BIRTH_DATE": "วัน/เดือน/ปีเกิด",
     "PHONE_NUMBER": "เบอร์โทรศัพท์",
     "EMAIL": "อีเมล",
-    "PASSWORD": "รหัสผ่าน",
+    "PASSWORD": "รหัสผ่านใหม่",
     "PIN": "PIN",
-    "RE_PASSWORD": "ยืนยันรหัสผ่าน",
-    "ERROR_RESPONSE_TEXT": "รหัสผ่านไม่ตรงกัน"
+    "RE_PASSWORD": "ยืนยันรหัสผ่านใหม่",
+    "ERROR_RESPONSE_TEXT": "รหัสผ่านไม่ตรงกัน",
+    "CURRENT_PASSWORD": "รหัสผ่านปัจจุบัน"
   },
   "POLICY_DETAIL": {
     "TITLE": "แบบประกัน",

@@ -23,7 +23,7 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
     private Router: Router,
     private translateService: TranslateService,
     private uiService: UiService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.user = this.DataCenterService.CloneUserCrudModel();
@@ -31,20 +31,20 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
-    if (this.user.PasswordIsMatch()) {
-      var result = await this.UserService.UpdateUser(this.user);
-      if (result.message == MagicNumber.ReEntry) {
-        this.NavController.navigateForward(["home"]);
-      } else if (result.status) {
-        this.NavController.back();
-      } else {
-        console.log(result.message);
-      }
+    // if (this.user.PasswordIsMatch()) {
+    var result = await this.UserService.UpdateUser(this.user);
+    if (result.message == MagicNumber.ReEntry) {
+      this.NavController.navigateForward(["home"]);
+    } else if (result.status) {
+      this.NavController.back();
     } else {
-      const errorText: string = this.translateService.instant(
-        "EDIT_PERSONAL_INFORMATION.ERROR_RESPONSE_TEXT"
-      );
-      this.uiService.presentAlert(errorText);
+      console.log(result.message);
     }
+    // } else {
+    //   const errorText: string = this.translateService.instant(
+    //     "EDIT_PERSONAL_INFORMATION.ERROR_RESPONSE_TEXT"
+    //   );
+    //   this.uiService.presentAlert(errorText);
+    // }
   }
 }

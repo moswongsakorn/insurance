@@ -18,35 +18,53 @@ export class RegisterGeneralUserPage implements OnInit {
     private dataCenter: DataCenterService,
     public navController: NavController,
     public UiService: UiService,
-    private translateService:TranslateService
-  ) {}
+    private translateService: TranslateService
+  ) { }
 
   public user: UserCrudModel = new UserCrudModel();
   public showPassword: boolean = false;
   public showConfirmPassword: boolean = false;
   public passwordType: string = "password";
   public confirmPasswordType: string = "password";
-  ngOnInit() {}
+  ngOnInit() { }
 
   public async PinGenerate() {
     this.user.Pin = await this.userService.PinGenerate();
   }
 
   public async Register() {
-
-    if(!this.user.IsValidModel()){
+    this.user.InitRole(MagicNumber.quest);
+    if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
       this.UiService.presentAlert(resultText);
       return;
     }
 
-    if (this.checkIDCard(this.user.IdCard) === false) {
+    if (this.userService.checkIDCard(this.user.IdCard) === false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert(resultText);
       return;
     }
 
-    this.user.InitRole(MagicNumber.quest);
+    var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
+    if (idCardIsExist) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");
+      return;
+    }
+
+    if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกคำนำหน้าชื่อ");
+      return;
+    }
+
+    if (this.user.Password.length < 6) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      return;
+    }
+
     if (this.user.PasswordIsMatch()) {
       this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(["confirm-register-general-user"]);
@@ -57,27 +75,6 @@ export class RegisterGeneralUserPage implements OnInit {
     }
   }
 
-  private checkIDCard(id) {
-    //  console.log('id',id)
-    let i = 0;
-    let sum = 0;
-    if (id.length != 13) {
-      // console.log('CASE 1')
-      return false;
-    }
-    for (i = 0, sum = 0; i < 12; i++) {
-      sum += parseFloat(id.charAt(i)) * (13 - i);
-      // console.log('',)
-    }
-    if ((11 - (sum % 11)) % 10 != parseFloat(id.charAt(12))) {
-      // console.log('CASE 2')
-      return false;
-    } else {
-      // console.log('CASE 3')
-      return true;
-    }
-  }
-
   public togglePassword() {
     this.showPassword = !this.showPassword;
     this.showPassword
@@ -85,7 +82,7 @@ export class RegisterGeneralUserPage implements OnInit {
       : (this.passwordType = "password");
   }
 
-  public toggleConfirmPassword(){
+  public toggleConfirmPassword() {
     this.showConfirmPassword = !this.showConfirmPassword;
     this.showConfirmPassword
       ? (this.confirmPasswordType = "text")

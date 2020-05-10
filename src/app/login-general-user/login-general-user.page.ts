@@ -20,8 +20,8 @@ export class LoginGeneralUserPage implements OnInit {
     private userService: UserServiceService,
     private dataCenter: DataCenterService,
     public navController: NavController,
-    public UiService:UiService,
-    public translateService:TranslateService
+    public UiService: UiService,
+    public translateService: TranslateService
   ) { }
 
   async ngOnInit() {
@@ -31,6 +31,14 @@ export class LoginGeneralUserPage implements OnInit {
 
   public async Login() {
     this.UiService.presentLoading() //Present Loading
+    var isCanLogin = this.userService.IsCanLogin(this.user.Email, MagicNumber.quest);
+    if (!isCanLogin) {
+      this.UiService.dismissLoading() //Dismiss Loading
+      const resultText: string = this.translateService.instant('GENERAL_LOGIN.FAIL_LOGIN');
+      this.UiService.presentAlert(resultText)
+      return;
+    }
+
     var result = await this.userService.Login(this.user);
     if (result.status) {
       // var user = <UidRoleModel>result.detail;

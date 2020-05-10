@@ -39,7 +39,7 @@
         </ion-col>
         <ion-col class="ion-text-start">
           <div>
-            {{user.PrefixName}}
+            {{user.PrefixName=='specific'? user.SpecificPrefixName : user.PrefixName}}
           </div>
         </ion-col>
       </ion-row>
@@ -117,14 +117,14 @@
         </ion-col>
         <ion-col class="ion-text-start">
           <div>
-          <button class="btn-info" (click)="changePassword()">
-            <span>
-              <ion-icon name="key-outline"></ion-icon>
-            </span>
-            <span>
-              {{ 'PERSONAL_INFORMATION.CHANGE_PASSWORD' | translate }}
-            </span>
-          </button>
+            <button class="btn-info" (click)="changePassword()">
+              <span>
+                <ion-icon name="key-outline"></ion-icon>
+              </span>
+              <span>
+                {{ 'PERSONAL_INFORMATION.CHANGE_PASSWORD' | translate }}
+              </span>
+            </button>
           </div>
         </ion-col>
       </ion-row>

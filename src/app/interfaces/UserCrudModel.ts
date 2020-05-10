@@ -3,6 +3,7 @@ import { MagicNumber } from '../interfaces/MagicNumber'
 export class UserCrudModel {
     public IdCard: string;
     public PrefixName: string;
+    public SpecificPrefixName: string;
     public Name: string;
     public BirthDay: string;
     public Telephone: string;
@@ -19,8 +20,6 @@ export class UserCrudModel {
     }
 
     public IsValidModel(): Boolean {
-        console.log("***********")
-        console.log(this)
         if (this.IdCard == null || this.PrefixName == null || this.Name == null ||
             this.BirthDay == null || this.Telephone == null || this.Email == null ||
             this.Password == null || this.Pin == null || 
@@ -44,6 +43,7 @@ export class UserCrudModel {
     public MapData(data: UserCrudModel): void {
         this.IdCard = data.IdCard;
         this.PrefixName = data.PrefixName;
+        this.SpecificPrefixName = data.SpecificPrefixName;
         this.Name = data.Name;
         this.BirthDay = data.BirthDay;
         this.Telephone = data.Telephone;

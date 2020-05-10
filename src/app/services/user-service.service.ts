@@ -106,9 +106,28 @@ export class UserServiceService {
     })
   }
 
+  public async ChangePassword(currnetPassword: string, newPassword: string): Promise<ResponseModel> {
+    try {
+      var user = this.DataCenterService.GetThisUserProfile();
+      var result = await this.AngularFireAuth.auth.signInWithEmailAndPassword(user.Email, currnetPassword);
+      if (result.user) {
+        var updatePassword = await this.AngularFireAuth.auth.currentUser.updatePassword(newPassword);
+        return new ResponseModel().Success(updatePassword);
+      }
+      else {
+        return new ResponseModel().Failed(result, "User not found");
+      }
+    }
+    catch (error) {
+      return new ResponseModel().Failed(error, error.message);
+    }
+  }
+
   public async RegisterUser(input: UserCrudModel): Promise<ResponseModel> {
     var createdStatus = await this.CreateUserWithEmailAndPassword(input.Email, input.Password);
     if (createdStatus.status == true) {
+      if (input.PrefixName != 'specific') input.SpecificPrefixName = "";
+      if (input.SpecificPrefixName == null) input.SpecificPrefixName = "";
       input.Uid = createdStatus.detail;
       var insertStatus = await this.InsertUser(input);
       return insertStatus;
@@ -121,18 +140,21 @@ export class UserServiceService {
   public async UpdateUser(input: UserCrudModel): Promise<ResponseModel> {
     try {
       input.ConfirmPassword = null;
-      var oldUserProfile = await this.GetUserProfile(input.Uid);
-      if (oldUserProfile.Password != input.Password) {
-        await this.AngularFireAuth.auth.signInWithEmailAndPassword(oldUserProfile.Email, oldUserProfile.Password);
-        var updatePassword = await this.AngularFireAuth.auth.currentUser.updatePassword(input.Password);
-        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
-        var signOut = await this.AngularFireAuth.auth.signOut();
-        return new ResponseModel().Success(result, MagicNumber.ReEntry);
-      }
-      else {
-        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
-        return new ResponseModel().Success(result);
-      }
+      input.Password = null;
+      if (input.PrefixName != 'specific') input.SpecificPrefixName = "";
+      if (input.SpecificPrefixName == null) input.SpecificPrefixName = "";
+      // var oldUserProfile = await this.GetUserProfile(input.Uid);
+      // if (oldUserProfile.Password != input.Password) {
+      //   await this.AngularFireAuth.auth.signInWithEmailAndPassword(oldUserProfile.Email, oldUserProfile.Password);
+      //   var updatePassword = await this.AngularFireAuth.auth.currentUser.updatePassword(input.Password);
+      //   var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
+      //   var signOut = await this.AngularFireAuth.auth.signOut();
+      //   return new ResponseModel().Success(result, MagicNumber.ReEntry);
+      // }
+      // else {
+      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
+      return new ResponseModel().Success(result);
+      // }
     } catch (error) {
       return new ResponseModel().Failed(error, error.message);
     }
@@ -141,6 +163,7 @@ export class UserServiceService {
   public async UpdateAgentUser(input: UserCrudModel): Promise<ResponseModel> {
     try {
       input.ConfirmPassword = null;
+      input.Password = null;
       var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);
       return new ResponseModel().Success(result);
     } catch (error) {
@@ -161,6 +184,7 @@ export class UserServiceService {
   public async InsertUser(input: UserCrudModel): Promise<ResponseModel> {
     try {
       input.ConfirmPassword = null;
+      input.Password = null;
       input.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).push()).key;
       var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).push(input);
       return new ResponseModel().Success(result);
@@ -190,7 +214,7 @@ export class UserServiceService {
       var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('Pin').equalTo(pin).once('value');
       return value.exists();
     } catch (error) {
-      return false;
+      return true;
     }
   }
 
@@ -226,6 +250,63 @@ export class UserServiceService {
     return data;
   }
 
+  public async IdCardIsExist(idCard: string, role: string): Promise<boolean> {
+    try {
+      var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('IdCard').equalTo(idCard).once('value');
+      if (!value.exists()) return false;
+      var data = this.ValueChange(value.val());
+      var userModel = data.map(data => data as UserCrudModel);
+      for (let i = 0; i < userModel.length; i++) {
+        if (userModel[i].Role == role) return true;
 
+        if ((userModel[i].Role == MagicNumber.master || userModel[i].Role == MagicNumber.user) &&
+          (role == MagicNumber.master || role == MagicNumber.user)
+        ) {
+          return true;
+        }
+
+        return false;
+
+      }
+    } catch (error) {
+      return true;
+    }
+  }
+
+
+  public async IsCanLogin(email: string, role: string): Promise<boolean> {
+    try {
+      var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('Email').equalTo(email).once('value');
+      if (!value.exists()) return false;
+      var data = this.ValueChange(value.val());
+      var userModel = data.map(data => data as UserCrudModel);
+      for (let i = 0; i < userModel.length; i++) {
+        if (userModel[i].Role == role) return true;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+
+  public checkIDCard(id) {
+    //  console.log('id',id)
+    let i = 0;
+    let sum = 0;
+    if (id.length != 13) {
+      // console.log('CASE 1')
+      return false;
+    }
+    for (i = 0, sum = 0; i < 12; i++) {
+      sum += parseFloat(id.charAt(i)) * (13 - i);
+      // console.log('',)
+    }
+    if ((11 - (sum % 11)) % 10 != parseFloat(id.charAt(12))) {
+      // console.log('CASE 2')
+      return false;
+    } else {
+      // console.log('CASE 3')
+      return true;
+    }
+  }
 
 }

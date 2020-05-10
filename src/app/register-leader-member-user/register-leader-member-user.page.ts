@@ -34,6 +34,7 @@ export class RegisterLeaderMemberUserPage implements OnInit {
   }
 
   public async Register() {
+    this.user.InitRole(MagicNumber.master);
 
     if (this.user.IsValidModel() == false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
@@ -41,7 +42,31 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       return;
     }
 
-    this.user.InitRole(MagicNumber.master);
+    if (this.userService.checkIDCard(this.user.IdCard) === false) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
+    var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
+    if (idCardIsExist) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");
+      return;
+    }
+
+    if (this.user.Password.length < 6) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      return;
+    }
+
+    if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกคำนำหน้าชื่อ");
+      return;
+    }
+
     if (this.user.PasswordIsMatch()) {
       this.dataCenter.SetUserCrudModel(this.user);
       this.navController.navigateForward(['confirm-register-general-user']);

@@ -4,6 +4,7 @@ import { UserModel } from '../interfaces';
 import { UiService } from '../services/ui.service';
 import { UserServiceService } from '../services/user-service.service';
 import { TranslateService } from '@ngx-translate/core';
+import { MagicNumber } from '../interfaces/MagicNumber';
 
 @Component({
   selector: 'app-login-member-user',
@@ -14,9 +15,9 @@ export class LoginMemberUserPage implements OnInit {
 
   constructor(
     public navController: NavController,
-    public UiService:UiService,
+    public UiService: UiService,
     private userService: UserServiceService,
-    private translateService:TranslateService
+    private translateService: TranslateService
   ) { }
 
   public user: UserModel = new UserModel();
@@ -27,6 +28,16 @@ export class LoginMemberUserPage implements OnInit {
 
   public async Login() {
     this.UiService.presentLoading() //Present Loading
+
+    var isCanLoginMaster = this.userService.IsCanLogin(this.user.Email, MagicNumber.master);
+    var isCanLoginUser = this.userService.IsCanLogin(this.user.Email, MagicNumber.user);
+    if (!isCanLoginMaster || !isCanLoginUser) {
+      this.UiService.dismissLoading() //Dismiss Loading
+      const resultText: string = this.translateService.instant('GENERAL_LOGIN.FAIL_LOGIN');
+      this.UiService.presentAlert(resultText)
+      return;
+    }
+
     var result = await this.userService.Login(this.user);
     if (result.status) {
       // var user = <UidRoleModel>result.detail;
@@ -46,7 +57,7 @@ export class LoginMemberUserPage implements OnInit {
   }
 
 
-  public Register(){
+  public Register() {
     this.navController.navigateForward(['register-choice-member-user']);
   }
 

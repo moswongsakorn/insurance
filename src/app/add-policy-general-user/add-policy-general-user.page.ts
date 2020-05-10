@@ -65,10 +65,11 @@ export class AddPolicyGeneralUserPage implements OnInit {
     }
     else {
       if (lengthYearAmount == null) lengthYearAmount = new Array<LengthYearAmount>();
+      var oldData = lengthYearAmount;
       const modal = await this.ModalController.create({
         component: AddPolicyRepayGeneralUserPage,
         componentProps: {
-          lengthYearAmountList: lengthYearAmount,
+          thisLengthYearAmountList: lengthYearAmount,
           yearOfProtect: this.policy.YearOfProtect,
           yearToPaid: this.policy.YearToPaid,
           name: name
@@ -76,20 +77,26 @@ export class AddPolicyGeneralUserPage implements OnInit {
       });
 
       modal.onDidDismiss().then(result => {
-        switch (result.data.name) {
-          case 'ComissionList':
-            this.policy.ComissionList = result.data.lengthYearAmountList;
-            break;
-          case 'ProtectList':
-            this.policy.ProtectList = result.data.lengthYearAmountList;
-            break;
-          case 'ReturnList':
-            this.policy.ReturnList = result.data.lengthYearAmountList;
-            break;
-          default:
+        if (result.data == false) {
+          lengthYearAmount = oldData;
+          console.log("---- >",lengthYearAmount)
+        }
+        else {
+          switch (result.data.name) {
+            case 'ComissionList':
+              this.policy.ComissionList = result.data.lengthYearAmountList;
+              break;
+            case 'ProtectList':
+              this.policy.ProtectList = result.data.lengthYearAmountList;
+              break;
+            case 'ReturnList':
+              this.policy.ReturnList = result.data.lengthYearAmountList;
+              break;
+            default:
+          }
         }
 
-        console.log(this.policy)
+         console.log("Modal dismiss ----- >", this.policy)
       })
 
       return await modal.present();

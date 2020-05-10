@@ -18,6 +18,7 @@ export class RegisterAgentMemberUserPage implements OnInit {
   constructor(
     private userService: UserServiceService,
     private dataCenter: DataCenterService,
+    public UiService: UiService,
     public navController: NavController,
     private translateService: TranslateService,
     private uiService: UiService
@@ -27,6 +28,39 @@ export class RegisterAgentMemberUserPage implements OnInit {
 
   public async Register() {
     this.user.InitRole(MagicNumber.user);
+
+    if (!this.user.IsValidModel()) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
+    if (this.userService.checkIDCard(this.user.IdCard) === false) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
+    var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
+    if (idCardIsExist) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");
+      return;
+    }
+
+    if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกคำนำหน้าชื่อ");
+      return;
+    }
+
+    if (this.user.Password.length < 6) {
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
+      this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      return;
+    }
+
+
     var pinIsExist = await this.userService.PinIsExist(this.user.Pin);
     var passwordIsMatch = this.user.PasswordIsMatch();
     if (passwordIsMatch && pinIsExist) {
