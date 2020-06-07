@@ -66,7 +66,7 @@ export class PolicyListGeneralUserPage implements OnInit {
         var result = await this.UserService.Logout();
         console.log(result);
         if (result.status) {
-          this.NavController.navigateRoot(["login-general-user"]);
+          this.NavController.navigateRoot(["home"]);
           this.uiService.dismissLoading();
         }
       }

@@ -45,13 +45,27 @@
     <ion-row class="ion-justify-content-between">
       <ion-col class="ion-align-self-center">
         <div>
-          ชื่อ - นามสกุล
+          ชื่อ
         </div>
       </ion-col>
       <ion-col class="ion-text-start">
         <div>
           <ion-item>
-            <ion-input [(ngModel)]="user.Name"></ion-input>
+            <ion-input [(ngModel)]="user.FirstName"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-between">
+      <ion-col class="ion-align-self-center">
+        <div>
+          นามสกุล
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-start">
+        <div>
+          <ion-item>
+            <ion-input [(ngModel)]="user.LastName"></ion-input>
           </ion-item>
         </div>
       </ion-col>

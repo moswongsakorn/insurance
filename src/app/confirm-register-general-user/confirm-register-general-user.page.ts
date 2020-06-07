@@ -33,7 +33,7 @@ export class ConfirmRegisterGeneralUserPage implements OnInit {
       console.log(result);
       const resultText: string = this.translateService.instant('CONFIRM_GENERAL.result_text_1');
       this.UiService.presentAlert(resultText);
-      this.navController.navigateRoot(["login-general-user"]);
+      this.navController.navigateRoot(["home"]);
       this.UiService.dismissLoading();
     } else {
       this.UiService.dismissLoading();

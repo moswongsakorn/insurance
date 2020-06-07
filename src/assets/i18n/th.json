@@ -40,6 +40,8 @@
     "MIS": "นางสาว",
     "Other": "อื่น ๆ โปรดระบุ",
     "FULL_NAME": "ชื่อ-นามสกุล",
+    "FIRST_NAME": "ชื่อ",
+    "LAST_NAME": "นามสกุล",
     "BIRTH_DATE": "วัน/เดือน/ปีเกิด",
     "PHONE_NUMBER": "เบอร์โทรศัพท์",
     "EMAIL": "อีเมล",
@@ -147,6 +149,7 @@
     "SUB_DUE_MONEY": "% ของทุนประกัน",
     "LAST_YEAR_INSURANCE_MONEY": "เงินคืนสิ้นปีกรมธรรม์",
     "DEATH_COVERAGE": "ผลประโยชน์เมื่อถึงแก่กรรม",
+    "COMMISSION": "ค่าบำเหน็จ",
     "ERROR_RESPONSE_TEXT": "กรุณากรอกข้อมูลให้ครบถ้วน"
   },
   "POLICY_PROTECTION": {

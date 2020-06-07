@@ -41,8 +41,14 @@
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.FULL_NAME'  | translate }}</ion-label>
-          <ion-input [(ngModel)]="user.Name"></ion-input>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.FIRST_NAME'  | translate }}</ion-label>
+          <ion-input [(ngModel)]="user.FirstName"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">{{ 'REGISTER_GENERAL.LAST_NAME'  | translate }}</ion-label>
+          <ion-input [(ngModel)]="user.LastName"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">

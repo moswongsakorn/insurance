@@ -17,7 +17,7 @@
   <ion-list>
     <ion-item *ngFor="let user of userAgentList;index as i; " detail="true" button="true" (click)="userAgentInformation(user?.Uid)">
       <ion-label>
-        {{i+1}}. {{user?.Name}}
+        {{i+1}}. {{user?.FirstName}} {{user?.LastName}}
       </ion-label>
     </ion-item>
   </ion-list>

@@ -42,6 +42,7 @@ export class RegisterAgentMemberUserPage implements OnInit {
     }
 
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
+    console.log("IdCard is same ", idCardIsExist)
     if (idCardIsExist) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");

@@ -8,6 +8,7 @@ import { UiService } from '../services/ui.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AddPolicyRepayGeneralUserPage } from '../add-policy-repay-general-user/add-policy-repay-general-user.page';
 import { LengthYearAmount } from '../interfaces/LengthYearAmount';
+import { UserCrudModel } from '../interfaces';
 
 @Component({
   selector: 'app-add-policy-general-user',
@@ -17,6 +18,7 @@ import { LengthYearAmount } from '../interfaces/LengthYearAmount';
 export class AddPolicyGeneralUserPage implements OnInit {
 
   public policy: PolicyCrudModel = new PolicyCrudModel();
+  public userProfile: UserCrudModel = new UserCrudModel();
 
   constructor(
     private DataCenterService: DataCenterService,
@@ -31,6 +33,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   async ionViewDidEnter() {
+    this.userProfile = this.DataCenterService.GetThisUserProfile();
+    
     this.policy = this.DataCenterService.ClonePolicyDetail();
     console.log('add policy', this.policy);
   }
@@ -42,15 +46,13 @@ export class AddPolicyGeneralUserPage implements OnInit {
     this.policy.Pin = userProfile.Pin;
     var isValid = this.policy.ValidateModel();
     if (isValid.status) {
-      var result = await this.PolicyService.InsertPolicy(this.policy);
-      console.log('result', result)
-      this.uiService.presentAlert(result.detail)
-      this.NavController.navigateBack(['policy-list-general-user'])
+      this.DataCenterService.SetPolicyDetail(this.policy);
+      this.NavController.navigateForward(['add-policy-confirm-general-user']);
+
     }
     else {
       const errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
       await this.uiService.presentAlert(errorText);
-      console.log(isValid);
     }
   }
 
@@ -79,7 +81,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       modal.onDidDismiss().then(result => {
         if (result.data == false) {
           lengthYearAmount = oldData;
-          console.log("---- >",lengthYearAmount)
+          console.log("---- >", lengthYearAmount)
         }
         else {
           switch (result.data.name) {
@@ -96,7 +98,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
           }
         }
 
-         console.log("Modal dismiss ----- >", this.policy)
+        console.log("Modal dismiss ----- >", this.policy)
       })
 
       return await modal.present();

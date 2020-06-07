@@ -158,10 +158,19 @@
         </ion-button>
       </ion-col>
     </ion-row>
+
     <ion-row>
       <ion-col>
         <ion-button color="medium" expand="block" shape="round" (click)="ModalOfPolicy('ProtectList',policy.ProtectList)">
           {{ 'ADD_POLICY.DEATH_COVERAGE' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="userProfile.Role == 'master'">
+      <ion-col>
+        <ion-button color="medium" expand="block" shape="round" (click)="ModalOfPolicy('ComissionList',policy.ComissionList)">
+          {{ 'ADD_POLICY.COMMISSION' | translate }}
         </ion-button>
       </ion-col>
     </ion-row>

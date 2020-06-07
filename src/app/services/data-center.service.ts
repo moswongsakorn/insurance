@@ -53,7 +53,7 @@ export class DataCenterService {
     return this.ThisUserProfile;
   }
 
-  
+
 
   public SetPolicyDetail(policy: PolicyCrudModel): void {
     this.policy = policy;
@@ -69,5 +69,4 @@ export class DataCenterService {
     clone.MapData(this.policy);
     return clone;
   }
-
 }

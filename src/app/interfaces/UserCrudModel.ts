@@ -4,7 +4,9 @@ export class UserCrudModel {
     public IdCard: string;
     public PrefixName: string;
     public SpecificPrefixName: string;
-    public Name: string;
+    // public Name: string;
+    public FirstName: string;
+    public LastName: string;
     public BirthDay: string;
     public Telephone: string;
     public Email: string;
@@ -20,10 +22,10 @@ export class UserCrudModel {
     }
 
     public IsValidModel(): Boolean {
-        if (this.IdCard == null || this.PrefixName == null || this.Name == null ||
+        if (this.IdCard == null || this.PrefixName == null || this.FirstName == null || this.LastName == null ||
             this.BirthDay == null || this.Telephone == null || this.Email == null ||
-            this.Password == null || this.Pin == null || 
-            this.IdCard == "" || this.PrefixName == "" || this.Name == "" ||
+            this.Password == null || this.Pin == null ||
+            this.IdCard == "" || this.PrefixName == "" || this.FirstName == "" || this.LastName == "" ||
             this.BirthDay == "" || this.Telephone == "" || this.Email == "" ||
             this.Password == "" || this.Pin == "") {
             return false;
@@ -44,7 +46,9 @@ export class UserCrudModel {
         this.IdCard = data.IdCard;
         this.PrefixName = data.PrefixName;
         this.SpecificPrefixName = data.SpecificPrefixName;
-        this.Name = data.Name;
+        // this.Name = data.Name;
+        this.FirstName = data.FirstName;
+        this.LastName = data.LastName;
         this.BirthDay = data.BirthDay;
         this.Telephone = data.Telephone;
         this.Email = data.Email;

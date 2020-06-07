@@ -38,7 +38,7 @@ export class UserAgentListPage implements OnInit {
 
   Searchbar(event) {
     let searchData = this.userAgentListForSearch.filter((value, key) => {
-      let val = value.Name;
+      let val = value.FirstName + " " + value.LastName;
       if (val.search(event.detail.value) == -1) {
         return false;
       } else {
@@ -49,7 +49,7 @@ export class UserAgentListPage implements OnInit {
   }
 
   back() {
-    this.NavController.back();
+    this.NavController.navigateBack("policy-list-general-user");
   }
 
   userAgentInformation(uid: string) {

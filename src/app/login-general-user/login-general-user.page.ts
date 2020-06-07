@@ -31,7 +31,7 @@ export class LoginGeneralUserPage implements OnInit {
 
   public async Login() {
     this.UiService.presentLoading() //Present Loading
-    var isCanLogin = this.userService.IsCanLogin(this.user.Email, MagicNumber.quest);
+    var isCanLogin = await this.userService.IsCanLogin(this.user.Email, MagicNumber.quest);
     if (!isCanLogin) {
       this.UiService.dismissLoading() //Dismiss Loading
       const resultText: string = this.translateService.instant('GENERAL_LOGIN.FAIL_LOGIN');

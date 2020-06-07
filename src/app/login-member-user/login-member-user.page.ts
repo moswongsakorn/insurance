@@ -29,9 +29,13 @@ export class LoginMemberUserPage implements OnInit {
   public async Login() {
     this.UiService.presentLoading() //Present Loading
 
-    var isCanLoginMaster = this.userService.IsCanLogin(this.user.Email, MagicNumber.master);
-    var isCanLoginUser = this.userService.IsCanLogin(this.user.Email, MagicNumber.user);
-    if (!isCanLoginMaster || !isCanLoginUser) {
+    var isCanLoginMaster = await this.userService.IsCanLogin(this.user.Email, MagicNumber.master);
+    var isCanLoginUser = await this.userService.IsCanLogin(this.user.Email, MagicNumber.user);
+
+    console.log("-----**",this.user.Email);
+    console.log("master-----**",isCanLoginMaster);
+    console.log("user-----**",isCanLoginUser);
+    if (!isCanLoginMaster && !isCanLoginUser) {
       this.UiService.dismissLoading() //Dismiss Loading
       const resultText: string = this.translateService.instant('GENERAL_LOGIN.FAIL_LOGIN');
       this.UiService.presentAlert(resultText)

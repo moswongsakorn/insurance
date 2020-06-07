@@ -1,230 +1,237 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>ข้อมูลแบบประกัน</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'POLICY_DETAIL.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid class="ion-margin">
     <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
+      </ion-col>
       <ion-col>
-        <div>ชื่อบริษัท</div>
-      </ion-col>
-      <ion-col class="ion-text-end">
-        <div>ไทยประกันชีวิต</div>
+        {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
+        policy?.CompanyName}}
       </ion-col>
     </ion-row>
 
     <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
+      </ion-col>
       <ion-col>
-        <div>ชื่อแบบประกัน</div>
-      </ion-col>
-      <ion-col class="ion-text-end">
-        <div>ธนทวี 10/5</div>
+        {{policy.PolicyName}}
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col size="6">
-        <div>จำนวนปีที่คุ้มครอง</div>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}</div>
       </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div>10</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>ปี</div>
+      <ion-col class="ion-align-self-center">
+        <div>{{policy.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col size="6">
-        <div>จำนวนปีที่จ่ายเบี้ย</div>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
       </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div>5</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>ปี</div>
+      <ion-col class="ion-align-self-center">
+        <div>{{policy.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col size="6">
-        <div>ทุนประกัน</div>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
       </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div>1,000,000</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>บาท</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6">
-        <div>เบี้ยประกัน</div>
-      </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div>99,000</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>บาท</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6">
-        <div>ลดหย่อนภาษี</div>
-      </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div></div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>ได้</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6">
-        <div>ประกันสุขภาพ</div>
-      </ion-col>
-      <ion-col size="4" class="ion-text-end">
-        <div></div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-center">
-        <div>ไม่ได้</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="6">
-        <div>เงินครบกำหนดสัญญา</div>
-      </ion-col>
-      <ion-col size="6" class="ion-text-center">
-        <div>500 % ของเงินประกัน</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-text-center ion-margin-top">
-        <div>เงินจ่ายคืนสินปีกรมธรรม์</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="6" style="display: flex;">
-        <div style="width: 15%;" class="ion-align-self-center">
-          ปีที่
-        </div>
-        <div style="width: 25%;" class="ion-text-center">
-          1
-        </div>
-        <div style="width: 15%;" class="ion-align-self-center">
-          ถึง
-        </div>
-        <div style="width: 25%;"  class="ion-text-center">
-          10
+      <ion-col class="ion-align-self-center">
+        <div style="width: 100%;">
+          {{policy.SumInsured}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
-      <ion-col size="6" class="ion-text-center">
-        10 % ของทุนประกัน
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div style="width: 100%;">
+          {{policy.InsurancePremium}} {{ 'CODE.BATH' | translate }}
+        </div>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-text-center ion-margin-top">
-        <div>เงินคุ้มครองเมื่อเสียชีวิต</div>
+      <ion-col size="6" class="ion-align-self-center" size="7">
+        <div>
+          {{ 'POLICY_DETAIL.TAX_DEDUCT' | translate }}
+        </div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div>
+          {{(policy.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
+        </div>
       </ion-col>
     </ion-row>
 
-    <div *ngFor="let item of items;let i = index">
-      <ion-row class="ion-justify-content-between ion-align-items-center">
-        <ion-col size="6" style="display: flex;">
-          <div style="width: 15%;" class="ion-align-self-center">
-            ปีที่
-          </div>
-          <div style="width: 25%;" class="ion-text-center">
-            {{i+1}}
-          </div>
-          <div style="width: 15%;" class="ion-align-self-center">
-           
-          </div>
-          <div style="width: 25%;"  class="ion-text-center">
-            
-          </div>
-        </ion-col>
-        <ion-col size="6" class="ion-text-center">
-         {{(i+1)*100}} % ของทุนประกัน
-        </ion-col>
-      </ion-row>
-    </div>
-    
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>
+          {{ 'POLICY_DETAIL.HEALTH_CARE' | translate }}
+        </div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div>
+          {{(policy.IsHealtht ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center" size="7">
+        <div>
+          {{ 'POLICY_DETAIL.DUE_MONEY' | translate }}
+        </div>
+      </ion-col>
+      <ion-col class="ion-align-self-center">
+        <div>
+          {{policy.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <div class="ion-text-center ion-margin-top">
+          {{ 'POLICY_DETAIL.LAST_YEAR_INSURANCE_MONEY' | translate }}
+        </div>
+        <br>
+        <ion-row *ngFor="let item of policy.ReturnList ; let i = index;"
+          class="ion-justify-content-between ion-align-items-center">
+          <ion-col size="5" style="display: flex;">
+            <div style="width: 25%;" class="ion-align-self-center">
+              {{ 'POLICY_REPAY.YEAR_AT' | translate }}
+            </div>
+            <div style="width: 15%;">
+              {{item.Start}}
+            </div>
+            <div style="width: 20%;" class="ion-align-self-center" *ngIf="item.IsRange">
+              {{ 'POLICY_REPAY.TO' | translate }}
+            </div>
+            <div style="width: 25%;" *ngIf="item.IsRange">
+              {{item.End}}
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div>
+              {{item.Amount}}
+            </div>
+          </ion-col>
+          <ion-col size="5" class="ion-align-self-center ion-justify-content-end">
+            {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-align-self-center">
+        <div class="ion-text-center ion-margin-top">
+          {{ 'POLICY_DETAIL.DEATH_COVERAGE' | translate }}
+        </div>
+        <br>
+        <ion-row *ngFor="let item of policy.ProtectList ; let i = index;"
+          class="ion-justify-content-between ion-align-items-center">
+          <ion-col size="5" style="display: flex;">
+            <div style="width: 25%;" class="ion-align-self-center">
+              {{ 'POLICY_REPAY.YEAR_AT' | translate }}
+            </div>
+            <div style="width: 15%;">
+              {{item.Start}}
+            </div>
+            <div style="width: 20%;" class="ion-align-self-center" *ngIf="item.IsRange">
+              {{ 'POLICY_REPAY.TO' | translate }}
+            </div>
+            <div style="width: 25%;" *ngIf="item.IsRange">
+              {{item.End}}
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div>
+              {{item.Amount}}
+            </div>
+          </ion-col>
+          <ion-col size="5" class="ion-align-self-center ion-justify-content-end">
+            {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
+    </ion-row>
+
+    <ion-row *ngIf="userProfile.Role == 'master'">
+      <ion-col class="ion-align-self-center">
+        <div class="ion-text-center ion-margin-top">
+          {{ 'ADD_POLICY.COMMISSION' | translate }}
+        </div>
+        <br>
+        <ion-row *ngFor="let item of policy.ComissionList ; let i = index;"
+          class="ion-justify-content-between ion-align-items-center">
+          <ion-col size="5" style="display: flex;">
+            <div style="width: 25%;" class="ion-align-self-center">
+              {{ 'POLICY_REPAY.YEAR_AT' | translate }}
+            </div>
+            <div style="width: 15%;">
+              {{item.Start}}
+            </div>
+            <div style="width: 20%;" class="ion-align-self-center" *ngIf="item.IsRange">
+              {{ 'POLICY_REPAY.TO' | translate }}
+            </div>
+            <div style="width: 25%;" *ngIf="item.IsRange">
+              {{item.End}}
+            </div>
+          </ion-col>
+          <ion-col size="2">
+            <div>
+              {{item.Amount}}
+            </div>
+          </ion-col>
+          <ion-col size="5" class="ion-align-self-center ion-justify-content-end">
+            {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
+    </ion-row>
 
     <ion-row class="ion-margin-top">
-      <ion-col size="10">
-        <div>อัตราผลตอบแทนภายใน(IRR)</div>
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button expand="block" shape="round" (click)="Edit()">
+          {{ 'CODE.EDIT' | translate }}
+        </ion-button>
       </ion-col>
-      <ion-col size="2" class="ion-text-end">
-        <div>2.63</div>
-      </ion-col>
+      <ion-col size="2"></ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col size="10">
-        <div>อัตราความคุ้มครอง</div>
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button expand="block" shape="round" (click)="Save()">
+          {{ 'CODE.CONFIRM' | translate }}
+        </ion-button>
       </ion-col>
-      <ion-col size="2" class="ion-text-end">
-        <div>0.25</div>
-      </ion-col>
+      <ion-col size="2"></ion-col>
     </ion-row>
-
-    <ion-row>
-      <ion-col size="10">
-        <div>ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบี้ยครบ</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-end">
-        <div>1.06</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="10">
-        <div>ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบี้ยครบ</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-end">
-        <div>1.15</div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="10">
-        <div>อัตราความคุ้มค่า</div>
-      </ion-col>
-      <ion-col size="2" class="ion-text-end">
-        <div>1</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-text-center ion-margin-top">
-        <div style="text-decoration: underline;font-size: 22px;">ต้องการยืนยันข้อมูลข้างต้นใช่หรือไม่</div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-around ion-margin-top">
-      <ion-col size="10">
-        <ion-button expand="block" shape="round"   (click)="Login()"
-          >ใช่</ion-button
-        >
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-around">
-      <ion-col size="10">
-        <ion-button expand="block" color="medium" shape="round"   (click)="Login()"
-          >ไม่ใช่</ion-button
-        >
-      </ion-col>
-    </ion-row>
-
   </ion-grid>
 </ion-content>
+
+<ion-footer> </ion-footer>

@@ -256,6 +256,9 @@ export class UserServiceService {
       if (!value.exists()) return false;
       var data = this.ValueChange(value.val());
       var userModel = data.map(data => data as UserCrudModel);
+
+      console.log("IdCardIsExist ",userModel);
+
       for (let i = 0; i < userModel.length; i++) {
         if (userModel[i].Role == role) return true;
 
@@ -264,10 +267,8 @@ export class UserServiceService {
         ) {
           return true;
         }
-
-        return false;
-
       }
+      return false;
     } catch (error) {
       return true;
     }
@@ -283,6 +284,7 @@ export class UserServiceService {
       for (let i = 0; i < userModel.length; i++) {
         if (userModel[i].Role == role) return true;
       }
+      return false;
     } catch (error) {
       return false;
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataCenterService } from '../services/data-center.service';
-import { PolicyCrudModel } from '../interfaces';
+import { PolicyCrudModel, UserCrudModel } from '../interfaces';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,6 +13,8 @@ export class PolicyDetailPage implements OnInit {
 
 
   public policy: PolicyCrudModel = new PolicyCrudModel();
+  public userProfile: UserCrudModel = new UserCrudModel();
+
   constructor(
     private DataCenterService: DataCenterService,
     private NavController: NavController,
@@ -23,6 +25,8 @@ export class PolicyDetailPage implements OnInit {
   }
 
   async ionViewDidEnter() {
+    this.userProfile = this.DataCenterService.GetThisUserProfile();
+
     this.policy = this.DataCenterService.GetPolicyDetail();
   }
 

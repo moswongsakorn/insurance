@@ -40,6 +40,8 @@
     "MISS": "Miss",
     "Other": "Other, Please Specify",
     "FULL_NAME": "First Name Last Name",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",
     "EMAIL": "Email",
@@ -147,6 +149,7 @@
     "SUB_DUE_MONEY": "% of the Sum Insured",
     "LAST_YEAR_INSURANCE_MONEY": "Annual Cash Return of ",
     "DEATH_COVERAGE": "Death Benefit",
+    "COMMISSION": "Commission",
     "ERROR_RESPONSE_TEXT": "Please complete all information."
   },
   "POLICY_PROTECTION": {
