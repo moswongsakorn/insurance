@@ -52,7 +52,7 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-          {{ 'POLICY_SEARCH.TEXT_YEAR_PROTECTION'  | translate }}
+          {{ 'POLICY_SEARCH.COVERAGE'  | translate }}
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -63,21 +63,6 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="10" style="display: flex;">
-        <div style="width: 80%;" class="ion-align-self-center">
-          {{ 'POLICY_SEARCH.TEXT_YEAR_PAID'  | translate }}
-        </div>
-        <div style="width: 20%;">
-          <ion-input class="input-fild" type="number"></ion-input>
-        </div>
-      </ion-col>
-      <ion-col size="2" class="ion-align-self-center">
-        <div>
-          %
-        </div>
-      </ion-col>
-    </ion-row>
 
     <ion-row class="ion-justify-content-between ion-margin-bottom">
       <ion-col class="ion-align-self-center">
@@ -86,7 +71,7 @@
             >
             {{ 'POLICY_SEARCH.TEXT_DETAIL_1'  | translate }}
           </span>
-          <span class="ion-padding">
+          <span class="ion-padding" style="padding: 0;">
             <ion-checkbox
               mode="ios"
               checked="true"
