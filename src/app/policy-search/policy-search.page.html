@@ -93,9 +93,9 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+            <ion-checkbox mode="ios" color="primary" [disabled]="!option_1_1" (click)="option_1_Click('not','1')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center">
+          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
@@ -103,9 +103,9 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+            <ion-checkbox mode="ios" color="primary" [disabled]="!option_1_2" (click)="option_1_Click('have','1')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center">
+          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_2}">
             {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>
@@ -122,9 +122,9 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+            <ion-checkbox mode="ios" color="primary" [disabled]="!option_2_1" (click)="option_1_Click('not','2')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center">
+          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
@@ -132,9 +132,9 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-            <ion-checkbox mode="ios" color="primary"></ion-checkbox>
+            <ion-checkbox mode="ios" color="primary" [disabled]="!option_2_2" (click)="option_1_Click('have','2')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center">
+          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_2}">
             {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>
