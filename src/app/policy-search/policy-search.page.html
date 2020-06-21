@@ -52,7 +52,6 @@
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
-<<<<<<< HEAD
           {{ 'POLICY_SEARCH.TEXT_WORTH_RATE'  | translate }}
         </div>
         <div style="width: 20%;">
@@ -70,9 +69,6 @@
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
           {{ 'POLICY_SEARCH.TEXT_YEAR_PROTECTION'  | translate }}
-=======
-          {{ 'POLICY_SEARCH.COVERAGE'  | translate }}
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
         </div>
         <div style="width: 20%;">
           <ion-input class="input-fild" type="number"></ion-input>
@@ -83,7 +79,6 @@
       </ion-col>
     </ion-row>
 
-<<<<<<< HEAD
     <ion-row class="ion-justify-content-between ion-align-items-center">
       <ion-col size="10" style="display: flex;">
         <div style="width: 80%;" class="ion-align-self-center">
@@ -99,8 +94,6 @@
         </div>
       </ion-col>
     </ion-row> -->
-=======
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
 
     <ion-row class="ion-justify-content-between ion-margin-bottom">
       <ion-col class="ion-align-self-center">
@@ -131,11 +124,8 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-<<<<<<< HEAD
-            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductFalse"></ion-checkbox>
-=======
-            <ion-checkbox mode="ios" color="primary" [disabled]="!option_1_1" (click)="option_1_Click('not','1')"></ion-checkbox>
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+            <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductFalse"></ion-checkbox> -->
+            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductFalse" [disabled]="!option_1_1" (click)="option_1_Click('not','1')"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
@@ -145,11 +135,8 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-<<<<<<< HEAD
-            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductTrue"></ion-checkbox>
-=======
-            <ion-checkbox mode="ios" color="primary" [disabled]="!option_1_2" (click)="option_1_Click('have','1')"></ion-checkbox>
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+            <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductTrue"></ion-checkbox> -->
+            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductTrue" [disabled]="!option_1_2" (click)="option_1_Click('have','1')"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_2}">
             {{ 'CODE.HAVE'  | translate }}
@@ -168,11 +155,8 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-<<<<<<< HEAD
-            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthFalse"></ion-checkbox>
-=======
-            <ion-checkbox mode="ios" color="primary" [disabled]="!option_2_1" (click)="option_1_Click('not','2')"></ion-checkbox>
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+            <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthFalse"></ion-checkbox> -->
+            <ion-checkbox mode="ios" color="primary"  [(ngModel)]="SearchModel.isHealthFalse" [disabled]="!option_2_1" (click)="option_1_Click('not','2')"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
@@ -182,11 +166,8 @@
       <ion-col size="4">
         <div style="display: flex;">
           <div style="width: 30%;">
-<<<<<<< HEAD
-            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthTrue"></ion-checkbox>
-=======
-            <ion-checkbox mode="ios" color="primary" [disabled]="!option_2_2" (click)="option_1_Click('have','2')"></ion-checkbox>
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+            <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthTrue"></ion-checkbox> -->
+            <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthTrue" [disabled]="!option_2_2" (click)="option_1_Click('have','2')"></ion-checkbox>
           </div>
           <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_2}">
             {{ 'CODE.HAVE'  | translate }}

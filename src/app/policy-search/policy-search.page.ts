@@ -1,13 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController } from "@ionic/angular";
-<<<<<<< HEAD
-import { TranslateService } from '@ngx-translate/core';
 import { SearchModel } from '../interfaces/SearchModel';
 import { DataCenterService } from '../services/data-center.service';
 import { UiService } from '../services/ui.service';
-=======
 import { TranslateService } from "@ngx-translate/core";
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
 
 @Component({
   selector: "app-policy-search",
@@ -15,7 +11,6 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./policy-search.page.scss"],
 })
 export class PolicySearchPage implements OnInit {
-<<<<<<< HEAD
 
   public SearchModel: SearchModel = new SearchModel();
 
@@ -25,17 +20,15 @@ export class PolicySearchPage implements OnInit {
     private DataCentorService: DataCenterService,
     private uiService: UiService
   ) { }
-=======
   option_1_1: boolean = true;
   option_1_2: boolean = true;
   option_2_1: boolean = true;
   option_2_2: boolean = true;
 
-  constructor(
-    private NavController: NavController,
-    private translateService: TranslateService
-  ) {}
->>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+  // constructor(
+  //   private NavController: NavController,
+  //   private translateService: TranslateService
+  // ) {}
 
   ngOnInit() {}
 
