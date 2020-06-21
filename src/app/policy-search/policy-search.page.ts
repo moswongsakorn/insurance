@@ -1,9 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController } from "@ionic/angular";
+<<<<<<< HEAD
 import { TranslateService } from '@ngx-translate/core';
 import { SearchModel } from '../interfaces/SearchModel';
 import { DataCenterService } from '../services/data-center.service';
 import { UiService } from '../services/ui.service';
+=======
+import { TranslateService } from "@ngx-translate/core";
+>>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
 
 @Component({
   selector: "app-policy-search",
@@ -11,6 +15,7 @@ import { UiService } from '../services/ui.service';
   styleUrls: ["./policy-search.page.scss"],
 })
 export class PolicySearchPage implements OnInit {
+<<<<<<< HEAD
 
   public SearchModel: SearchModel = new SearchModel();
 
@@ -20,9 +25,19 @@ export class PolicySearchPage implements OnInit {
     private DataCentorService: DataCenterService,
     private uiService: UiService
   ) { }
+=======
+  option_1_1: boolean = true;
+  option_1_2: boolean = true;
+  option_2_1: boolean = true;
+  option_2_2: boolean = true;
 
-  ngOnInit() {
-  }
+  constructor(
+    private NavController: NavController,
+    private translateService: TranslateService
+  ) {}
+>>>>>>> 5d8b57dfe453347b2f970db10ce3b8e6e08e8feb
+
+  ngOnInit() {}
 
   async searchPolicy() {
     console.log(this.SearchModel)
@@ -45,6 +60,28 @@ export class PolicySearchPage implements OnInit {
     else {
       this.DataCentorService.SetSearchModel(this.SearchModel);
       this.NavController.navigateForward(["policy-search-result"]);
+    }
+  }
+
+  option_1_Click(option, question) {
+    //toggel optopn 1 ลดหย่อนภาษี
+    if (question === "1") {
+      if (option === "not") {
+        this.option_1_2 = !this.option_1_2;
+      }
+      if (option === "have") {
+        this.option_1_1 = !this.option_1_1;
+      }
+    }
+
+    //toggel optopn 2 ประกันสุขภาพ
+    if (question === "2") {
+      if (option === "not") {
+        this.option_2_2 = !this.option_2_2;
+      }
+      if (option === "have") {
+        this.option_2_1 = !this.option_2_1;
+      }
     }
   }
 }
