@@ -204,7 +204,11 @@
     "EMPLOYEE": "(Insurance) Agent"
   },
   "CHANGE_PASSWORD": {
-    "TITLE": "Change Password."
+    "TITLE": "Change Password.",
+    "PASSWORD_ERROR_TEXT_1":"Please fill out all information.",
+    "PASSWORD_ERROR_TEXT_2":"Please enter a password of at least 6 characters.",
+    "PASSWORD_ERROR_TEXT_3":"New passwords do not match",
+    "PASSWORD_SUCCESS_TEXT":"Password changed successfully"
   },
   "COMPANY_DATA": {
     "Bangkok_Life_Assurance": "Bangkok Life Assurance",
@@ -219,7 +223,7 @@
     "Bui_Life_Insurance": "Bui Life Insurance",
     "MBK_Life_Assurance": "MBK Life Assurance",
     "Prudential_Life_Assurance": "Prudential Life Assurance",
-    "Phillip_Life_Assurance ": "Phillip Life Assurance",
+    "Phillip_Life_Assurance": "Phillip Life Assurance",
     "Muang_Thai_Life_Assurance": "Muang Thai Life Assurance",
     "Manulife": "Manulife",
     "Thai_Samsung_Life_Insurance": "Thai Samsung Life Insurance",

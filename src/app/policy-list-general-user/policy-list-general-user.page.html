@@ -23,7 +23,7 @@
     <ion-list>
       <ion-item *ngFor="let policy of policyList;index as i; " (click)="PolicyDetail(policy)" >
         <ion-label>
-          {{i+1}}. {{policy?.CompanyName=='specific' ? policy?.SpecificCampany: 'COMPANY_DATA.'+policy?.CompanyName | translate}}
+          {{i+1}}. {{policy?.CompanyName=='specific' ? (policy?.SpecificCampany | translate ): ('COMPANY_DATA.'+policy?.CompanyName | translate)}}
           {{policy?.PolicyName}}
         </ion-label>
       </ion-item>
