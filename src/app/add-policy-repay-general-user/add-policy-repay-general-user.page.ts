@@ -28,6 +28,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   @Input('thisLengthYearAmountList') thisLengthYearAmountList: LengthYearAmount[];
 
 
+  public Title: string = "";
+
   ngOnInit() {
 
   }
@@ -42,6 +44,20 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       var lengthYearAmount2 = new LengthYearAmount();
       lengthYearAmount2.IsRange = true;
       this.lengthYearAmountList.push(lengthYearAmount2);
+    }
+
+    if (this.name == 'ReturnList') {
+      this.Title = this.translateService.instant("ADD_POLICY.LAST_YEAR_INSURANCE_MONEY");
+    }
+
+    else if (this.name == 'ComissionList') {
+      this.Title = this.translateService.instant("ADD_POLICY.COMMISSION");
+
+    }
+
+    else if (this.name == 'ProtectList') {
+      this.Title = this.translateService.instant("ADD_POLICY.DEATH_COVERAGE");
+
     }
   }
 
@@ -73,7 +89,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      if (this.name != 'ReturnList' && element.End > this.yearToPaid) {
+      if (this.name != 'ReturnList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
         let errorText = errorText1 + this.yearToPaid + errorText2;
@@ -93,7 +109,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      if (this.name == 'ComissionList' && element.End > this.yearToPaid) {
+      if (this.name == 'ProtectList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
         let errorText = errorText1 + this.yearToPaid + errorText2;
@@ -113,7 +129,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       if (element.Start == null || element.Start == 0 ||
         element.End == null || element.End == 0 ||
-        element.Amount == null || element.Amount == 0) {
+        element.Amount == null ) {
         let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_3");
         // errorText = "กรุณากรอกข้อมูลให้ครบถ้วน";
         await this.uiService.presentAlert(errorText);

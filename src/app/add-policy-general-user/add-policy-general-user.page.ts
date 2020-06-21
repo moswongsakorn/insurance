@@ -19,7 +19,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
   public policy: PolicyCrudModel = new PolicyCrudModel();
   public userProfile: UserCrudModel = new UserCrudModel();
-
+  public companyData = new Array<string>();
   constructor(
     private DataCenterService: DataCenterService,
     private PolicyService: PolicyService,
@@ -33,6 +33,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   async ionViewDidEnter() {
+    this.companyData = this.DataCenterService.GetCompanyData();
+
     this.userProfile = this.DataCenterService.GetThisUserProfile();
     
     this.policy = this.DataCenterService.ClonePolicyDetail();
@@ -40,7 +42,6 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   public async Save() {
-    console.log(this.policy)
     if (this.policy.CompanyName != 'specific') this.policy.SpecificCampany = "";
     var userProfile = this.DataCenterService.GetThisUserProfile();
     this.policy.Pin = userProfile.Pin;
@@ -58,8 +59,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
 
   public async ModalOfPolicy(name: string, lengthYearAmount: LengthYearAmount[]) {
-
-    var isValid = this.policy.ValidateModel();
+    var isValid = this.policy.ValidateData();
     if (!isValid.status) {
       const errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
       await this.uiService.presentAlert(errorText);

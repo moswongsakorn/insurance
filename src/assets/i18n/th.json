@@ -173,8 +173,13 @@
   },
   "POLICY_SEARCH": {
     "TITLE": "ความต้องการ",
-    "SUB_TITLE": "*ผลรวมทั้งหมดเท่ากับ 100%",
+    "SUB_TITLE": "ผลรวมทั้งหมดต้องเท่ากับ 100%",
     "TEXT_IRR": "อัตราผลตอบแทนภายใน IRR",
+    "TEXT_IRR_AGENT": "อัตราผลตอบแทนภายใน IRR (ตัวแทน)",
+    "TEXT_WORTH_RATE": "อัตราความคุ้มค่า ",
+    "TEXT_AVERAGE_RATE_COVERAGE_BEFORE": "ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบี้ยครบ",
+    "TEXT_AVERAGE_RATE_COVERAGE_AFTER": "ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบี้ยครบ",
+    "TEXT_PROTECT_RATE": "อัตราความคุ้มครอง",
     "TEXT_PROTECTION": "ความคุ้มครอง",
     "TEXT_YEAR_PROTECTION": "ระยะเวลาคุ้มครอง (ปี)",
     "TEXT_YEAR_PAID": "จำนวนเงินเบี้ยประกันต่อปี",
@@ -193,5 +198,32 @@
   },
   "CHANGE_PASSWORD":{
     "TITLE":"เปลี่ยนรหัสผ่าน"
+  },
+  "COMPANY_DATA": {
+    "Bangkok_Life_Assurance": "กรุงเทพประกันชีวิต",
+    "Krungthai_AXA_Life_Insurance": "กรุงไทยแอกซ่าประกันชีวิต",
+    "Generali_Life_Assurance": "เจนเนอราลี่ประกันชีวิต",
+    "Tokio_Marine_Life_Insurance": "โตเกียวมารีนประกันชีวิต",
+    "Thai_Cardif_Assurance": "ไทยคาร์ดิฟประกันชีวิต ",
+    "SCB_Life_Assurance": "ไทยพาณิชย์ประกันชีวิต",
+    "Thai_Life_Insurance": "กรุงไทยแอกซ่าประกันชีวิต",
+    "Thaire_Life_assurance": "ไทยรีประกันชีวิต",
+    "Ocean_Life_Insurance": "ไทยสมุทรประกันชีวิต",
+    "Bui_Life_Insurance": "บางกอกสหประกันชีวิต",
+    "MBK_Life_Assurance": "เอ็มบีเคไลฟ์ประกันชีวิต (ชื่อเดิม ประกันชีวิตนครหลวง)",
+    "Prudential_Life_Assurance": "พรูเด็นเชียลประกันชีวิต",
+    "Phillip_Life_Assurance ": "ฟิลลิปประกันชีวิต",
+    "Muang_Thai_Life_Assurance": "เมืองไทยประกันชีวิต",
+    "Manulife": "แมนูไลฟ์ประกันชีวิต",
+    "Thai_Samsung_Life_Insurance": "ไทยซัมซุงประกันชีวิต",
+    "Dhipaya_Life_Assurance": "ทิพยประกันชีวิต",
+    "Union_Life_Insurance": "สหประกันชีวิต",
+    "AIA": "เอไอเอ",
+    "Allianz_Ayudhya_Assurance": "อลิอันซ์อยุธยาประกันชีวิต",
+    "Chubb_Life_Assurance": "ชับบ์ไลฟ์แอสชัวรันซ์",
+    "Southeast_Life_Insurance": "อาคเนย์ประกันชีวิต",
+    "Advance_Life_Assurance": "แอ๊ดวานซ์ไลฟ์แอสชัวรันส์  ",
+    "FWD_Life_Insurance": "เอฟดับบลิวดีประกันชีวิต",
+    "specific": "อื่นๆ"
   }
 }

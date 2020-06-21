@@ -14,8 +14,7 @@
         {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
       </ion-col>
       <ion-col>
-        {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
-        policy?.CompanyName}}
+        {{policy?.CompanyName=='specific' ? policy?.SpecificCampany: 'COMPANY_DATA.'+policy?.CompanyName | translate}}
       </ion-col>
     </ion-row>
 
@@ -89,7 +88,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center">
         <div>
-          {{(policy.IsHealtht ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
+          {{(policy.IsHealth ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') | translate }}
         </div>
       </ion-col>
     </ion-row>

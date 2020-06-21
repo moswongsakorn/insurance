@@ -103,7 +103,7 @@
     "EMAIL": "Email",
     "PIN": "PIN",
     "PASSWORD": "Password",
-    "CHANGE_PASSWORD":"Change password"
+    "CHANGE_PASSWORD": "Change password"
   },
   "EDIT_PERSONAL_INFORMATION": {
     "TITLE": "Edit Personal Profile",
@@ -167,14 +167,19 @@
     "TO": "to Year ",
     "ONE_YEAR_ADD": "Add Single Policy Year",
     "RANGE_YEAR_ADD": "Add Continuous Policy Year",
-    "ERROR_TEXT_1":"Please fill in the correct information",
-    "ERROR_TEXT_2":"The number of years cannot exceed.",
-    "ERROR_TEXT_3":"Please complete all information."
+    "ERROR_TEXT_1": "Please fill in the correct information",
+    "ERROR_TEXT_2": "The number of years cannot exceed.",
+    "ERROR_TEXT_3": "Please complete all information."
   },
   "POLICY_SEARCH": {
     "TITLE": "Search",
     "SUB_TITLE": "The total sum must be 100%",
     "TEXT_IRR": "Internal Return of Rate (IRR) ",
+    "TEXT_IRR_AGENT": "Internal Return of Rate (IRR) of Agent ",
+    "TEXT_WORTH_RATE": "Worth rate ",
+    "TEXT_AVERAGE_RATE_COVERAGE_BEFORE": "Average Rate of Coverage before Premium Payment Period ",
+    "TEXT_AVERAGE_RATE_COVERAGE_AFTER": "Average Rate of Coverage after Premium Payment Period",
+    "TEXT_PROTECT_RATE": "Protect rate ",
     "TEXT_PROTECTION": "Protection",
     "TEXT_YEAR_PROTECTION": "Protection Period (Year)",
     "TEXT_YEAR_PAID": "Amount of insurance premium per year",
@@ -191,7 +196,34 @@
     "SUPERVISOR": "(Insurance) Agent Supervisor",
     "EMPLOYEE": "(Insurance) Agent"
   },
-  "CHANGE_PASSWORD":{
-    "TITLE":"Change Password."
+  "CHANGE_PASSWORD": {
+    "TITLE": "Change Password."
+  },
+  "COMPANY_DATA": {
+    "Bangkok_Life_Assurance": "Bangkok Life Assurance",
+    "Krungthai_AXA_Life_Insurance": "Krungthai-AXA Life Insurance",
+    "Generali_Life_Assurance": "Generali Life Assurance",
+    "Tokio_Marine_Life_Insurance": "Tokio Marine Life Insurance",
+    "Thai_Cardif_Assurance": "Thai Cardif Assurance ",
+    "SCB_Life_Assurance": "SCB Life Assurance",
+    "Thai_Life_Insurance": "Thai Life Insurance",
+    "Thaire_Life_assurance": "Thaire Life assurance",
+    "Ocean_Life_Insurance": "Ocean Life Insurance",
+    "Bui_Life_Insurance": "Bui Life Insurance",
+    "MBK_Life_Assurance": "MBK Life Assurance",
+    "Prudential_Life_Assurance": "Prudential Life Assurance",
+    "Phillip_Life_Assurance ": "Phillip Life Assurance",
+    "Muang_Thai_Life_Assurance": "Muang Thai Life Assurance",
+    "Manulife": "Manulife",
+    "Thai_Samsung_Life_Insurance": "Thai Samsung Life Insurance",
+    "Dhipaya_Life_Assurance": "Dhipaya Life Assurance",
+    "Union_Life_Insurance": "Union Life Insurance",
+    "AIA": "AIA",
+    "Allianz_Ayudhya_Assurance": "Allianz Ayudhya Assurance",
+    "Chubb_Life_Assurance": "Chubb Life Assurance",
+    "Southeast_Life_Insurance": "Southeast Life Insurance",
+    "Advance_Life_Assurance": "Advance Life Assurance  ",
+    "FWD_Life_Insurance": "FWD Life Insurance",
+    "specific": "Other"
   }
 }

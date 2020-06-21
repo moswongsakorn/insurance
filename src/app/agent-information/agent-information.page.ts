@@ -12,6 +12,8 @@ import { NavController } from '@ionic/angular';
 })
 export class AgentInformationPage implements OnInit {
 
+  public userProfile: UserCrudModel = new UserCrudModel();
+
   public user: UserCrudModel = new UserCrudModel();
   public userUid: string;
 
@@ -31,6 +33,8 @@ export class AgentInformationPage implements OnInit {
   }
 
   async ionViewDidEnter() {
+    this.userProfile = this.DataCenterService.GetThisUserProfile();
+
     this.UserService.GetUserProfilePromise(this.userUid)
       .then(user => {
         this.user = user;

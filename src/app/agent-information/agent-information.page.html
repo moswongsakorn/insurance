@@ -8,7 +8,7 @@
       <ion-button [routerLink]="['/edit-agent-information']">
         <ion-icon slot="icon-only" name="build"></ion-icon>
       </ion-button>
-      <ion-button (click)="removeUserPin()">
+      <ion-button *ngIf="userUid != userProfile.Uid" (click)="removeUserPin()">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>
     </ion-buttons>

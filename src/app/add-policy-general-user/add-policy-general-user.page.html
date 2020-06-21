@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button mode="ios" ></ion-back-button>
+      <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ 'ADD_POLICY.TITLE' | translate }}</ion-title>
   </ion-toolbar>
@@ -18,11 +18,8 @@
       <ion-col>
         <ion-select class="input-fild" [(ngModel)]="policy.CompanyName" okText="{{ 'CODE.OK'  | translate }}"
           cancelText="{{ 'CODE.CANCEL'  | translate }}">
-          <ion-select-option value="brown">Brown</ion-select-option>
-          <ion-select-option value="blonde">Blonde</ion-select-option>
-          <ion-select-option value="black">Black</ion-select-option>
-          <ion-select-option value="red">Red</ion-select-option>
-          <ion-select-option value="specific">อื่นๆ</ion-select-option>
+          <ion-select-option *ngFor="let company of companyData" value="{{company}}">{{'COMPANY_DATA.'+company | translate}}
+          </ion-select-option>
         </ion-select>
       </ion-col>
     </ion-row>
@@ -161,7 +158,8 @@
 
     <ion-row>
       <ion-col>
-        <ion-button color="medium" expand="block" shape="round" (click)="ModalOfPolicy('ProtectList',policy.ProtectList)">
+        <ion-button color="medium" expand="block" shape="round"
+          (click)="ModalOfPolicy('ProtectList',policy.ProtectList)">
           {{ 'ADD_POLICY.DEATH_COVERAGE' | translate }}
         </ion-button>
       </ion-col>
@@ -169,7 +167,8 @@
 
     <ion-row *ngIf="userProfile.Role == 'master'">
       <ion-col>
-        <ion-button color="medium" expand="block" shape="round" (click)="ModalOfPolicy('ComissionList',policy.ComissionList)">
+        <ion-button color="medium" expand="block" shape="round"
+          (click)="ModalOfPolicy('ComissionList',policy.ComissionList)">
           {{ 'ADD_POLICY.COMMISSION' | translate }}
         </ion-button>
       </ion-col>
