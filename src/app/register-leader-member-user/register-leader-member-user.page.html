@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button size="large" (click)="navController.back()">
-        <ion-icon slot="icon-only" name="chevron-back-outline" color="primary"></ion-icon>
+        <ion-icon slot="icon-only" name="chevron-back-outline" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title></ion-title>
@@ -15,13 +15,13 @@
     <ion-row>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.ID_CARD'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.ID_CARD'  | translate }}</ion-label>
           <ion-input inputmode="numeric" [(ngModel)]="user.IdCard"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.PREFIX_NAME'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.PREFIX_NAME'  | translate }}</ion-label>
           <ion-select [(ngModel)]="user.PrefixName">
             <ion-select-option value="{{ 'REGISTER_GENERAL.MR'  | translate }}">{{ 'REGISTER_GENERAL.MR'  | translate }}
             </ion-select-option>
@@ -35,44 +35,44 @@
       </ion-col>
       <ion-col size="12" *ngIf="user.PrefixName=='specific'">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.Other'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.Other'  | translate }}</ion-label>
           <ion-input [(ngModel)]="user.SpecificPrefixName"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.FIRST_NAME'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.FIRST_NAME'  | translate }}</ion-label>
           <ion-input [(ngModel)]="user.FirstName"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.LAST_NAME'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.LAST_NAME'  | translate }}</ion-label>
           <ion-input [(ngModel)]="user.LastName"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.BIRTH_DATE'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.BIRTH_DATE'  | translate }}</ion-label>
           <ion-datetime [(ngModel)]="user.BirthDay" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"
             value="2002-09-23T15:03:46.789"></ion-datetime>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.PHONE_NUMBER'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.PHONE_NUMBER'  | translate }}</ion-label>
           <ion-input inputmode="tel" [(ngModel)]="user.Telephone"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.EMAIL'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.EMAIL'  | translate }}</ion-label>
           <ion-input inputmode="email" [(ngModel)]="user.Email"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.PASSWORD'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.PASSWORD'  | translate }}</ion-label>
           <ion-input [type]="passwordType" [(ngModel)]="user.Password"></ion-input>
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
@@ -83,7 +83,7 @@
       </ion-col>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="stacked">{{ 'REGISTER_GENERAL.RE_PASSWORD'  | translate }}</ion-label>
+          <ion-label  color="light" position="stacked">{{ 'REGISTER_GENERAL.RE_PASSWORD'  | translate }}</ion-label>
           <ion-input [type]="confirmPasswordType" [(ngModel)]="user.ConfirmPassword"></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon size="small" *ngIf="!showConfirmPassword" name="eye"></ion-icon>
