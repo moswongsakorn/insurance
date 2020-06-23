@@ -120,22 +120,12 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <div style="width: 45%;" class="ion-align-self-center">
-              {{ 'POLICY_REPAY.YEAR_AT' | translate }}
-            </div>
-            <div style="width: 17%;" class="ion-text-center">
-              {{item.Start}}
-            </div>
-            <div
-              style="width: 20%;"
-              class="ion-align-self-center ion-text-center"
-              *ngIf="item.IsRange"
-            >
-              {{ 'POLICY_REPAY.TO' | translate }}
-            </div>
-            <div class="ion-text-center" style="width: 18%;" *ngIf="item.IsRange">
-              {{item.End}}
-            </div>
+            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }}</span>  &nbsp;
+            <span> {{item.Start}}</span>  &nbsp;
+            <span *ngIf="item.IsRange">
+              {{ 'POLICY_REPAY.TO' | translate }}</span
+            >  &nbsp;
+            <span *ngIf="item.IsRange"> {{item.End}}</span>  &nbsp;
           </ion-col>
           <ion-col
             size="6"
@@ -161,32 +151,20 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <div style="width: 45%;" class="ion-align-self-center">
-              {{ 'POLICY_REPAY.YEAR_AT' | translate }} 
-            </div>
-            <div class="ion-text-center" style="width: 17%;">
-              {{item.Start}}
-            </div>
-            <div
-              style="width: 20%;"
-              class="ion-align-self-center ion-text-center"
-              *ngIf="item.IsRange"
-            >
-              {{ 'POLICY_REPAY.TO' | translate }}
-            </div>
-            <div class="ion-text-center" style="width: 18%;" *ngIf="item.IsRange">
-              {{item.End}}
-            </div>
+            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }} </span>  &nbsp;
+            <span> {{item.Start}}</span>  &nbsp;
+            <span *ngIf="item.IsRange">
+              {{ 'POLICY_REPAY.TO' | translate }}</span
+            >  &nbsp;
+            <span *ngIf="item.IsRange"> {{item.End}}</span>  &nbsp;
           </ion-col>
           <ion-col
             size="6"
             class="ion-align-self-center ion-justify-content-end tabel-border"
           >
-            
-          <div class="ion-text-end">
-            {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
-          </div>
-
+            <div class="ion-text-end">
+              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+            </div>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -204,22 +182,12 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <div style="width: 40%;" class="ion-align-self-center">
-              {{ 'POLICY_REPAY.YEAR_AT' | translate }}
-            </div>
-            <div style="width: 17%;">
-              {{item.Start}}
-            </div>
-            <div
-              style="width: 20%;"
-              class="ion-align-self-center"
-              *ngIf="item.IsRange"
-            >
-              {{ 'POLICY_REPAY.TO' | translate }}
-            </div>
-            <div style="width: 18%;" *ngIf="item.IsRange">
-              {{item.End}}
-            </div>
+            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }}</span>  &nbsp;
+            <span> {{item.Start}}</span>  &nbsp;
+            <span *ngIf="item.IsRange"
+              >{{ 'POLICY_REPAY.TO' | translate }}</span
+            >  &nbsp;
+            <span *ngIf="item.IsRange">{{item.End}}</span>  &nbsp;
           </ion-col>
           <ion-col
             size="6"
