@@ -153,25 +153,45 @@ export class PolicyCrudModel {
 
             cashFlow.push(protectAmount - insurancePremium);
         }
-        cashFlow.push((this.DueMoney * this.SumInsured) / 100);
+        var returnValue = returnV.find(data => data.Year == this.YearOfProtect);
+        var protectAmount = returnValue != null ? (returnValue.Amount * this.SumInsured) / 100 : 0;
+        cashFlow.push(protectAmount + ((this.DueMoney * this.SumInsured) / 100));
+
+        console.log("Irr-------------------------------->>.")
+        console.log(cashFlow)
         return cashFlow;
     }
 
     public GetCashFloawAgent(): number[] {
-        var cashFlow = new Array<number>();
-        var returnV = this.GetYearAmount(this.ReturnList);
+        var cashFlow = this.GetCashFlow();
         var commission = this.GetYearAmount(this.ComissionList);
-        for (let i = 1; i <= this.YearOfProtect; i++) {
-            var insurancePremium = (i <= this.YearToPaid) ? this.InsurancePremium : 0;
-            var returnValue = returnV.find(data => data.Year == (i - 1));
-            var protectAmount = returnValue != null ? (returnValue.Amount * this.SumInsured) / 100 : 0;
+        for (let i = 0; i < cashFlow.length; i++) {
+            var insurancePremium = (i < this.YearToPaid) ? this.InsurancePremium : 0;
 
-            var com = commission.find(data => data.Year == i);
+            var com = commission.find(data => data.Year == (i + 1));
             var comAmout = com != null ? (com.Amount * insurancePremium) / 100 : 0;
-
-            cashFlow.push(protectAmount - insurancePremium + comAmout);
+            cashFlow[i] += comAmout;
         }
-        cashFlow.push((this.DueMoney * this.SumInsured) / 100);
+
+        // var cashFlow = new Array<number>();
+        // var returnV = this.GetYearAmount(this.ReturnList);
+        // var commission = this.GetYearAmount(this.ComissionList);
+        // for (let i = 1; i <= this.YearOfProtect; i++) {
+        //     var insurancePremium = (i <= this.YearToPaid) ? this.InsurancePremium : 0;
+        //     var returnValue = returnV.find(data => data.Year == (i - 1));
+        //     var protectAmount = returnValue != null ? (returnValue.Amount * this.SumInsured) / 100 : 0;
+
+        //     var com = commission.find(data => data.Year == i);
+        //     var comAmout = com != null ? (com.Amount * insurancePremium) / 100 : 0;
+
+        //     cashFlow.push(protectAmount - insurancePremium + comAmout);
+        // }
+        // var returnValue = returnV.find(data => data.Year == (i - 1));
+        // var protectAmount = returnValue != null ? (returnValue.Amount * this.SumInsured) / 100 : 0;
+
+        // cashFlow.push(((this.DueMoney * this.SumInsured) / 100));
+        console.log("Irr agent-------------------------------->>.")
+        console.log(cashFlow)
         return cashFlow;
     }
 
@@ -181,7 +201,9 @@ export class PolicyCrudModel {
         var AIP = new Array<number>();              //เบี้ยประกันสะสมปีที่ (n) 
 
         var returnOfYear = new Array<number>();     //เงินจ่ายคืนสิ้นปีกรมธรรม์ (n)
+        returnOfYear.push(0);
         var returnOfYearSum = new Array<number>();  //เงินจ่ายคืนสิ้นปีกรมธรรม์สะสม (n)
+        returnOfYearSum.push(0);
 
         var DPM = new Array<number>();              //เงินคุ้มครองเมื่อเสียชีวิตปีที่ (n) 
         var ACR = new Array<number>();              //อัตราความคุ้มครองรายปีที่ (n)
@@ -204,22 +226,23 @@ export class PolicyCrudModel {
 
             //Get เบี้ยประกันสะสม to arrry 
             var n_1 = (AIP[i - 1]) ? AIP[i - 1] : 0;
-            var insurance = this.InsurancePremium + n_1;
+            var insurance = insurancePremium[i] + n_1;
             AIP.push(insurance);
 
             //Get เงินจ่ายคืนสิ้นปีกรมธรรม์ to array
-            var returnValue = returnV.find(data => data.Year == i);
+            var returnValue = returnV.find(data => data.Year == (i + 1));
             var returnAmount = returnValue != null ? (returnValue.Amount * this.SumInsured) / 100 : 0;
             returnOfYear.push(returnAmount);
 
             //Get เงินจ่ายคืนสิ้นปีกรมธรรม์สะสม to array
             var returnN_1 = 0;
-            if (returnOfYearSum[i - 1]) returnN_1 = returnOfYearSum[i - 1];
-            returnOfYearSum.push(returnOfYear[i] + returnN_1);
+            if (returnOfYearSum[i]) returnN_1 = returnOfYearSum[i];
+            returnOfYearSum.push(returnOfYear[i + 1] + returnN_1);
 
             //Get เงินคุ้มครองเมื่อเสียชีวิต to array
             var protect = protectV.find(data => data.Year == (i + 1));
-            var protectAmount = protect != null ? (protect.Amount * this.SumInsured) / 100 : 0;
+            var protectAmount = protect != null ? Math.round((protect.Amount * this.SumInsured) / 100) : 0;
+            console.log(`เงินคุ้มครองเมื่อเสียชีวิตปีที่${this.SumInsured} (i+1) , ${i + 1} Year ${protect.Year} Amount ${protect.Amount} protect ${protectAmount}`);
             DPM.push(protectAmount);
 
             //Get อัตราความคุ้มครองราย to array
@@ -253,6 +276,8 @@ export class PolicyCrudModel {
         protectRate = (point.reduce((a, b) => a + b)) / this.YearOfProtect;
         protectRate = Math.round(protectRate * 100) / 100;
 
+        console.log("% เงินคุ้มครองเมื่อเสียชีวิตปีที่", protectV);
+        console.log("-------------------------");
         console.log("เบี้ยประกันสะสมปีที่", AIP);
         console.log("-------------------------");
         console.log("เงินจ่ายคืนสิ้นปีกรมธรรม์", returnOfYear);
@@ -299,7 +324,7 @@ export class PolicyCrudModel {
         else if (value <= 0.9) return -3;
 
     }
-    
+
 }
 
 

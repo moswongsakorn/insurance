@@ -89,17 +89,17 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      if (this.name != 'ReturnList' && element.End > this.yearOfProtect) {
+      if (this.name == 'ReturnList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = errorText1 + this.yearToPaid + errorText2;
+        let errorText = errorText1 + this.yearOfProtect + errorText2;
         // errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
-      if (this.name != 'ComissionList' && element.End > this.yearToPaid) {
+      if (this.name == 'ComissionList' && element.End > this.yearToPaid) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
         let errorText = errorText1 + this.yearToPaid + errorText2;
@@ -112,7 +112,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       if (this.name == 'ProtectList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = errorText1 + this.yearToPaid + errorText2;
+        let errorText = errorText1 + this.yearOfProtect + errorText2;
         //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
