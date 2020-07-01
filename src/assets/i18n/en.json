@@ -162,6 +162,7 @@
   "POLICY_PROTECTION": {
     "TITLE": "Death Benefit",
     "YEAR_AT": "From Year ",
+    "YEAR": "Year",
     "SUB_TEAR_AT": " % of the Sum Insured",
     "TO": "to Year ",
     "ONE_YEAR_ADD": "Add Single Policy Year",
@@ -170,6 +171,7 @@
   "POLICY_REPAY": {
     "TITLE": "Annual Cash Return ",
     "YEAR_AT": "From Year ",
+    "YEAR": "Year",
     "SUB_TEAR_AT": " % of the Sum Insured",
     "TO": "to Year ",
     "ONE_YEAR_ADD": "Add Single Policy Year",
