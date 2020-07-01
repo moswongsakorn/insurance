@@ -133,13 +133,13 @@
     "SUB_DUE_MONEY": "% of the Sum Insured",
     "LAST_YEAR_INSURANCE_MONEY": "Annual Cash Return of",
     "DEATH_COVERAGE": "Death Benefit",
-    "REMARK_TEXT":"Rate of Coverage and Worth rate are IRR dependent",
-    "IRR_TEXT_1":"อัตราผลตอบแทนภายใน(IRR)",
-    "IRR_TEXT_2":" อัตราผลตอบแทนภายใน(IRR)ของตัวแทน",
-    "IRR_TEXT_3":" อัตราความคุ้มครอง",
-    "IRR_TEXT_4":" ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบื้อครบ",
-    "IRR_TEXT_5":"ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบื้อครบ",
-    "IRR_TEXT_6":"  อัตราความคุ้มค่า"
+    "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
+    "IRR_TEXT_1": "อัตราผลตอบแทนภายใน(IRR)",
+    "IRR_TEXT_2": " อัตราผลตอบแทนภายใน(IRR)ของตัวแทน",
+    "IRR_TEXT_3": " อัตราความคุ้มครอง",
+    "IRR_TEXT_4": " ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบื้อครบ",
+    "IRR_TEXT_5": "ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบื้อครบ",
+    "IRR_TEXT_6": "  อัตราความคุ้มค่า"
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",
@@ -192,7 +192,7 @@
     "TEXT_PROTECTION": "Protection",
     "COVERAGE": "Coverage",
     "TEXT_YEAR_PAID": "Amount of insurance premium per year",
-    "TEXT_DETAIL_1": "*If the checkbox is left unticked  ",
+    "TEXT_DETAIL_1": "*If the checkbox is left unticked",
     "TEXT_DETAIL_2": "that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
     "HEALTH": "Health Insurance"
@@ -207,10 +207,10 @@
   },
   "CHANGE_PASSWORD": {
     "TITLE": "Change Password.",
-    "PASSWORD_ERROR_TEXT_1":"Please fill out all information.",
-    "PASSWORD_ERROR_TEXT_2":"Please enter a password of at least 6 characters.",
-    "PASSWORD_ERROR_TEXT_3":"New passwords do not match",
-    "PASSWORD_SUCCESS_TEXT":"Password changed successfully"
+    "PASSWORD_ERROR_TEXT_1": "Please fill out all information.",
+    "PASSWORD_ERROR_TEXT_2": "Please enter a password of at least 6 characters.",
+    "PASSWORD_ERROR_TEXT_3": "New passwords do not match",
+    "PASSWORD_SUCCESS_TEXT": "Password changed successfully"
   },
   "COMPANY_DATA": {
     "Bangkok_Life_Assurance": "Bangkok Life Assurance",
@@ -238,5 +238,8 @@
     "Advance_Life_Assurance": "Advance Life Assurance  ",
     "FWD_Life_Insurance": "FWD Life Insurance",
     "specific": "Other"
+  },
+  "USER_AGENT": {
+    "TITLE": "Agent list"
   }
 }

@@ -58,7 +58,7 @@ export class UiService {
     const confirmText: string = this.translateService.instant("CODE.OK");
     const alertText: string = this.translateService.instant("CODE.ALERT");
     const alert = await this.alertController.create({
-      header: alertText,
+      header: "",
       message: text,
       buttons: [
         {
@@ -77,7 +77,7 @@ export class UiService {
     const cancelText: string = this.translateService.instant("CODE.CANCEL");
 
     const alert = await this.alertController.create({
-      header: "ยืนยัน",
+      header: "",
       message: text,
       buttons: [
         {
