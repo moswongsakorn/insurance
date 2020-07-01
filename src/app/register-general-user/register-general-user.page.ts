@@ -26,6 +26,7 @@ export class RegisterGeneralUserPage implements OnInit {
   public showConfirmPassword: boolean = false;
   public passwordType: string = "password";
   public confirmPasswordType: string = "password";
+  mothThai =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
   ngOnInit() { }
 
   public async PinGenerate() {
