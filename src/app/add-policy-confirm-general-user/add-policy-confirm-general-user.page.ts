@@ -49,9 +49,6 @@ export class AddPolicyConfirmGeneralUserPage implements OnInit {
     this.policy.IrrAgent = irrAgent;
     console.log("Agent ==========> ", irrAgent)
 
-    var policyList = await this.PolicyService.GetPolicyListByPin(
-      this.userProfile.Pin
-    );
     this.policy.Calculate();
 
     var result = await this.PolicyService.InsertPolicy(this.policy);

@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{ 'POLICY_LIST_PAGE.TITLE'  | translate }}</ion-title>
+    
     <ion-buttons slot="end">
       <ion-button *ngIf="userProfile.Role === 'master'" [routerLink]="['/user-agent-list']">
         <ion-icon slot="icon-only" name="people-outline"></ion-icon>
@@ -12,6 +13,7 @@
         <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
   <ion-toolbar>
     <ion-searchbar mode="ios" placeholder="{{ 'POLICY_LIST_PAGE.SEARCH'  | translate }}" (ionChange)="Searchbar($event)"></ion-searchbar>

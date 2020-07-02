@@ -30,7 +30,7 @@ export class PolicyCrudModel {
     public ValueRate: number;                    //อัตราควาคุ้มค่า
     public ProtectRate: number;                  //อัตราความคุ้มครอง
 
-    public PointForSort: number;
+    public PointForSort: number = 0;
 
 
     constructor() {
@@ -40,6 +40,13 @@ export class PolicyCrudModel {
         this.ComissionList = new Array<LengthYearAmount>();
         this.ProtectList = new Array<LengthYearAmount>();
         this.ReturnList = new Array<LengthYearAmount>();
+    }
+
+    public CloneModel(): PolicyCrudModel{
+        var policyCrudModel = JSON.parse(JSON.stringify(this)) as PolicyCrudModel;
+        var newPolicy = new PolicyCrudModel();
+        newPolicy.MapData(policyCrudModel);
+        return newPolicy;
     }
 
     public MapData(data: PolicyCrudModel) {
@@ -65,7 +72,7 @@ export class PolicyCrudModel {
         this.PRAfterApid = data.PRAfterApid;
         this.ValueRate = data.ValueRate;
         this.ProtectRate = data.ProtectRate;
-
+        this.PointForSort = data.PointForSort;
     }
 
     public ValidateData() {
@@ -108,7 +115,7 @@ export class PolicyCrudModel {
             this.DueMoney == null ||
             //this.ComissionList == null || this.ComissionList.length == 0 ||
             this.ProtectList == null || this.ProtectList.length == 0 ||
-            this.ReturnList == null || this.ReturnList.length == 0 ||
+            // this.ReturnList == null || this.ReturnList.length == 0 ||
             this.CompanyName == null ||
 
             this.CompanyName == '' ||
@@ -127,7 +134,6 @@ export class PolicyCrudModel {
             return response.Success(null);
         }
     }
-
 
     public GetYearAmount(list: LengthYearAmount[]): YearAmount[] {
         var _list = new Array<YearAmount>();
@@ -242,7 +248,7 @@ export class PolicyCrudModel {
             //Get เงินคุ้มครองเมื่อเสียชีวิต to array
             var protect = protectV.find(data => data.Year == (i + 1));
             var protectAmount = protect != null ? Math.round((protect.Amount * this.SumInsured) / 100) : 0;
-            console.log(`เงินคุ้มครองเมื่อเสียชีวิตปีที่${this.SumInsured} (i+1) , ${i + 1} Year ${protect.Year} Amount ${protect.Amount} protect ${protectAmount}`);
+            // console.log(`เงินคุ้มครองเมื่อเสียชีวิตปีที่${this.SumInsured} (i+1) , ${i + 1} Year ${protect.Year} Amount ${protect.Amount} protect ${protectAmount}`);
             DPM.push(protectAmount);
 
             //Get อัตราความคุ้มครองราย to array

@@ -3,19 +3,6 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button> 
     </ion-buttons>
-
-    <ion-buttons slot="end">      
-      <ion-button *ngIf="userProfile.Role != 'user'" (click)="Remove()">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
-      </ion-button>
-      <ion-button *ngIf="userProfile.Role != 'user'" (click)="Edit()">
-        <ion-icon slot="icon-only" name="build"></ion-icon>
-      </ion-button>
-      <ion-button (click)="Calculate()">
-        <ion-icon slot="icon-only" name="calculator"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
     <ion-title>{{ 'POLICY_DETAIL.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -117,7 +104,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div>
-          {{policy.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
+          {{(policy.DueMoney*policy.SumInsured)/100}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -155,7 +142,7 @@
             class="ion-align-self-center ion-text-end ion-justify-content-end tabel-border"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              {{(item.Amount * policy.SumInsured)/100}} {{ 'CODE.BATH' | translate }}
             </div>
           </ion-col>
         </ion-row>
@@ -185,7 +172,7 @@
             class="ion-align-self-center ion-text-center ion-justify-content-end tabel-border"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              {{(item.Amount*policy.SumInsured)/100}} {{ 'CODE.BATH' | translate }}
             </div>
           </ion-col>
         </ion-row>
@@ -216,7 +203,7 @@
             class="ion-align-self-center ion-justify-content-end tabel-border"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              {{(item.Amount*policy.SumInsured)/100}} {{ 'CODE.BATH' | translate }}
             </div>
           </ion-col>
         </ion-row>
@@ -303,17 +290,6 @@
         </div>
       </ion-col>
     </ion-row>
-
-    <!-- <ion-row *ngIf="userProfile.Role != 'user'" class="ion-margin-top">
-      <ion-col size="2"></ion-col>
-      <ion-col>
-        <ion-button expand="block" shape="round" (click)="Edit()">
-          {{ 'CODE.EDIT' | translate }}
-        </ion-button>
-      </ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row> -->
-
   </ion-grid>
 </ion-content>
 

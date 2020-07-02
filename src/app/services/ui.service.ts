@@ -99,4 +99,34 @@ export class UiService {
 
     return await alert.present();
   }
+
+  async ConfirmedRemove(calBack: any) {
+    let alert = await this.alertController.create({
+      header: "ยืนยันการลบผู้ใช้งาน",
+      message: "กรุณากรอบรหัสผ่านเพื่อยืนยันการลบผู้ใช้งาน",
+      inputs: [       
+        {
+          name: 'password',
+          placeholder: 'Password',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirmed',
+          handler: data => {
+            calBack(data.password);
+          }
+        }
+      ]
+    });
+    return await alert.present();
+  }
 }

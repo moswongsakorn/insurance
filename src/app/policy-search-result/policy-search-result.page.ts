@@ -31,14 +31,15 @@ export class PolicySearchResultPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.UiService.presentLoading()
+    
   }
 
   async ionViewDidEnter() {
+    await this.UiService.presentLoading()
+
     this.userProfile = this.DataCenterService.GetThisUserProfile();
     this.SearchModel = this.DataCenterService.GetSearchModel();
     this.policyList = await this.PolicyService.GetPolicyListByPin(this.userProfile.Pin);
-
 
     var maxIrr = -10000;
 
@@ -48,10 +49,10 @@ export class PolicySearchResultPage implements OnInit {
     })
 
     this.policyList.forEach(data => {
-      var newValueRate = this.GetWorthPoint(maxIrr, data.ValueRate);
+      var newWort = this.GetWorthPoint(maxIrr, data.ValueRate);
       var pointSort = ((this.SearchModel.irr * data.Irr) +
         (this.SearchModel.protect * data.ProtectRate) +
-        (this.SearchModel.worth * newValueRate)) / 100;
+        (this.SearchModel.worth * newWort)) / 100;
       data.PointForSort = Math.round(pointSort * 100) / 100;
     })
 
@@ -91,9 +92,14 @@ export class PolicySearchResultPage implements OnInit {
       if (passTaxDeduct && passHealth) {
         if (maxPoint < 5) {
           this.policyListSort.push(data);
+          var lastPoint = (this.policyListSort[policyListSortIndex - 1]) ? this.policyListSort[policyListSortIndex - 1].PointForSort : -100000;
+          
+          console.log("lastPoint : " , lastPoint)
+          console.log("newPoint : " , data.PointForSort)
+          if (lastPoint != data.PointForSort) maxPoint++;
+
           policyListSortIndex++;
-          var lostPoint = (this.policyListSort[policyListSortIndex - 1]) ? this.policyListSort[policyListSortIndex - 1].PointForSort : -1987654.2365;
-          if (lostPoint != data.PointForSort) maxPoint++;
+
         }
       }
 

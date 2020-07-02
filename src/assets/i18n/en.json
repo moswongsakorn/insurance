@@ -143,6 +143,7 @@
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",
+    "CALCULATE": "Calculate",
     "COMPANY_NAME": "(Life) Insurance Company Name",
     "OTHER_COMPANY_NAME": "Other company Name",
     "POLICY_NAME": "(Life) Insurance Plan",
