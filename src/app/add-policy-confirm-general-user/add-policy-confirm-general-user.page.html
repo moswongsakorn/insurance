@@ -120,7 +120,7 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }}</span>  &nbsp;
+            <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>  &nbsp;
             <span> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
@@ -151,7 +151,7 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }} </span>  &nbsp;
+            <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }} </span>  &nbsp;
             <span> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
@@ -182,7 +182,7 @@
           class="ion-justify-content-between ion-align-items-center"
         >
           <ion-col size="6" style="display: flex;" class="tabel-border">
-            <span> {{ 'POLICY_REPAY.YEAR_AT' | translate }}</span>  &nbsp;
+            <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>  &nbsp;
             <span> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange"
               >{{ 'POLICY_REPAY.TO' | translate }}</span

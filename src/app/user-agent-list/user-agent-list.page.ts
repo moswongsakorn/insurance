@@ -3,6 +3,7 @@ import { NavController } from '@ionic/angular';
 import { UserCrudModel } from '../interfaces';
 import { UserServiceService } from '../services/user-service.service';
 import { DataCenterService } from '../services/data-center.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-agent-list',
