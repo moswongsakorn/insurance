@@ -3,6 +3,9 @@ import { DataCenterService } from '../services/data-center.service';
 import { PolicyCrudModel, UserCrudModel } from '../interfaces';
 import { NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { PolicyService } from '../services/policy.service';
+import { UiService } from "../services/ui.service";
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-policy-detail',
@@ -18,7 +21,9 @@ export class PolicyDetailPage implements OnInit {
   constructor(
     private DataCenterService: DataCenterService,
     private NavController: NavController,
-    private translateService:TranslateService
+    private translateService: TranslateService,
+    private policyService: PolicyService,
+    private uiService: UiService
   ) { }
 
   ngOnInit() {
@@ -32,6 +37,35 @@ export class PolicyDetailPage implements OnInit {
 
   Edit() {
     this.NavController.navigateForward(['add-policy-general-user']);
+  }
+
+  async Remove() {
+    await this.uiService.presentAlertConfirm("ยืนยันการลบแผนประกัน?", async () => {
+      this.uiService.presentLoading();
+      var result = await this.policyService.RemovePolicy(this.policy.Key);
+      if (result.status) {
+        this.uiService.dismissLoading();
+        this.NavController.back();
+      }
+      else {
+        this.uiService.dismissLoading();
+        this.uiService.presentAlert("Something went wrong please try again.")
+      }
+    })
+  }
+
+  Calculate() {
+
+    if (this.userProfile.Role == 'quest') {
+      var policy = new PolicyCrudModel();
+      policy.MapData(this.policy);
+      var policyCalculate = policy.CloneModel();
+      this.DataCenterService.SetPolicyCalculate(policyCalculate);
+      this.NavController.navigateForward(['policy-detail-calculate']);
+    }
+    else {
+      this.NavController.navigateForward(['policy-input-calculate']);
+    }
   }
 
 }

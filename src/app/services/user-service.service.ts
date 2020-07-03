@@ -30,6 +30,25 @@ export class UserServiceService {
     })
   }
 
+  public async RemoveAccount(password: string){
+    try {
+      var user = this.DataCenterService.GetThisUserProfile();
+      var result = await this.AngularFireAuth.auth.signInWithEmailAndPassword(user.Email, password);
+      if (result.user) {
+        var data = await this.AngularFireAuth.auth.currentUser.delete();
+        await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(user.Key).remove();
+        await this.AngularFireAuth.auth.signOut();
+        return new ResponseModel().Success(data);
+      }
+      else {
+        return new ResponseModel().Failed(result, "User not found");
+      }
+    }
+    catch (error) {
+      return new ResponseModel().Failed(error, error.message);
+    }
+  }
+
   public async IsLogin(): Promise<ResponseModel> {
     return new Promise((resolve) => {
       this.AngularFireAuth.authState.subscribe(async (user) => {
@@ -152,7 +171,9 @@ export class UserServiceService {
       //   return new ResponseModel().Success(result, MagicNumber.ReEntry);
       // }
       // else {
-      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).set(input);
+        var resultreMove  = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).remove();
+        console.log("resultreMove", resultreMove)
+        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
       return new ResponseModel().Success(result);
       // }
     } catch (error) {
@@ -164,7 +185,8 @@ export class UserServiceService {
     try {
       input.ConfirmPassword = null;
       input.Password = null;
-      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable + "/" + input.Key).update(input);
+      await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).remove();
+      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
       return new ResponseModel().Success(result);
     } catch (error) {
       return new ResponseModel().Failed(error, error.message);
@@ -186,7 +208,7 @@ export class UserServiceService {
       input.ConfirmPassword = null;
       input.Password = null;
       input.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).push()).key;
-      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).push(input);
+      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
       return new ResponseModel().Success(result);
     } catch (error) {
       return new ResponseModel().Failed(error, error.message);

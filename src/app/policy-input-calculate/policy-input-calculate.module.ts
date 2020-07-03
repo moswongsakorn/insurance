@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { PolicyInputCalculatePageRoutingModule } from './policy-input-calculate-routing.module';
+
+import { PolicyInputCalculatePage } from './policy-input-calculate.page';
+import { TranslateModule } from '@ngx-translate/core';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    TranslateModule.forChild(),
+    PolicyInputCalculatePageRoutingModule
+  ],
+  declarations: [PolicyInputCalculatePage]
+})
+export class PolicyInputCalculatePageModule {}

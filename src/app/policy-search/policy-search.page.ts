@@ -33,7 +33,6 @@ export class PolicySearchPage implements OnInit {
   ngOnInit() {}
 
   async searchPolicy() {
-    console.log(this.SearchModel)
     this.SearchModel.irr = (this.SearchModel.irr) ? this.SearchModel.irr : 0;
     this.SearchModel.worth = (this.SearchModel.worth) ? this.SearchModel.worth : 0;
     this.SearchModel.protect = (this.SearchModel.protect) ? this.SearchModel.protect : 0;
@@ -45,7 +44,6 @@ export class PolicySearchPage implements OnInit {
     this.SearchModel.isTaxDeductTrue = (this.SearchModel.isTaxDeductTrue) ? this.SearchModel.isTaxDeductTrue : false;
 
     var sumPercent = this.SearchModel.irr + this.SearchModel.worth + this.SearchModel.protect;
-    console.log(sumPercent)
     if (sumPercent != 100) {
       const errorText: string = this.translateService.instant("POLICY_SEARCH.SUB_TITLE");
       await this.uiService.presentAlert(errorText);

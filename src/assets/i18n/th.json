@@ -143,6 +143,7 @@
   },
   "ADD_POLICY": {
     "TITLE": "เพิ่มแผนประกัน",
+    "CALCULATE": "คำนวณ",
     "COMPANY_NAME": "ชื่อบริษัทประกัน(ชีวิต)",
     "OTHER_COMPANY_NAME": "ชื่อบริษัทอื่นๆ",
     "POLICY_NAME": "ชื่อแผนประกัน(ชีวิต)",
@@ -219,7 +220,7 @@
     "Tokio_Marine_Life_Insurance": "โตเกียวมารีนประกันชีวิต",
     "Thai_Cardif_Assurance": "ไทยคาร์ดิฟประกันชีวิต ",
     "SCB_Life_Assurance": "ไทยพาณิชย์ประกันชีวิต",
-    "Thai_Life_Insurance": "กรุงไทยแอกซ่าประกันชีวิต",
+    "Thai_Life_Insurance": "ไทยประกันชีวิต",
     "Thaire_Life_assurance": "ไทยรีประกันชีวิต",
     "Ocean_Life_Insurance": "ไทยสมุทรประกันชีวิต",
     "Bui_Life_Insurance": "บางกอกสหประกันชีวิต",

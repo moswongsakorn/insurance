@@ -119,6 +119,14 @@ const routes: Routes = [
     path: 'edit-change-password',
     loadChildren: () => import('./edit-change-password/edit-change-password.module').then( m => m.EditChangePasswordPageModule)
   },
+  {
+    path: 'policy-detail-calculate',
+    loadChildren: () => import('./policy-detail-calculate/policy-detail-calculate.module').then( m => m.PolicyDetailCalculatePageModule)
+  },
+  {
+    path: 'policy-input-calculate',
+    loadChildren: () => import('./policy-input-calculate/policy-input-calculate.module').then( m => m.PolicyInputCalculatePageModule)
+  },
 
 
 

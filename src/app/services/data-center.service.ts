@@ -10,6 +10,7 @@ export class DataCenterService {
   constructor() { }
 
   private policy: PolicyCrudModel;
+  private policyCalculate: PolicyCrudModel;
   private SearchModel: SearchModel;
 
   private user: UserCrudModel;
@@ -19,29 +20,38 @@ export class DataCenterService {
   private CompanyData = ["Bangkok_Life_Assurance",
     "Krungthai_AXA_Life_Insurance",
     "Generali_Life_Assurance",
+    "Chubb_Life_Assurance",
     "Tokio_Marine_Life_Insurance",
+    "Dhipaya_Life_Assurance",
     "Thai_Cardif_Assurance",
-    "SCB_Life_Assurance",
+    "Thai_Samsung_Life_Insurance",
     "Thai_Life_Insurance",
+    "SCB_Life_Assurance",
     "Thaire_Life_assurance",
     "Ocean_Life_Insurance",
     "Bui_Life_Insurance",
-    "MBK_Life_Assurance",
     "Prudential_Life_Assurance",
     "Phillip_Life_Assurance",
     "Muang_Thai_Life_Assurance",
     "Manulife",
-    "Thai_Samsung_Life_Insurance",
-    "Dhipaya_Life_Assurance",
     "Union_Life_Insurance",
-    "AIA",
     "Allianz_Ayudhya_Assurance",
-    "Chubb_Life_Assurance",
     "Southeast_Life_Insurance",
-    "Advance_Life_Assurance",
     "FWD_Life_Insurance",
+    "MBK_Life_Assurance",
+    "AIA",
+    "Advance_Life_Assurance",
     "specific"]
 
+
+
+  public SetPolicyCalculate(policy: PolicyCrudModel) {
+    this.policyCalculate = policy;
+  }
+
+  public GetPolicyCalculate(): PolicyCrudModel {
+    return this.policyCalculate;
+  }
 
   public SetSearchModel(search: SearchModel) {
     this.SearchModel = search;

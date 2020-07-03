@@ -68,6 +68,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
   async submit() {
     var IsSubmit = true;
+
+    var isProtectAllYear = false;
     for (let i = this.lengthYearAmountList.length - 1; i >= 0; i--) {
       var element = this.lengthYearAmountList[i];
       if (element.Start == null &&
@@ -92,7 +94,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       if (this.name == 'ReturnList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = errorText1 + this.yearOfProtect + errorText2;
+        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         // errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
@@ -102,17 +104,18 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       if (this.name == 'ComissionList' && element.End > this.yearToPaid) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = errorText1 + this.yearToPaid + errorText2;
+        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาชำระเบี้ยประกัน";
         // errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
+      if (this.name == 'ProtectList' && element.End == this.yearOfProtect) isProtectAllYear = true;
       if (this.name == 'ProtectList' && element.End > this.yearOfProtect) {
         let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
         let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = errorText1 + this.yearOfProtect + errorText2;
+        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
@@ -136,6 +139,16 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
+    }
+
+    if(this.name == 'ProtectList' && !isProtectAllYear){
+        let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
+        let errorText2: string = this.translateService.instant("CODE.YEAR");
+        let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
+        //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+        await this.uiService.presentAlert(errorText);
+        IsSubmit = false;
+        return;
     }
 
     if (IsSubmit) {

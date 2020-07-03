@@ -20,17 +20,14 @@ export class PolicyService {
 
   public async InsertPolicy(policy: PolicyCrudModel): Promise<ResponseModel> {
     try {
-      console.log(policy)
-
       if (policy.Key == null || policy.Key == "") {
-        console.log("pushhhhhhhhhhh")
         policy.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push()).key;
         // let resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
-        let resultPush = await this.AngularFireDatabase.list(MagicNumber.PolicyTable).set( policy.Key ,policy);
+        let resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
         return new ResponseModel().Success("เพิ่มข้อมูลเรียบร้อยแล้ว");
       }
       else {
-        console.log('Updateeeee')
+        await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).remove();
         let resultUpdate = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
         return new ResponseModel().Success("แก้ไขเรียบร้อยแล้ว");
       }
@@ -50,6 +47,28 @@ export class PolicyService {
         }, error => {
           resolve(new Array<PolicyCrudModel>())
         })
+    })
+  }
+
+  public RemovePolicy(key: string): Promise<ResponseModel> {
+    return new Promise((resolve) => {
+      this.AngularFireDatabase.object(MagicNumber.PolicyTable + "/" + key).remove()
+        .then(data => {
+          resolve(new ResponseModel().Success(data));
+        })
+        .catch(error => {
+          resolve(new ResponseModel().Failed(error, error.message));
+        });
+    })
+  }
+
+  public RemovePolicyByPin(pin: string): Promise<ResponseModel> {
+    return new Promise(async (resolve) => {
+      var policyList = await this.GetPolicyListByPin(pin);
+      policyList.forEach(policy => {
+        this.RemovePolicy(policy.Key);
+      });
+      resolve(new ResponseModel().Success(null))
     })
   }
 

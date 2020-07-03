@@ -109,7 +109,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="policy.ReturnList != null && policy.ReturnList.length != 0 ">
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'POLICY_DETAIL.LAST_YEAR_INSURANCE_MONEY' | translate }}
@@ -139,7 +139,7 @@
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="policy.ProtectList != null && policy.ProtectList.length != 0 ">
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'POLICY_DETAIL.DEATH_COVERAGE' | translate }}
@@ -170,7 +170,7 @@
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <div *ngIf="userProfile.Role == 'master'">
+    <ion-row *ngIf="userProfile.Role == 'master' && policy.ComissionList != null && policy.ComissionList.length != 0 " >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'ADD_POLICY.COMMISSION' | translate }}
