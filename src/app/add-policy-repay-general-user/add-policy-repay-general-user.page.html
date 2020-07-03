@@ -2,62 +2,108 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button size="large" (click)="back()">
-        <ion-icon slot="icon-only" name="chevron-back-outline" color="light"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="chevron-back-outline"
+          color="light"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>{{ Title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid class="ion-margin-top">
+<ion-content #content>
+  <ion-grid class="ion-margin-top" style="padding: 0 28px;">
+    <ion-row
+      *ngFor="let item of lengthYearAmountList ; let i = index;"
+      class="card-year-to"
+    >
+      <ion-col size="10">
+        <div style="display: flex;">
+          <div style="width: 25%;" class="ion-align-self-center">
+            {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
+            translate):('POLICY_REPAY.YEAR' | translate) }}
+          </div>
+          <div style="width: 20%; margin: 0 10px;">
+            <ion-input
+              class="input-fild"
+              type="number"
+              [(ngModel)]="lengthYearAmountList[i].Start"
+            ></ion-input>
+          </div>
+          <div
+            style="width: 15%;"
+            class="ion-align-self-center"
+            *ngIf="item.IsRange"
+          >
+            {{ 'POLICY_REPAY.TO' | translate }}
+          </div>
+          <div style="width: 20%;" *ngIf="item.IsRange">
+            <ion-input
+              class="input-fild"
+              type="number"
+              [(ngModel)]="lengthYearAmountList[i].End"
+            ></ion-input>
+          </div>
+        </div>
 
-    <ion-row *ngFor="let item of lengthYearAmountList ; let i = index;" class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="6" style="display: flex;">
-        <div style="width: 15%;" class="ion-align-self-center">
-          {{ 'POLICY_REPAY.YEAR_AT' | translate }}
-        </div>
-        <div style="width: 25%;">
-          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].Start"></ion-input>
-        </div>
-        <div style="width: 15%;" class="ion-align-self-center" *ngIf="item.IsRange">
-          {{ 'POLICY_REPAY.TO' | translate }}
-        </div>
-        <div style="width: 25%;" *ngIf="item.IsRange">
-          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].End"></ion-input>
+        <div style="display: flex;" class="dashed-border-top">
+          <div style="width: 25%;"></div>
+          <div style="width: 25%;">
+            <ion-input
+              class="input-fild"
+              type="number"
+              [(ngModel)]="lengthYearAmountList[i].Amount"
+            ></ion-input>
+          </div>
+          <div
+            style="width: 50%;"
+            class="ion-align-self-center ion-justify-content-end"
+          >
+            {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+          </div>
         </div>
       </ion-col>
-      <ion-col size="2">
-        <div>
-          <ion-input class="input-fild" type="number" [(ngModel)]="lengthYearAmountList[i].Amount"></ion-input>
+      <ion-col size="2" class="ion-align-self-center ion-justify-content-end">
+        <div
+          style="width: 15%; font-size: 31px; text-align: end;"
+          class="ion-align-self-end ion-justify-content-end"
+        >
+          <ion-icon size="1" name="close-circle" (click)="delete(i)">
+          </ion-icon>
         </div>
-      </ion-col>
-      <ion-col size="3" class="ion-align-self-center ion-justify-content-end">
-        {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
-      </ion-col >
-      <ion-icon size="1" name="close-circle" (click)="delete(i)"> </ion-icon>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-end ion-margin-top">
-      <ion-col size="4">
-        <ion-button expand="block" shape="round" (click)="addSingle()">{{ 'POLICY_REPAY.ONE_YEAR_ADD' | translate }}
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-end">
-      <ion-col size="4">
-        <ion-button expand="block" shape="round" (click)="addRange()">{{ 'POLICY_REPAY.RANGE_YEAR_ADD' | translate }}
-        </ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-around ion-margin-top">
-      <ion-col size="6">
-        <ion-button expand="block" shape="round" (click)="submit()">{{ 'CODE.CONFIRM' | translate }}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <div>
+    <br><br><br>
+    <br><br><br>
+  </div>
 </ion-content>
 
-<ion-footer> </ion-footer>
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="4">
+        <ion-button expand="block" shape="round" (click)="addSingle()"
+          >{{ 'POLICY_REPAY.ONE_YEAR_ADD' | translate }}
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="block" shape="round" (click)="addRange()"
+          >{{ 'POLICY_REPAY.RANGE_YEAR_ADD' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-around ">
+      <ion-col size="6">
+        <ion-button expand="block" shape="round" (click)="submit()"
+          >{{ 'CODE.CONFIRM' | translate }}</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

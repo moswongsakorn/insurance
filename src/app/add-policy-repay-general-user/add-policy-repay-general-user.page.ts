@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LengthYearAmount } from '../interfaces/LengthYearAmount';
 import { NavController, ModalController, NavParams } from '@ionic/angular';
@@ -21,7 +21,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   ) {
   }
 
-
+  @ViewChild('content',{static:true}) private content: any;
   @Input('name') name: string;
   @Input('yearToPaid') yearToPaid: number;
   @Input('yearOfProtect') yearOfProtect: number;
@@ -164,11 +164,13 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     var lengthYearAmount1 = new LengthYearAmount();
     lengthYearAmount1.IsRange = false;
     this.lengthYearAmountList.push(lengthYearAmount1);
+    this.content.scrollToBottom(300);
   }
   addRange() {
     var lengthYearAmount2 = new LengthYearAmount();
     lengthYearAmount2.IsRange = true;
     this.lengthYearAmountList.push(lengthYearAmount2);
+    this.content.scrollToBottom(300);
   }
 
   delete(i: number) {

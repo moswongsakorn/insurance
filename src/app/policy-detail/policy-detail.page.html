@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button mode="ios"></ion-back-button> 
+      <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
 
-    <ion-buttons slot="end">      
+    <ion-buttons slot="end">
       <ion-button *ngIf="userProfile.Role != 'user'" (click)="Remove()">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
       </ion-button>
@@ -122,7 +122,9 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="policy.ReturnList != null && policy.ReturnList.length != 0 ">
+    <ion-row
+      *ngIf="policy.ReturnList != null && policy.ReturnList.length != 0 "
+    >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'POLICY_DETAIL.LAST_YEAR_INSURANCE_MONEY' | translate }}
@@ -134,7 +136,8 @@
         >
           <div>
             <span>
-              {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}
+              {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
+              translate):('POLICY_REPAY.YEAR' | translate) }}
             </span>
             &nbsp;
             <span style="font-weight: bold;">
@@ -152,10 +155,11 @@
 
           <div
             size="6"
-            class="ion-align-self-center ion-text-end ion-justify-content-end "
+            class="ion-align-self-center ion-text-end ion-justify-content-end"
           >
             <div class="ion-text-end">
-              <span style="font-weight: bold;">{{item.Amount}}</span> {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              <span style="font-weight: bold;">{{item.Amount}}</span> {{
+              'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
           </div>
         </ion-row>
@@ -163,7 +167,9 @@
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <ion-row *ngIf="policy.ProtectList != null && policy.ProtectList.length != 0 ">
+    <ion-row
+      *ngIf="policy.ProtectList != null && policy.ProtectList.length != 0 "
+    >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'POLICY_DETAIL.DEATH_COVERAGE' | translate }}
@@ -173,28 +179,35 @@
           *ngFor="let item of policy.ProtectList ; let i = index;"
           class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <div >
-            <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>&nbsp;
+          <div>
+            <span>
+              {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
+              translate):('POLICY_REPAY.YEAR' | translate) }}</span
+            >&nbsp;
             <span style="font-weight: bold;"> {{item.Start}}</span>&nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
-            >&nbsp; <span *ngIf="item.IsRange" style="font-weight: bold;"> {{item.End}}</span>&nbsp;
+            >&nbsp;
+            <span *ngIf="item.IsRange" style="font-weight: bold;">
+              {{item.End}}</span
+            >&nbsp;
           </div>
           <div
-            
-            class="ion-align-self-center ion-text-center ion-justify-content-end "
+            class="ion-align-self-center ion-text-center ion-justify-content-end"
           >
             <div class="ion-text-end">
-             <span style="font-weight: bold;">{{item.Amount}}</span>  {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              <span style="font-weight: bold;">{{item.Amount}}</span> {{
+              'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
           </div>
-
         </ion-row>
       </ion-col>
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <ion-row *ngIf="userProfile.Role == 'master' && policy.ComissionList != null && policy.ComissionList.length != 0 ">
+    <ion-row
+      *ngIf="userProfile.Role == 'master' && policy.ComissionList != null && policy.ComissionList.length != 0 "
+    >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'ADD_POLICY.COMMISSION' | translate }}
@@ -205,18 +218,23 @@
           class="ion-justify-content-between ion-align-items-center item-border"
         >
           <div>
-            <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>&nbsp;
+            <span>
+              {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
+              translate):('POLICY_REPAY.YEAR' | translate) }}</span
+            >&nbsp;
             <span style="font-weight: bold;"> {{item.Start}}</span>&nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
-            >&nbsp; <span *ngIf="item.IsRange" style="font-weight: bold;"> {{item.End}}</span>&nbsp;
+            >&nbsp;
+            <span *ngIf="item.IsRange" style="font-weight: bold;">
+              {{item.End}}</span
+            >&nbsp;
           </div>
 
-          <div
-            class="ion-align-self-center ion-justify-content-end "
-          >
+          <div class="ion-align-self-center ion-justify-content-end">
             <div class="ion-text-end">
-             <span style="font-weight: bold;">{{item.Amount}}</span>  {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              <span style="font-weight: bold;">{{item.Amount}}</span> {{
+              'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
           </div>
         </ion-row>
@@ -313,7 +331,6 @@
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row> -->
-
   </ion-grid>
 </ion-content>
 
