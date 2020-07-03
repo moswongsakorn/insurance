@@ -19,6 +19,7 @@ import { TranslateLoader, TranslateModule,  } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { AddPolicyRepayGeneralUserPageModule} from '../app/add-policy-repay-general-user/add-policy-repay-general-user.module'
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 // AoT requires an exported function for factories
 export function exportTranslateStaticLoader(httpClient: HttpClient) {
@@ -55,6 +56,7 @@ export function exportTranslateStaticLoader(httpClient: HttpClient) {
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireAuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
