@@ -117,24 +117,23 @@
         <br />
         <ion-row
           *ngFor="let item of policy.ReturnList ; let i = index;"
-          class="ion-justify-content-between ion-align-items-center"
+          class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <ion-col size="6" style="display: flex;" class="tabel-border">
+          <div  style="display: flex;" >
             <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>  &nbsp;
-            <span> {{item.Start}}</span>  &nbsp;
+            <span style="font-weight: bold;"> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
             >  &nbsp;
-            <span *ngIf="item.IsRange"> {{item.End}}</span>  &nbsp;
-          </ion-col>
-          <ion-col
-            size="6"
+            <span *ngIf="item.IsRange" style="font-weight: bold;"> {{item.End}}</span>  &nbsp;
+          </div>
+          <div
             class="ion-align-self-center ion-justify-content-end tabel-border"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+             <span style="font-weight: bold;"> {{item.Amount}}</span> {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
-          </ion-col>
+          </div>
         </ion-row>
       </ion-col>
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
@@ -148,30 +147,30 @@
         <br />
         <ion-row
           *ngFor="let item of policy.ProtectList ; let i = index;"
-          class="ion-justify-content-between ion-align-items-center"
+          class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <ion-col size="6" style="display: flex;" class="tabel-border">
+          <div  style="display: flex;" >
             <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }} </span>  &nbsp;
-            <span> {{item.Start}}</span>  &nbsp;
+            <span style="font-weight: bold;"> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange">
               {{ 'POLICY_REPAY.TO' | translate }}</span
             >  &nbsp;
-            <span *ngIf="item.IsRange"> {{item.End}}</span>  &nbsp;
-          </ion-col>
-          <ion-col
-            size="6"
+            <span *ngIf="item.IsRange" style="font-weight: bold;"> {{item.End}}</span>  &nbsp;
+          </div>
+          <div
+            
             class="ion-align-self-center ion-justify-content-end tabel-border"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+             <span style="font-weight: bold;">{{item.Amount}}</span>  {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
-          </ion-col>
+          </div>
         </ion-row>
       </ion-col>
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <ion-row *ngIf="userProfile.Role == 'master'">
+    <div *ngIf="userProfile.Role == 'master'">
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
           {{ 'ADD_POLICY.COMMISSION' | translate }}
@@ -179,28 +178,28 @@
         <br />
         <ion-row
           *ngFor="let item of policy.ComissionList ; let i = index;"
-          class="ion-justify-content-between ion-align-items-center"
+          class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <ion-col size="6" style="display: flex;" class="tabel-border">
+          <div  style="display: flex;" >
             <span> {{ item.IsRange?('POLICY_REPAY.YEAR_AT' | translate):('POLICY_REPAY.YEAR' | translate) }}</span>  &nbsp;
-            <span> {{item.Start}}</span>  &nbsp;
+            <span style="font-weight: bold;"> {{item.Start}}</span>  &nbsp;
             <span *ngIf="item.IsRange"
               >{{ 'POLICY_REPAY.TO' | translate }}</span
             >  &nbsp;
-            <span *ngIf="item.IsRange">{{item.End}}</span>  &nbsp;
-          </ion-col>
-          <ion-col
-            size="6"
-            class="ion-align-self-center ion-justify-content-end tabel-border"
+            <span *ngIf="item.IsRange" style="font-weight: bold;">{{item.End}}</span>  &nbsp;
+          </div>
+          <div
+            
+            class="ion-align-self-center ion-justify-content-end"
           >
             <div class="ion-text-end">
-              {{item.Amount}} {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+             <span style="font-weight: bold;"> {{item.Amount}}</span> {{ 'POLICY_REPAY.SUB_TEAR_AT' | translate }}
             </div>
-          </ion-col>
+          </div>
         </ion-row>
       </ion-col>
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
-    </ion-row>
+    </div>
 
     <ion-row class="ion-margin-top">
       <ion-col size="2"></ion-col>
