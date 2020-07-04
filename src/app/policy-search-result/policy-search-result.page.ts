@@ -113,7 +113,7 @@ export class PolicySearchResultPage implements OnInit {
     var minWr = 0;
     var maxWr = 1;
     var minIrr = -3;
-    var wrNew = ((wr - minWr) + (maxIrr - minIrr) / (maxWr - minWr)) + minIrr;
+    var wrNew = ((wr - minWr) * (maxIrr - minIrr) / (maxWr - minWr)) + minIrr;
     return wrNew;
   }
 
