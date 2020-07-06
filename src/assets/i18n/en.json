@@ -53,7 +53,11 @@
     "ERROR_TEXT_1": "Please complete all information.",
     "ERROR_TEXT_2": "Invalid ID card number",
     "ERROR_TEXT_3": "Passwords do not match.",
-    "ERROR_TEXT_4": "PIN not found"
+    "ERROR_TEXT_4": "PIN not found",
+    "ID_CARD_TEXT":"ID Card",
+    "ALERT_TEXT_1":" Has been used",
+    "ALERT_TEXT_2":" Please enter a name prefix.",
+    "ALERT_TEXT_3":" Please enter a password of at least 6 characters."
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Detail",

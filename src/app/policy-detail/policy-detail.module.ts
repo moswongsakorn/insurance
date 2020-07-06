@@ -8,6 +8,7 @@ import { PolicyDetailPageRoutingModule } from './policy-detail-routing.module';
 
 import { PolicyDetailPage } from './policy-detail.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '../pipes/pips.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    PolicyDetailPageRoutingModule
+    PolicyDetailPageRoutingModule,
+    PipesModule
   ],
   declarations: [PolicyDetailPage]
 })

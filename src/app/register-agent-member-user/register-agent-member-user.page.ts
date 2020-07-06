@@ -48,20 +48,24 @@ export class RegisterAgentMemberUserPage implements OnInit {
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
     console.log("IdCard is same ", idCardIsExist)
     if (idCardIsExist) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");
-      return;
+      // "เลขประชาชน" ถูกใช้งานแล้ว"
+      const resultText1 = this.translateService.instant('REGISTER_GENERAL.ID_CARD_TEXT');
+      const resultText2: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_1');
+      this.UiService.presentAlert(resultText1+" " + this.user.IdCard + " "+resultText2);
+     return;
     }
 
     if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("กรุณากรอกคำนำหน้าชื่อ");
+     // กรุณากรอกคำนำหน้าชื่อ
+     const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_2');
+     this.UiService.presentAlert(resultText);
       return;
     }
 
     if (this.user.Password.length < 6) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      // กรุณากรอกรหัสผ่านอย่างน้อย  6 ตัวอักษร
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');
+      this.UiService.presentAlert(resultText);
       return;
     }
 

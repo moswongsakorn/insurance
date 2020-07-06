@@ -52,7 +52,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div style="width: 100%;">
-          {{policy.SumInsured}} {{ 'CODE.BATH' | translate }}
+          {{policy.SumInsured | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -63,7 +63,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div style="width: 100%;">
-          {{policy.InsurancePremium}} {{ 'CODE.BATH' | translate }}
+          {{policy.InsurancePremium | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -204,22 +204,23 @@
     <ion-row class="ion-margin-top">
       <ion-col size="2"></ion-col>
       <ion-col>
-        <ion-button expand="block" shape="round" (click)="Edit()">
-          {{ 'CODE.EDIT' | translate }}
-        </ion-button>
-      </ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="2"></ion-col>
-      <ion-col>
         <ion-button expand="block" shape="round" (click)="Save()">
           {{ 'CODE.CONFIRM' | translate }}
         </ion-button>
       </ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
+
+    <ion-row >
+      <ion-col size="2"></ion-col>
+      <ion-col>
+        <ion-button expand="block" shape="round" (click)="Edit()">
+          {{ 'CODE.CANCEL' | translate }}
+        </ion-button>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+
   </ion-grid>
 </ion-content>
 

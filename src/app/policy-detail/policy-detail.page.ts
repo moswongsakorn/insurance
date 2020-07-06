@@ -40,7 +40,9 @@ export class PolicyDetailPage implements OnInit {
   }
 
   async Remove() {
-    await this.uiService.presentAlertConfirm("ยืนยันการลบแผนประกัน?", async () => {
+    const resultText: string = this.translateService.instant('POLICY_DETAIL.ALERT_TEXT_1');
+    // "ยืนยันการลบแผนประกัน?"
+    await this.uiService.presentAlertConfirm(resultText, async () => {
       this.uiService.presentLoading();
       var result = await this.policyService.RemovePolicy(this.policy.Key);
       if (result.status) {
