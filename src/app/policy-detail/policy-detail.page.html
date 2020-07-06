@@ -37,7 +37,7 @@
         {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
       </ion-col>
       <ion-col size="5">
-        {{policy.PolicyName}}
+        {{policy?.PolicyName}}
       </ion-col>
     </ion-row>
 
@@ -46,7 +46,7 @@
         <div>{{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}</div>
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
-        <div>{{policy.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
+        <div>{{policy?.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
@@ -55,7 +55,7 @@
         <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
-        <div>{{policy.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
+        <div>{{policy?.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
@@ -65,7 +65,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div style="width: 100%;">
-          {{policy.SumInsured}} {{ 'CODE.BATH' | translate }}
+          {{policy?.SumInsured | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -76,7 +76,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div style="width: 100%;">
-          {{policy.InsurancePremium}} {{ 'CODE.BATH' | translate }}
+          {{policy.InsurancePremium | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -89,7 +89,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div>
-          {{(policy.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
+          {{(policy?.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
         </div>
       </ion-col>
@@ -103,7 +103,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div>
-          {{(policy.IsHealth ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
+          {{(policy?.IsHealth ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
         </div>
       </ion-col>
@@ -117,7 +117,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center" size="5">
         <div>
-          {{policy.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
+          {{policy?.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
         </div>
       </ion-col>
     </ion-row>
@@ -252,7 +252,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.Irr}}
+          {{policy?.Irr}}
         </div>
       </ion-col>
     </ion-row>
@@ -265,7 +265,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.IrrAgent}}
+          {{policy?.IrrAgent}}
         </div>
       </ion-col>
     </ion-row>
@@ -278,7 +278,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.ProtectRate}}
+          {{policy?.ProtectRate}}
         </div>
       </ion-col>
     </ion-row>
@@ -291,7 +291,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.PRBeforePaid}}
+          {{policy?.PRBeforePaid}}
         </div>
       </ion-col>
     </ion-row>
@@ -304,7 +304,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.PRAfterApid?policy.PRAfterApid:'N/A'}}
+          {{policy?.PRAfterApid?policy.PRAfterApid:'N/A'}}
         </div>
       </ion-col>
     </ion-row>
@@ -317,7 +317,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy.ValueRate}}
+          {{policy?.ValueRate}}
         </div>
       </ion-col>
     </ion-row>

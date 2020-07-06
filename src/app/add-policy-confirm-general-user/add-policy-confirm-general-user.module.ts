@@ -8,6 +8,7 @@ import { AddPolicyConfirmGeneralUserPageRoutingModule } from './add-policy-confi
 
 import { AddPolicyConfirmGeneralUserPage } from './add-policy-confirm-general-user.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '../pipes/pips.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    AddPolicyConfirmGeneralUserPageRoutingModule
+    AddPolicyConfirmGeneralUserPageRoutingModule,
+    PipesModule
   ],
   declarations: [AddPolicyConfirmGeneralUserPage]
 })

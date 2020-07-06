@@ -92,20 +92,16 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       }
 
       if (this.name == 'ReturnList' && element.End > this.yearOfProtect) {
-        let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
-        let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
-        // errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+        // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
       if (this.name == 'ComissionList' && element.End > this.yearToPaid) {
-        let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
-        let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาชำระเบี้ยประกัน";
-        // errorText = "จำนวนปีจ่ายเบี้ยต้องไม่เกิน " + this.yearToPaid + " ปี";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_5");
+        // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาชำระเบี้ยประกัน";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
@@ -113,10 +109,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       if (this.name == 'ProtectList' && element.End == this.yearOfProtect) isProtectAllYear = true;
       if (this.name == 'ProtectList' && element.End > this.yearOfProtect) {
-        let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
-        let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
-        //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+        // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;

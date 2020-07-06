@@ -84,11 +84,9 @@
             >{{ 'REGISTER_GENERAL.BIRTH_DATE' | translate }}</ion-label
           >
           <ion-datetime
-            month-names="มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+           [monthNames]="monthThaiName"
             [(ngModel)]="user.BirthDay"
             displayFormat="DD/MMMM/YYYY"
-            max="2012-12-31"
-            value="2002-09-23T15:03:46.789"
           ></ion-datetime>
         </ion-item>
       </ion-col>
@@ -98,7 +96,7 @@
             >{{ 'REGISTER_GENERAL.PHONE_NUMBER' | translate }}</ion-label
           >
           <ion-input
-            inputmode="tel"
+          type="tel"
             maxlength="10"
             [(ngModel)]="user.Telephone"
           ></ion-input>
@@ -122,13 +120,14 @@
             [(ngModel)]="user.Password"
           ></ion-input>
           <span class="eye-button" (click)="togglePassword()">
-            <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
-            <ion-icon
+            <ion-icon class="ion-align-items-center" size="small" *ngIf="!showPassword" name="eye"></ion-icon>
+            <ion-icon class="ion-align-items-center"
               size="small"
               *ngIf="showPassword"
               name="eye-off"
             ></ion-icon>
           </span>
+
         </ion-item>
       </ion-col>
       <ion-col size="12">
@@ -139,6 +138,7 @@
           <ion-input
             [type]="confirmPasswordType"
             [(ngModel)]="user.ConfirmPassword"
+            type="tel"
           ></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon

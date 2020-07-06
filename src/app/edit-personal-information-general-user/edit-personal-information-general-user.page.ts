@@ -16,6 +16,8 @@ import { UiService } from "../services/ui.service";
 export class EditPersonalInformationGeneralUserPage implements OnInit {
   public user: UserCrudModel = new UserCrudModel();
 
+  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
   constructor(
     private DataCenterService: DataCenterService,
     private UserService: UserServiceService,
@@ -23,7 +25,10 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
     private Router: Router,
     private translateService: TranslateService,
     private uiService: UiService
-  ) { }
+  ) {
+    const language = localStorage.getItem("language")
+    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName
+   }
 
   ngOnInit() {
     this.user = this.DataCenterService.CloneUserCrudModel();

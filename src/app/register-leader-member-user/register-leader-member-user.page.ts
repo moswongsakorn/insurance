@@ -16,6 +16,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class RegisterLeaderMemberUserPage implements OnInit {
 
   public user: UserCrudModel = new UserCrudModel();
+  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
 
   constructor(
     private userService: UserServiceService,
@@ -24,7 +26,8 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     public UiService: UiService,
     private translateService:TranslateService
 
-  ) { }
+  ) { const language = localStorage.getItem("language")
+    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName}
 
   ngOnInit() {
   }
@@ -42,6 +45,13 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       return;
     }
 
+    if(!this.validateEmail(this.user.Email)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_4');
+      // "รูปแบบอีเมล์ไม่ถูกต้อง"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.userService.checkIDCard(this.user.IdCard) === false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert(resultText);
@@ -50,20 +60,24 @@ export class RegisterLeaderMemberUserPage implements OnInit {
 
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
     if (idCardIsExist) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("เลขประชาชน " + this.user.IdCard + " ถูกใช้งานแล้ว");
-      return;
+      // "เลขประชาชน" ถูกใช้งานแล้ว"
+      const resultText1 = this.translateService.instant('REGISTER_GENERAL.ID_CARD_TEXT');
+      const resultText2: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_1');
+      this.UiService.presentAlert(resultText1+" " + this.user.IdCard + " "+resultText2);
+       return;
     }
 
     if (this.user.Password.length < 6) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      // กรุณากรอกรหัสผ่านอย่างน้อย  6 ตัวอักษร
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');
+      this.UiService.presentAlert(resultText);
       return;
     }
 
     if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
-      this.UiService.presentAlert("กรุณากรอกคำนำหน้าชื่อ");
+      // กรุณากรอกคำนำหน้าชื่อ
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_2');
+      this.UiService.presentAlert(resultText);
       return;
     }
 
@@ -94,6 +108,11 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     this.showConfirmPassword
       ? (this.confirmPasswordType = "text")
       : (this.confirmPasswordType = "password");
+  }
+
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 
 }

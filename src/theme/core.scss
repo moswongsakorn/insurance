@@ -77,3 +77,8 @@
     font-size: 16px;
     text-decoration: underline;
   }
+
+  /* Set the text color */
+ion-select::part(text) {
+  padding-left: 10px;
+}
