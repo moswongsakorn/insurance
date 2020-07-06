@@ -67,8 +67,10 @@ export class PersonalInformationGeneralUserPage implements OnInit {
         this.NavController.navigateRoot(['home']);
       }
       else {
+        // รหัสผ่านไม่ถูกต้อง
+        const resultText = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_5')
         this.uiService.dismissLoading();
-        this.uiService.presentAlert("รหัสผ่านไม่ถูกต้อง");
+        this.uiService.presentAlert(resultText);
       }
     })
   }

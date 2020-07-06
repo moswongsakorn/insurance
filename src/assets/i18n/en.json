@@ -54,6 +54,7 @@
     "ERROR_TEXT_2": "Invalid ID card number",
     "ERROR_TEXT_3": "Passwords do not match.",
     "ERROR_TEXT_4": "PIN not found",
+    "ERROR_TEXT_5": "Incorrect password",
     "ID_CARD_TEXT":"ID Card",
     "ALERT_TEXT_1":" Has been used",
     "ALERT_TEXT_2":" Please enter a name prefix.",
@@ -184,7 +185,9 @@
     "RANGE_YEAR_ADD": "Add Continuous Policy Year",
     "ERROR_TEXT_1": "Please fill in the correct information",
     "ERROR_TEXT_2": "The number of years cannot exceed.",
-    "ERROR_TEXT_3": "Please complete all information."
+    "ERROR_TEXT_3": "Please complete all information.",
+    "ERROR_TEXT_4":"The number of years must not exceed the coverage period",
+    "ERROR_TEXT_5":"The number of years must not exceed the premium payment period."
   },
   "POLICY_SEARCH": {
     "TITLE": "Search",
