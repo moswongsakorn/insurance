@@ -197,7 +197,8 @@
     "TEXT_DETAIL_1": "*If the checkbox is left unticked",
     "TEXT_DETAIL_2": "that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
-    "HEALTH": "Health Insurance"
+    "HEALTH": "Health Insurance",
+    "SCORE":"Score"
   },
   "SEARCH_RESULT": {
     "TITLE": "Insurance Plans that suit your requirements are:"

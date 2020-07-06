@@ -8,16 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-margin-top">
+  <div class="ion-text-end top-label">
+    {{ 'POLICY_SEARCH.SCORE' | translate }}
+  </div>
+  <div style="margin-top: 36px;">
     <ion-list>
-      <ion-item *ngFor="let policy of policyListSort;index as i; " 
-        (click)="PolicyDetail(policy)">
-        <ion-label>
-          <ion-label slot="start">{{i+1}}.
-            {{policy?.CompanyName=='specific' ? policy?.SpecificCampany: 'COMPANY_DATA.'+policy?.CompanyName | translate}}
-            {{policy?.PolicyName}} </ion-label>
-            <ion-label slot="end" color="success">{{policy.PointForSort}}</ion-label>
+      <ion-item
+        *ngFor="let policy of policyListSort;index as i; "
+        (click)="PolicyDetail(policy)"
+      >
+        <ion-label 
+          >{{i+1}}. {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
+          'COMPANY_DATA.'+policy?.CompanyName | translate}}
+          {{policy?.PolicyName}}
         </ion-label>
+        <ion-note class="score-label ion-justify-content-center ion-align-self-center ion-align-items-center" color="success"
+          >{{policy.PointForSort}}</ion-note
+        >
       </ion-item>
     </ion-list>
   </div>
