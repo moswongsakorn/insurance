@@ -206,7 +206,7 @@
     </ion-row>
 
     <ion-row
-      *ngIf="userProfile.Role == 'master' && policy.ComissionList != null && policy.ComissionList.length != 0 "
+      *ngIf="userProfile.Role != 'quest' && policy.ComissionList != null && policy.ComissionList.length != 0 "
     >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">

@@ -4,6 +4,8 @@ import { DataCenterService } from '../services/data-center.service';
 import { UidRoleModel, UserCrudModel } from '../interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { UiService } from '../services/ui.service';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-agent-information',
@@ -21,7 +23,8 @@ export class AgentInformationPage implements OnInit {
     private UserService: UserServiceService,
     private DataCenterService: DataCenterService,
     private route: ActivatedRoute,
-    private NavController: NavController
+    private NavController: NavController,
+    private UiService: UiService
   ) {
     this.route.queryParamMap.subscribe(params => {
       this.userUid = params.get('uid')
@@ -42,15 +45,19 @@ export class AgentInformationPage implements OnInit {
       });
   }
 
-  async removeUserPin() {
-    this.user.Pin = "";
-    var result = await this.UserService.UpdateAgentUser(this.user);
-    if (result.status) {
-      this.NavController.back()
-    }
-    else {
-      console.log(result.message)
-    }
+  removeUserPin() {
+    var titleText = "คุณต้องการลบตัวแทนนี้ออกจากสายงานของคุณใช่ไหม?";
+    this.UiService.presentAlertConfirm(titleText, async () => {
+      this.user.Pin = "";
+      var result = await this.UserService.UpdateAgentUser(this.user);
+      if (result.status) {
+        this.NavController.back()
+      }
+      else {
+        console.log(result.message)
+      }
+    })
+
   }
 
 

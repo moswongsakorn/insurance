@@ -35,25 +35,31 @@ export class PolicyInputCalculatePage implements OnInit {
   }
 
   async Save() {
-    await this.uiService.presentLoading();
-    
-    var policy = new PolicyCrudModel();
-    policy.MapData(this.policy);
-    var newPolicy = policy.CloneModel();
-    newPolicy.SumInsured = (this.sumInsured) ? this.sumInsured : 0;
-    newPolicy.InsurancePremium = this.insurancePremium ? this.insurancePremium : 0;
 
-    let irr = this.irrService.irr(newPolicy.GetCashFlow());
-    newPolicy.Irr = irr;
+    if (this.sumInsured == null || this.insurancePremium == null) {
+      var alertText = "กรุณากรอกข้อมูลให้ครบ";
+      this.uiService.presentAlert(alertText);
+    }
+    else {
+      await this.uiService.presentLoading();
+      var policy = new PolicyCrudModel();
+      policy.MapData(this.policy);
+      var newPolicy = policy.CloneModel();
+      newPolicy.SumInsured = (this.sumInsured) ? this.sumInsured : 0;
+      newPolicy.InsurancePremium = this.insurancePremium ? this.insurancePremium : 0;
 
-    let irrAgent = this.irrService.irr(newPolicy.GetCashFloawAgent());
-    newPolicy.IrrAgent = irrAgent;
+      let irr = this.irrService.irr(newPolicy.GetCashFlow());
+      newPolicy.Irr = irr;
 
-    newPolicy.Calculate();
-    this.uiService.dismissLoading();
+      let irrAgent = this.irrService.irr(newPolicy.GetCashFloawAgent());
+      newPolicy.IrrAgent = irrAgent;
 
-    this.DataCenterService.SetPolicyCalculate(newPolicy);
-    this.NavController.navigateForward(['policy-detail-calculate']);
+      newPolicy.Calculate();
+      this.uiService.dismissLoading();
+
+      this.DataCenterService.SetPolicyCalculate(newPolicy);
+      this.NavController.navigateForward(['policy-detail-calculate']);
+    }
   }
 
 }

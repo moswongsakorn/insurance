@@ -31,20 +31,23 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
-    // if (this.user.PasswordIsMatch()) {
-    var result = await this.UserService.UpdateUser(this.user);
-    if (result.message == MagicNumber.ReEntry) {
-      this.NavController.navigateForward(["home"]);
-    } else if (result.status) {
-      this.NavController.back();
-    } else {
-      console.log(result.message);
+    var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
+    if (pinIsExist) {
+      var result = await this.UserService.UpdateUser(this.user);
+      if (result.message == MagicNumber.ReEntry) {
+        this.NavController.navigateForward(["home"]);
+      } else if (result.status) {
+        this.NavController.back();
+      } else {
+        console.log(result.message);
+      }
     }
-    // } else {
-    //   const errorText: string = this.translateService.instant(
-    //     "EDIT_PERSONAL_INFORMATION.ERROR_RESPONSE_TEXT"
-    //   );
-    //   this.uiService.presentAlert(errorText);
-    // }
+    else{
+      const resultText: string = this.translateService.instant(
+        "REGISTER_GENERAL.ERROR_TEXT_4"
+      );
+      this.uiService.presentAlert(resultText);
+      return;
+    }   
   }
 }

@@ -7,7 +7,7 @@ import { UserCrudModel, PolicyCrudModel } from "../interfaces";
 import { DataCenterService } from "../services/data-center.service";
 import { UiService } from "../services/ui.service";
 import { async } from "@angular/core/testing";
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -75,7 +75,11 @@ export class PolicyListGeneralUserPage implements OnInit {
 
   Searchbar(event) {
     let searchData = this.policyListForSearch.filter((value, key) => {
-      let val = value.CompanyName + " " + value.PolicyName;
+      var companyName: string = this.translateService.instant("COMPANY_DATA." + value.CompanyName);
+      // var policyName: string = this.translateService.instant(value.PolicyName);
+      let val = companyName + " " + value.PolicyName;
+
+      console.log("============SEARCH = ", val)
       if (val.search(event.detail.value) == -1) {
         return false;
       } else {
@@ -92,7 +96,7 @@ export class PolicyListGeneralUserPage implements OnInit {
   }
 
 
-  Add(){
+  Add() {
     var policy = new PolicyCrudModel();
     policy.ComissionList = undefined;
     policy.ProtectList = undefined;
