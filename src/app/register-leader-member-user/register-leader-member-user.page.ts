@@ -16,6 +16,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class RegisterLeaderMemberUserPage implements OnInit {
 
   public user: UserCrudModel = new UserCrudModel();
+  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
 
   constructor(
     private userService: UserServiceService,
@@ -24,7 +26,8 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     public UiService: UiService,
     private translateService:TranslateService
 
-  ) { }
+  ) { const language = localStorage.getItem("language")
+    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName}
 
   ngOnInit() {
   }

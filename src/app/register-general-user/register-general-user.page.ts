@@ -19,15 +19,21 @@ export class RegisterGeneralUserPage implements OnInit {
     public navController: NavController,
     public UiService: UiService,
     private translateService: TranslateService
-  ) { }
+  ) {
+    const language = localStorage.getItem("language")
+    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName
+   }
 
   public user: UserCrudModel = new UserCrudModel();
   public showPassword: boolean = false;
   public showConfirmPassword: boolean = false;
   public passwordType: string = "password";
   public confirmPasswordType: string = "password";
-  mothThai =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
-  ngOnInit() { }
+  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
+  ngOnInit() {
+   
+   }
 
   public async PinGenerate() {
     this.user.Pin = await this.userService.PinGenerate();

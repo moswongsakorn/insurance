@@ -13,7 +13,8 @@
     "EDIT": "Edit",
     "MR": "Mr.",
     "MS": "Mrs.",
-    "MISS": "Miss"
+    "MISS": "Miss",
+    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December"
   },
   "HOME": {
     "TITLE": "Life Insurance",

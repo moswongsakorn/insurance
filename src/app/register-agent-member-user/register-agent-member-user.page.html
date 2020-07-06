@@ -79,7 +79,7 @@
           >
           <ion-datetime
             [(ngModel)]="user.BirthDay"
-            month-names="มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+            [monthNames]="monthThaiName"
             displayFormat="DD/MMMM/YYYY"
             max="2012-12-31"
             value="2002-09-23T15:03:46.789"
@@ -131,12 +131,12 @@
             [(ngModel)]="user.ConfirmPassword"
           ></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
-            <ion-icon
+            <ion-icon class="ion-align-items-center"
               size="small"
               *ngIf="!showConfirmPassword"
               name="eye"
             ></ion-icon>
-            <ion-icon
+            <ion-icon class="ion-align-items-center"
               size="small"
               *ngIf="showConfirmPassword"
               name="eye-off"

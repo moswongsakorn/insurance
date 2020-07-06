@@ -2,7 +2,11 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button size="large" (click)="navController.back()">
-        <ion-icon slot="icon-only" name="chevron-back-outline"color="light"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          name="chevron-back-outline"
+          color="light"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title></ion-title>
@@ -11,15 +15,43 @@
 
 <ion-content [fullscreen]="true">
   <h1 class="ion-text-center">{{ 'REGISTER_CHOICE.TITLE' | translate}}</h1>
-  <div id="container">
+  <div style="margin-top: 50px;">
     <ion-grid>
       <ion-row>
-        <ion-col size="12">
-          <ion-button expand="block" shape="round" size="large" color="light" [routerLink]="['/register-leader-member-user']">{{ 'REGISTER_CHOICE.SUPERVISOR' | translate}}</ion-button>
+        <ion-col size="1"></ion-col>
+
+        <ion-col size="10">
+          <ion-button
+            style="font-size: 19px;"
+            expand="block"
+            shape="round"
+            size="medium"
+            color="light"
+            [routerLink]="['/register-leader-member-user']"
+          >
+            <span>
+              {{ 'REGISTER_CHOICE.SUPERVISOR' | translate}}
+            </span>
+          </ion-button>
         </ion-col>
-        <ion-col size="12">
-          <ion-button expand="block" shape="round" size="large" [routerLink]="['/register-agent-member-user']">{{ 'REGISTER_CHOICE.EMPLOYEE' | translate}}</ion-button>     
+        <ion-col size="1"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1"></ion-col>
+        <ion-col size="10">
+          <ion-button
+            style="font-size: 19px;"
+            expand="block"
+            shape="round"
+            size="medium"
+            [routerLink]="['/register-agent-member-user']"
+          >
+            <span>
+              {{ 'REGISTER_CHOICE.EMPLOYEE' | translate}}
+            </span>
+          </ion-button>
         </ion-col>
+        <ion-col size="1"></ion-col>
       </ion-row>
     </ion-grid>
   </div>
