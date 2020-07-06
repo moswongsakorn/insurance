@@ -22,7 +22,10 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.ID_CARD' | translate }}</ion-label
           >
-          <ion-input inputmode="numeric" [(ngModel)]="user.IdCard"></ion-input>
+          <ion-input 
+          inputmode="numeric" 
+          maxlength="13"
+          [(ngModel)]="user.IdCard"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
@@ -91,7 +94,10 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.PHONE_NUMBER' | translate }}</ion-label
           >
-          <ion-input inputmode="tel" [(ngModel)]="user.Telephone"></ion-input>
+          <ion-input 
+          type="tel"
+            maxlength="10"
+             [(ngModel)]="user.Telephone"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col size="12">
