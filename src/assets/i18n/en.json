@@ -58,7 +58,8 @@
     "ID_CARD_TEXT":"ID Card",
     "ALERT_TEXT_1":" Has been used",
     "ALERT_TEXT_2":" Please enter a name prefix.",
-    "ALERT_TEXT_3":" Please enter a password of at least 6 characters."
+    "ALERT_TEXT_3":" Please enter a password of at least 6 characters.",
+    "ALERT_TEXT_4":" Invalid email format."
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Detail",

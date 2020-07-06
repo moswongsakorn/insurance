@@ -39,6 +39,13 @@ export class RegisterAgentMemberUserPage implements OnInit {
       return;
     }
 
+    if(!this.validateEmail(this.user.Email)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_4');
+      // "รูปแบบอีเมล์ไม่ถูกต้อง"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.userService.checkIDCard(this.user.IdCard) === false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert(resultText);
@@ -111,5 +118,9 @@ export class RegisterAgentMemberUserPage implements OnInit {
     this.showConfirmPassword
       ? (this.confirmPasswordType = "text")
       : (this.confirmPasswordType = "password");
+  }
+  validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 }
