@@ -14,7 +14,8 @@
     "MR": "Mr.",
     "MS": "Mrs.",
     "MISS": "Miss",
-    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December"
+    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December",
+    "CODE.SPECIFIC": ""
   },
   "HOME": {
     "TITLE": "Life Insurance",
@@ -103,7 +104,7 @@
   "PERSONAL_INFORMATION": {
     "TITLE": "Personal Profile",
     "ID_CARD": "ID Card Number",
-    "PREFIX_NAME": "First Name Last Name",
+    "PREFIX_NAME": "Name Title",
     "FULL_NAME": "First Name Last Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",

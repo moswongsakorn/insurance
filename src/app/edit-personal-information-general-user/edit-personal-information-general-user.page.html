@@ -34,13 +34,13 @@
           <ion-item>
             <ion-select [(ngModel)]="user.PrefixName" okText="{{ 'CODE.OK' | translate }}"
               cancelText="{{ 'CODE.CANCEL' | translate }}">
-              <ion-select-option value="{{ 'CODE.MR' | translate }}">
+              <ion-select-option value="CODE.MR">
                 {{ 'CODE.MR' | translate }} </ion-select-option>
-              <ion-select-option value="{{ 'CODE.MS' | translate }}">
+              <ion-select-option value="CODE.MS">
                 {{ 'CODE.MS' | translate }}</ion-select-option>
-              <ion-select-option value="{{ 'CODE.MISS' | translate }}">
+              <ion-select-option value="CODE.MISS">
                 {{ 'CODE.MISS' | translate }}</ion-select-option>
-              <ion-select-option value="specific">
+              <ion-select-option value="REGISTER_GENERAL.Other">
                 {{ 'REGISTER_GENERAL.Other' | translate }}</ion-select-option>
             </ion-select>
           </ion-item>
@@ -48,7 +48,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-justify-content-between" *ngIf="user.PrefixName=='specific'">
+    <ion-row class="ion-justify-content-between" *ngIf="user.PrefixName=='REGISTER_GENERAL.Other'">
       <ion-col class="ion-align-self-center">
         <div>
           {{ 'REGISTER_GENERAL.Other' | translate }}

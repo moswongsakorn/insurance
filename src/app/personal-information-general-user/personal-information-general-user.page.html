@@ -39,7 +39,7 @@
         </ion-col>
         <ion-col class="ion-text-start">
           <div>
-            {{user.PrefixName=='specific'? user.SpecificPrefixName : user.PrefixName}}
+            {{user.PrefixName=='REGISTER_GENERAL.Other'? user.SpecificPrefixName : (user.PrefixName| translate)}}
           </div>
         </ion-col>
       </ion-row>

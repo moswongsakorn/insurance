@@ -145,7 +145,7 @@ export class UserServiceService {
   public async RegisterUser(input: UserCrudModel): Promise<ResponseModel> {
     var createdStatus = await this.CreateUserWithEmailAndPassword(input.Email, input.Password);
     if (createdStatus.status == true) {
-      if (input.PrefixName != 'specific') input.SpecificPrefixName = "";
+      if (input.PrefixName != 'REGISTER_GENERAL.Other') input.SpecificPrefixName = "";
       if (input.SpecificPrefixName == null) input.SpecificPrefixName = "";
       input.Uid = createdStatus.detail;
       var insertStatus = await this.InsertUser(input);
@@ -160,7 +160,7 @@ export class UserServiceService {
     try {
       input.ConfirmPassword = null;
       input.Password = null;
-      if (input.PrefixName != 'specific') input.SpecificPrefixName = "";
+      if (input.PrefixName != 'REGISTER_GENERAL.Other') input.SpecificPrefixName = "";
       if (input.SpecificPrefixName == null) input.SpecificPrefixName = "";
       // var oldUserProfile = await this.GetUserProfile(input.Uid);
       // if (oldUserProfile.Password != input.Password) {
@@ -171,8 +171,7 @@ export class UserServiceService {
       //   return new ResponseModel().Success(result, MagicNumber.ReEntry);
       // }
       // else {
-        var resultreMove  = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).remove();
-        console.log("resultreMove", resultreMove)
+      
         var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
       return new ResponseModel().Success(result);
       // }

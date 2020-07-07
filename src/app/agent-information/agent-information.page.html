@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
-    <ion-title>ข้อมูลส่วนตัว</ion-title>
+    <ion-title>{{ 'PERSONAL_INFORMATION.TITLE' | translate }}</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="['/edit-agent-information']">
         <ion-icon slot="icon-only" name="build"></ion-icon>
@@ -21,7 +21,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            เลขบัตรประชาชน
+            {{ 'PERSONAL_INFORMATION.ID_CARD' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
@@ -34,12 +34,12 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            คำนำหน้าชื่อ
+            {{ 'PERSONAL_INFORMATION.PREFIX_NAME' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
           <div>
-            {{user.PrefixName}}
+            {{user.PrefixName=='REGISTER_GENERAL.Other'? user.SpecificPrefixName: (user.PrefixName | translate) }}
           </div>
         </ion-col>
       </ion-row>
@@ -47,7 +47,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            ชื่อ - นามสกุล
+            {{ 'PERSONAL_INFORMATION.FULL_NAME' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
@@ -60,7 +60,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col size="6">
           <div>
-            วัน/เดือน/ปี เกิด
+            {{ 'PERSONAL_INFORMATION.BIRTH_DATE' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start" size="6">
@@ -73,7 +73,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            เบอร์โทรศัพท์
+            {{ 'PERSONAL_INFORMATION.PHONE_NUMBER' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
@@ -86,7 +86,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            อีเมล์
+            {{ 'PERSONAL_INFORMATION.EMAIL' | translate }}
           </div>
         </ion-col>
         <ion-col>
@@ -99,7 +99,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            PIN
+            {{ 'PERSONAL_INFORMATION.PIN' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
@@ -117,7 +117,7 @@
       <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
-            เลขบัตรประชาชน
+            {{ 'PERSONAL_INFORMATION.ID_CARD' | translate }}
           </div>
         </ion-col>
         <ion-col class="ion-text-start">
@@ -129,7 +129,7 @@
 
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          คำนำหน้าชื่อ
+          {{ 'PERSONAL_INFORMATION.PREFIX_NAME' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 40%;"></ion-skeleton-text>
@@ -137,7 +137,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          ชื่อ - นามสกุล
+          {{ 'PERSONAL_INFORMATION.FULL_NAME' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
@@ -145,7 +145,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          วัน/เดือน/ปี เกิด
+          {{ 'PERSONAL_INFORMATION.BIRTH_DATE' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
@@ -153,7 +153,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          เบอร์โทรศัพท์
+          {{ 'PERSONAL_INFORMATION.PHONE_NUMBER' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 60%;"></ion-skeleton-text>
@@ -161,7 +161,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          อีเมล์
+          {{ 'PERSONAL_INFORMATION.EMAIL' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
@@ -169,7 +169,7 @@
       </ion-row>
       <ion-row class="ion-justify-content-between">
         <ion-col>
-          PIN
+          {{ 'PERSONAL_INFORMATION.PASSWORD' | translate }}
         </ion-col>
         <ion-col class="ion-text-start">
           <ion-skeleton-text animated style="width: 30%;"></ion-skeleton-text>

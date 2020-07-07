@@ -74,7 +74,7 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       return;
     }
 
-    if (this.user.PrefixName == 'specific' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
+    if (this.user.PrefixName == 'REGISTER_GENERAL.Other' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
       // กรุณากรอกคำนำหน้าชื่อ
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_2');
       this.UiService.presentAlert(resultText);

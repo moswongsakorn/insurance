@@ -35,25 +35,25 @@
             >{{ 'REGISTER_GENERAL.PREFIX_NAME' | translate }}</ion-label
           >
           <ion-select [(ngModel)]="user.PrefixName">
-            <ion-select-option value="{{ 'REGISTER_GENERAL.MR'  | translate }}"
-              >{{ 'REGISTER_GENERAL.MR' | translate }}
+            <ion-select-option value="CODE.MR"
+              >{{ 'CODE.MR' | translate }}
             </ion-select-option>
-            <ion-select-option value="{{ 'REGISTER_GENERAL.MS'  | translate }}"
-              >{{ 'REGISTER_GENERAL.MS' | translate }}
+            <ion-select-option value="CODE.MS"
+              >{{ 'CODE.MS' | translate }}
             </ion-select-option>
             <ion-select-option
-              value="{{ 'REGISTER_GENERAL.MIS'  | translate }}"
+              value="CODE.MISS"
             >
-              {{ 'REGISTER_GENERAL.MIS' | translate }}
+              {{ 'CODE.MISS' | translate }}
             </ion-select-option>
-            <ion-select-option value="specific"
+            <ion-select-option value="REGISTER_GENERAL.Other"
               >{{ 'REGISTER_GENERAL.Other' | translate }}</ion-select-option
             >
           </ion-select>
         </ion-item>
       </ion-col>
 
-      <ion-col size="12" *ngIf="user.PrefixName=='specific'">
+      <ion-col size="12" *ngIf="user.PrefixName=='REGISTER_GENERAL.Other'">
         <ion-item>
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.Other' | translate }}</ion-label

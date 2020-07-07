@@ -21,19 +21,19 @@ export class RegisterGeneralUserPage implements OnInit {
     private translateService: TranslateService
   ) {
     const language = localStorage.getItem("language")
-    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName
-   }
+    this.monthThaiName = language === "th" ? this.monthThaiName : this.monthEngName
+  }
 
   public user: UserCrudModel = new UserCrudModel();
   public showPassword: boolean = false;
   public showConfirmPassword: boolean = false;
   public passwordType: string = "password";
   public confirmPasswordType: string = "password";
-  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
-  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
+  public monthThaiName = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName = "January,February,March,April,May,June,July,August,September,October,November,December"
   ngOnInit() {
-   
-   }
+
+  }
 
   public async PinGenerate() {
     this.user.Pin = await this.userService.PinGenerate();
@@ -46,8 +46,8 @@ export class RegisterGeneralUserPage implements OnInit {
       this.UiService.presentAlert(resultText);
       return;
     }
-    
-    if(!this.validateEmail(this.user.Email)){
+
+    if (!this.validateEmail(this.user.Email)) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_4');
       // "รูปแบบอีเมล์ไม่ถูกต้อง"
       this.UiService.presentAlert(resultText);
@@ -65,7 +65,7 @@ export class RegisterGeneralUserPage implements OnInit {
       // "เลขประชาชน" ถูกใช้งานแล้ว"
       const resultText1 = this.translateService.instant('REGISTER_GENERAL.ID_CARD_TEXT');
       const resultText2: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_1');
-      this.UiService.presentAlert(resultText1+" " + this.user.IdCard + " "+resultText2);
+      this.UiService.presentAlert(resultText1 + " " + this.user.IdCard + " " + resultText2);
       return;
     }
 
@@ -83,7 +83,7 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
 
-  
+
 
     if (this.user.PasswordIsMatch()) {
       this.dataCenter.SetUserCrudModel(this.user);
@@ -109,7 +109,7 @@ export class RegisterGeneralUserPage implements OnInit {
       : (this.confirmPasswordType = "password");
   }
 
-   validateEmail(email) {
+  validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }

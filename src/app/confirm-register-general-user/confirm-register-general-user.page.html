@@ -18,7 +18,8 @@
         <ion-text>{{ 'CONFIRM_GENERAL.PREFIX_NAME'  | translate }}</ion-text>
       </ion-col>
       <ion-col size="6">
-        <ion-text>{{user.PrefixName=='specific'? user?.SpecificPrefixName: user?.PrefixName}}</ion-text>
+        <ion-text>{{user.PrefixName=='REGISTER_GENERAL.Other'? user?.SpecificPrefixName: (user?.PrefixName|translate)}}
+        </ion-text>
       </ion-col>
       <ion-col size="6">
         <ion-text>{{ 'CONFIRM_GENERAL.FULL_NAME'  | translate }}</ion-text>

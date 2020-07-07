@@ -8,6 +8,7 @@ import { AgentInformationPageRoutingModule } from './agent-information-routing.m
 
 import { AgentInformationPage } from './agent-information.page';
 import { PipesModule } from '../pipes/pips.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PipesModule } from '../pipes/pips.module';
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     AgentInformationPageRoutingModule,
     PipesModule
   ],

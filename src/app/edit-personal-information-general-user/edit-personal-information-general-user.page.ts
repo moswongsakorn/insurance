@@ -16,8 +16,8 @@ import { UiService } from "../services/ui.service";
 export class EditPersonalInformationGeneralUserPage implements OnInit {
   public user: UserCrudModel = new UserCrudModel();
 
-  public monthThaiName =  "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
-  public monthEngName =  "January,February,March,April,May,June,July,August,September,October,November,December"
+  public monthThaiName = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName = "January,February,March,April,May,June,July,August,September,October,November,December"
   constructor(
     private DataCenterService: DataCenterService,
     private UserService: UserServiceService,
@@ -27,8 +27,8 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
     private uiService: UiService
   ) {
     const language = localStorage.getItem("language")
-    this.monthThaiName = language==="th"?this.monthThaiName:this.monthEngName
-   }
+    this.monthThaiName = language === "th" ? this.monthThaiName : this.monthEngName
+  }
 
   ngOnInit() {
     this.user = this.DataCenterService.CloneUserCrudModel();
@@ -36,6 +36,8 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+    console.log("ttttttt=",this.user.SpecificPrefixName)
+
     var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
     if (pinIsExist) {
       var result = await this.UserService.UpdateUser(this.user);
@@ -47,12 +49,12 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
         console.log(result.message);
       }
     }
-    else{
+    else {
       const resultText: string = this.translateService.instant(
         "REGISTER_GENERAL.ERROR_TEXT_4"
       );
       this.uiService.presentAlert(resultText);
       return;
-    }   
+    }
   }
 }
