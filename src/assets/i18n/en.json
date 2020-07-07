@@ -14,7 +14,9 @@
     "MR": "Mr.",
     "MS": "Mrs.",
     "MISS": "Miss",
-    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December"
+    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December",
+    "DELETE_USER_TITLE":"Confirm user deletion?",
+    "DELETE_USER_TEXT":"Please confirm the password to confirm user deletion."
   },
   "HOME": {
     "TITLE": "Life Insurance",
