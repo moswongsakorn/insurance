@@ -101,9 +101,13 @@ export class UiService {
   }
 
   async ConfirmedRemove(calBack: any) {
+    const headerText: string = this.translateService.instant("CODE.DELETE_USER_TITLE");
+    const message: string = this.translateService.instant("CODE.DELETE_USER_TEXT");
+
+
     let alert = await this.alertController.create({
-      header: "ยืนยันการลบผู้ใช้งาน",
-      message: "กรุณากรอบรหัสผ่านเพื่อยืนยันการลบผู้ใช้งาน",
+      header: headerText,
+      message: message,
       inputs: [       
         {
           name: 'password',

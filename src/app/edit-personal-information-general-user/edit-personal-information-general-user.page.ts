@@ -36,8 +36,6 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
-    console.log("ttttttt=",this.user.SpecificPrefixName)
-
     var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
     if (pinIsExist) {
       var result = await this.UserService.UpdateUser(this.user);
@@ -56,5 +54,15 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
       this.uiService.presentAlert(resultText);
       return;
     }
+  }
+ validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  validateName(inputText){
+    const re = /^[A-Za-zก-๙]+$/;
+    console.log('inputText: '+inputText, re.test(inputText))
+    return re.test(inputText);
   }
 }

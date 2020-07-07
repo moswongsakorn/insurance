@@ -15,7 +15,8 @@
     "MS": "Mrs.",
     "MISS": "Miss",
     "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December",
-    "CODE.SPECIFIC": ""
+    "DELETE_USER_TITLE":"Confirm user deletion?",
+    "DELETE_USER_TEXT":"Please confirm the password to confirm user deletion."
   },
   "HOME": {
     "TITLE": "Life Insurance",
@@ -60,7 +61,9 @@
     "ALERT_TEXT_1":" Has been used",
     "ALERT_TEXT_2":" Please enter a name prefix.",
     "ALERT_TEXT_3":" Please enter a password of at least 6 characters.",
-    "ALERT_TEXT_4":" Invalid email format."
+    "ALERT_TEXT_4":" Invalid email format.",
+    "ALERT_TEXT_5":" Invalid first name & last name format"
+
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Detail",

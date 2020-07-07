@@ -48,12 +48,14 @@ export class EditChangePasswordPage implements OnInit {
       await this.UiService.presentAlert(resultText);
       return;
     }
-
+    await this.UiService.presentLoading();
     var result = await this.UserService.ChangePassword(this.currentPassword,this.newPassword);
     if(result.status){
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_SUCCESS_TEXT');
       // await this.UiService.presentAlert("เปลี่ยนรหัสผ่านสำเร็จ");
       await this.UiService.presentAlert(resultText);
+    await this.UiService.dismissLoading();
+
       this.back();
     }
     else{
