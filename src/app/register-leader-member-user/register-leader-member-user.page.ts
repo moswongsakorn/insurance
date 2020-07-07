@@ -52,6 +52,13 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       return;
     }
 
+    if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รูปแบบชื่อ - นามสกุลไม่ถูกต้อง"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.userService.checkIDCard(this.user.IdCard) === false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert(resultText);
@@ -114,5 +121,10 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-
+  
+ validateName(inputText){
+    const re = /^[A-Za-zก-๙]+$/;
+    console.log('inputText: '+inputText, re.test(inputText))
+    return re.test(inputText);
+  }
 }

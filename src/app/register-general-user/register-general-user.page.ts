@@ -47,9 +47,16 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
     
-    if(!this.validateEmail(this.user.Email)){
+    if(!this.validateEmail(this.user.FirstName)){
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_4');
       // "รูปแบบอีเมล์ไม่ถูกต้อง"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
+    if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รูปแบบชื่อ - นามสกุลไม่ถูกต้อง"
       this.UiService.presentAlert(resultText);
       return;
     }
@@ -112,5 +119,11 @@ export class RegisterGeneralUserPage implements OnInit {
    validateEmail(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+  }
+
+  validateName(inputText){
+    const re = /^[A-Za-zก-๙]+$/;
+    console.log('inputText: '+inputText, re.test(inputText))
+    return re.test(inputText);
   }
 }
