@@ -23,7 +23,8 @@
     "SUB_TITLE1": "Mobile Application for Selection of Insurance Plans using ",
     "SUB_TITLE2": "the Weighted Average Method",
     "BUTTON_1": "(For) Public Use",
-    "BUTTON_2": "(For) Agent Use"
+    "BUTTON_2": "(For) Agent Use",
+    "VERIIFY":"Waiting for verify"
   },
   "LOGIN_GENERAL": {
     "TITLE": "Login",

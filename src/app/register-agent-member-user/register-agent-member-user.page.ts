@@ -32,7 +32,7 @@ export class RegisterAgentMemberUserPage implements OnInit {
 
   public async Register() {
     this.user.InitRole(MagicNumber.user);
-
+    this.user.Verify = true;
     if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
       this.UiService.presentAlert(resultText);

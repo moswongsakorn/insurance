@@ -39,8 +39,14 @@ export class PolicyListGeneralUserPage implements OnInit {
   }
 
   async ionViewDidEnter() {
+
+
     try {
       this.userProfile = this.DataCenterService.GetThisUserProfile();
+
+      if (this.userProfile == null) this.NavController.navigateRoot(["home"]);
+      else if (!this.userProfile.Verify) this.NavController.navigateRoot(["verify"]);
+
       this.policyList = await this.PolicyService.GetPolicyListByPin(
         this.userProfile.Pin
       );
@@ -75,11 +81,13 @@ export class PolicyListGeneralUserPage implements OnInit {
 
   Searchbar(event) {
     let searchData = this.policyListForSearch.filter((value, key) => {
-      var companyName: string = this.translateService.instant("COMPANY_DATA." + value.CompanyName);
+      var companyName: string = "";
+      if (value.CompanyName != "specific") companyName = this.translateService.instant("COMPANY_DATA." + value.CompanyName);
+      else companyName = value.SpecificCampany;
       // var policyName: string = this.translateService.instant(value.PolicyName);
       let val = companyName + " " + value.PolicyName;
 
-      console.log("============SEARCH = ", val)
+      console.log(val)
       if (val.search(event.detail.value) == -1) {
         return false;
       } else {

@@ -1,0 +1,23 @@
+.center {
+    position: absolute;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.img {
+    height: 100px;
+    text-shadow: 3px 3px 3px 1px black;
+
+}
+
+.text {
+    text-shadow: 3px 3px 3px 1px black;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}

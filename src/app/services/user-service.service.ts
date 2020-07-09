@@ -49,6 +49,35 @@ export class UserServiceService {
     }
   }
 
+  public async GetThisUser() :Promise<UserCrudModel>{
+    return new Promise((resolve) => {
+      this.AngularFireAuth.authState.subscribe(async (user) => {
+        var response = new ResponseModel();
+        if (user) {
+          var userProfile = await this.GetUserProfile(user.uid);
+          if (userProfile != null) {
+            var uidRoleModel = new UidRoleModel()
+            uidRoleModel.Uid = user.uid;
+            uidRoleModel.Role = userProfile.Role;
+            uidRoleModel.Verify = userProfile.Verify;
+            response.Success(uidRoleModel)
+            this.DataCenterService.SetThisUserProfile(userProfile);
+            resolve(userProfile)
+          }
+          else {
+            response.Failed(null, Message.UserNotFound);
+            resolve(null)
+          }
+        } else {
+          response.Failed(null, Message.UserNotFound);
+          resolve(null)
+        }
+      }, error => {
+        resolve(null);
+      })
+    })
+  }
+
   public async IsLogin(): Promise<ResponseModel> {
     return new Promise((resolve) => {
       this.AngularFireAuth.authState.subscribe(async (user) => {
