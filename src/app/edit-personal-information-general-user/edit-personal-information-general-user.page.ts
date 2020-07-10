@@ -36,6 +36,13 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+
+    if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รูปแบบชื่อ - นามสกุลไม่ถูกต้อง"
+      this.uiService.presentAlert(resultText);
+      return;
+    }
     var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
     if (pinIsExist) {
       var result = await this.UserService.UpdateUser(this.user);
