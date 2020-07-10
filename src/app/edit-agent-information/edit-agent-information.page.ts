@@ -15,7 +15,9 @@ import { UiService } from '../services/ui.service';
 export class EditAgentInformationPage implements OnInit {
 
   public user: UserCrudModel = new UserCrudModel();
-
+  public monthThaiName = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
+  public monthEngName = "January,February,March,April,May,June,July,August,September,October,November,December"
+  
   constructor(
     private DataCenterService: DataCenterService,
     private UserService: UserServiceService,
@@ -23,7 +25,10 @@ export class EditAgentInformationPage implements OnInit {
     private Router: Router,
     private translateService: TranslateService,
     private UiService: UiService
-  ) { }
+  ) {
+    const language = localStorage.getItem("language")
+    this.monthThaiName = language === "th" ? this.monthThaiName : this.monthEngName
+   }
 
   ngOnInit() {
     this.user = this.DataCenterService.CloneAgentUserCrudModel();
@@ -32,6 +37,13 @@ export class EditAgentInformationPage implements OnInit {
 
   public async Save() {
     var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
+    
+    if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รูปแบบชื่อ - นามสกุลไม่ถูกต้อง"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
 
     if (pinIsExist) {
       var result = await this.UserService.UpdateAgentUser(this.user);
@@ -50,6 +62,12 @@ export class EditAgentInformationPage implements OnInit {
       console.log("This is not exist!");
       return;
     }
+  }
+
+  validateName(inputText){
+    const re = /^[A-Za-zก-๙]+$/;
+    console.log('inputText: '+inputText, re.test(inputText))
+    return re.test(inputText);
   }
 
 }
