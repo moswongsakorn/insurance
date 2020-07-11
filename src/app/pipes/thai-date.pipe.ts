@@ -5,42 +5,49 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class ThaiDatePipe implements PipeTransform {
   transform(value: any, ...args: any[]): any {
+  
+    const languageChecker = localStorage.getItem("language") || 'th'
     const dateFormat = value.split("T")[0].split("-");
     const year = dateFormat[0];
     const month = dateFormat[1];
     const date = dateFormat[2];
-    const fullThaiDate =
-      +date + " " + this.convertMonthToText(month) + " " + (+year + 543);
-    return fullThaiDate;
+
+    if(languageChecker=="th"){
+      return  (+date) + " " + this.convertMonthToText(month, "th") + " " + (+year + 543);
+    }
+    if(languageChecker=="en"){
+      return (+date) + " " + this.convertMonthToText(month,"en") + " " + (+year);
+    } 
+   
   }
 
-  convertMonthToText(month) {
+  convertMonthToText(month, language) {
     console.log("month", month);
     switch (month) {
       case "01":
-        return "มกราคม";
+        return language=="th"?"มกราคม":"January";
       case "02":
-        return "กุมภาพันธ์";
+        return language=="th"?"กุมภาพันธ์":"February";
       case "03":
-        return "มีนาคม";
+        return language=="th"?"มีนาคม":"March";
       case "04":
-        return "เมษายน";
+        return language=="th"?"เมษายน":"April";
       case "05":
-        return "พฤษภาคม";
+        return language=="th"?"พฤษภาคม":"May";
       case "06":
-        return "มิถุนายน";
+        return language=="th"?"มิถุนายน":"June";
       case "07":
-        return "กรกฎาคม";
+        return language=="th"?"กรกฎาคม":"July";
       case "08":
-        return "สิงหาคม";
+        return language=="th"?"สิงหาคม":"August";
       case "09":
-        return "กันยายน";
+        return language=="th"?"กันยายน":"September";
       case "10":
-        return "ตุลาคม";
+        return language=="th"?"ตุลาคม":"October";
       case "11":
-        return "พฤศจิกายน";
+        return language=="th"?"พฤศจิกายน":"November";
       case "12":
-        return "ธันวาคม";
+        return language=="th"?"ธันวาคม":"December";
     }
   }
 }
