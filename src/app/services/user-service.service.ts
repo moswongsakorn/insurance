@@ -15,7 +15,13 @@ export class UserServiceService {
     public AngularFireDatabase: AngularFireDatabase,
     public AngularFireAuth: AngularFireAuth,
     public DataCenterService: DataCenterService
-  ) { }
+  ) { 
+    console.log('check')
+    const languageCheck = localStorage.getItem("language")
+    if(!languageCheck){
+      localStorage.setItem("language","th")
+    }
+  }
 
 
   public GetUserAgentListByPin(pin: string): Promise<UserCrudModel[]> {

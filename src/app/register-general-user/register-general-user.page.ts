@@ -32,7 +32,9 @@ export class RegisterGeneralUserPage implements OnInit {
   public monthThaiName = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
   public monthEngName = "January,February,March,April,May,June,July,August,September,October,November,December"
   ngOnInit() {
-
+    let date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
+    const conDate = date.toLocaleString('th-TH')
+    console.log('conDate', conDate)
   }
 
   public async PinGenerate() {
