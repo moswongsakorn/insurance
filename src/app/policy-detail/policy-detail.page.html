@@ -257,7 +257,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="userProfile.Role == 'master'">
+    <ion-row *ngIf="userProfile.Role != 'quest'">
       <ion-col class="ion-align-self-center" size="10">
         <div>
           {{ 'POLICY_SEARCH.TEXT_IRR_AGENT' | translate }}

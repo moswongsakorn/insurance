@@ -96,7 +96,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="ion-justify-content-between">
+      <ion-row *ngIf="user.Role != 'quest'" class="ion-justify-content-between">
         <ion-col>
           <div>
             {{ 'PERSONAL_INFORMATION.PIN' | translate }}
