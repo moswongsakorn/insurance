@@ -16,7 +16,6 @@ export class UserServiceService {
     public AngularFireAuth: AngularFireAuth,
     public DataCenterService: DataCenterService
   ) { 
-    console.log('check')
     const languageCheck = localStorage.getItem("language")
     if(!languageCheck){
       localStorage.setItem("language","th")
