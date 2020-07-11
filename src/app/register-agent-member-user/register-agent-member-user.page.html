@@ -23,7 +23,7 @@
             >{{ 'REGISTER_GENERAL.ID_CARD' | translate }}</ion-label
           >
           <ion-input 
-          inputmode="numeric" 
+          inputmode="tel" 
           maxlength="13"
           [(ngModel)]="user.IdCard"></ion-input>
         </ion-item>
@@ -117,7 +117,7 @@
             [type]="passwordType"
             [(ngModel)]="user.Password"
             maxlength="6"
-            inputmode="numeric"
+            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
@@ -138,7 +138,7 @@
             [type]="confirmPasswordType"
             [(ngModel)]="user.ConfirmPassword"
             maxlength="6"
-            inputmode="numeric"
+            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon class="ion-align-items-center"

@@ -23,7 +23,7 @@
         <ion-col size="12">
           <ion-item>
             <ion-label position="floating">{{ 'GENERAL_LOGIN.PASSWORD'  | translate }}</ion-label>
-            <ion-input [type]="passwordType" [(ngModel)]="user.Password"  maxlength="6" inputmode="numeric"></ion-input>
+            <ion-input [type]="passwordType" [(ngModel)]="user.Password"  maxlength="6" inputmode="tel"></ion-input>
             <span class="eye-button" (click)="togglePassword()">
               <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
               <ion-icon size="small" *ngIf="showPassword" name="eye-off"></ion-icon>
