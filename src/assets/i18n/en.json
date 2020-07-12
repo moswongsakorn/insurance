@@ -22,8 +22,9 @@
   },
   "HOME": {
     "TITLE": "Life Insurance",
-    "SUB_TITLE1": "Mobile Application for Selection of Insurance Plans using ",
-    "SUB_TITLE2": "the Weighted Average Method",
+    "SUB_TITLE1": "Mobile Application for Selection  ",
+    "SUB_TITLE2": "of Insurance Plans using",
+    "SUB_TITLE3": "the Weighted Average Method",
     "BUTTON_1": "(For) Public Use",
     "BUTTON_2": "(For) Agent Use",
     "VERIIFY": "Waiting for verify"
