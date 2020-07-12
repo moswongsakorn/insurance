@@ -42,6 +42,13 @@ export class EditChangePasswordPage implements OnInit {
       return;
     }
 
+    if(!this.validatePassword(this.newPassword)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.newPassword != this.confirmNewPassword) {
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_3');
       // this.UiService.presentAlert("รหัสผ่านใหม่ไม่ตรงกัน");
@@ -100,6 +107,11 @@ export class EditChangePasswordPage implements OnInit {
     this.showConfirmPassword
       ? (this.confirmPasswordType = "text")
       : (this.confirmPasswordType = "password");
+  }
+
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 
 }

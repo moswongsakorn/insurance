@@ -92,7 +92,12 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
 
-
+    if(!this.validatePassword(this.user.Password)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
 
     if (this.user.PasswordIsMatch()) {
       this.dataCenter.SetUserCrudModel(this.user);
@@ -125,7 +130,10 @@ export class RegisterGeneralUserPage implements OnInit {
 
   validateName(inputText){
     const re = /^[A-Za-zก-๙]+$/;
-    console.log('inputText: '+inputText, re.test(inputText))
     return re.test(inputText);
+  }
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 }

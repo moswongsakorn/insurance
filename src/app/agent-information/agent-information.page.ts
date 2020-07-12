@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
 import { async } from '@angular/core/testing';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-agent-information',
@@ -24,7 +25,9 @@ export class AgentInformationPage implements OnInit {
     private DataCenterService: DataCenterService,
     private route: ActivatedRoute,
     private NavController: NavController,
-    private UiService: UiService
+    private UiService: UiService,
+    private translateService: TranslateService
+
   ) {
     this.route.queryParamMap.subscribe(params => {
       this.userUid = params.get('uid')
@@ -46,8 +49,9 @@ export class AgentInformationPage implements OnInit {
   }
 
   removeUserPin() {
-    var titleText = "คุณต้องการลบตัวแทนนี้ออกจากสายงานของคุณใช่ไหม?";
-    this.UiService.presentAlertConfirm(titleText, async () => {
+    // var titleText = "คุณต้องการลบตัวแทนนี้ออกจากสายงานของคุณใช่ไหม?";
+    const confirmText: string = this.translateService.instant("AGENT_INFORMATION.ALERT_TEXT");
+    this.UiService.presentAlertConfirm(confirmText, async () => {
       this.user.Pin = "";
       var result = await this.UserService.UpdateAgentUser(this.user);
       if (result.status) {

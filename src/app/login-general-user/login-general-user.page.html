@@ -40,14 +40,15 @@
         <ion-button expand="block" shape="round" size="large" (click)="Login()">{{ 'GENERAL_LOGIN.LOGIN'  | translate }}</ion-button>
       </div>
     </div>
+    <ion-grid class="ion-margin-top">
+      <ion-row>
+        <ion-col>
+          <ion-text color="light">{{ 'GENERAL_LOGIN.NO_ACCOUNT'  | translate }} </ion-text><ion-text  color="light" [routerLink]="['/register-general-user']"><u>{{ 'GENERAL_LOGIN.REGISTER'  | translate }}</u></ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-  <ion-grid class="register-find">
-    <ion-row>
-      <ion-col>
-        <ion-text color="light">{{ 'GENERAL_LOGIN.NO_ACCOUNT'  | translate }} </ion-text><ion-text  color="light" [routerLink]="['/register-general-user']"><u>{{ 'GENERAL_LOGIN.REGISTER'  | translate }}</u></ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+ 
 </ion-content>
 
 <ion-footer class="ion-padding">

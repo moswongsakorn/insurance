@@ -14,9 +14,11 @@
     "MR": "Mr.",
     "MS": "Mrs.",
     "MISS": "Miss",
-    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December",
-    "DELETE_USER_TITLE":"Confirm user deletion?",
-    "DELETE_USER_TEXT":"Please confirm the password to confirm user deletion."
+    "MONTH_NAME": "January,February,March,April,May,June,July,August,September,October,November,December",
+    "DELETE_USER_TITLE": "Confirm user deletion?",
+    "DELETE_USER_TEXT": "Please confirm the password to confirm user deletion.",
+    "ADD_SUCCESS": "Add data completed",
+    "EDIT_SUCCESS": "Edit completed"
   },
   "HOME": {
     "TITLE": "Life Insurance",
@@ -24,7 +26,7 @@
     "SUB_TITLE2": "the Weighted Average Method",
     "BUTTON_1": "(For) Public Use",
     "BUTTON_2": "(For) Agent Use",
-    "VERIIFY":"Waiting for verify"
+    "VERIIFY": "Waiting for verify"
   },
   "LOGIN_GENERAL": {
     "TITLE": "Login",
@@ -58,13 +60,13 @@
     "ERROR_TEXT_3": "Passwords do not match.",
     "ERROR_TEXT_4": "PIN not found",
     "ERROR_TEXT_5": "Incorrect password",
-    "ID_CARD_TEXT":"ID Card",
-    "ALERT_TEXT_1":" Has been used",
-    "ALERT_TEXT_2":" Please enter a name prefix.",
-    "ALERT_TEXT_3":" Please enter a password of at least 6 characters.",
-    "ALERT_TEXT_4":" Invalid email format.",
-    "ALERT_TEXT_5":" Invalid first name & last name format"
-
+    "ID_CARD_TEXT": "ID Card",
+    "ALERT_TEXT_1": " Has been used",
+    "ALERT_TEXT_2": " Please enter a name prefix.",
+    "ALERT_TEXT_3": " Please enter a password of at least 6 characters.",
+    "ALERT_TEXT_4": " Invalid email format.",
+    "ALERT_TEXT_5": " Invalid first name & last name format",
+    "ALERT_TEXT_6": " Please enter a password only numbers."
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Detail",
@@ -146,12 +148,13 @@
     "LAST_YEAR_INSURANCE_MONEY": "Annual Cash Return of",
     "DEATH_COVERAGE": "Death Benefit",
     "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
-    "IRR_TEXT_1": "อัตราผลตอบแทนภายใน(IRR)",
-    "IRR_TEXT_2": " อัตราผลตอบแทนภายใน(IRR)ของตัวแทน",
-    "IRR_TEXT_3": " อัตราความคุ้มครอง",
-    "IRR_TEXT_4": " ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบื้อครบ",
-    "IRR_TEXT_5": "ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบื้อครบ",
-    "IRR_TEXT_6": "  อัตราความคุ้มค่า"
+    "IRR_TEXT_1": "Internal Return of Rate (IRR)",
+    "IRR_TEXT_2": " Internal Return of Rate (IRR) of Agent",
+    "IRR_TEXT_3": " Protect rate",
+    "IRR_TEXT_4": "Average Rate of Coverage before Premium Payment Period ",
+    "IRR_TEXT_5": "Average Rate of Coverage after Premium Payment Period",
+    "IRR_TEXT_6": "  Worth rate ",
+    "ALERT_TEXT_1": "Do you want to delete this (insurance) plan?"
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",
@@ -192,8 +195,8 @@
     "ERROR_TEXT_1": "Please fill in the correct information",
     "ERROR_TEXT_2": "The number of years cannot exceed.",
     "ERROR_TEXT_3": "Please complete all information.",
-    "ERROR_TEXT_4":"The number of years must not exceed the coverage period",
-    "ERROR_TEXT_5":"The number of years must not exceed the premium payment period."
+    "ERROR_TEXT_4": "The number of years must not exceed the coverage period",
+    "ERROR_TEXT_5": "The number of years must not exceed the premium payment period."
   },
   "POLICY_SEARCH": {
     "TITLE": "Search",
@@ -211,7 +214,7 @@
     "TEXT_DETAIL_2": "that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
     "HEALTH": "Health Insurance",
-    "SCORE":"Score"
+    "SCORE": "Score"
   },
   "SEARCH_RESULT": {
     "TITLE": "Insurance Plans that suit your requirements are:"
@@ -257,5 +260,8 @@
   },
   "USER_AGENT": {
     "TITLE": "Agent list"
+  },
+  "AGENT_INFORMATION": {
+    "ALERT_TEXT": "Do you want to delete this account?"
   }
 }

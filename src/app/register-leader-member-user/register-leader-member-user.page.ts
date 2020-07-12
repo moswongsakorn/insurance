@@ -80,7 +80,13 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       this.UiService.presentAlert(resultText);
       return;
     }
-
+    if(!this.validatePassword(this.user.Password)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+    
     if (this.user.PrefixName == 'REGISTER_GENERAL.Other' && (this.user.SpecificPrefixName == null || this.user.SpecificPrefixName == '')) {
       // กรุณากรอกคำนำหน้าชื่อ
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_2');
@@ -126,5 +132,9 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     const re = /^[A-Za-zก-๙]+$/;
     console.log('inputText: '+inputText, re.test(inputText))
     return re.test(inputText);
+  }
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 }
