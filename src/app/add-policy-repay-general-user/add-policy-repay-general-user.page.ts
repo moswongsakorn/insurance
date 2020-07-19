@@ -3,6 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { LengthYearAmount } from '../interfaces/LengthYearAmount';
 import { NavController, ModalController, NavParams } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
+import { YearAmount } from '../interfaces/YearAmount';
+
 
 @Component({
   selector: 'app-add-policy-repay-general-user',
@@ -21,7 +23,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   ) {
   }
 
-  @ViewChild('content',{static:true}) private content: any;
+  @ViewChild('content', { static: true }) private content: any;
   @Input('name') name: string;
   @Input('yearToPaid') yearToPaid: number;
   @Input('yearOfProtect') yearOfProtect: number;
@@ -68,6 +70,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
   async submit() {
     var IsSubmit = true;
+    this.lengthYearAmountList.sort((a, b) => (a.Start > b.Start) ? 1 : -1);    
 
     var isProtectAllYear = false;
     for (let i = this.lengthYearAmountList.length - 1; i >= 0; i--) {
@@ -126,7 +129,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       if (element.Start == null || element.Start == 0 ||
         element.End == null || element.End == 0 ||
-        element.Amount == null ) {
+        element.Amount == null) {
         let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_3");
         // errorText = "กรุณากรอกข้อมูลให้ครบถ้วน";
         await this.uiService.presentAlert(errorText);
@@ -135,14 +138,28 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       }
     }
 
-    if(this.name == 'ProtectList' && !isProtectAllYear){
-        let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
-        let errorText2: string = this.translateService.instant("CODE.YEAR");
-        let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
-        //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+    var yearAmount = this.GetYearAmount(this.lengthYearAmountList);
+    console.log(yearAmount)
+
+    for (let i = 0; i < yearAmount.length; i++) {
+      const before = (yearAmount[i - 1]) ? yearAmount[i - 1].Year : 0;
+      const after = yearAmount[i].Year;
+      if (before == after) {
+        let errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
+      }      
+    }
+
+    if (this.name == 'ProtectList' && !isProtectAllYear) {
+      let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
+      let errorText2: string = this.translateService.instant("CODE.YEAR");
+      let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
+      //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+      await this.uiService.presentAlert(errorText);
+      IsSubmit = false;
+      return;
     }
 
     if (IsSubmit) {
@@ -152,6 +169,20 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       }
       this.modalController.dismiss(date)
     }
+  }
+
+  public GetYearAmount(list: LengthYearAmount[]): YearAmount[] {
+    var _list = new Array<YearAmount>();
+    list.forEach(element => {
+      for (var i = element.Start; i <= element.End; i++) {
+        var yearAmount = new YearAmount();
+        yearAmount.Year = i;
+        yearAmount.Amount = element.Amount;
+        _list.push(yearAmount);
+      }
+    });
+    _list.sort((a, b) => (a.Year < b.Year) ? 1 : -1);
+    return _list;
   }
 
   addSingle() {
