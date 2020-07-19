@@ -43,7 +43,7 @@ export class EditChangePasswordPage implements OnInit {
     }
 
     if(!this.validatePassword(this.newPassword)){
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_6');
       // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
       this.UiService.presentAlert(resultText);
       return;

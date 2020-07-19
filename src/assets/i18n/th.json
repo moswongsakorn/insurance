@@ -54,6 +54,7 @@
     "PHONE_NUMBER": "เบอร์โทรศัพท์",
     "EMAIL": "อีเมล",
     "PASSWORD": "รหัสผ่าน",
+    "PASSWORD_INFO":"รหัสผ่าน (กรุณากรอกเฉพาะตัวเลขเท่านั้น)",
     "RE_PASSWORD": "โปรดยืนยันรหัสผ่าน",
     "GENERATE_PIN": "ตั้งค่า PIN",
     "FILL_PIN": "กรอก PIN",

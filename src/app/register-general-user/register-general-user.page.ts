@@ -42,6 +42,8 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   public async Register() {
+    //add pin default 
+    this.user.Pin = "DEFAULT"
     this.user.InitRole(MagicNumber.quest);
     if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
@@ -93,7 +95,7 @@ export class RegisterGeneralUserPage implements OnInit {
     }
 
     if(!this.validatePassword(this.user.Password)){
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_6');
       // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
       this.UiService.presentAlert(resultText);
       return;
