@@ -217,7 +217,7 @@ export class PolicyCrudModel {
         var PRBeforePaid = 0.0;                     //ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบี้ยครบ
         var PRAfterApid = 0.0;                      //ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบี้ยครบ
 
-        var valueRate = 0.0;                        //อัตราควาคุ้มค่า 
+        var valueRate = 0.0;                        //อัตราความคุ้มค่า 
 
         var point = new Array<number>();            //ค่าปรับแต่งรายปี
         var protectRate = 0.0;                      //อัตราความคุ้มครอง 
@@ -265,7 +265,7 @@ export class PolicyCrudModel {
 
 
             //ค่าปรับแต่งรายปี
-            point.push(this.GetPoint(ACR[i]))
+            point.push(ACR[i])
 
         }
 

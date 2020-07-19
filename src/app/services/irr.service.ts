@@ -7,7 +7,7 @@ export class IrrService {
 
   constructor() { }
   public cf: any
-  public LOW_RATE = -0.15
+  public LOW_RATE = -0.2
   public HIGH_RATE = 1
 
   public irr(cf: number[]) {

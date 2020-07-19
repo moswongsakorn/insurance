@@ -151,7 +151,9 @@
     "IRR_TEXT_3": " อัตราความคุ้มครอง",
     "IRR_TEXT_4": " ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบื้อครบ",
     "IRR_TEXT_5": "ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบื้อครบ",
-    "IRR_TEXT_6": "  อัตราความคุ้มค่า"
+    "IRR_TEXT_6": "  อัตราความคุ้มค่า",
+    "ALERT_ERROR_YEAR":"Please fill in the correct information"
+
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",

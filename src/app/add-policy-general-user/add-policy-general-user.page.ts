@@ -42,6 +42,12 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+    if(this.policy.YearToPaid > this.policy.YearOfProtect){
+      const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+
     if (this.policy.CompanyName != 'specific') this.policy.SpecificCampany = "";
     var userProfile = this.DataCenterService.GetThisUserProfile();
     this.policy.Pin = userProfile.Pin;

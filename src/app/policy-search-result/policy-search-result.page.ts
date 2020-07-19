@@ -6,6 +6,7 @@ import { DataCenterService } from '../services/data-center.service';
 import { SearchModel } from '../interfaces/SearchModel';
 import { PolicyService } from '../services/policy.service';
 import { NavController } from '@ionic/angular';
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 @Component({
   selector: 'app-policy-search-result',
@@ -31,7 +32,7 @@ export class PolicySearchResultPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   async ionViewDidEnter() {
@@ -42,19 +43,42 @@ export class PolicySearchResultPage implements OnInit {
     this.policyList = await this.PolicyService.GetPolicyListByPin(this.userProfile.Pin);
 
     var maxIrr = -10000;
+    var minIrr = 10000;
+
+
+    var maxRc = -10000;
+    var minRc = 10000;
 
     this.policyList.forEach(data => {
+      //-------------------------- Init IRR
       if (data.Irr < -3) data.Irr = -3;
       if (data.Irr > maxIrr) maxIrr = data.Irr;
+      if (data.Irr < minIrr) minIrr = data.Irr;
+
+      //-------------------------- Init RC
+      if(data.ProtectRate > 7) data.ProtectRate = 7;
+      if(data.ProtectRate > maxRc) maxRc = data.ProtectRate;
+      if(data.ProtectRate < minRc) minRc = data.ProtectRate
+
     })
+
+
+
+
 
     this.policyList.forEach(data => {
       var newWort = this.GetWorthPoint(maxIrr, data.ValueRate);
-      var pointSort = ((this.SearchModel.irr * data.Irr) +
-        (this.SearchModel.protect * data.ProtectRate) +
+
+      var newIrr = this.GetNewIrr(data.Irr, maxIrr, minIrr);
+      var newRc = this.GetNewRc(data.ProtectRate, maxRc, minRc);
+
+      var pointSort = ((this.SearchModel.irr * newIrr) +
+        (this.SearchModel.protect * newRc) +
         (this.SearchModel.worth * newWort)) / 100;
-      data.PointForSort = Math.round(pointSort * 100) / 100;
+      data.PointForSort = Math.round(pointSort * 10000) / 10000;
     })
+
+
 
     this.policyList.sort((a, b) => (a.PointForSort < b.PointForSort) ? 1 : -1);
 
@@ -93,9 +117,9 @@ export class PolicySearchResultPage implements OnInit {
         if (maxPoint < 5) {
           this.policyListSort.push(data);
           var lastPoint = (this.policyListSort[policyListSortIndex - 1]) ? this.policyListSort[policyListSortIndex - 1].PointForSort : -100000;
-          
-          console.log("lastPoint : " , lastPoint)
-          console.log("newPoint : " , data.PointForSort)
+
+          console.log("lastPoint : ", lastPoint)
+          console.log("newPoint : ", data.PointForSort)
           if (lastPoint != data.PointForSort) maxPoint++;
 
           policyListSortIndex++;
@@ -115,6 +139,16 @@ export class PolicySearchResultPage implements OnInit {
     var minIrr = -3;
     var wrNew = ((wr - minWr) * (maxIrr - minIrr) / (maxWr - minWr)) + minIrr;
     return wrNew;
+  }
+
+  GetNewIrr(irr: number, maxIrr: number, minIrr: number): number {
+    var newIrr = (irr - minIrr) / (maxIrr - minIrr);
+    return newIrr;
+  }
+
+  GetNewRc(rc: number, maxRc: number, minRc: number): number {
+    var newRc = (rc - minRc) / (maxRc - minRc);
+    return newRc;
   }
 
 
