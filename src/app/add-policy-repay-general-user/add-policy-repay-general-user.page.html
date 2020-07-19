@@ -21,7 +21,7 @@
     >
       <ion-col size="10">
         <div style="display: flex;">
-          <div style="width: 25%;" class="ion-align-self-center">
+          <div style="width: 25%;text-align: center;" class="ion-align-self-center">
             {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
             translate):('POLICY_REPAY.YEAR' | translate) }}
           </div>
@@ -33,7 +33,7 @@
             ></ion-input>
           </div>
           <div
-            style="width: 15%;"
+            style="width: 15%;text-align: center;"
             class="ion-align-self-center"
             *ngIf="item.IsRange"
           >
@@ -86,12 +86,12 @@
 <ion-footer>
   <ion-grid>
     <ion-row class="ion-justify-content-between">
-      <ion-col size="4">
+      <ion-col size="6">
         <ion-button expand="block" shape="round" (click)="addSingle()"
           >{{ 'POLICY_REPAY.ONE_YEAR_ADD' | translate }}
         </ion-button>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="6">
         <ion-button expand="block" shape="round" (click)="addRange()"
           >{{ 'POLICY_REPAY.RANGE_YEAR_ADD' | translate }}
         </ion-button>
