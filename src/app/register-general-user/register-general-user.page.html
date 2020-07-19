@@ -24,7 +24,7 @@
           >
           <ion-input
             maxlength="13"
-            inputmode="numeric"
+            inputmode="tel"
             [(ngModel)]="user.IdCard"
           ></ion-input>
         </ion-item>
@@ -113,13 +113,13 @@
       <ion-col size="12">
         <ion-item>
           <ion-label color="light" position="stacked"
-            >{{ 'REGISTER_GENERAL.PASSWORD' | translate }}</ion-label
+            >{{ 'REGISTER_GENERAL.PASSWORD_INFO' | translate }}</ion-label
           >
           <ion-input
             [type]="passwordType"
             [(ngModel)]="user.Password"
             maxlength="6"
-            inputmode="numeric"
+            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon class="ion-align-items-center" size="small" *ngIf="!showPassword" name="eye"></ion-icon>
@@ -141,7 +141,7 @@
             [type]="confirmPasswordType"
             [(ngModel)]="user.ConfirmPassword"
             maxlength="6"
-            inputmode="numeric"
+            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon
@@ -157,7 +157,7 @@
           </span>
         </ion-item>
       </ion-col>
-      <ion-col size="12" class="ion-text-center">
+      <!-- <ion-col size="12" class="ion-text-center">
         <ion-button
           shape="round"
           size="small"
@@ -166,10 +166,10 @@
         >
           {{ 'REGISTER_GENERAL.GENERATE_PIN' | translate }}</ion-button
         >
-      </ion-col>
-      <ion-col size="12" class="ion-text-center">
+      </ion-col> -->
+      <!-- <ion-col size="12" class="ion-text-center">
         <div class="box-pin">{{user.Pin}}</div>
-      </ion-col>
+      </ion-col> -->
       <ion-col size="12" class="ion-padding">
         <ion-button
           expand="block"

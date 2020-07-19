@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { DataCenterService } from './data-center.service';
 import { ResponseModel, PolicyCrudModel } from '../interfaces/index';
 import { MagicNumber } from '../interfaces/MagicNumber';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable({
@@ -14,7 +15,9 @@ export class PolicyService {
   constructor(
     public AngularFireDatabase: AngularFireDatabase,
     public AngularFireAuth: AngularFireAuth,
-    public DataCenterService: DataCenterService
+    public DataCenterService: DataCenterService,
+    private translateService: TranslateService
+    
   ) { }
 
 
@@ -24,12 +27,16 @@ export class PolicyService {
         policy.Key = (await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push()).key;
         // let resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).push(policy);
         let resultPush = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
-        return new ResponseModel().Success("เพิ่มข้อมูลเรียบร้อยแล้ว");
+        const confirmText: string = this.translateService.instant("CODE.ADD_SUCCESS");
+        // เพิ่มข้อมูลเรียบร้อยแล้ว
+        return new ResponseModel().Success(confirmText);
       }
       else {
         await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).remove();
         let resultUpdate = await this.AngularFireDatabase.database.ref(MagicNumber.PolicyTable).child(policy.Key).set(policy);
-        return new ResponseModel().Success("แก้ไขเรียบร้อยแล้ว");
+        const confirmText: string = this.translateService.instant("CODE.EDIT_SUCCESS");
+        // แก้ไขเรียบร้อยแล้ว
+        return new ResponseModel().Success(confirmText);
       }
 
     } catch (error) {

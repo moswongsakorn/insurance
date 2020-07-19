@@ -14,17 +14,20 @@
     "MR": "Mr.",
     "MS": "Mrs.",
     "MISS": "Miss",
-    "MONTH_NAME":"January,February,March,April,May,June,July,August,September,October,November,December",
-    "DELETE_USER_TITLE":"Confirm user deletion?",
-    "DELETE_USER_TEXT":"Please confirm the password to confirm user deletion."
+    "MONTH_NAME": "January,February,March,April,May,June,July,August,September,October,November,December",
+    "DELETE_USER_TITLE": "Confirm user deletion?",
+    "DELETE_USER_TEXT": "Please confirm the password to confirm user deletion.",
+    "ADD_SUCCESS": "Add data completed",
+    "EDIT_SUCCESS": "Edit completed"
   },
   "HOME": {
     "TITLE": "Life Insurance",
-    "SUB_TITLE1": "Mobile Application for Selection of Insurance Plans using ",
-    "SUB_TITLE2": "the Weighted Average Method",
-    "BUTTON_1": "(For) Public Use",
-    "BUTTON_2": "(For) Agent Use",
-    "VERIIFY":"Waiting for verify"
+    "SUB_TITLE1": "Mobile Application for Selection  ",
+    "SUB_TITLE2": "of Insurance Plans using",
+    "SUB_TITLE3": "the Weighted Average Method",
+    "BUTTON_1": "For Public Use",
+    "BUTTON_2": "For Agent Use",
+    "VERIIFY": "Waiting for verify"
   },
   "LOGIN_GENERAL": {
     "TITLE": "Login",
@@ -44,13 +47,15 @@
     "MISS": "Miss",
     "Other": "Other, Please Specify",
     "FULL_NAME": "First Name Last Name",
+    "FULL_NAME_INFO": "Name",
     "FIRST_NAME": "First Name",
     "LAST_NAME": "Last Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "RE_PASSWORD": "(Please) Confirm the Password",
+    "PASSWORD_INFO":"Password (Please enter numbers only.)",
+    "RE_PASSWORD": "Please Confirm the Password",
     "GENERATE_PIN": "Set up a PIN",
     "FILL_PIN": "Fill a PIN",
     "ERROR_TEXT_1": "Please complete all information.",
@@ -58,19 +63,20 @@
     "ERROR_TEXT_3": "Passwords do not match.",
     "ERROR_TEXT_4": "PIN not found",
     "ERROR_TEXT_5": "Incorrect password",
-    "ID_CARD_TEXT":"ID Card",
-    "ALERT_TEXT_1":" Has been used",
-    "ALERT_TEXT_2":" Please enter a name prefix.",
-    "ALERT_TEXT_3":" Please enter a password of at least 6 characters.",
-    "ALERT_TEXT_4":" Invalid email format.",
-    "ALERT_TEXT_5":" Invalid first name & last name format"
-
+    "ID_CARD_TEXT": "ID Card",
+    "ALERT_TEXT_1": " Has been used",
+    "ALERT_TEXT_2": " Please enter a name prefix.",
+    "ALERT_TEXT_3": " Please enter a password of at least 6 characters.",
+    "ALERT_TEXT_4": " Invalid email format.",
+    "ALERT_TEXT_5": " Invalid first name & last name format",
+    "ALERT_TEXT_6": " Please enter a password only numbers."
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Detail",
     "ID_CARD": "(Please) Enter ID Card Number",
     "PREFIX_NAME": "Title",
     "FULL_NAME": "First Name Last Name",
+    "FULL_NAME_INFO": "Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",
     "EMAIL": "Email",
@@ -109,6 +115,7 @@
     "TITLE": "Personal Profile",
     "ID_CARD": "ID Card Number",
     "PREFIX_NAME": "Name Title",
+    "FULL_NAME_INFO": "Name",
     "FULL_NAME": "First Name Last Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",
@@ -122,6 +129,7 @@
     "ID_CARD": "ID Card Number",
     "PREFIX_NAME": "Title",
     "FULL_NAME": "First Name Last Name",
+    "FULL_NAME_INFO": "Name",
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone No.",
     "EMAIL": "Email",
@@ -133,10 +141,10 @@
   },
   "POLICY_DETAIL": {
     "TITLE": "Life Insurance",
-    "COMPANY_NAME": "(Life) Insurance Company Name",
-    "POLICY_NAME": "(Life) Insurance Plan",
-    "YEAR_OF_PROTECT": "Protection Period (Year)",
-    "YEAR_OF_PAID": "Premium Payment Period (Year) ",
+    "COMPANY_NAME": "Life Insurance Company Name",
+    "POLICY_NAME": "LifennInsurance Plan",
+    "YEAR_OF_PROTECT": "Protection Period ",
+    "YEAR_OF_PAID": "Premium Payment Period ",
     "SUM_INSURED": "Sum Insured",
     "INSURANCE_PREMIUM": "Annual Premium",
     "TAX_DEDUCT": "Tax Deduction",
@@ -146,23 +154,24 @@
     "LAST_YEAR_INSURANCE_MONEY": "Annual Cash Return of",
     "DEATH_COVERAGE": "Death Benefit",
     "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
-    "IRR_TEXT_1": "อัตราผลตอบแทนภายใน(IRR)",
-    "IRR_TEXT_2": " อัตราผลตอบแทนภายใน(IRR)ของตัวแทน",
-    "IRR_TEXT_3": " อัตราความคุ้มครอง",
-    "IRR_TEXT_4": " ค่าเฉลี่ยอัตราความคุ้มครองก่อนจ่ายเบื้อครบ",
-    "IRR_TEXT_5": "ค่าเฉลี่ยอัตราความคุ้มครองหลังจ่ายเบื้อครบ",
-    "IRR_TEXT_6": "  อัตราความคุ้มค่า",
-    "ALERT_ERROR_YEAR":"Please fill in the correct information"
+    "ALERT_ERROR_YEAR":"Please fill in the correct information",
 
+    "IRR_TEXT_1": "Internal Return of Rate (IRR)",
+    "IRR_TEXT_2": " Internal Return of Rate (IRR) of Agent",
+    "IRR_TEXT_3": " Protect rate",
+    "IRR_TEXT_4": "Average Rate of Coverage before Premium Payment Period ",
+    "IRR_TEXT_5": "Average Rate of Coverage after Premium Payment Period",
+    "IRR_TEXT_6": "  Worth rate ",
+    "ALERT_TEXT_1": "Do you want to delete this (insurance) plan?"
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",
     "CALCULATE": "Calculate",
-    "COMPANY_NAME": "(Life) Insurance Company Name",
+    "COMPANY_NAME": "Life Insurance Company Name",
     "OTHER_COMPANY_NAME": "Other company Name",
-    "POLICY_NAME": "(Life) Insurance Plan",
-    "YEAR_OF_PROTECT": "Protection Period (Year)",
-    "YEAR_OF_PAID": "Premium Payment Period (Year) ",
+    "POLICY_NAME": "Life Insurance Plan",
+    "YEAR_OF_PROTECT": "Protection Period ",
+    "YEAR_OF_PAID": "Premium Payment Period",
     "SUM_INSURED": "Sum Insured",
     "INSURANCE_PREMIUM": "Annual Premium",
     "TAX_DEDUCT": "Tax Deduction",
@@ -180,8 +189,8 @@
     "YEAR": "Year",
     "SUB_TEAR_AT": " % of the Sum Insured",
     "TO": "to Year ",
-    "ONE_YEAR_ADD": "Add Single Policy Year",
-    "RANGE_YEAR_ADD": "Add Continuous Policy Year"
+    "ONE_YEAR_ADD": "Single  Year",
+    "RANGE_YEAR_ADD": "Continuous Year"
   },
   "POLICY_REPAY": {
     "TITLE": "Annual Cash Return ",
@@ -189,13 +198,13 @@
     "YEAR": "Year",
     "SUB_TEAR_AT": " % of the Sum Insured",
     "TO": "to Year ",
-    "ONE_YEAR_ADD": "Add Single Policy Year",
-    "RANGE_YEAR_ADD": "Add Continuous Policy Year",
+    "ONE_YEAR_ADD": "Single  Year",
+    "RANGE_YEAR_ADD": "Continuous Year",
     "ERROR_TEXT_1": "Please fill in the correct information",
     "ERROR_TEXT_2": "The number of years cannot exceed.",
     "ERROR_TEXT_3": "Please complete all information.",
-    "ERROR_TEXT_4":"The number of years must not exceed the coverage period",
-    "ERROR_TEXT_5":"The number of years must not exceed the premium payment period."
+    "ERROR_TEXT_4": "The number of years must not exceed the coverage period",
+    "ERROR_TEXT_5": "The number of years must not exceed the premium payment period."
   },
   "POLICY_SEARCH": {
     "TITLE": "Search",
@@ -213,7 +222,7 @@
     "TEXT_DETAIL_2": "that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
     "HEALTH": "Health Insurance",
-    "SCORE":"Score"
+    "SCORE": "Score"
   },
   "SEARCH_RESULT": {
     "TITLE": "Insurance Plans that suit your requirements are:"
@@ -240,16 +249,16 @@
     "Thai_Life_Insurance": "Thai Life Insurance",
     "Thaire_Life_assurance": "Thaire Life assurance",
     "Ocean_Life_Insurance": "Ocean Life Insurance",
-    "Bui_Life_Insurance": "Bui Life Insurance",
+    "Bui_Life_Insurance": "Bangkok Union Insurance",
     "MBK_Life_Assurance": "MBK Life Assurance",
     "Prudential_Life_Assurance": "Prudential Life Assurance",
     "Phillip_Life_Assurance": "Phillip Life Assurance",
     "Muang_Thai_Life_Assurance": "Muang Thai Life Assurance",
-    "Manulife": "Manulife",
+    "Manulife": " Manulife Insurance",
     "Thai_Samsung_Life_Insurance": "Thai Samsung Life Insurance",
     "Dhipaya_Life_Assurance": "Dhipaya Life Assurance",
     "Union_Life_Insurance": "Union Life Insurance",
-    "AIA": "AIA",
+    "AIA": "AIA Life Insurance",
     "Allianz_Ayudhya_Assurance": "Allianz Ayudhya Assurance",
     "Chubb_Life_Assurance": "Chubb Life Assurance",
     "Southeast_Life_Insurance": "Southeast Life Insurance",
@@ -259,5 +268,8 @@
   },
   "USER_AGENT": {
     "TITLE": "Agent list"
+  },
+  "AGENT_INFORMATION": {
+    "ALERT_TEXT": "Do you want to delete this account?"
   }
 }

@@ -82,7 +82,13 @@ export class RegisterAgentMemberUserPage implements OnInit {
       this.UiService.presentAlert(resultText);
       return;
     }
-
+    
+    if(!this.validatePassword(this.user.Password)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_6');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
 
     var pinIsExist = await this.userService.PinIsExist(this.user.Pin);
     var passwordIsMatch = this.user.PasswordIsMatch();
@@ -135,5 +141,9 @@ export class RegisterAgentMemberUserPage implements OnInit {
     const re = /^[A-Za-zก-๙]+$/;
     console.log('inputText: '+inputText, re.test(inputText))
     return re.test(inputText);
+  }
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 }

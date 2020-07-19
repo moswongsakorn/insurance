@@ -32,7 +32,9 @@ export class RegisterGeneralUserPage implements OnInit {
   public monthThaiName = "มกราคม,กุมภาพันธ์,มีนาคม,เมษายน,พฤษภาคม,มิถุนายน,กรกฎาคม,สิงหาคม,กันยายน,ตุลาคม,พฤศจิกายน,ธันวาคม"
   public monthEngName = "January,February,March,April,May,June,July,August,September,October,November,December"
   ngOnInit() {
-
+    let date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
+    const conDate = date.toLocaleString('th-TH')
+    console.log('conDate', conDate)
   }
 
   public async PinGenerate() {
@@ -40,6 +42,8 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   public async Register() {
+    //add pin default 
+    this.user.Pin = "DEFAULT"
     this.user.InitRole(MagicNumber.quest);
     if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
@@ -90,7 +94,12 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
 
-
+    if(!this.validatePassword(this.user.Password)){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_6');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
 
     if (this.user.PasswordIsMatch()) {
       this.dataCenter.SetUserCrudModel(this.user);
@@ -123,7 +132,10 @@ export class RegisterGeneralUserPage implements OnInit {
 
   validateName(inputText){
     const re = /^[A-Za-zก-๙]+$/;
-    console.log('inputText: '+inputText, re.test(inputText))
     return re.test(inputText);
+  }
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 }
