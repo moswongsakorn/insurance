@@ -103,6 +103,9 @@ export class UiService {
   async ConfirmedRemove(calBack: any) {
     const headerText: string = this.translateService.instant("CODE.DELETE_USER_TITLE");
     const message: string = this.translateService.instant("CODE.DELETE_USER_TEXT");
+    const okText: string = this.translateService.instant("CODE.OK");
+    const cancelText: string = this.translateService.instant("CODE.CANCEL");
+    const passwordText: string = this.translateService.instant("REGISTER_GENERAL.PASSWORD");
 
 
     let alert = await this.alertController.create({
@@ -111,20 +114,20 @@ export class UiService {
       inputs: [       
         {
           name: 'password',
-          placeholder: 'Password',
+          placeholder: passwordText,
           type: 'password'
         }
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: cancelText,
           role: 'cancel',
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Confirmed',
+          text: okText,
           handler: data => {
             calBack(data.password);
           }

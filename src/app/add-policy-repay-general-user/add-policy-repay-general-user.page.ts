@@ -153,9 +153,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
 
     if (this.name == 'ProtectList' && !isProtectAllYear) {
-      let errorText1: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_2");
-      let errorText2: string = this.translateService.instant("CODE.YEAR");
-      let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
+      let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_6");
+      // let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
       //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
       await this.uiService.presentAlert(errorText);
       IsSubmit = false;
