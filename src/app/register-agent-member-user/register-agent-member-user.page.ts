@@ -59,6 +59,13 @@ export class RegisterAgentMemberUserPage implements OnInit {
       return;
     }
 
+    if(this.user.Telephone.length != 10){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
+
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
     console.log("IdCard is same ", idCardIsExist)
     if (idCardIsExist) {

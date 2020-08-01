@@ -45,9 +45,11 @@ export class PolicySearchResultPage implements OnInit {
     var maxIrr = -10000;
     var minIrr = 10000;
 
-
     var maxRc = -10000;
     var minRc = 10000;
+
+    var maxWr = -10000;
+    var minWr = 10000;
 
     this.policyList.forEach(data => {
       //-------------------------- Init IRR
@@ -60,6 +62,10 @@ export class PolicySearchResultPage implements OnInit {
       if(data.ProtectRate > maxRc) maxRc = data.ProtectRate;
       if(data.ProtectRate < minRc) minRc = data.ProtectRate
 
+      //-------------------------- Init Wr
+      if(data.ValueRate > maxWr) maxWr = data.ValueRate;
+      if(data.ValueRate < minWr) minWr = data.ValueRate;
+
     })
 
 
@@ -67,8 +73,8 @@ export class PolicySearchResultPage implements OnInit {
 
 
     this.policyList.forEach(data => {
-      var newWort = this.GetWorthPoint(maxIrr, data.ValueRate);
 
+      var newWort = this.GetWorthPoint(data.ValueRate, maxWr ,minWr);
       var newIrr = this.GetNewIrr(data.Irr, maxIrr, minIrr);
       var newRc = this.GetNewRc(data.ProtectRate, maxRc, minRc);
 
@@ -133,12 +139,9 @@ export class PolicySearchResultPage implements OnInit {
     this.activeStatus = true
   }
 
-  GetWorthPoint(maxIrr: number, wr: number) {
-    var minWr = 0;
-    var maxWr = 1;
-    var minIrr = -3;
-    var wrNew = ((wr - minWr) * (maxIrr - minIrr) / (maxWr - minWr)) + minIrr;
-    return wrNew;
+  GetWorthPoint(wr: number, maxWr: number, minWr:number) {
+    var newWr = (wr - minWr) / (maxWr - minWr);
+    return newWr;
   }
 
   GetNewIrr(irr: number, maxIrr: number, minIrr: number): number {

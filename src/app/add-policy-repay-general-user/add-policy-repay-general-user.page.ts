@@ -37,7 +37,9 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.lengthYearAmountList = [...this.thisLengthYearAmountList];
+    this.lengthYearAmountList = JSON.parse(JSON.stringify(this.thisLengthYearAmountList));
+
+    
     if (this.lengthYearAmountList.length == 0) {
       var lengthYearAmount1 = new LengthYearAmount();
       lengthYearAmount1.IsRange = false;
@@ -190,6 +192,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     this.lengthYearAmountList.push(lengthYearAmount1);
     this.content.scrollToBottom(300);
   }
+
   addRange() {
     var lengthYearAmount2 = new LengthYearAmount();
     lengthYearAmount2.IsRange = true;

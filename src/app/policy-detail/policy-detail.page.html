@@ -252,7 +252,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy?.Irr}}
+          {{ policy?.Irr <= -20? 'N/A' : policy?.Irr}}
         </div>
       </ion-col>
     </ion-row>
@@ -265,7 +265,7 @@
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
         <div>
-          {{policy?.IrrAgent}}
+          {{ policy?.IrrAgent <= -20? 'N/A' : policy?.IrrAgent}}
         </div>
       </ion-col>
     </ion-row>

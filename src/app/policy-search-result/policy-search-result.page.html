@@ -13,18 +13,16 @@
   </div>
   <div style="margin-top: 36px;">
     <ion-list>
-      <ion-item
-        *ngFor="let policy of policyListSort;index as i; "
-        (click)="PolicyDetail(policy)"
-      >
-        <ion-label 
-          >{{i+1}}. {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
+      <ion-item *ngFor="let policy of policyListSort;index as i; " (click)="PolicyDetail(policy)">
+        <ion-note slot="start" style="margin-right: 0; padding: 15px 5px 15px 0;font-size: 16px;">
+          {{i+1}}.
+        </ion-note>
+        <div>
+          {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
           'COMPANY_DATA.'+policy?.CompanyName | translate}}
           {{policy?.PolicyName}}
-        </ion-label>
-        <ion-note class="score-label ion-justify-content-center ion-align-self-center ion-align-items-center" color="success"
-          >{{policy.PointForSort}}</ion-note
-        >
+        </div>
+        <ion-note slot="end" style="margin-left: 10px; font-size: 16px;padding: 15px 0 15px 5px;" color="success">{{policy.PointForSort}}</ion-note>
       </ion-item>
     </ion-list>
   </div>

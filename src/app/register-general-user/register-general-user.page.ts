@@ -71,6 +71,12 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
 
+    if(this.user.Telephone.length != 10){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
     if (idCardIsExist) {
       // "เลขประชาชน" ถูกใช้งานแล้ว"
@@ -134,6 +140,7 @@ export class RegisterGeneralUserPage implements OnInit {
     const re = /^[A-Za-zก-๙]+$/;
     return re.test(inputText);
   }
+
   validatePassword(inputText){
     const re = /^[0-9]+$/;
     return re.test(inputText)

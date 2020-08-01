@@ -65,6 +65,12 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       return;
     }
 
+    if(this.user.Telephone.length != 10){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     var idCardIsExist = await this.userService.IdCardIsExist(this.user.IdCard, this.user.Role)
     if (idCardIsExist) {
       // "เลขประชาชน" ถูกใช้งานแล้ว"
