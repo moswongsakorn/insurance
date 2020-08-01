@@ -4,6 +4,7 @@ import { DataCenterService } from '../services/data-center.service';
 import { IrrService } from '../services/irr.service';
 import { NavController } from '@ionic/angular';
 import { UiService } from '../services/ui.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-policy-input-calculate',
@@ -16,7 +17,8 @@ export class PolicyInputCalculatePage implements OnInit {
     private DataCenterService: DataCenterService,
     private irrService: IrrService,
     private NavController: NavController,
-    private uiService: UiService
+    private uiService: UiService,
+    private translateService:TranslateService
   ) { }
 
   public sumInsured: number;
@@ -37,8 +39,9 @@ export class PolicyInputCalculatePage implements OnInit {
   async Save() {
 
     if (this.sumInsured == null || this.insurancePremium == null) {
-      var alertText = "กรุณากรอกข้อมูลให้ครบ";
-      this.uiService.presentAlert(alertText);
+        let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
+        // var alertText = "กรุณากรอกข้อมูลให้ครบ";
+      this.uiService.presentAlert(errorText);
     }
     else {
       await this.uiService.presentLoading();

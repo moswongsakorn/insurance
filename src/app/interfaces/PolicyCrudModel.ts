@@ -93,7 +93,8 @@ export class PolicyCrudModel {
 
             this.CompanyName == '' ||
             this.PolicyName == '') {
-            return response.Failed(null, "กรุณากรอกข้อมูลให้ครบถ้วน!");
+            let errorText: string = localStorage.getItem("language")=="th"?"กรุณากรอกข้อมูลให้ครบถ้วน!":"Please fill out the form completely!"
+            return response.Failed(null, errorText);
         }
         else {
             return response.Success(null);
@@ -120,7 +121,8 @@ export class PolicyCrudModel {
 
             this.CompanyName == '' ||
             this.PolicyName == '') {
-            return response.Failed(null, "กรุณากรอกข้อมูลให้ครบถ้วน!");
+        let errorText: string = localStorage.getItem("language")=="th"?"กรุณากรอกข้อมูลให้ครบถ้วน!":"Please fill out the form completely!"
+            return response.Failed(null, errorText);
         }
 
         // else if (this.ComissionList == null || this.ComissionList.length == 0) {
