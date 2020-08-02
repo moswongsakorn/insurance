@@ -16,78 +16,86 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>{{ 'POLICY_DETAIL.TITLE' | translate }}</ion-title>
+    <ion-title style="padding: 0 0 0 38px;text-align: start;">{{ 'POLICY_DETAIL.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-margin">
-    <ion-row class="">
-      <ion-col class="ion-align-self-center" size="7">
+  <ion-grid class="ion-margin" *ngIf="policy.CompanyName">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title " size="12">
+        <span class="dot"></span>
         {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
       </ion-col>
-      <ion-col size="5">
+      <ion-col class="information-data" size="12">
         {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
         'COMPANY_DATA.'+policy?.CompanyName | translate}}
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
         {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
       </ion-col>
-      <ion-col size="5">
+      <ion-col class="information-data" size="12">
         {{policy?.PolicyName}}
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <div> 
+          <span class="dot"></span>
+          {{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}
+      </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>{{policy?.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <div><span class="dot"></span>
+          {{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>{{policy?.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <div><span class="dot"></span>
+          {{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div style="width: 100%;">
           {{policy?.SumInsured | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <div><span class="dot"></span>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div style="width: 100%;">
           {{policy.InsurancePremium | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="6" class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
         <div>
+          <span class="dot"></span>
           {{ 'POLICY_DETAIL.TAX_DEDUCT' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{(policy?.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
@@ -95,13 +103,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
         <div>
+          <span class="dot"></span>
           {{ 'POLICY_DETAIL.HEALTH_CARE' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{(policy?.IsHealth ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
@@ -109,13 +118,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
         <div>
+          <span class="dot"></span>
           {{ 'POLICY_DETAIL.DUE_MONEY' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{policy?.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
         </div>
@@ -134,7 +144,7 @@
           *ngFor="let item of policy.ReturnList ; let i = index;"
           class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <div>
+          <div style="display: flex;">
             <span>
               {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
               translate):('POLICY_REPAY.YEAR' | translate) }}
@@ -158,8 +168,9 @@
             class="ion-align-self-center ion-text-end ion-justify-content-end"
           >
             <div class="ion-text-end">
-              <span style="font-weight: bold;">{{item.Amount}}</span> {{
-              'POLICY_REPAY.SUB_TEAR_AT' | translate }}
+              <span style="font-weight: bold;">{{item.Amount}}</span> 
+              <span>{{
+                'POLICY_REPAY.SUB_TEAR_AT' | translate }}</span>
             </div>
           </div>
         </ion-row>
@@ -179,7 +190,7 @@
           *ngFor="let item of policy.ProtectList ; let i = index;"
           class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <div>
+          <div  style="display: flex;">
             <span>
               {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
               translate):('POLICY_REPAY.YEAR' | translate) }}</span
@@ -217,7 +228,7 @@
           *ngFor="let item of policy.ComissionList ; let i = index;"
           class="ion-justify-content-between ion-align-items-center item-border"
         >
-          <div>
+          <div style="display: flex;">
             <span>
               {{ item.IsRange?('POLICY_REPAY.YEAR_AT' |
               translate):('POLICY_REPAY.YEAR' | translate) }}</span
@@ -244,32 +255,46 @@
 
     <br />
 
-    <ion-row>
+    <div class="summary-box">
+       <ion-row>
       <ion-col class="ion-align-self-center" size="10">
         <div>
           {{ 'POLICY_SEARCH.TEXT_IRR' | translate }}
         </div>
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
-        <div>
+        <div class="score-box">
           {{ policy?.Irr <= -20? 'N/A' : policy?.Irr}}
         </div>
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="userProfile.Role != 'quest'">
-      <ion-col class="ion-align-self-center" size="10">
-        <div>
-          {{ 'POLICY_SEARCH.TEXT_IRR_AGENT' | translate }}
-        </div>
-      </ion-col>
-      <ion-col class="ion-align-self-center ion-text-end">
-        <div>
-          {{ policy?.IrrAgent <= -20? 'N/A' : policy?.IrrAgent}}
-        </div>
-      </ion-col>
-    </ion-row>
+    <!-- -----------------------start-devider----------------------- -->
+    <div class="divider-box"></div>
+    <!-- -----------------------end-devider----------------------- -->
 
+
+    <div *ngIf="userProfile.Role != 'quest'">
+      <ion-row >
+        <ion-col class="ion-align-self-center" size="10">
+          <div>
+            {{ 'POLICY_SEARCH.TEXT_IRR_AGENT' | translate }}
+          </div>
+        </ion-col>
+        <ion-col class="ion-align-self-center ion-text-end">
+          <div class="score-box">
+            {{ policy?.IrrAgent <= -20? 'N/A' : policy?.IrrAgent}}
+          </div>
+        </ion-col>
+      </ion-row>
+    
+    
+      <!-- -----------------------start-devider----------------------- -->
+    <div class="divider-box"></div>
+    <!-- -----------------------end-devider----------------------- -->
+    </div>
+
+   
     <ion-row>
       <ion-col class="ion-align-self-center" size="10">
         <div>
@@ -277,11 +302,15 @@
         </div>
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
-        <div>
+        <div class="score-box">
           {{policy?.ProtectRate}}
         </div>
       </ion-col>
     </ion-row>
+
+    <!-- -----------------------start-devider----------------------- -->
+    <div class="divider-box"></div>
+    <!-- -----------------------end-devider----------------------- -->
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="10">
@@ -290,11 +319,15 @@
         </div>
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
-        <div>
+        <div class="score-box">
           {{policy?.PRBeforePaid}}
         </div>
       </ion-col>
     </ion-row>
+
+    <!-- -----------------------start-devider----------------------- -->
+    <div class="divider-box"></div>
+    <!-- -----------------------end-devider----------------------- -->
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="10">
@@ -303,11 +336,15 @@
         </div>
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
-        <div>
+        <div class="score-box">
           {{policy?.PRAfterApid?policy.PRAfterApid:'N/A'}}
         </div>
       </ion-col>
     </ion-row>
+
+    <!-- -----------------------start-devider----------------------- -->
+    <div class="divider-box"></div>
+    <!-- -----------------------end-devider----------------------- -->
 
     <ion-row>
       <ion-col class="ion-align-self-center" size="10">
@@ -316,11 +353,13 @@
         </div>
       </ion-col>
       <ion-col class="ion-align-self-center ion-text-end">
-        <div>
+        <div class="score-box">
           {{policy?.ValueRate}}
         </div>
       </ion-col>
     </ion-row>
+    </div>
+   
 
     <!-- <ion-row *ngIf="userProfile.Role != 'user'" class="ion-margin-top">
       <ion-col size="2"></ion-col>
@@ -332,6 +371,19 @@
       <ion-col size="2"></ion-col>
     </ion-row> -->
   </ion-grid>
+
+  <ion-grid class="ion-margin" *ngIf="!policy.CompanyName">
+    <ion-row class="information-box" *ngFor="let i of [4,7,4,6,5,4,6,8,2,8,5,4];">
+      <ion-col class="ion-align-self-center information-title " size="12">
+        <ion-skeleton-text animated [ngStyle]="{'width': (i*10)+'%'}"></ion-skeleton-text>
+      </ion-col>
+      <ion-col class="information-data" size="12" >
+        <ion-skeleton-text animated [ngStyle]="{'width': (i*5)+'%'}"></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>
 
 <ion-footer> </ion-footer>

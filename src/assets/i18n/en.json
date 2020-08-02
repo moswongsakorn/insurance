@@ -151,7 +151,7 @@
     "INSURANCE_PREMIUM": "Annual Premium",
     "TAX_DEDUCT": "Tax Deduction",
     "HEALTH_CARE": " Health Insurance",
-    "DUE_MONEY": "Maturity Bonus of ",
+    "DUE_MONEY": "Maturity Bonus ",
     "SUB_DUE_MONEY": "% of Sum Insured",
     "LAST_YEAR_INSURANCE_MONEY": "Annual Cash Return of",
     "DEATH_COVERAGE": "Death Benefit",
@@ -178,7 +178,7 @@
     "INSURANCE_PREMIUM": "Annual Premium",
     "TAX_DEDUCT": "Tax Deduction",
     "HEALTH_CARE": "Health Insurance",
-    "DUE_MONEY": "Maturity Bonus of ",
+    "DUE_MONEY": "Maturity Bonus ",
     "SUB_DUE_MONEY": "% of Sum Insured",
     "LAST_YEAR_INSURANCE_MONEY": "Cash Return ",
     "DEATH_COVERAGE": "Death Benefit",
@@ -228,7 +228,7 @@
     "SCORE": "Score"
   },
   "SEARCH_RESULT": {
-    "TITLE": "Top 5 highest scores of insurance plans"
+    "TITLE": "Top 5 scores of insurance plans"
   },
   "REGISTER_CHOICE": {
     "TITLE": "Register",

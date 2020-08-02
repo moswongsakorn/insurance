@@ -9,8 +9,48 @@
 .item-border{
     margin-bottom: 11px;
     border: solid 1px;
-    padding: 9px 11px;
+    padding: 9px 5px;
     border-radius: 49px;
     color: #313030;
     box-shadow: 2px 3px #bdbbbb;
+    font-size: 14px;
 }
+
+.summary-box{
+    background-color: #ebebeb;
+    color: #000;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 14px;
+}
+.divider-box{
+    border-bottom: dashed 1px;
+    border-color: #473c3c;
+    margin: 7px 0px;
+}
+
+.score-box{
+    font-weight: bold;
+}
+.information-box{
+    background-color: #eaeaea;
+    border-radius: 10px;
+    border-left: solid 8px;
+    padding: 6px;
+    margin-bottom: 11px;
+    .information-title{
+        color:#333;
+    }
+    .information-data{
+        font-weight: bold;
+    }
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color:#983b3b;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 3px;
+  }

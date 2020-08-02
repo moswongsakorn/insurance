@@ -11,7 +11,7 @@
   <ion-grid class="ion-margin-top ion-padding">
     <ion-row class="ion-justify-content-between ion-margin-bottom">
       <ion-col>
-        <div style="text-decoration: underline;" class="ion-text-end">
+        <div style="text-decoration: underline;" class="ion-text-start">
           {{ 'POLICY_SEARCH.SUB_TITLE'  | translate }}
         </div>
       </ion-col>
@@ -115,30 +115,30 @@
     </ion-row>
 
     <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="4">
+      <ion-col size="6">
         <div class="ion-align-self-center">
           <!-- ลดหย่อนภาษี -->
           {{ 'POLICY_SEARCH.TAX'  | translate }}
         </div>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="3">
         <div style="display: flex;">
-          <div style="width: 30%;">
+          <div style="width: 50%;">
             <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductFalse"></ion-checkbox> -->
             <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductFalse" [disabled]="!option_1_1" (click)="option_1_Click('not','1')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_1}">
+          <div style="width: 50%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="3">
         <div style="display: flex;">
-          <div style="width: 30%;">
+          <div style="width: 50%;">
             <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductTrue"></ion-checkbox> -->
             <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isTaxDeductTrue" [disabled]="!option_1_2" (click)="option_1_Click('have','1')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_2}">
+          <div style="width: 50%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_1_2}">
             {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>
@@ -146,30 +146,30 @@
     </ion-row>
 
     <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="4">
+      <ion-col size="6">
         <div class="ion-align-self-center">
           <!-- ประกันสุขภาพ -->
           {{ 'POLICY_SEARCH.HEALTH'  | translate }}
         </div>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="3">
         <div style="display: flex;">
-          <div style="width: 30%;">
+          <div style="width: 50%;">
             <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthFalse"></ion-checkbox> -->
             <ion-checkbox mode="ios" color="primary"  [(ngModel)]="SearchModel.isHealthFalse" [disabled]="!option_2_1" (click)="option_1_Click('not','2')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_1}">
+          <div style="width: 50%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_1}">
             {{ 'CODE.DO_NOT_HAVE'  | translate }}
           </div>
         </div>
       </ion-col>
-      <ion-col size="4">
+      <ion-col size="3">
         <div style="display: flex;">
-          <div style="width: 30%;">
+          <div style="width: 50%;">
             <!-- <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthTrue"></ion-checkbox> -->
             <ion-checkbox mode="ios" color="primary" [(ngModel)]="SearchModel.isHealthTrue" [disabled]="!option_2_2" (click)="option_1_Click('have','2')"></ion-checkbox>
           </div>
-          <div style="width: 70%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_2}">
+          <div style="width: 50%;" class="ion-align-self-center" [ngClass]="{'disable-text':!option_2_2}">
             {{ 'CODE.HAVE'  | translate }}
           </div>
         </div>

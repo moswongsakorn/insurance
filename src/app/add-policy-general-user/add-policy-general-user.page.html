@@ -10,12 +10,12 @@
 <ion-content>
   <ion-grid class="ion-margin">
     <ion-row>
-      <ion-col class="ion-align-self-center">
+      <ion-col class="ion-align-self-center" size="8">
         <div>
           {{ 'ADD_POLICY.COMPANY_NAME' | translate }}
         </div>
       </ion-col>
-      <ion-col>
+      <ion-col size="4">
         <ion-select class="input-fild" [(ngModel)]="policy.CompanyName" okText="{{ 'CODE.OK'  | translate }}"
           cancelText="{{ 'CODE.CANCEL'  | translate }}">
           <ion-select-option *ngFor="let company of companyData" value="{{company}}">{{'COMPANY_DATA.'+company | translate}}

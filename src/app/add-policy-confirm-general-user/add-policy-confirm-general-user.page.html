@@ -9,72 +9,79 @@
 
 <ion-content>
   <ion-grid class="ion-margin">
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
+         {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="12" class="information-data">
         {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
         'COMPANY_DATA.'+policy?.CompanyName | translate}}
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
+         {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="12" class="information-data">
         {{policy.PolicyName}}
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
         <div>{{ 'POLICY_DETAIL.YEAR_OF_PROTECT' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>{{policy.YearOfProtect}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
+         <div>{{ 'POLICY_DETAIL.YEAR_OF_PAID' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>{{policy.YearToPaid}} {{ 'CODE.YEAR' | translate }}</div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
+         <div>{{ 'POLICY_DETAIL.SUM_INSURED' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div style="width: 100%;">
           {{policy.SumInsured | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        <div>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
+        <span class="dot"></span>
+         <div>{{ 'POLICY_DETAIL.INSURANCE_PREMIUM' | translate }}</div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div style="width: 100%;">
           {{policy.InsurancePremium | moneyPipe}} {{ 'CODE.BATH' | translate }}
         </div>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="6" class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col size="6" class="ion-align-self-center information-title" size="12">
         <div>
-          {{ 'POLICY_DETAIL.TAX_DEDUCT' | translate }}
+          <span class="dot"></span>
+         {{ 'POLICY_DETAIL.TAX_DEDUCT' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{(policy.IsTaxDeduct==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
@@ -82,13 +89,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
         <div>
+          <span class="dot"></span>
           {{ 'POLICY_DETAIL.HEALTH_CARE' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{(policy.IsHealth ==true ? 'CODE.HAVE':'CODE.DO_NOT_HAVE') |
           translate }}
@@ -96,13 +104,14 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
+    <ion-row class="information-box">
+      <ion-col class="ion-align-self-center information-title" size="12">
         <div>
+          <span class="dot"></span>
           {{ 'POLICY_DETAIL.DUE_MONEY' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="5">
+      <ion-col class="ion-align-self-center information-data" size="12">
         <div>
           {{policy.DueMoney}} {{ 'POLICY_DETAIL.SUB_DUE_MONEY' | translate }}
         </div>
