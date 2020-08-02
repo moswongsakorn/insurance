@@ -133,19 +133,22 @@
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-align-self-center">
-        <div>
+      <ion-col size="12" style="display: flex;">
+        <span class="ion-align-self-center" style="width: 35%;">
           {{ 'ADD_POLICY.DUE_MONEY' | translate }}
-        </div>
-      </ion-col>
-      <ion-col size="2">
-        <ion-input class="input-fild" type="number" [(ngModel)]="policy.DueMoney"></ion-input>
-      </ion-col>
-      <ion-col class="ion-align-self-center" size="4">
-        <div>
+        </span>
+        <span style="width: 20%;">
+          <ion-input class="input-fild" type="number" [(ngModel)]="policy.DueMoney"></ion-input>
+        </span>
+        <span class="ion-align-self-center" style="width: 45%;">
           {{ 'ADD_POLICY.SUB_DUE_MONEY' | translate }}
-        </div>
+        </span>
       </ion-col>
+      <!-- <ion-col class="ion-align-self-center" size="6">
+        <div>
+         
+        </div>
+      </ion-col> -->
     </ion-row>
 
     <ion-row>

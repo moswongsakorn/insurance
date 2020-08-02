@@ -15,18 +15,18 @@
     "MS": "Mrs.",
     "MISS": "Miss",
     "MONTH_NAME": "January,February,March,April,May,June,July,August,September,October,November,December",
-    "DELETE_USER_TITLE": "Confirm user deletion?",
+    "DELETE_USER_TITLE": "Delete your account?",
     "DELETE_USER_TEXT": " Please enter your passcode to confirm deletion.",
     "ADD_SUCCESS": "Add data completed",
     "EDIT_SUCCESS": "Edit completed"
   },
   "HOME": {
-    "TITLE": "Life Insurance",
+    "TITLE": "",
     "SUB_TITLE1": " Mobile Application for",
     "SUB_TITLE2": "Selection of Life Insurance Plans ",
     "SUB_TITLE3": "",
     "BUTTON_1": "For Public Use",
-    "BUTTON_2": "For Agent Use",
+    "BUTTON_2": "FOR AGENT TEAM USE ",
     "VERIIFY": "Waiting for verify"
   },
   "LOGIN_GENERAL": {
@@ -93,7 +93,7 @@
     "PASSWORD": "passcode",
     "FORGET_PASSWORD": "Forgot passcode",
     "LOGIN": "Login",
-    "NO_ACCOUNT": "The (Given) Account Does Not Exist",
+    "NO_ACCOUNT": "No account?",
     "REGISTER": "Register",
     "SUCCESS_LOGIN": "Login Successful",
     "FAIL_LOGIN": " Please register or check your email and passcode."
@@ -137,9 +137,9 @@
     "EMAIL": "Email",
     "PASSWORD": "New passcode",
     "PIN": "PIN",
-    "RE_PASSWORD": "Confirm new passcode.",
+    "RE_PASSWORD": "Confirm new passcode",
     "ERROR_RESPONSE_TEXT": "Passcodes do not match.",
-    "CURRENT_PASSWORD": "Current passcode. "
+    "CURRENT_PASSWORD": "Current passcode"
   },
   "POLICY_DETAIL": {
     "TITLE": "Life Insurance Plan",
@@ -163,7 +163,7 @@
     "IRR_TEXT_3": " Protect rate",
     "IRR_TEXT_4": "Average Rate of Coverage before Premium Payment Period ",
     "IRR_TEXT_5": "Average Rate of Coverage after Premium Payment Period",
-    "IRR_TEXT_6": "  Worth rate ",
+    "IRR_TEXT_6": "  Worth Rate ",
     "ALERT_TEXT_1": "Do you want to delete this plan?"
   },
   "ADD_POLICY": {
@@ -221,7 +221,7 @@
     "TEXT_PROTECTION": "Protection",
     "COVERAGE": "Coverage",
     "TEXT_YEAR_PAID": "Amount of insurance premium per year",
-    "TEXT_DETAIL_1": "*if the checkbox is left unticked",
+    "TEXT_DETAIL_1": "*if the checkbox is left unticked,",
     "TEXT_DETAIL_2": " that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
     "HEALTH": "Health Insurance",

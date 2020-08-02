@@ -2,15 +2,15 @@
   <ion-toolbar>
     <!-- <ion-title>{{ 'POLICY_LIST_PAGE.TITLE'  | translate }}</ion-title> -->
     
-    <ion-title style="text-align: start;padding: 0 22px;">{{ 'POLICY_LIST_PAGE.TITLE'  | translate }}</ion-title>
+    <ion-title style="text-align: start;padding: 0 0 0 22px;">{{ 'POLICY_LIST_PAGE.TITLE'  | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button *ngIf="userProfile.Role === 'master'" [routerLink]="['/user-agent-list']">
+      <ion-button style="width: 45px;" *ngIf="userProfile.Role !== 'master'" [routerLink]="['/user-agent-list']">
         <ion-icon slot="icon-only" name="people-outline"></ion-icon>
       </ion-button>
-      <ion-button [routerLink]="['/personal-information-general-user']">
+      <ion-button style="width: 45px;" [routerLink]="['/personal-information-general-user']">
         <ion-icon slot="icon-only" name="person-outline"></ion-icon>
       </ion-button>
-      <ion-button [routerLink]="['/policy-search']">
+      <ion-button style="width: 45px;" [routerLink]="['/policy-search']">
         <ion-icon slot="icon-only" name="filter-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -28,14 +28,14 @@
         <ion-note slot="start" style="margin-right: 0; padding: 15px 5px 15px 0;font-size: 16px;">
           {{i+1}}.
         </ion-note>
-        <ion-label style="padding-left: 5px;">
+        <div style="padding-left: 5px;">
           <div style="font-weight: bold;margin-bottom: 2px;">
              {{policy?.CompanyName=='specific' ? (policy?.SpecificCampany | translate ): ('COMPANY_DATA.'+policy?.CompanyName | translate)}}
           </div>
           <div>
             {{policy?.PolicyName}}
           </div>
-        </ion-label>
+        </div>
       </ion-item>
     </ion-list>
   </div>

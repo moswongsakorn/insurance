@@ -103,7 +103,7 @@ export class UiService {
   async ConfirmedRemove(calBack: any) {
     const headerText: string = this.translateService.instant("CODE.DELETE_USER_TITLE");
     const message: string = this.translateService.instant("CODE.DELETE_USER_TEXT");
-    const okText: string = this.translateService.instant("CODE.OK");
+    const okText: string = this.translateService.instant("CODE.CONFIRM");
     const cancelText: string = this.translateService.instant("CODE.CANCEL");
     const passwordText: string = this.translateService.instant("REGISTER_GENERAL.PASSWORD");
 
