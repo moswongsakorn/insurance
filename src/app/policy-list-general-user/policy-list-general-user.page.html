@@ -4,7 +4,7 @@
     
     <ion-title style="text-align: start;padding: 0 0 0 22px;">{{ 'POLICY_LIST_PAGE.TITLE'  | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button style="width: 45px;" *ngIf="userProfile.Role !== 'master'" [routerLink]="['/user-agent-list']">
+      <ion-button style="width: 45px;" *ngIf="userProfile.Role === 'master'" [routerLink]="['/user-agent-list']">
         <ion-icon slot="icon-only" name="people-outline"></ion-icon>
       </ion-button>
       <ion-button style="width: 45px;" [routerLink]="['/personal-information-general-user']">
