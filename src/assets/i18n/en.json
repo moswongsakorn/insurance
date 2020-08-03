@@ -214,7 +214,7 @@
     "SUB_TITLE": "Please enter the percentage of each rate when the total sum must be 100%",
     "TEXT_IRR": "Internal Return of Rate (IRR) ",
     "TEXT_IRR_AGENT": "Internal Return of Rate (IRR) of Agent ",
-    "TEXT_WORTH_RATE": "Worth rate ",
+    "TEXT_WORTH_RATE": "Worth Rate ",
     "TEXT_AVERAGE_RATE_COVERAGE_BEFORE": "Average Rate of Coverage before Premium Payment Period ",
     "TEXT_AVERAGE_RATE_COVERAGE_AFTER": "Average Rate of Coverage after Premium Payment Period",
     "TEXT_PROTECT_RATE": "Rate of Coverage",
@@ -225,7 +225,10 @@
     "TEXT_DETAIL_2": " that criterion will not be taken into account.",
     "TAX": "Tax Deduction",
     "HEALTH": "Health Insurance",
-    "SCORE": "Score"
+    "SCORE": "Score",
+    "SEARCH_TEXT_IRR":"Internal Return of Rate (IRR)",
+    "SEARCH_TEXT_WORTH_RATE":"Worth Rate",
+    "SEARCH_TEXT_PROTECT_RATE":"Rate of Coverage"
   },
   "SEARCH_RESULT": {
     "TITLE": "Top 5 scores of insurance plans"
