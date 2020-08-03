@@ -276,12 +276,12 @@
 
     <div *ngIf="userProfile.Role != 'quest'">
       <ion-row >
-        <ion-col class="ion-align-self-center" size="8">
+        <ion-col class="ion-align-self-center" size="10">
           <div>
             {{ 'POLICY_SEARCH.TEXT_IRR_AGENT' | translate }}
           </div>
         </ion-col>
-        <ion-col class="ion-align-self-center ion-text-end"  size="4">
+        <ion-col class="ion-align-self-center ion-text-end"  size="2">
           <div class="score-box">
             {{ policy?.IrrAgent <= -20? 'N/A' : policy?.IrrAgent}}
           </div>
