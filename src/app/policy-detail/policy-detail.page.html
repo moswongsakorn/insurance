@@ -257,12 +257,12 @@
 
     <div class="summary-box">
        <ion-row>
-      <ion-col class="ion-align-self-center" size="10">
+      <ion-col class="ion-align-self-center" size="8">
         <div>
           {{ 'POLICY_SEARCH.TEXT_IRR' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center ion-text-end">
+      <ion-col class="ion-align-self-center ion-text-end" size="4">
         <div class="score-box">
           {{ policy?.Irr <= -20? 'N/A' : policy?.Irr}}
         </div>
@@ -276,12 +276,12 @@
 
     <div *ngIf="userProfile.Role != 'quest'">
       <ion-row >
-        <ion-col class="ion-align-self-center" size="10">
+        <ion-col class="ion-align-self-center" size="8">
           <div>
             {{ 'POLICY_SEARCH.TEXT_IRR_AGENT' | translate }}
           </div>
         </ion-col>
-        <ion-col class="ion-align-self-center ion-text-end">
+        <ion-col class="ion-align-self-center ion-text-end"  size="4">
           <div class="score-box">
             {{ policy?.IrrAgent <= -20? 'N/A' : policy?.IrrAgent}}
           </div>
@@ -347,12 +347,12 @@
     <!-- -----------------------end-devider----------------------- -->
 
     <ion-row>
-      <ion-col class="ion-align-self-center" size="10">
+      <ion-col class="ion-align-self-center" size="8">
         <div>
           {{ 'POLICY_SEARCH.TEXT_WORTH_RATE' | translate }}
         </div>
       </ion-col>
-      <ion-col class="ion-align-self-center ion-text-end">
+      <ion-col class="ion-align-self-center ion-text-end" size="4">
         <div class="score-box">
           {{policy?.ValueRate}}
         </div>

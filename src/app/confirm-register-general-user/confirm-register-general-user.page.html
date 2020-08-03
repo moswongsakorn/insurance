@@ -51,15 +51,16 @@
       <ion-col size="6">
         <ion-text>{{user.Password}}</ion-text>
       </ion-col>
-      <ion-col size="6">
-        <ion-text>PIN</ion-text>
-      </ion-col>
-      <ion-col size="6">
-        <ion-text>{{user.Pin}}</ion-text>
-      </ion-col>
-      <ion-col size="12" class="ion-padding">
+      <!-- ---------------------Pin checker--------------------- -->
 
-      </ion-col>
+        <ion-col *ngIf="user.Pin !='DEFAULT'" size="6">
+          <ion-text>PIN</ion-text>
+        </ion-col>
+        <ion-col *ngIf="user.Pin !='DEFAULT'" size="6">
+          <ion-text>{{user.Pin}}</ion-text>
+        </ion-col>
+
+     
       <ion-col size="12" class="ion-text-center">
         <!-- <ion-text><u>{{ 'CONFIRM_GENERAL.CONFIRM_TEXT'  | translate }}</u></ion-text> -->
       </ion-col>
