@@ -53,10 +53,10 @@
       </ion-col>
       <!-- ---------------------Pin checker--------------------- -->
 
-        <ion-col *ngIf="user.Pin !='DEFAULT'" size="6">
+        <ion-col *ngIf="user.Role !='quest'" size="6">
           <ion-text>PIN</ion-text>
         </ion-col>
-        <ion-col *ngIf="user.Pin !='DEFAULT'" size="6">
+        <ion-col *ngIf="user.Role !='quest'" size="6">
           <ion-text>{{user.Pin}}</ion-text>
         </ion-col>
 
