@@ -101,6 +101,10 @@
           <span style="text-decoration: underline;"
             >
             {{ 'POLICY_SEARCH.TEXT_DETAIL_1'  | translate }}
+            <span *ngIf="isThaiLanguage">
+              <ion-checkbox mode="ios" checked="true" color="primary" ></ion-checkbox>
+
+            </span>
           </span>
           <span style="text-decoration: underline;">  {{ 'POLICY_SEARCH.TEXT_DETAIL_2'  | translate }} </span>
         </div>

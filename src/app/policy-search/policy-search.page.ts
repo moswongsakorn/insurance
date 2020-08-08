@@ -13,7 +13,7 @@ import { TranslateService } from "@ngx-translate/core";
 export class PolicySearchPage implements OnInit {
 
   public SearchModel: SearchModel = new SearchModel();
-
+  private isThaiLanguage = false
   constructor(
     private NavController: NavController,
     private translateService: TranslateService,
@@ -30,7 +30,9 @@ export class PolicySearchPage implements OnInit {
   //   private translateService: TranslateService
   // ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isThaiLanguage = localStorage.getItem("language")==="th"?true:false
+  }
 
   async searchPolicy() {
     this.SearchModel.irr = (this.SearchModel.irr) ? this.SearchModel.irr : 0;
