@@ -36,17 +36,63 @@ export class AddPolicyGeneralUserPage implements OnInit {
     this.companyData = this.DataCenterService.GetCompanyData();
 
     this.userProfile = this.DataCenterService.GetThisUserProfile();
-    
+
     this.policy = this.DataCenterService.ClonePolicyDetail();
     console.log('add policy', this.policy);
   }
 
   public async Save() {
-    if(this.policy.YearToPaid > this.policy.YearOfProtect){
+    if (this.policy.YearToPaid > this.policy.YearOfProtect) {
       const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
       await this.uiService.presentAlert(errorText);
       return;
     }
+
+
+    var isProtectAllYear = false; 
+    for (let i = 0; i < this.policy.ProtectList.length; i++) {
+      let data = this.policy.ProtectList[i];
+
+      if(data.End == this.policy.YearOfProtect){
+        isProtectAllYear = true;
+      }
+
+      if (data.End > this.policy.YearOfProtect) {
+        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+        await this.uiService.presentAlert(errorText);
+        return;
+      }
+    }
+
+    if (!isProtectAllYear) {
+      let errorText: string = this.translateService.instant(
+        "POLICY_REPAY.ERROR_TEXT_6"
+      );
+      // let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
+      //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+
+
+    for (let i = 0; i < this.policy.ComissionList.length; i++) {
+      let data = this.policy.ComissionList[i];
+      if (data.End > this.policy.YearToPaid) {
+        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_5");
+        await this.uiService.presentAlert(errorText);
+        return;
+      }
+    }
+
+    for (let i = 0; i < this.policy.ReturnList.length; i++) {
+      let data = this.policy.ReturnList[i];
+      if (data.End > this.policy.YearOfProtect) {
+        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+        await this.uiService.presentAlert(errorText);
+        return;
+      }
+    }
+
 
     if (this.policy.CompanyName != 'specific') this.policy.SpecificCampany = "";
     var userProfile = this.DataCenterService.GetThisUserProfile();

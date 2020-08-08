@@ -43,7 +43,8 @@ export class RegisterGeneralUserPage implements OnInit {
 
   public async Register() {
     //add pin default 
-    this.user.Pin = "DEFAULT"
+    //this.user.Pin = "DEFAULT"
+    this.PinGenerate();
     this.user.InitRole(MagicNumber.quest);
     if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
