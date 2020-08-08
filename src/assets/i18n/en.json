@@ -26,7 +26,7 @@
     "SUB_TITLE2": "Selection of Life Insurance Plans ",
     "SUB_TITLE3": "",
     "BUTTON_1": "For Public Use",
-    "BUTTON_2": "FOR AGENT TEAM USE ",
+    "BUTTON_2": "FOR AGENT USER ",
     "VERIIFY": "Waiting for verify"
   },
   "LOGIN_GENERAL": {
@@ -55,7 +55,7 @@
     "EMAIL": "Email",
     "PASSWORD": "passcode",
     "PASSWORD_INFO":"Please enter only 6 digits to create your passcode",
-    "RE_PASSWORD": "Please Confirm the passcode",
+    "RE_PASSWORD": "Please confirm the passcode",
     "GENERATE_PIN": "Set up a PIN",
     "FILL_PIN": "Enter PIN",
     "ERROR_TEXT_1": "Please fill out the form completely.",
