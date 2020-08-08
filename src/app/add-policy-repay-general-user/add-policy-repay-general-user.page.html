@@ -28,7 +28,7 @@
           <div style="width: 20%; margin: 0 10px;">
             <ion-input
               class="input-fild"
-              type="number"
+              type="tel"
               (input)='yearInputValidate($event.target.value,i,true)'
               [(ngModel)]="lengthYearAmountList[i].Start"
             ></ion-input>
@@ -43,7 +43,7 @@
           <div style="width: 20%;" *ngIf="item.IsRange">
             <ion-input
               class="input-fild"
-              type="number"
+              type="tel"
               (input)='yearInputValidate($event.target.value,i,false)'
               [(ngModel)]="lengthYearAmountList[i].End"
             ></ion-input>
@@ -56,6 +56,7 @@
             <ion-input
               class="input-fild"
               type="number"
+              (input)='moneyInputValidate($event.target.value, i)'
               [(ngModel)]="lengthYearAmountList[i].Amount"
             ></ion-input>
           </div>

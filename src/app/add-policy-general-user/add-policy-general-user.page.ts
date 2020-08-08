@@ -157,4 +157,47 @@ export class AddPolicyGeneralUserPage implements OnInit {
     }
   }
 
+  yearInputValidate(input, isProtect) {
+    let result = Math.floor(input)
+    if (isProtect) {
+      if (result > 0) {
+        this.policy.YearOfProtect = +result;
+      } else {
+        this.policy.YearOfProtect = 1;
+      }
+    } else {
+      if (result > 0) {
+        this.policy.YearToPaid = +result;
+      } else {
+        this.policy.YearToPaid = 1;
+      }
+    }
+  }
+
+  moneyInputValidate(input,mode){
+    console.log('input', input)
+    if(input=="00"){
+      input = 0
+    }
+    let result = +input
+    console.log('input', input)
+    
+    if(mode==="SUM_INSURED"){
+      if (result >= 0) {
+        this.policy.SumInsured = result
+      }else{
+        this.policy.SumInsured = 0
+      }
+    }
+
+    if(mode==="INSURANCE_PREMIUM"){
+      if (result >= 0) {
+        this.policy.InsurancePremium = result
+      }
+      else{
+        this.policy.InsurancePremium = 0
+      }
+    }
+  }
+
 }

@@ -219,19 +219,32 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   yearInputValidate(input, index, isStart) {
-    if (isStart) {
-      if (input > 0) {
-        this.lengthYearAmountList[index].Start = +input;
+    let result = Math.floor(input.replace('-',""))
+    const patten = /[.]/g;
+    const dot = patten.test(input)
+    console.log('result', result)
+    if (isStart ) {
+      if (result > 0 && !dot) { 
+       this.lengthYearAmountList[index].Start = Math.floor(+result);   
       } else {
         this.lengthYearAmountList[index].Start = 1;
       }
     } else {
-      if (input > 0) {
-        this.lengthYearAmountList[index].End = +input;
+      if (result > 0) {
+        this.lengthYearAmountList[index].End = Math.floor(+result);
       } else {
         this.lengthYearAmountList[index].End = 1;
       }
     }
+  }
+
+  moneyInputValidate(input,index){
+    let result = +input
+      if (result >= 0) {
+        this.lengthYearAmountList[index].Amount = +result;
+      } else {
+        this.lengthYearAmountList[index].Amount = 1;
+      }
   }
 
 }

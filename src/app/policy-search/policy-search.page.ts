@@ -77,4 +77,39 @@ export class PolicySearchPage implements OnInit {
       }
     }
   }
+
+  moneyInputValidate(input,mode){
+    if(input=="00"){
+      input = 0
+    }
+    let result = +input
+    
+    if(mode==="SEARCH_TEXT_IRR"){
+      if (result >= 0) {
+        this.SearchModel.irr = result
+      }else{
+        this.SearchModel.irr = 0
+      }
+    }
+
+    if(mode==="SEARCH_TEXT_PROTECT_RATE"){
+      if (result >= 0) {
+        this.SearchModel.protect = result
+      }
+      else{
+        this.SearchModel.protect = 0
+      }
+    }
+
+    if(mode==="SEARCH_TEXT_WORTH_RATE"){
+      if (result >= 0) {
+        this.SearchModel.worth = result
+      }
+      else{
+        this.SearchModel.worth = 0
+      }
+    }
+
+
+  }
 }

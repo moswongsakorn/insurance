@@ -23,7 +23,9 @@
          {{ 'POLICY_SEARCH.SEARCH_TEXT_IRR'  | translate }}
         </div>
         <div style="width: 20%;">
-          <ion-input class="input-fild" type="number" [(ngModel)]="SearchModel.irr"></ion-input>
+          <ion-input
+          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_IRR")'
+          class="input-fild" type="number" [(ngModel)]="SearchModel.irr"></ion-input>
         </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
@@ -39,7 +41,9 @@
           {{ 'POLICY_SEARCH.SEARCH_TEXT_PROTECT_RATE'  | translate }}
         </div>
         <div style="width: 20%;">
-          <ion-input class="input-fild" type="number" [(ngModel)]="SearchModel.protect"></ion-input>
+          <ion-input 
+          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_PROTECT_RATE")'
+          class="input-fild" type="number" [(ngModel)]="SearchModel.protect"></ion-input>
         </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
@@ -55,7 +59,9 @@
           {{ 'POLICY_SEARCH.SEARCH_TEXT_WORTH_RATE'  | translate }}
         </div>
         <div style="width: 20%;">
-          <ion-input class="input-fild" type="number" [(ngModel)]="SearchModel.worth"></ion-input>
+          <ion-input 
+          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_WORTH_RATE")'
+          class="input-fild" type="number" [(ngModel)]="SearchModel.worth"></ion-input>
         </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
