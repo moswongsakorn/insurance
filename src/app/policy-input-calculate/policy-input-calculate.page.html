@@ -11,48 +11,59 @@
   <ion-grid class="ion-margin">
 
     <ion-row class="">
-      <ion-col class="ion-align-self-center" size="7">
-        {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }}
+      <ion-col class="ion-align-self-center" size="12">
+        <div style="font-weight: bold;">  
+          <span class="dot"></span>
+          {{ 'POLICY_DETAIL.COMPANY_NAME' | translate }} 
+        </div>
+      
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="1"> </ion-col>
+      <ion-col size="11">
         {{policy?.CompanyName=='specific' ? policy?.SpecificCampany:
         'COMPANY_DATA.'+policy?.CompanyName | translate}}
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="ion-align-self-center" size="7">
-        {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
+    <ion-row class="ion-margin-top">
+      <ion-col class="ion-align-self-center" size="12">
+        <div style="font-weight: bold;">
+          <span class="dot"></span>
+          {{ 'POLICY_DETAIL.POLICY_NAME' | translate }}
+        </div>
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="1"> </ion-col>
+      <ion-col size="11">
         {{policy.PolicyName}}
       </ion-col>
     </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-align-self-center">
-        <div>
-          {{ 'ADD_POLICY.SUM_INSURED' | translate }}
+    <br>
+    <ion-row >
+      <ion-col class="ion-align-self-center" size="12">
+        <div style="font-weight: bold;">
+          <span class="dot"></span>
+           {{ 'ADD_POLICY.SUM_INSURED' | translate }}
         </div>
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="9">
         <ion-input class="input-fild" type="number" [(ngModel)]="sumInsured"></ion-input>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="2">
+      <ion-col class="ion-align-self-center" size="3">
         <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col class="ion-align-self-center">
-        <div>
+      <ion-col class="ion-align-self-center" size="12">
+        <div style="font-weight: bold;">
+          <span class="dot"></span>
           {{ 'ADD_POLICY.INSURANCE_PREMIUM' | translate }}
         </div>
       </ion-col>
-      <ion-col size="5">
+      <ion-col size="9">
         <ion-input class="input-fild" type="number" [(ngModel)]="insurancePremium"></ion-input>
       </ion-col>
-      <ion-col class="ion-align-self-center" size="2">
+      <ion-col class="ion-align-self-center" size="3">
         <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
       </ion-col>
     </ion-row>

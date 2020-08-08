@@ -15,6 +15,7 @@ export class PolicyDetailCalculatePage implements OnInit {
 
   public policy: PolicyCrudModel = new PolicyCrudModel();
   public userProfile: UserCrudModel = new UserCrudModel();
+  private isaAgentExpand:boolean = false
 
   constructor(
     private DataCenterService: DataCenterService,
@@ -30,5 +31,9 @@ export class PolicyDetailCalculatePage implements OnInit {
   async ionViewDidEnter() {
     this.userProfile = this.DataCenterService.GetThisUserProfile();
     this.policy = this.DataCenterService.GetPolicyCalculate();
+  }
+
+  agentExpand(){
+    this.isaAgentExpand = !this.isaAgentExpand
   }
 }

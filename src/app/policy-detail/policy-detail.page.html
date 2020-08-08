@@ -217,7 +217,9 @@
     </ion-row>
 
     <ion-row
-      *ngIf="userProfile.Role != 'quest' && policy.ComissionList != null && policy.ComissionList.length != 0 "
+      *ngIf="userProfile.Role != 'quest' && 
+      policy.ComissionList != null && policy.ComissionList.length != 0  && 
+      isaAgentExpand"
     >
       <ion-col class="ion-align-self-center">
         <div class="ion-text-center ion-margin-top title-bord-text">
@@ -360,6 +362,22 @@
     </ion-row>
     </div>
    
+    <!-- ------------------user Agent Expand Button ------------------ -->
+    <ion-row
+    class="ion-margin-top"
+    *ngIf="userProfile.Role != 'quest' && policy.ComissionList != null && policy.ComissionList.length != 0 "
+    >
+      <ion-col class="ion-align-self-center" size="6">
+      </ion-col>
+      <ion-col class="ion-align-self-center ion-text-end" size="6">
+        <ion-text  color="dark" (click)="agentExpand()" >
+        <u style=" text-decoration: underline;"> 
+          {{ 'POLICY_DETAIL.AGENT_USE_BUTTON' | translate }}
+        </u>
+      </ion-text>
+      </ion-col>
+    </ion-row>
+    <!-- ------------------user Agent Expand Button ------------------ -->
 
     <!-- <ion-row *ngIf="userProfile.Role != 'user'" class="ion-margin-top">
       <ion-col size="2"></ion-col>

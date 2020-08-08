@@ -17,7 +17,7 @@ export class PolicyDetailPage implements OnInit {
 
   public policy: PolicyCrudModel = new PolicyCrudModel();
   public userProfile: UserCrudModel = new UserCrudModel();
-
+  private isaAgentExpand:boolean = false
   constructor(
     private DataCenterService: DataCenterService,
     private NavController: NavController,
@@ -68,6 +68,10 @@ export class PolicyDetailPage implements OnInit {
     else {
       this.NavController.navigateForward(['policy-input-calculate']);
     }
+  }
+
+  agentExpand(){
+    this.isaAgentExpand = !this.isaAgentExpand
   }
 
 }
