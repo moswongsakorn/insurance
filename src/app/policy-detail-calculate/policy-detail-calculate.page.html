@@ -195,7 +195,7 @@
       <!-- <ion-col class="ion-align-self-center" size="4"> </ion-col> -->
     </ion-row>
 
-    <ion-row *ngIf="userProfile.Role == 'master' && 
+    <ion-row *ngIf="userProfile.Role != 'quest' && 
     policy.ComissionList != null && 
     policy.ComissionList.length != 0 &&
     isaAgentExpand ">
@@ -254,7 +254,7 @@
     <div class="divider-box"></div>
     <!-- -----------------------end-devider----------------------- -->
 
-    <div *ngIf="userProfile.Role == 'master'">
+    <div *ngIf="userProfile.Role != 'quest'">
       <ion-row >
         <ion-col class="ion-align-self-center" size="10">
           <div>
@@ -344,7 +344,7 @@
    <!-- ------------------user Agent Expand Button ------------------ -->
    <ion-row
    class="ion-margin-top"
-   *ngIf="userProfile.Role == 'master' && policy.ComissionList != null && policy.ComissionList.length != 0 "
+   *ngIf="userProfile.Role != 'quest' && policy.ComissionList != null && policy.ComissionList.length != 0 "
    >
      <ion-col class="ion-align-self-center" size="6">
      </ion-col>
