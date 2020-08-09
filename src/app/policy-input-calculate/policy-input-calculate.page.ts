@@ -65,4 +65,29 @@ export class PolicyInputCalculatePage implements OnInit {
     }
   }
 
+  
+  moneyInputValidate(input,mode){
+    if(input=="00"){
+      input = 0
+    }
+    let result = +input
+    
+    if(mode==="SUM_INSURED"){
+      if (result >= 0) {
+        this.sumInsured = result
+      }else{
+        this.sumInsured = 0
+      }
+    }
+
+    if(mode==="INSURANCE_PREMIUM"){
+      if (result >= 0) {
+        this.insurancePremium = result
+      }
+      else{
+        this.insurancePremium = 0
+      }
+    }
+  }
+
 }
