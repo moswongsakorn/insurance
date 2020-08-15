@@ -70,7 +70,8 @@
     "ALERT_TEXT_4": "Invalid email format.",
     "ALERT_TEXT_5": "Invalid first name & last name format",
     "ALERT_TEXT_6": "Please enter a passcode only numbers.",
-    "PHONE_NUMBER_ERROR": "Please enter 10 digits phone number."
+    "PHONE_NUMBER_ERROR": "Please enter 10 digits phone number.",
+    "PHONE_NUMBER_ERROR_2": "Please enter 10 digits phone number."
   },
   "CONFIRM_GENERAL": {
     "TITLE": "Personal Profile",
