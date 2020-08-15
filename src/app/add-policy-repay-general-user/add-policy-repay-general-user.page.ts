@@ -80,8 +80,10 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       }
       console.log('element', element)
       // VAlidate Year
-      const checkYear1 =element.Start!=null?this.uiService.checkInputYear(element.Start):{status:true,case:3}
-      const checkYear2 =element.End!=null?this.uiService.checkInputYear(element.End):{status:true,case:3}
+      const _elementStart = ''+element.Start
+      const  _elementEnd = ''+element.End
+      const checkYear1 =element.Start!=null?this.uiService.checkInputYear(_elementStart):{status:true,case:3}
+      const checkYear2 =element.End!=null?this.uiService.checkInputYear(_elementEnd):{status:true,case:3}
       if(!checkYear1.status || !checkYear2.status){
         const text = !checkYear1.status&&checkYear1.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
         !checkYear1.status&&checkYear1.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":
@@ -95,8 +97,11 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
+      element.Start = +_elementStart
+      element.End = +_elementEnd
       //validate money
-      const checkMoney1 =element.Amount!=null?this.uiService.checkInputMoney(element.Amount):{status:true,case:3}
+      const _elementAmount = element.Amount!=null?''+element.Amount:null
+      const checkMoney1 =element.Amount!=null?this.uiService.checkInputMoney(_elementAmount):{status:true,case:3}
       if(!checkMoney1.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
         !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
@@ -107,6 +112,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
+      element.Amount = +_elementAmount
 
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;

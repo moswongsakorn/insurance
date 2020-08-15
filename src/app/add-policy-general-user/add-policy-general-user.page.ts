@@ -42,9 +42,11 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+    const _YearOfProtect = ''+this.policy.YearOfProtect
+   const _YearToPaid = ''+this.policy.YearToPaid
       // validate number input
-      let checkYear1 = this.uiService.checkInputYear(this.policy.YearOfProtect)
-      let checkYear2 = this.uiService.checkInputYear(this.policy.YearToPaid)
+      let checkYear1 = this.uiService.checkInputYear(_YearOfProtect)
+      let checkYear2 = this.uiService.checkInputYear(_YearToPaid)
       if(!checkYear1.status || !checkYear2.status){
         const text = checkYear1.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT":
         checkYear2.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT":""
@@ -56,12 +58,18 @@ export class AddPolicyGeneralUserPage implements OnInit {
         await this.uiService.presentAlert(errorText);
         return;
       }
-
-
+      this.policy.YearOfProtect = +_YearOfProtect
+      this.policy.YearToPaid  = +_YearToPaid
       // validate money
-      let checkMoney1 = this.uiService.checkInputMoney(this.policy.SumInsured)
-      let checkMoney2 = this.uiService.checkInputMoney(this.policy.InsurancePremium)
-      let checkMoney3 = this.uiService.checkInputMoneyZero(this.policy.DueMoney)
+
+      const  _SumInsured = ''+this.policy.SumInsured  
+     const _InsurancePremium = ''+this.policy.InsurancePremium  
+     const _DueMoney = ''+this.policy.DueMoney  
+
+
+      let checkMoney1 = this.uiService.checkInputMoney(_SumInsured)
+      let checkMoney2 = this.uiService.checkInputMoney(_InsurancePremium)
+      let checkMoney3 = this.uiService.checkInputMoneyZero(_DueMoney)
       if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
         !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
@@ -81,9 +89,9 @@ export class AddPolicyGeneralUserPage implements OnInit {
         await this.uiService.presentAlert(errorTextLase);
         return;
       }
-      
-      
-  
+      this.policy.SumInsured = +_SumInsured
+      this.policy.InsurancePremium = +_InsurancePremium
+      this.policy.DueMoney = +_DueMoney
       //end validate input number
   
 
@@ -157,6 +165,58 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
 
   public async ModalOfPolicy(name: string, lengthYearAmount: LengthYearAmount[]) {
+    const _YearOfProtect = ''+this.policy.YearOfProtect
+   const _YearToPaid = ''+this.policy.YearToPaid
+      // validate number input
+      let checkYear1 = this.uiService.checkInputYear(_YearOfProtect)
+      let checkYear2 = this.uiService.checkInputYear(_YearToPaid)
+      if(!checkYear1.status || !checkYear2.status){
+        const text = checkYear1.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT":
+        checkYear2.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT":""
+        const text2 = checkYear1.case===2||checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+        const sumText = text|| text2
+        const errorText: string = this.translateService.instant(errorTextLase);
+
+         this.uiService.presentAlert(errorText);
+        return;
+      }
+      this.policy.YearOfProtect = +_YearOfProtect
+      this.policy.YearToPaid  = +_YearToPaid
+      // validate money
+
+     const  _SumInsured = ''+this.policy.SumInsured  
+     const _InsurancePremium = ''+this.policy.InsurancePremium  
+     const _DueMoney = ''+this.policy.DueMoney 
+
+
+      let checkMoney1 = this.uiService.checkInputMoney(_SumInsured)
+      let checkMoney2 = this.uiService.checkInputMoney(_InsurancePremium)
+      let checkMoney3 = this.uiService.checkInputMoneyZero(_DueMoney)
+      if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
+        const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
+        !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
+        !checkMoney3.status&&checkMoney3.case===1?{name:'ADD_POLICY.DUE_MONEY',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
+        !checkMoney1.status&&checkMoney1.case===2?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+        !checkMoney2.status&&checkMoney2.case===2?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+        !checkMoney3.status&&checkMoney3.case===2?{name:'ADD_POLICY.DUE_MONEY',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:{name:'',case:"",baht:false}
+
+
+        const errorText: string = this.translateService.instant("POLICY_DETAIL.PLEASE_TEXT");
+        const errorTextName: string = this.translateService.instant(text.name);
+        const errorTextCase: string = this.translateService.instant(text.case);
+        const errorTextCaseBaht: string = text.baht?this.translateService.instant('CODE.BATH'):""
+
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+        const sumText = errorText+errorTextName+errorTextCase+errorTextCaseBaht
+         this.uiService.presentAlert(errorTextLase);
+        return;
+      }
+      this.policy.SumInsured = +_SumInsured
+      this.policy.InsurancePremium = +_InsurancePremium
+      this.policy.DueMoney = +_DueMoney
+      //end validate input number
+      
     var isValid = this.policy.ValidateData();
     if (!isValid.status) {
       const errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");

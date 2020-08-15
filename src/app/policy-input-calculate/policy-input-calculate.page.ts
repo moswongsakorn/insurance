@@ -46,8 +46,10 @@ export class PolicyInputCalculatePage implements OnInit {
     else {
       
       // validate money
-      const checkMoney1 =this.sumInsured!=null?this.uiService.checkInputMoney(this.sumInsured):{status:true,case:3}
-    const checkMoney2 =this.insurancePremium!=null?this.uiService.checkInputMoney(this.insurancePremium):{status:true,case:3}
+    const _sumInsured = ""+ this.sumInsured
+    const _insurancePremium = ""+ this.insurancePremium 
+      const checkMoney1 =this.sumInsured!=null?this.uiService.checkInputMoney(_sumInsured):{status:true,case:3}
+    const checkMoney2 =this.insurancePremium!=null?this.uiService.checkInputMoney(_insurancePremium):{status:true,case:3}
     if(!checkMoney1.status || !checkMoney2.status){
       const text = !checkMoney1.status&&checkMoney1.case===1?{name:"ADD_POLICY.SUM_INSURED",case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
       !checkMoney1.status&&checkMoney1.case===2?{name:"ADD_POLICY.SUM_INSURED",case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
@@ -65,7 +67,8 @@ export class PolicyInputCalculatePage implements OnInit {
       await this.uiService.presentAlert(errorTextLase);
       return;
     }
-
+    this.sumInsured = +_sumInsured
+    this.insurancePremium = +_insurancePremium
 
       await this.uiService.presentLoading();
       var policy = new PolicyCrudModel();

@@ -50,7 +50,7 @@
       </ion-col>
       <ion-col size="3">
         <ion-input 
-        class="input-fild" type="number" [(ngModel)]="policy.YearOfProtect"></ion-input>
+        class="input-fild" type="tel" [(ngModel)]="policy.YearOfProtect"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -65,7 +65,7 @@
       </ion-col>
       <ion-col size="3">
         <ion-input 
-       class="input-fild" type="number" [(ngModel)]="policy.YearToPaid"></ion-input>
+       class="input-fild" type="tel" [(ngModel)]="policy.YearToPaid"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -80,7 +80,7 @@
       </ion-col>
       <ion-col size="5">
         <ion-input class="input-fild" 
-        type="number" 
+        type="tel"
         [(ngModel)]="policy.SumInsured"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
@@ -96,7 +96,7 @@
       </ion-col>
       <ion-col size="5">
         <ion-input class="input-fild" 
-        type="number" [(ngModel)]="policy.InsurancePremium"></ion-input>
+        type="tel" [(ngModel)]="policy.InsurancePremium"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
@@ -143,7 +143,7 @@
           {{ 'ADD_POLICY.DUE_MONEY' | translate }}
         </span>
         <span style="width: 20%;">
-          <ion-input class="input-fild" type="number" [(ngModel)]="policy.DueMoney"></ion-input>
+          <ion-input class="input-fild" type="tel" [(ngModel)]="policy.DueMoney"></ion-input>
         </span>
         <span class="ion-align-self-center" style="width: 45%;">
           {{ 'ADD_POLICY.SUB_DUE_MONEY' | translate }}

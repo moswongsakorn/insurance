@@ -138,29 +138,47 @@ export class UiService {
   }
 
   checkInputYear(input){
-    if(input<1){
+    console.log('input year', input)
+    let numbers = /^[0-9]+$/
+    let checkRex = input.match(numbers)
+    console.log('checkRex Year', checkRex)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
+    }
+    let check = parseFloat(input)
+    if(check<1){
       return {status:false,case:1}
     }
-    let numbers = /^[0-9]+$/
-    input = ''+input
-    let check = input.match(numbers)
     return  {status:check?true:false,case:2}
   }
 
   checkInputMoney(input){
-    if(input<=0){
-      return {status:false,case:1}
+    console.log('input money', input)
+    let numbers = /^[.0-9]+$/
+    let checkRex = input.match(numbers)
+    console.log('checkRex', checkRex)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
     }
     let check = parseFloat(input)
+    if(+check<=0){
+      return {status:false,case:1}
+    }
     return  {status:check?true:false,case:2}
   }
 
   checkInputMoneyZero(input){
-    console.log('checkInputMoneyZero', input)
-    if(input<0){
+    console.log('input money zero', input)
+    let numbers = /^[.0-9]+$/
+    let checkRex = input.match(numbers)
+    console.log('checkRex', checkRex)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
+    }
+    let check = parseFloat(input)
+    if(check<0){
       return {status:false,case:1}
     }else{
-      let check = parseFloat(input)
       if(check===0){
         return  {status:true,case:4}
       }
