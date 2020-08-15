@@ -83,6 +83,14 @@ export class RegisterAgentMemberUserPage implements OnInit {
       return;
     }
 
+    const checkPhone = this.UiService.checkInputPhoneNumber(this.user.Telephone)
+    if(!checkPhone){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR_2');
+      // "เบอร์โทนศัพทย์"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.user.Password.length < 6) {
       // กรุณากรอกรหัสผ่านอย่างน้อย  6 ตัวอักษร
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');

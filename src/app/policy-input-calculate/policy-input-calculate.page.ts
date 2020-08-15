@@ -61,7 +61,8 @@ export class PolicyInputCalculatePage implements OnInit {
       let baht: string = text.baht?this.translateService.instant('CODE.BATH'):""
       let sumText = errorText+errorTextName+errorTextCase+baht
 
-      await this.uiService.presentAlert(sumText);
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+      await this.uiService.presentAlert(errorTextLase);
       return;
     }
 

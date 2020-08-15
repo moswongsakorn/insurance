@@ -87,9 +87,10 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         !checkYear1.status&&checkYear1.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":
         !checkYear2.status&&checkYear2.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
         !checkYear2.status&&checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
-
         let errorText: string = this.translateService.instant(text);
-        await this.uiService.presentAlert(errorText);
+
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+        await this.uiService.presentAlert(errorTextLase);
         IsSubmit = false;
         return;
       }
@@ -100,7 +101,9 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
         !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
         let errorText: string = this.translateService.instant(text);
-        await this.uiService.presentAlert(errorText);
+
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+        await this.uiService.presentAlert(errorTextLase);
         IsSubmit = false;
         return;
       }

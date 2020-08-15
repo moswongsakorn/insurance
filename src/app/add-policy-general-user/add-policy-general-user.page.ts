@@ -49,9 +49,9 @@ export class AddPolicyGeneralUserPage implements OnInit {
         const text = checkYear1.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT":
         checkYear2.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT":""
         const text2 = checkYear1.case===2||checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
-
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
         const sumText = text|| text2
-        const errorText: string = this.translateService.instant(sumText);
+        const errorText: string = this.translateService.instant(errorTextLase);
 
         await this.uiService.presentAlert(errorText);
         return;
@@ -61,10 +61,10 @@ export class AddPolicyGeneralUserPage implements OnInit {
       // validate money
       let checkMoney1 = this.uiService.checkInputMoney(this.policy.SumInsured)
       let checkMoney2 = this.uiService.checkInputMoney(this.policy.InsurancePremium)
-      let checkMoney3 = this.uiService.checkInputMoney(this.policy.DueMoney)
+      let checkMoney3 = this.uiService.checkInputMoneyZero(this.policy.DueMoney)
       if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
-        const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
-        !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
+        const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
+        !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
         !checkMoney3.status&&checkMoney3.case===1?{name:'ADD_POLICY.DUE_MONEY',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
         !checkMoney1.status&&checkMoney1.case===2?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
         !checkMoney2.status&&checkMoney2.case===2?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
@@ -76,9 +76,9 @@ export class AddPolicyGeneralUserPage implements OnInit {
         const errorTextCase: string = this.translateService.instant(text.case);
         const errorTextCaseBaht: string = text.baht?this.translateService.instant('CODE.BATH'):""
 
-
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
         const sumText = errorText+errorTextName+errorTextCase+errorTextCaseBaht
-        await this.uiService.presentAlert(sumText);
+        await this.uiService.presentAlert(errorTextLase);
         return;
       }
       

@@ -66,6 +66,14 @@ export class RegisterGeneralUserPage implements OnInit {
       return;
     }
 
+    const checkPhone = this.UiService.checkInputPhoneNumber(this.user.Telephone)
+    if(!checkPhone){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR_2');
+      // "เบอร์โทนศัพทย์"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.userService.checkIDCard(this.user.IdCard) === false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_2');
       this.UiService.presentAlert(resultText);

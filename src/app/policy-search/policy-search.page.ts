@@ -37,9 +37,9 @@ export class PolicySearchPage implements OnInit {
   async searchPolicy() {
 
     // validate money
-    const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoney(this.SearchModel.irr):{status:true,case:3}
-    const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoney(this.SearchModel.worth):{status:true,case:3}
-    const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoney(this.SearchModel.protect):{status:true,case:3}
+    const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoneyZero(this.SearchModel.irr):{status:true,case:3}
+    const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoneyZero(this.SearchModel.worth):{status:true,case:3}
+    const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoneyZero(this.SearchModel.protect):{status:true,case:3}
     if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
       const text = !checkMoney1.status&&checkMoney1.case===1?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.MORE_THAN_ZERO"}:
       !checkMoney1.status&&checkMoney1.case===2?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.WRONG_FORMAT"}:
@@ -53,7 +53,8 @@ export class PolicySearchPage implements OnInit {
       let errorTextCase: string = this.translateService.instant(text.case);
       let sumText = errorText+errorTextName+errorTextCase
 
-      await this.uiService.presentAlert(sumText);
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+      await this.uiService.presentAlert(errorTextLase);
       return;
     }
 

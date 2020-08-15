@@ -154,4 +154,27 @@ export class UiService {
     let check = parseFloat(input)
     return  {status:check?true:false,case:2}
   }
+
+  checkInputMoneyZero(input){
+    console.log('checkInputMoneyZero', input)
+    if(input<0){
+      return {status:false,case:1}
+    }else{
+      let check = parseFloat(input)
+      if(check===0){
+        return  {status:true,case:4}
+      }
+      return  {status:check?true:false,case:2}
+    }
+    
+  }
+
+  checkInputPhoneNumber(input){
+    console.log('input', input)
+    let numbers = /^[0-9]+$/
+    input = ''+input
+    let check = input.match(numbers)
+    console.log('check', check)
+    return  check?true:false
+  }
 }
