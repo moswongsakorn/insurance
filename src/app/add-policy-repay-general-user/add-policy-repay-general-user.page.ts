@@ -78,6 +78,32 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         this.delete(i);
         continue;
       }
+      console.log('element', element)
+      // VAlidate Year
+      const checkYear1 =element.Start!=null?this.uiService.checkInputYear(element.Start):{status:true,case:3}
+      const checkYear2 =element.End!=null?this.uiService.checkInputYear(element.End):{status:true,case:3}
+      if(!checkYear1.status || !checkYear2.status){
+        const text = !checkYear1.status&&checkYear1.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
+        !checkYear1.status&&checkYear1.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":
+        !checkYear2.status&&checkYear2.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
+        !checkYear2.status&&checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
+
+        let errorText: string = this.translateService.instant(text);
+        await this.uiService.presentAlert(errorText);
+        IsSubmit = false;
+        return;
+      }
+
+      //validate money
+      const checkMoney1 =element.Amount!=null?this.uiService.checkInputMoney(element.Amount):{status:true,case:3}
+      if(!checkMoney1.status){
+        const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
+        !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
+        let errorText: string = this.translateService.instant(text);
+        await this.uiService.presentAlert(errorText);
+        IsSubmit = false;
+        return;
+      }
 
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;

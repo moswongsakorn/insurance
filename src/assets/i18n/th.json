@@ -165,7 +165,17 @@
     "IRR_TEXT_6": "  อัตราความคุ้มค่า (WR)",
     "ALERT_TEXT_1": "ยืนยันการลบแผนประกัน?",
     "ALERT_ERROR_YEAR": "กรุณาตรวจสอบข้อมูลที่คุณกรอก",
-    "AGENT_USE_BUTTON": "เฉพาะตัวแทน"
+    "AGENT_USE_BUTTON": "เฉพาะตัวแทน",
+    "ALERT_ERROR_YEAR_PROTECT_INPUT": "กรุณากรอกจำนวนระยะเวลาคุ้มครองตั้งแต่ 1 ปีขึ้นไป",
+    "ALERT_ERROR_YEAR_TOPAID_INPUT": "กรุณากรอกจำนวนระยะเวลาชำระเบี้ยประกันตั้งแต่ 1 ปีขึ้นไป",
+    "ALERT_ERROR_YEAR_TOPAID_AND_PROTECT_INPUT": "กรุณากรอกจำนวนระยะเวลาคุ้มครอง และระยะเวลาชำระเบี้ยประกันตั้งแต่ 1 ปีขึ้นไป",
+    "ALERT_ERROR_YEAR_INPUT_CASE2": "กรุณากรอกปีเป็นจำนวนเต็ม",
+    "PLEASE_TEXT": "กรุณากรอกจำนวน",
+    "MORE_THAN_ZERO": "มากกว่า 0 ",
+    "WRONG_FORMAT": "รูปแบบไม่ถูกต้อง",
+    "ALERT_YEAR_INPUT": "กรุณากรอกระยะเวลาตั้งแต่ 1 ปีขึ้นไป",
+    "ALERT_MONEY_INPUT": "กรุณากรอกจำนวนที่มากว่า 0",
+    "ALERT_MONEY_INPUT_FORMAT": "กรุณากรอกเป็นตัวเลขเท่านั้น"
   },
   "ADD_POLICY": {
     "TITLE": "เพิ่มแผนประกัน",

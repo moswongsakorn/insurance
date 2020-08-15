@@ -50,8 +50,7 @@
       </ion-col>
       <ion-col size="3">
         <ion-input 
-        (input)='yearInputValidate($event.target.value,true)'    
-        class="input-fild" type="tel" [(ngModel)]="policy.YearOfProtect"></ion-input>
+        class="input-fild" type="number" [(ngModel)]="policy.YearOfProtect"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -66,8 +65,7 @@
       </ion-col>
       <ion-col size="3">
         <ion-input 
-        (input)='yearInputValidate($event.target.value,false)'
-        class="input-fild" type="tel" [(ngModel)]="policy.YearToPaid"></ion-input>
+       class="input-fild" type="number" [(ngModel)]="policy.YearToPaid"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -81,9 +79,7 @@
         </div>
       </ion-col>
       <ion-col size="5">
-        <ion-input 
-        (input)='moneyInputValidate($event.target.value,"SUM_INSURED")'
-        class="input-fild" 
+        <ion-input class="input-fild" 
         type="number" 
         [(ngModel)]="policy.SumInsured"></ion-input>
       </ion-col>
@@ -99,9 +95,7 @@
         </div>
       </ion-col>
       <ion-col size="5">
-        <ion-input 
-        (input)='moneyInputValidate($event.target.value,"INSURANCE_PREMIUM")'
-        class="input-fild" 
+        <ion-input class="input-fild" 
         type="number" [(ngModel)]="policy.InsurancePremium"></ion-input>
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">

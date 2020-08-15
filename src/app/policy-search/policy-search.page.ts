@@ -35,6 +35,28 @@ export class PolicySearchPage implements OnInit {
   }
 
   async searchPolicy() {
+
+    // validate money
+    const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoney(this.SearchModel.irr):{status:true,case:3}
+    const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoney(this.SearchModel.worth):{status:true,case:3}
+    const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoney(this.SearchModel.protect):{status:true,case:3}
+    if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
+      const text = !checkMoney1.status&&checkMoney1.case===1?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.MORE_THAN_ZERO"}:
+      !checkMoney1.status&&checkMoney1.case===2?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.WRONG_FORMAT"}:
+      !checkMoney2.status&&checkMoney2.case===1?{name:"POLICY_SEARCH.SEARCH_TEXT_PROTECT_RATE",case:"POLICY_DETAIL.MORE_THAN_ZERO"}:
+      !checkMoney2.status&&checkMoney2.case===2?{name:"POLICY_SEARCH.SEARCH_TEXT_PROTECT_RATE",case:"POLICY_DETAIL.WRONG_FORMAT"}:
+      !checkMoney3.status&&checkMoney3.case===1?{name:"POLICY_SEARCH.SEARCH_TEXT_WORTH_RATE",case:"POLICY_DETAIL.MORE_THAN_ZERO"}:
+      !checkMoney3.status&&checkMoney3.case===2?{name:"POLICY_SEARCH.SEARCH_TEXT_WORTH_RATE",case:"POLICY_DETAIL.WRONG_FORMAT"}:{name:"POLICY_SEARCH.SEARCH_TEXT_WORTH_RATE",case:"POLICY_DETAIL.WRONG_FORMAT"}
+
+      let errorText: string = this.translateService.instant('POLICY_DETAIL.PLEASE_TEXT');
+      let errorTextName: string = this.translateService.instant(text.name);
+      let errorTextCase: string = this.translateService.instant(text.case);
+      let sumText = errorText+errorTextName+errorTextCase
+
+      await this.uiService.presentAlert(sumText);
+      return;
+    }
+
     this.SearchModel.irr = (this.SearchModel.irr) ? this.SearchModel.irr : 0;
     this.SearchModel.worth = (this.SearchModel.worth) ? this.SearchModel.worth : 0;
     this.SearchModel.protect = (this.SearchModel.protect) ? this.SearchModel.protect : 0;

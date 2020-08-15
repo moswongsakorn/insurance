@@ -136,4 +136,22 @@ export class UiService {
     });
     return await alert.present();
   }
+
+  checkInputYear(input){
+    if(input<1){
+      return {status:false,case:1}
+    }
+    let numbers = /^[0-9]+$/
+    input = ''+input
+    let check = input.match(numbers)
+    return  {status:check?true:false,case:2}
+  }
+
+  checkInputMoney(input){
+    if(input<=0){
+      return {status:false,case:1}
+    }
+    let check = parseFloat(input)
+    return  {status:check?true:false,case:2}
+  }
 }

@@ -42,6 +42,52 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+      // validate number input
+      let checkYear1 = this.uiService.checkInputYear(this.policy.YearOfProtect)
+      let checkYear2 = this.uiService.checkInputYear(this.policy.YearToPaid)
+      if(!checkYear1.status || !checkYear2.status){
+        const text = checkYear1.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT":
+        checkYear2.case===1?"POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT":""
+        const text2 = checkYear1.case===2||checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
+
+        const sumText = text|| text2
+        const errorText: string = this.translateService.instant(sumText);
+
+        await this.uiService.presentAlert(errorText);
+        return;
+      }
+
+
+      // validate money
+      let checkMoney1 = this.uiService.checkInputMoney(this.policy.SumInsured)
+      let checkMoney2 = this.uiService.checkInputMoney(this.policy.InsurancePremium)
+      let checkMoney3 = this.uiService.checkInputMoney(this.policy.DueMoney)
+      if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
+        const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
+        !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
+        !checkMoney3.status&&checkMoney3.case===1?{name:'ADD_POLICY.DUE_MONEY',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
+        !checkMoney1.status&&checkMoney1.case===2?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+        !checkMoney2.status&&checkMoney2.case===2?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+        !checkMoney3.status&&checkMoney3.case===2?{name:'ADD_POLICY.DUE_MONEY',case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:{name:'',case:"",baht:false}
+
+
+        const errorText: string = this.translateService.instant("POLICY_DETAIL.PLEASE_TEXT");
+        const errorTextName: string = this.translateService.instant(text.name);
+        const errorTextCase: string = this.translateService.instant(text.case);
+        const errorTextCaseBaht: string = text.baht?this.translateService.instant('CODE.BATH'):""
+
+
+        const sumText = errorText+errorTextName+errorTextCase+errorTextCaseBaht
+        await this.uiService.presentAlert(sumText);
+        return;
+      }
+      
+      
+  
+      //end validate input number
+  
+
+      
     if (this.policy.YearToPaid > this.policy.YearOfProtect) {
       const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
       await this.uiService.presentAlert(errorText);
@@ -199,5 +245,6 @@ export class AddPolicyGeneralUserPage implements OnInit {
       }
     }
   }
+
 
 }

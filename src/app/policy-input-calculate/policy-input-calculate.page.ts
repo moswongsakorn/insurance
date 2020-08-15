@@ -44,6 +44,28 @@ export class PolicyInputCalculatePage implements OnInit {
       this.uiService.presentAlert(errorText);
     }
     else {
+      
+      // validate money
+      const checkMoney1 =this.sumInsured!=null?this.uiService.checkInputMoney(this.sumInsured):{status:true,case:3}
+    const checkMoney2 =this.insurancePremium!=null?this.uiService.checkInputMoney(this.insurancePremium):{status:true,case:3}
+    if(!checkMoney1.status || !checkMoney2.status){
+      const text = !checkMoney1.status&&checkMoney1.case===1?{name:"ADD_POLICY.SUM_INSURED",case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
+      !checkMoney1.status&&checkMoney1.case===2?{name:"ADD_POLICY.SUM_INSURED",case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+      !checkMoney2.status&&checkMoney2.case===1?{name:"ADD_POLICY.INSURANCE_PREMIUM",case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:true}:
+      !checkMoney2.status&&checkMoney2.case===2?{name:"ADD_POLICY.INSURANCE_PREMIUM",case:"POLICY_DETAIL.WRONG_FORMAT",baht:false}:
+      {name:"ADD_POLICY.INSURANCE_PREMIUM",case:"POLICY_DETAIL.WRONG_FORMAT"}
+     
+      let errorText: string = this.translateService.instant('POLICY_DETAIL.PLEASE_TEXT');
+      let errorTextName: string = this.translateService.instant(text.name);
+      let errorTextCase: string = this.translateService.instant(text.case);
+      let baht: string = text.baht?this.translateService.instant('CODE.BATH'):""
+      let sumText = errorText+errorTextName+errorTextCase+baht
+
+      await this.uiService.presentAlert(sumText);
+      return;
+    }
+
+
       await this.uiService.presentLoading();
       var policy = new PolicyCrudModel();
       policy.MapData(this.policy);

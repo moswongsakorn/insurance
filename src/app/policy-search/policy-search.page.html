@@ -24,8 +24,7 @@
         </div>
         <div style="width: 20%;">
           <ion-input
-          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_IRR")'
-          class="input-fild" type="number" [(ngModel)]="SearchModel.irr"></ion-input>
+           class="input-fild" type="number" [(ngModel)]="SearchModel.irr"></ion-input>
         </div>
       </ion-col>
       <ion-col size="2" class="ion-align-self-center">
@@ -42,7 +41,6 @@
         </div>
         <div style="width: 20%;">
           <ion-input 
-          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_PROTECT_RATE")'
           class="input-fild" type="number" [(ngModel)]="SearchModel.protect"></ion-input>
         </div>
       </ion-col>
@@ -60,7 +58,6 @@
         </div>
         <div style="width: 20%;">
           <ion-input 
-          (input)='moneyInputValidate($event.target.value,"SEARCH_TEXT_WORTH_RATE")'
           class="input-fild" type="number" [(ngModel)]="SearchModel.worth"></ion-input>
         </div>
       </ion-col>

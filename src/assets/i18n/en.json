@@ -165,7 +165,17 @@
     "IRR_TEXT_5": "Average Rate of Coverage after Premium Payment Period",
     "IRR_TEXT_6": "Worth Rate (WR)",
     "ALERT_TEXT_1": "Do you want to delete this plan?",
-    "AGENT_USE_BUTTON": "FOR AGENT USE"
+    "AGENT_USE_BUTTON": "FOR AGENT USE",
+    "ALERT_ERROR_YEAR_PROTECT_INPUT": "Please enter the number of years starting from 1 year.",
+    "ALERT_ERROR_YEAR_TOPAID_INPUT": "Please enter the number of years starting from 1 year.",
+    "ALERT_ERROR_YEAR_TOPAID_AND_PROTECT_INPUT": "Please enter the number of years starting from 1 year.",
+    "ALERT_ERROR_YEAR_INPUT_CASE2": "Please enter the year as an integer.",
+    "PLEASE_TEXT": "Please enter the number",
+    "MORE_THAN_ZERO": "greater than 0 ",
+    "WRONG_FORMAT": "Incorrect format",
+    "ALERT_YEAR_INPUT": "Please enter a period of 1 year or more.",
+    "ALERT_MONEY_INPUT": "Please enter a number greater than 0.",
+    "ALERT_MONEY_INPUT_FORMAT": "Please fill in numbers only."
   },
   "ADD_POLICY": {
     "TITLE": "Add Insurance Plan",
