@@ -140,16 +140,19 @@ export class PolicySearchResultPage implements OnInit {
   }
 
   GetWorthPoint(wr: number, maxWr: number, minWr:number) {
+    if(maxWr == minWr) return 1;
     var newWr = (wr - minWr) / (maxWr - minWr);
     return newWr;
   }
 
   GetNewIrr(irr: number, maxIrr: number, minIrr: number): number {
+    if(maxIrr == minIrr) return 1;
     var newIrr = (irr - minIrr) / (maxIrr - minIrr);
     return newIrr;
   }
 
   GetNewRc(rc: number, maxRc: number, minRc: number): number {
+    if(maxRc == minRc) return 1;
     var newRc = (rc - minRc) / (maxRc - minRc);
     return newRc;
   }
