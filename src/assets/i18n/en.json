@@ -217,9 +217,9 @@
     "ERROR_TEXT_1": "Please check the information you have entered carefully.",
     "ERROR_TEXT_2": "The number of years cannot exceed.",
     "ERROR_TEXT_3": "Please complete all information.",
-    "ERROR_TEXT_4": "The time period must be equal to the coverage period of the ife insurance plan.",
+    "ERROR_TEXT_4": "The time period must be equal to the coverage period of the life insurance plan.",
     "ERROR_TEXT_5": "The time period must not exceed the premium payment period.",
-    "ERROR_TEXT_6": "The time period must be equal to the coverage period of the ife insurance plan"
+    "ERROR_TEXT_6": "The time period must be equal to the coverage period of the life insurance plan"
   },
   "POLICY_SEARCH": {
     "TITLE": "Sorting Criterion",

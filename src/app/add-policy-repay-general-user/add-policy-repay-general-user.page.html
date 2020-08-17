@@ -26,11 +26,12 @@
             translate):('POLICY_REPAY.YEAR' | translate) }}
           </div>
           <div style="width: 20%; margin: 0 10px;">
-            <ion-input
-              class="input-fild"
-              type="tel"
-              [(ngModel)]="lengthYearAmountList[i].Start"
-            ></ion-input>
+            <input 
+            class="year-input" 
+            type="tel"
+            mask="0*"
+            [(ngModel)]="lengthYearAmountList[i].Start"
+            > 
           </div>
           <div
             style="width: 25%;text-align: center;"
@@ -40,22 +41,26 @@
             {{ 'POLICY_REPAY.TO' | translate }}
           </div>
           <div style="width: 20%;" *ngIf="item.IsRange">
-            <ion-input
-              class="input-fild"
-              type="tel"
-              [(ngModel)]="lengthYearAmountList[i].End"
-            ></ion-input>
+            
+            <input 
+            class="year-input" 
+            type="tel"
+            mask="0*"
+            [(ngModel)]="lengthYearAmountList[i].End"
+            >
+           
           </div>
         </div>
 
         <div style="display: flex;" class="dashed-border-top">
           <div style="width: 25%;"></div>
           <div style="width: 25%;">
-            <ion-input
-              class="input-fild"
-              type="tel"
-              [(ngModel)]="lengthYearAmountList[i].Amount"
-            ></ion-input>
+            <input 
+            class="money-input" 
+            type="tel"
+            mask="0*"
+            [(ngModel)]="lengthYearAmountList[i].Amount"
+            >
           </div>
           <div
             style="width: 50%;"

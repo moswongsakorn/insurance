@@ -8,6 +8,7 @@ import { PolicyInputCalculatePageRoutingModule } from './policy-input-calculate-
 
 import { PolicyInputCalculatePage } from './policy-input-calculate.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    PolicyInputCalculatePageRoutingModule
+    PolicyInputCalculatePageRoutingModule,
+    NgxMaskModule.forChild(),
   ],
   declarations: [PolicyInputCalculatePage]
 })

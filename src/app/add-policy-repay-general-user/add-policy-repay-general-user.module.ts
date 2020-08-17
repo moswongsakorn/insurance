@@ -8,6 +8,7 @@ import { AddPolicyRepayGeneralUserPageRoutingModule } from './add-policy-repay-g
 
 import { AddPolicyRepayGeneralUserPage } from './add-policy-repay-general-user.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    AddPolicyRepayGeneralUserPageRoutingModule
+    AddPolicyRepayGeneralUserPageRoutingModule,
+    NgxMaskModule.forChild(),
   ],
   declarations: [AddPolicyRepayGeneralUserPage]
 })

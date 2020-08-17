@@ -82,3 +82,20 @@
 ion-select::part(text) {
   padding-left: 10px;
 }
+
+.money-input{
+  text-align: right;
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px;
+  outline: none;
+  padding: 10px;
+}
+
+.year-input{
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px;
+  outline: none;
+  padding: 10px;
+}

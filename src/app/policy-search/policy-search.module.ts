@@ -8,6 +8,7 @@ import { PolicySearchPageRoutingModule } from './policy-search-routing.module';
 
 import { PolicySearchPage } from './policy-search.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    PolicySearchPageRoutingModule
+    PolicySearchPageRoutingModule,
+    NgxMaskModule.forChild(),
   ],
   declarations: [PolicySearchPage]
 })

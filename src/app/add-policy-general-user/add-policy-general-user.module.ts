@@ -8,14 +8,15 @@ import { AddPolicyGeneralUserPageRoutingModule } from './add-policy-general-user
 
 import { AddPolicyGeneralUserPage } from './add-policy-general-user.page';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    AddPolicyGeneralUserPageRoutingModule
+    AddPolicyGeneralUserPageRoutingModule,
+    NgxMaskModule.forChild(),
   ],
   declarations: [AddPolicyGeneralUserPage]
 })

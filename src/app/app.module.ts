@@ -20,12 +20,12 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { AddPolicyRepayGeneralUserPageModule} from '../app/add-policy-repay-general-user/add-policy-repay-general-user.module'
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+// export const options: Partial<IConfig> | (() => Partial<IConfig>)={}
 // AoT requires an exported function for factories
 export function exportTranslateStaticLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, "./assets/i18n/", ".json");
 }
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -51,6 +51,7 @@ export function exportTranslateStaticLoader(httpClient: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    NgxMaskModule.forRoot(),
   ],
 
   providers: [

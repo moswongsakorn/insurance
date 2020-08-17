@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PolicyCrudModel } from '../interfaces/PolicyCrudModel';
 import { DataCenterService } from '../services/data-center.service';
 import { PolicyService } from '../services/policy.service';
@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AddPolicyRepayGeneralUserPage } from '../add-policy-repay-general-user/add-policy-repay-general-user.page';
 import { LengthYearAmount } from '../interfaces/LengthYearAmount';
 import { UserCrudModel } from '../interfaces';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-add-policy-general-user',
@@ -28,7 +29,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
     private translateService: TranslateService,
     private ModalController: ModalController
   ) { }
-
+  public customPatterns = {'1': { pattern: new RegExp('^(?!0\.00)\d{1,3}(,\d{3})*(\.\d\d)?$')}};
   ngOnInit() {
   }
 
@@ -55,7 +56,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
         const sumText = text|| text2
         const errorText: string = this.translateService.instant(errorTextLase);
 
-        await this.uiService.presentAlert(errorText);
+        await this.uiService.presentAlert(errorTextLase);
         return;
       }
       this.policy.YearOfProtect = +_YearOfProtect
@@ -278,6 +279,19 @@ export class AddPolicyGeneralUserPage implements OnInit {
         this.policy.YearToPaid = 1;
       }
     }
+  }
+
+  moneyReg(evt){
+    console.log('evt', evt)
+    console.log('evt', evt.replace(/[^0-9.]/g, ""))
+    this.policy.SumInsured = evt.replace(/[^0-9.]/g, "");
+    console.log('this.policy.SumInsured', this.policy.SumInsured)
+
+  }
+
+  moneyRegChange(event){
+    console.log('evt change', event)
+
   }
 
   moneyInputValidate(input,mode){

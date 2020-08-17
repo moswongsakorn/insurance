@@ -46,8 +46,13 @@
         </div>
       </ion-col>
       <ion-col size="9">
-        <ion-input 
-        class="input-fild" type="tel" [(ngModel)]="sumInsured"></ion-input>
+        <input 
+        class="money-input" 
+        type="tel"
+        mask="separator" thousandSeparator=","
+        [(ngModel)]="sumInsured"
+        >
+       
       </ion-col>
       <ion-col class="ion-align-self-center" size="3">
         <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
@@ -62,8 +67,12 @@
         </div>
       </ion-col>
       <ion-col size="9">
-        <ion-input 
-       class="input-fild" type="tel" [(ngModel)]="insurancePremium"></ion-input>
+        <input 
+        class="money-input" 
+        type="tel"
+        mask="separator" thousandSeparator=","
+        [(ngModel)]="insurancePremium"
+        >
       </ion-col>
       <ion-col class="ion-align-self-center" size="3">
         <div style="width: 100%;">{{ 'CODE.BATH' | translate }}</div>
