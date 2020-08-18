@@ -164,13 +164,14 @@ export class UiService {
   }
 
   checkInputMoneyPercent(input){
+    console.log("input ",input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
     if(!checkRex){
       return {status:checkRex?true:false,case:2}
     }
     let check = parseFloat(input)
-    if(+check<0 || +check>100){
+    if(check < 0){
       return {status:false,case:1}
     }
     return  {status:check?true:false,case:2}
