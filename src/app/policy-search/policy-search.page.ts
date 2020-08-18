@@ -83,6 +83,7 @@ export class PolicySearchPage implements OnInit {
     this.SearchModel.isTaxDeductTrue = (this.SearchModel.isTaxDeductTrue) ? this.SearchModel.isTaxDeductTrue : false;
 
     var sumPercent = this.SearchModel.irr + this.SearchModel.worth + this.SearchModel.protect;
+    sumPercent = Math.round(sumPercent * 100) / 100;
     if (sumPercent != 100) {
       const errorText: string = this.translateService.instant("POLICY_SEARCH.SUB_TITLE");
       await this.uiService.presentAlert(errorText);
