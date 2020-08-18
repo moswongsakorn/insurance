@@ -50,7 +50,7 @@
       </ion-col>
       <ion-col size="3">
         <input 
-        class="year-input"   mask="0*"  type="tel" [(ngModel)]="policy.YearOfProtect">
+        class="year-input" id="YEAR_OF_PROTECT"   mask="0*"  type="tel" [(ngModel)]="policy.YearOfProtect">
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -65,7 +65,7 @@
       </ion-col>
       <ion-col size="3">
         <input 
-        class="year-input"   mask="0*"  type="tel" [(ngModel)]="policy.YearToPaid">
+        class="year-input" id="YEAR_OF_PAID"  mask="0*"  type="tel" [(ngModel)]="policy.YearToPaid">
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -85,6 +85,7 @@
         <input 
         class="money-input" 
         type="tel"
+        id="SUM_INSURED"
         mask="comma_separator"
         [(ngModel)]="policy.SumInsured ">
       </ion-col>
@@ -103,6 +104,7 @@
         <input 
         class="money-input" 
         type="tel"
+        id="INSURANCE_PREMIUM"
         mask="comma_separator"
         [(ngModel)]="policy.InsurancePremium ">
       </ion-col>
@@ -154,7 +156,8 @@
           <input 
           class="money-input" 
           type="tel"
-          mask="0*.0*"
+          id="DUE_MONEY"
+          mask="comma_separator"
           [(ngModel)]="policy.DueMoney ">
         </span>
         <span class="ion-align-self-center" style="width: 45%;">

@@ -138,10 +138,8 @@ export class UiService {
   }
 
   checkInputYear(input){
-    console.log('input year', input)
     let numbers = /^[0-9]+$/
     let checkRex = input.match(numbers)
-    console.log('checkRex Year', checkRex)
     if(!checkRex){
       return {status:checkRex?true:false,case:2}
     }
@@ -153,15 +151,26 @@ export class UiService {
   }
 
   checkInputMoney(input){
-    console.log('input money', input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
-    console.log('checkRex', checkRex)
     if(!checkRex){
       return {status:checkRex?true:false,case:2}
     }
     let check = parseFloat(input)
     if(+check<=0){
+      return {status:false,case:1}
+    }
+    return  {status:check?true:false,case:2}
+  }
+
+  checkInputMoneyPercent(input){
+    let numbers = /^[.0-9]+$/
+    let checkRex = input.match(numbers)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
+    }
+    let check = parseFloat(input)
+    if(+check<0 || +check>100){
       return {status:false,case:1}
     }
     return  {status:check?true:false,case:2}

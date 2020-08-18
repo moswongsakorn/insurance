@@ -40,9 +40,9 @@ export class PolicySearchPage implements OnInit {
   const _SearchModelirr = ''+this.SearchModel.irr 
   const _SearchModelworth = ''+this.SearchModel.worth 
   const _SearchModelprotect = ''+this.SearchModel.protect 
-    const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoneyZero(_SearchModelirr):{status:true,case:3}
-    const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoneyZero(_SearchModelworth):{status:true,case:3}
-    const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoneyZero(_SearchModelprotect):{status:true,case:3}
+    const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoneyPercent(_SearchModelirr):{status:true,case:3}
+    const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoneyPercent(_SearchModelworth):{status:true,case:3}
+    const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoneyPercent(_SearchModelprotect):{status:true,case:3}
     if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
       const text = !checkMoney1.status&&checkMoney1.case===1?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.MORE_THAN_ZERO"}:
       !checkMoney1.status&&checkMoney1.case===2?{name:"POLICY_SEARCH.SEARCH_TEXT_IRR",case:"POLICY_DETAIL.WRONG_FORMAT"}:
@@ -63,6 +63,12 @@ export class PolicySearchPage implements OnInit {
     this.SearchModel.irr = +_SearchModelirr 
     this.SearchModel.worth = +_SearchModelworth 
     this.SearchModel.protect = +_SearchModelprotect 
+
+    console.log('irr+++++', this.SearchModel.irr)
+    console.log('worth+++++', this.SearchModel.worth)
+    console.log('protect+++++', this.SearchModel.protect)
+    console.log('sum=', this.SearchModel.irr+this.SearchModel.worth+this.SearchModel.protect)
+    console.log('***********************************************',)
     // end validate
 
 

@@ -70,7 +70,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
       let checkMoney1 = this.uiService.checkInputMoney(_SumInsured)
       let checkMoney2 = this.uiService.checkInputMoney(_InsurancePremium)
-      let checkMoney3 = this.uiService.checkInputMoneyZero(_DueMoney)
+      let checkMoney3 = this.uiService.checkInputMoneyPercent(_DueMoney)
       if(!checkMoney1.status || !checkMoney2.status || !checkMoney3.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?{name:'ADD_POLICY.SUM_INSURED',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:
         !checkMoney2.status&&checkMoney2.case===1?{name:'ADD_POLICY.INSURANCE_PREMIUM',case:"POLICY_DETAIL.MORE_THAN_ZERO",baht:false}:

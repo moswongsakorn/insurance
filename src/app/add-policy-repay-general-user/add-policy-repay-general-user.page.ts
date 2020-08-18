@@ -74,6 +74,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         element.Start == null &&
         element.End == null &&
         element.Amount == null
+        
       ) {
         this.delete(i);
         continue;
@@ -97,11 +98,12 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      element.Start = +_elementStart
-      element.End = +_elementEnd
+      element.Start = +_elementStart || null
+      element.End = +_elementEnd || null
       //validate money
       const _elementAmount = element.Amount!=null?''+element.Amount:null
-      const checkMoney1 =element.Amount!=null?this.uiService.checkInputMoney(_elementAmount):{status:true,case:3}
+      console.log('_elementAmount', _elementAmount)
+      const checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercent(_elementAmount):{status:true,case:3}
       if(!checkMoney1.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
         !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
@@ -112,7 +114,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
-      element.Amount = +_elementAmount
+      element.Amount = +_elementAmount || null
 
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;
@@ -227,7 +229,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       for (var i = element.Start; i <= element.End; i++) {
         var yearAmount = new YearAmount();
         yearAmount.Year = i;
-        yearAmount.Amount = element.Amount;
+        yearAmount.Amount = +element.Amount;
         _list.push(yearAmount);
       }
     });
