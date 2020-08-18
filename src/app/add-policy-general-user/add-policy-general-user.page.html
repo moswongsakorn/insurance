@@ -86,7 +86,8 @@
         class="money-input" 
         type="tel"
         id="SUM_INSURED"
-        mask="comma_separator"
+          thousandSeparator=","
+          mask="separator"
         [(ngModel)]="policy.SumInsured ">
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
@@ -105,7 +106,8 @@
         class="money-input" 
         type="tel"
         id="INSURANCE_PREMIUM"
-        mask="comma_separator"
+          thousandSeparator=","
+          mask="separator"
         [(ngModel)]="policy.InsurancePremium ">
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
@@ -157,7 +159,8 @@
           class="money-input" 
           type="tel"
           id="DUE_MONEY"
-          mask="comma_separator"
+          mask="separator"
+          thousandSeparator=","
           [(ngModel)]="policy.DueMoney ">
         </span>
         <span class="ion-align-self-center" style="width: 45%;">
