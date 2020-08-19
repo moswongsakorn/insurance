@@ -42,6 +42,8 @@ export class PolicySearchResultPage implements OnInit {
     this.SearchModel = this.DataCenterService.GetSearchModel();
     this.policyList = await this.PolicyService.GetPolicyListByPin(this.userProfile.Pin);
 
+    var tempPplicy = JSON.parse(JSON.stringify(this.policyList)) as PolicyCrudModel[];
+    
     var maxIrr = -10000;
     var minIrr = 10000;
 
@@ -96,6 +98,10 @@ export class PolicySearchResultPage implements OnInit {
     var policyListSortIndex = 0;
     this.policyListSort = new Array<PolicyCrudModel>();
     this.policyList.forEach(data => {
+      var temp = tempPplicy.find(d=>d.Key==data.Key);
+      data.Irr = temp.Irr;
+      data.ProtectRate = temp.ProtectRate;
+      
       var passHealth = false;
       var passTaxDeduct = false;
 
