@@ -173,6 +173,10 @@ export class UiService {
     let check = parseFloat(input)
     if(check < 0){
       return {status:false,case:1}
+    }else{
+      if(check===0){
+        return  {status:true,case:4}
+      }
     }
     return  {status:check?true:false,case:2}
   }
