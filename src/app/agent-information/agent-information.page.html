@@ -31,7 +31,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row class="ion-justify-content-between">
+      <!-- <ion-row class="ion-justify-content-between">
         <ion-col>
           <div>
             {{ 'PERSONAL_INFORMATION.PREFIX_NAME' | translate }}
@@ -42,7 +42,7 @@
             {{user.PrefixName=='REGISTER_GENERAL.Other'? user.SpecificPrefixName: (user.PrefixName | translate) }}
           </div>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
 
       <ion-row class="ion-justify-content-between">
         <ion-col>
@@ -52,7 +52,7 @@
         </ion-col>
         <ion-col class="ion-text-start">
           <div>
-            {{user.FirstName}} {{user.LastName}}
+            {{user.PrefixName=='REGISTER_GENERAL.Other'? user.SpecificPrefixName: (user.PrefixName | translate) }} {{user.FirstName}} {{user.LastName}}
           </div>
         </ion-col>
       </ion-row>
