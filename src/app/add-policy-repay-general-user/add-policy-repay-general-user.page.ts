@@ -56,7 +56,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
     } else if (this.name == "ComissionList") {
       this.Title = this.translateService.instant("ADD_POLICY.COMMISSION");
-      this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT");
+      this.SUB_TEAR_AT = this.translateService.instant("POLICY_REPAY.SUB_TEAR_AT");
     } else if (this.name == "ProtectList") {
       this.Title = this.translateService.instant("ADD_POLICY.DEATH_COVERAGE");
       this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
