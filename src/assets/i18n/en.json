@@ -195,6 +195,7 @@
     "LAST_YEAR_INSURANCE_MONEY": "Cash Return ",
     "DEATH_COVERAGE": "Death Benefit",
     "COMMISSION": "Commission",
+    "SUB_TEAR_AT_2": " % of Sum Insured",
     "ERROR_RESPONSE_TEXT": "Please fill out the form completely."
   },
   "POLICY_PROTECTION": {

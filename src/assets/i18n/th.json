@@ -191,10 +191,11 @@
     "TAX_DEDUCT": "ลดหย่อนภาษี",
     "HEALTH_CARE": "การประกันสุขภาพ",
     "DUE_MONEY": "เงินครบกำหนดสัญญา",
-    "SUB_DUE_MONEY": "% ของเบี้ยประกัน",
+    "SUB_DUE_MONEY": "% ของทุนประกัน",
     "LAST_YEAR_INSURANCE_MONEY": "เงินคืนระหว่างสัญญา",
     "DEATH_COVERAGE": "เงินสินไหมมรณกรรม",
     "COMMISSION": "ค่าบำเหน็จ",
+    "SUB_TEAR_AT_2": " % ของทุนประกัน",
     "ERROR_RESPONSE_TEXT": "กรุณากรอกข้อมูลให้ครบถ้วน"
   },
   "POLICY_PROTECTION": {
