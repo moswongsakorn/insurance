@@ -30,6 +30,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   thisLengthYearAmountList: LengthYearAmount[];
 
   public Title: string = "";
+  public SUB_TEAR_AT: string = "";
 
   ngOnInit() {}
 
@@ -52,10 +53,13 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       this.Title = this.translateService.instant(
         "ADD_POLICY.LAST_YEAR_INSURANCE_MONEY"
       );
+      this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
     } else if (this.name == "ComissionList") {
       this.Title = this.translateService.instant("ADD_POLICY.COMMISSION");
+      this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT");
     } else if (this.name == "ProtectList") {
       this.Title = this.translateService.instant("ADD_POLICY.DEATH_COVERAGE");
+      this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
     }
   }
 
