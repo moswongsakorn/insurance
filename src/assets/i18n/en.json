@@ -196,7 +196,8 @@
     "DEATH_COVERAGE": "Death Benefit",
     "COMMISSION": "Commission",
     "SUB_TEAR_AT_2": " % of Sum Insured",
-    "ERROR_RESPONSE_TEXT": "Please fill out the form completely."
+    "ERROR_RESPONSE_TEXT": "Please fill out the form completely.",
+    "COMMISSION_ERROR": "Please fill in the commission percentage"
   },
   "POLICY_PROTECTION": {
     "TITLE": "Death Benefit",

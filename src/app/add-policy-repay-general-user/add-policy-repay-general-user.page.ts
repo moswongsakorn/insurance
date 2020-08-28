@@ -68,7 +68,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   async submit() {
-    var IsSubmit = true;
+    var IsSubmit = true;    
+
     this.lengthYearAmountList.sort((a, b) => (a.Start > b.Start ? 1 : -1));
 
     var isProtectAllYear = false;
@@ -205,6 +206,13 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
+    } 
+    
+    if(this.name == "ComissionList" && this.lengthYearAmountList.length < 1){
+      let errorText: string = this.translateService.instant("ADD_POLICY.COMMISSION_ERROR");
+      await this.uiService.presentAlert(errorText);
+      IsSubmit = false;
+      return;
     }
 
     if (this.name == "ProtectList" && !isProtectAllYear) {

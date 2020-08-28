@@ -196,7 +196,8 @@
     "DEATH_COVERAGE": "เงินสินไหมมรณกรรม",
     "COMMISSION": "ค่าบำเหน็จ",
     "SUB_TEAR_AT_2": " % ของทุนประกัน",
-    "ERROR_RESPONSE_TEXT": "กรุณากรอกข้อมูลให้ครบถ้วน"
+    "ERROR_RESPONSE_TEXT": "กรุณากรอกข้อมูลให้ครบถ้วน",
+    "COMMISSION_ERROR": "กรุณากรอกค่าบำเหน็จ"
   },
   "POLICY_PROTECTION": {
     "TITLE": "เงินสินไหมมรณกรรม",
