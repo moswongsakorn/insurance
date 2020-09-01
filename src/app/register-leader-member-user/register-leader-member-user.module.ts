@@ -8,6 +8,7 @@ import { RegisterLeaderMemberUserPageRoutingModule } from './register-leader-mem
 
 import { RegisterLeaderMemberUserPage } from './register-leader-member-user.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,9 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    RegisterLeaderMemberUserPageRoutingModule
+    RegisterLeaderMemberUserPageRoutingModule,
+    NgxMaskModule.forChild(),
+
   ],
   declarations: [RegisterLeaderMemberUserPage]
 })

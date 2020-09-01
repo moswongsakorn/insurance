@@ -8,6 +8,7 @@ import { RegisterGeneralUserPageRoutingModule } from './register-general-user-ro
 
 import { RegisterGeneralUserPage } from './register-general-user.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    RegisterGeneralUserPageRoutingModule
+    RegisterGeneralUserPageRoutingModule,
+    NgxMaskModule.forChild(),
   ],
   declarations: [RegisterGeneralUserPage]
 })

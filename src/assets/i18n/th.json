@@ -256,8 +256,9 @@
     "TITLE": "เปลี่ยนรหัสผ่าน",
     "PASSWORD_ERROR_TEXT_1": "กรุณากรอกข้อมูลให้ครบถ้วน",
     "PASSWORD_ERROR_TEXT_2": "กรุณากรอกรหัสผ่านเป็นตัวเลข 6 ตัว",
-    "PASSWORD_ERROR_TEXT_3": "รหัสผ่านใหม่ไม่ตรงกัน",
-    "PASSWORD_SUCCESS_TEXT": "เปลี่ยนรหัสผ่านสำเร็จ"
+    "PASSWORD_ERROR_TEXT_3": "รหัสผ่านใหม่และยืนยันรหัสผ่านใหม่ไม่ตรงกัน",
+    "PASSWORD_SUCCESS_TEXT": "เปลี่ยนรหัสผ่านสำเร็จ",
+    "PASSWORD_OLD_PASSWORD_IS_WORNG":"รหัสผ่านปัจจุบันไม่ถูกต้อง"
   },
   "COMPANY_DATA": {
     "Bangkok_Life_Assurance": "กรุงเทพประกันชีวิต",

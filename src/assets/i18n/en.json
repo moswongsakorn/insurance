@@ -256,8 +256,9 @@
     "TITLE": "Change passcode",
     "PASSWORD_ERROR_TEXT_1": "Please fill out all information.",
     "PASSWORD_ERROR_TEXT_2": "Please enter a passcode of at least 6 characters.",
-    "PASSWORD_ERROR_TEXT_3": "The new passcode and confirmation passcode do not match",
-    "PASSWORD_SUCCESS_TEXT": "passcode changed successfully"
+    "PASSWORD_ERROR_TEXT_3": "The new passcode and confirm passcode do not match.",
+    "PASSWORD_SUCCESS_TEXT": "Passcode changed successfully.",
+    "PASSWORD_OLD_PASSWORD_IS_WORNG":"The passcode is invalid"
   },
   "COMPANY_DATA": {
     "Bangkok_Life_Assurance": "Bangkok Life Assurance",

@@ -8,6 +8,7 @@ import { EditPersonalInformationGeneralUserPageRoutingModule } from './edit-pers
 
 import { EditPersonalInformationGeneralUserPage } from './edit-personal-information-general-user.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule.forChild(),
-    EditPersonalInformationGeneralUserPageRoutingModule
+    NgxMaskModule.forChild(),
+    EditPersonalInformationGeneralUserPageRoutingModule,
   ],
   declarations: [EditPersonalInformationGeneralUserPage]
 })

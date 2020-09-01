@@ -116,10 +116,12 @@
       <ion-col class="ion-text-start">
         <div>
           <ion-item>
-            <ion-input 
-            [(ngModel)]="user.Telephone" 
-            type="tel"
-            maxlength="10"></ion-input>
+            <input
+          style="width: 100%;outline: none;border: none;"
+          type="tel"
+            mask="0000000000"
+            [(ngModel)]="user.Telephone"
+          >
           </ion-item>
         </div>
       </ion-col>

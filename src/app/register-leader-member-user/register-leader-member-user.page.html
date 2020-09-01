@@ -22,9 +22,13 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.ID_CARD' | translate }}</ion-label
           >
-          <ion-input inputmode="tel" 
-            maxlength="13"
-          [(ngModel)]="user.IdCard"></ion-input>
+          <input
+          class="box-input"
+          type="tel"
+            mask="0000000000000"
+            [(ngModel)]="user.IdCard"
+          >
+         
         </ion-item>
       </ion-col>
       <ion-col size="12">
@@ -91,10 +95,12 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.PHONE_NUMBER' | translate }}</ion-label
           >
-          <ion-input 
+          <input
+          class="box-input"
           type="tel"
-            maxlength="10"
-             [(ngModel)]="user.Telephone"></ion-input>
+            mask="0000000000"
+            [(ngModel)]="user.Telephone"
+          >
         </ion-item>
       </ion-col>
       <ion-col size="12">
