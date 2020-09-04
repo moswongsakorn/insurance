@@ -35,11 +35,17 @@ export class PolicySearchPage implements OnInit {
   }
 
   async searchPolicy() {
+    this.SearchModel.irr = (this.SearchModel.irr) ? this.SearchModel.irr : 0;
+    this.SearchModel.worth = (this.SearchModel.worth) ? this.SearchModel.worth : 0;
+    this.SearchModel.protect = (this.SearchModel.protect) ? this.SearchModel.protect : 0;
 
     // validate money
   const _SearchModelirr = ''+this.SearchModel.irr 
   const _SearchModelworth = ''+this.SearchModel.worth 
   const _SearchModelprotect = ''+this.SearchModel.protect 
+
+  console.log(this.SearchModel)
+
     const checkMoney1 =this.SearchModel.irr!=null?this.uiService.checkInputMoneyPercent(_SearchModelirr):{status:true,case:3}
     const checkMoney2 =this.SearchModel.worth!=null?this.uiService.checkInputMoneyPercent(_SearchModelworth):{status:true,case:3}
     const checkMoney3 =this.SearchModel.protect!=null?this.uiService.checkInputMoneyPercent(_SearchModelprotect):{status:true,case:3}
@@ -69,12 +75,7 @@ export class PolicySearchPage implements OnInit {
     console.log('protect+++++', this.SearchModel.protect)
     console.log('sum=', this.SearchModel.irr+this.SearchModel.worth+this.SearchModel.protect)
     console.log('***********************************************',)
-    // end validate
-
-
-    this.SearchModel.irr = (this.SearchModel.irr) ? this.SearchModel.irr : 0;
-    this.SearchModel.worth = (this.SearchModel.worth) ? this.SearchModel.worth : 0;
-    this.SearchModel.protect = (this.SearchModel.protect) ? this.SearchModel.protect : 0;
+    // end validate   
 
 
     this.SearchModel.isHealthFalse = (this.SearchModel.isHealthFalse) ? this.SearchModel.isHealthFalse : false;

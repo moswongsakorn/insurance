@@ -13,7 +13,14 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content #content>
+  <ion-grid >
+    <ion-row>
+      {{SubTitle}}
+    </ion-row>    
+  </ion-grid>  
+
   <ion-grid class="ion-margin-top" style="padding: 0 28px;">
     <ion-row
       *ngFor="let item of lengthYearAmountList ; let i = index;"

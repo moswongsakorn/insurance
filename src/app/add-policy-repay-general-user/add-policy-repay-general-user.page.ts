@@ -32,6 +32,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   public Title: string = "";
   public SUB_TEAR_AT: string = "";
 
+  public SubTitle: String = "";
+
   ngOnInit() {}
 
   ionViewDidEnter() {
@@ -50,15 +52,16 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
 
     if (this.name == "ReturnList") {
-      this.Title = this.translateService.instant(
-        "ADD_POLICY.LAST_YEAR_INSURANCE_MONEY"
-      );
+      this.Title = this.translateService.instant("ADD_POLICY.LAST_YEAR_INSURANCE_MONEY");
+      this.SubTitle = this.translateService.instant("ADD_POLICY.SUB_TITLE_RETURN");
       this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
     } else if (this.name == "ComissionList") {
       this.Title = this.translateService.instant("ADD_POLICY.COMMISSION");
+      this.SubTitle = this.translateService.instant("ADD_POLICY.SUB_TITLE_COMMISSION");
       this.SUB_TEAR_AT = this.translateService.instant("POLICY_REPAY.SUB_TEAR_AT");
     } else if (this.name == "ProtectList") {
       this.Title = this.translateService.instant("ADD_POLICY.DEATH_COVERAGE");
+      this.SubTitle = this.translateService.instant("ADD_POLICY.SUB_TITLE_PROTECT");
       this.SUB_TEAR_AT = this.translateService.instant("ADD_POLICY.SUB_TEAR_AT_2");
     }
   }
@@ -136,7 +139,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       if (this.name == "ReturnList" && element.End > this.yearOfProtect) {
         let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.ERROR_TEXT_4"
+          "POLICY_REPAY.END_MORE_YEAR_PROTECT"
         );
         // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         await this.uiService.presentAlert(errorText);
@@ -146,7 +149,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       if (this.name == "ComissionList" && element.End > this.yearToPaid) {
         let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.ERROR_TEXT_5"
+          "POLICY_REPAY.END_MORE_YEAR_PAID"
         );
         // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาชำระเบี้ยประกัน";
         await this.uiService.presentAlert(errorText);
@@ -154,11 +157,12 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         return;
       }
 
-      if (this.name == "ProtectList" && element.End == this.yearOfProtect)
+      if (this.name == "ProtectList" && element.End == this.yearOfProtect)      
         isProtectAllYear = true;
+
       if (this.name == "ProtectList" && element.End > this.yearOfProtect) {
         let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.ERROR_TEXT_4"
+          "POLICY_REPAY.END_MORE_YEAR_PROTECT"
         );
         // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
         await this.uiService.presentAlert(errorText);

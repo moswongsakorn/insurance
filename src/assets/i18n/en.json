@@ -158,7 +158,7 @@
     "LAST_YEAR_INSURANCE_MONEY_NAME": "Annual Cash Return",
     "DEATH_COVERAGE": "Death Benefit",
     "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
-    "ALERT_ERROR_YEAR": "Please check the information you have entered carefully.",
+    "ALERT_ERROR_YEAR": "Premium payment period must not exceed the coverage period",
     "IRR_TEXT_1": "Internal Return of Rate (IRR)",
     "IRR_TEXT_2": "Internal Return of Rate (IRR) of Agent",
     "IRR_TEXT_3": "Protect rate (RC)",
@@ -179,6 +179,9 @@
     "ALERT_MONEY_INPUT_FORMAT": "Please fill in numbers only."
   },
   "ADD_POLICY": {
+    "SUB_TITLE_RETURN": "Please enter the cash return at the end of the year",
+    "SUB_TITLE_COMMISSION": "Please enter the commission",
+    "SUB_TITLE_PROTECT": "Please enter the death Benefit",
     "TITLE": "Add Insurance Plan",
     "CALCULATE": "",
     "COMPANY_NAME": "Insurance Company Name",
@@ -209,6 +212,8 @@
     "RANGE_YEAR_ADD": "Continuous Year"
   },
   "POLICY_REPAY": {
+    "END_MORE_YEAR_PROTECT":"The time period must not exceed the coverage period",
+    "END_MORE_YEAR_PAID":"The time period must not exceed the premium period",
     "TITLE": "Cash Return",
     "YEAR_AT": "From Year ",
     "YEAR": "Year",
@@ -219,9 +224,9 @@
     "ERROR_TEXT_1": "Please check the information you have entered carefully.",
     "ERROR_TEXT_2": "The number of years cannot exceed.",
     "ERROR_TEXT_3": "Please complete all information.",
-    "ERROR_TEXT_4": "The time period must be equal to the coverage period of the life insurance plan.",
+    "ERROR_TEXT_4": "Please fill in correct the death benefit percentage",
     "ERROR_TEXT_5": "The time period must not exceed the premium payment period.",
-    "ERROR_TEXT_6": "The time period must be equal to the coverage period of the life insurance plan"
+    "ERROR_TEXT_6": "Please fill in the death benefit percentage"
   },
   "POLICY_SEARCH": {
     "TITLE": "Sorting Criterion",

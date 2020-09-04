@@ -44,6 +44,14 @@ export class AddPolicyGeneralUserPage implements OnInit {
     console.log('add policy', this.policy);
   }
 
+  SumNumber(start:number,end:number): number{
+      var sum = 0;
+      for (let index = start; index <= end; index++) {
+        sum = sum + index;     
+      }
+      return sum;
+  }
+
   public async Save() {
     const _YearOfProtect = '' + this.policy.YearOfProtect
     const _YearToPaid = '' + this.policy.YearToPaid
@@ -105,31 +113,35 @@ export class AddPolicyGeneralUserPage implements OnInit {
       return;
     }
 
-
-    var isProtectAllYear = false;
-    for (let i = 0; i < this.policy.ProtectList.length; i++) {
-      let data = this.policy.ProtectList[i];
-
-      if (data.End == this.policy.YearOfProtect) {
-        isProtectAllYear = true;
-      }
-
-      if (data.End > this.policy.YearOfProtect) {
-        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
-        await this.uiService.presentAlert(errorText);
-        return;
-      }
-    }
-
-    if (!isProtectAllYear) {
-      let errorText: string = this.translateService.instant(
-        "POLICY_REPAY.ERROR_TEXT_6"
-      );
-      // let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
-      //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+    
+    if (this.policy.ProtectList == null || this.policy.ProtectList.length == 0) {
+      let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_6");
       await this.uiService.presentAlert(errorText);
       return;
     }
+
+    
+    var sumOfYearOfProtect = this.SumNumber(1,this.policy.YearOfProtect);
+    var checkSum = 0;   
+    for (let i = 0; i < this.policy.ProtectList.length; i++) {
+      let data = this.policy.ProtectList[i];
+      let sum = this.SumNumber(data.Start, data.End);
+      checkSum = checkSum + sum;
+      // if (data.End == this.policy.YearOfProtect) {
+      //   isProtectAllYear = true;
+      // }
+      // if (data.End > this.policy.YearOfProtect) {
+      //   const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+      //   await this.uiService.presentAlert(errorText);
+      //   return;
+      // }
+    }
+    if (sumOfYearOfProtect != checkSum) {
+      const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+
 
     if (this.userProfile.Role == MagicNumber.master) {
       if (this.policy.ComissionList.length < 1) {

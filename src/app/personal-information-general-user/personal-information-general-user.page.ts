@@ -63,6 +63,13 @@ export class PersonalInformationGeneralUserPage implements OnInit {
       var result = await this.UserService.RemoveAccount(password);
       if (result.status) {
         var status = this.policyService.RemovePolicyByPin(this.user.Pin);
+
+        var agentList = await this.UserService.GetUserAgentListByPin(this.user.Pin);
+        agentList.forEach(user => {
+          user.Pin = "";
+          this.UserService.UpdateAgentUser(user);
+        });
+
         this.uiService.dismissLoading();
         this.NavController.navigateRoot(['home']);
       }

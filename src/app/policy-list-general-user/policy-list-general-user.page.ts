@@ -43,7 +43,6 @@ export class PolicyListGeneralUserPage implements OnInit {
 
     try {
       this.userProfile = this.DataCenterService.GetThisUserProfile();
-
       if (this.userProfile == null) this.NavController.navigateRoot(["home"]);
       else if (!this.userProfile.Verify) this.NavController.navigateRoot(["verify"]);
 
