@@ -202,11 +202,12 @@ export class UiService {
   }
 
   checkInputPhoneNumber(input){
-    console.log('input', input)
+    if(input.length<10){
+      return false
+    }
     let numbers = /^[0-9]+$/
     input = ''+input
     let check = input.match(numbers)
-    console.log('check', check)
     return  check?true:false
   }
 }

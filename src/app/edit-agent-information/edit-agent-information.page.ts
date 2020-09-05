@@ -37,6 +37,15 @@ export class EditAgentInformationPage implements OnInit {
 
   public async Save() {
     var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
+
+    const checkPhone = this.UiService.checkInputPhoneNumber(this.user.Telephone)
+    if(!checkPhone){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR_2');
+      // "เบอร์โทนศัพทย์"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+    
     
     if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');

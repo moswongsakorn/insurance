@@ -113,10 +113,13 @@
       <ion-col class="ion-text-start">
         <div>
           <ion-item>
-            <ion-input
+            <input
+            style="border: none;outline: none;"
+            class="box-input"
             type="tel"
-            maxlength="10" 
-            [(ngModel)]="user.Telephone"></ion-input>
+              mask="0000000000"
+              [(ngModel)]="user.Telephone"
+            >
           </ion-item>
         </div>
       </ion-col>

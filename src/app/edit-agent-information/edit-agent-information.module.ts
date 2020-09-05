@@ -8,12 +8,14 @@ import { EditAgentInformationPageRoutingModule } from './edit-agent-information-
 
 import { EditAgentInformationPage } from './edit-agent-information.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    NgxMaskModule.forChild(),
     TranslateModule.forChild(),
 
     EditAgentInformationPageRoutingModule

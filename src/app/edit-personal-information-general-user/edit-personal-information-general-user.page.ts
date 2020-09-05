@@ -36,6 +36,14 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+    const checkPhone = this.uiService.checkInputPhoneNumber(this.user.Telephone)
+    if(!checkPhone){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.PHONE_NUMBER_ERROR_2');
+      // "เบอร์โทนศัพทย์"
+      this.uiService.presentAlert(resultText);
+      return;
+    }
+
 
     if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_5');
