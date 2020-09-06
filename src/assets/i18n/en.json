@@ -159,6 +159,7 @@
     "DEATH_COVERAGE": "Death Benefit",
     "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
     "ALERT_ERROR_YEAR": "Premium payment period must not exceed the coverage period",
+    "DUPLICATE_YEAR": "Please check the information you have entered carefully",
     "IRR_TEXT_1": "Internal Return of Rate (IRR)",
     "IRR_TEXT_2": "Internal Return of Rate (IRR) of Agent",
     "IRR_TEXT_3": "Protect rate (RC)",

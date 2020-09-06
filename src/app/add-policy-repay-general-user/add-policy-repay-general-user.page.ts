@@ -71,9 +71,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   async submit() {
-    var IsSubmit = true;    
+    var IsSubmit = true;   
 
-    this.lengthYearAmountList.sort((a, b) => (a.Start > b.Start ? 1 : -1));
 
     var checkSumOfProtect = 0;
     for (let i = this.lengthYearAmountList.length - 1; i >= 0; i--) {
@@ -87,7 +86,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         this.delete(i);
         continue;
       }
-      console.log('element', element)
+      //console.log('element', element)
       // VAlidate Year
       const _elementStart = ''+element.Start
       const  _elementEnd = ''+element.End
@@ -110,7 +109,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       element.End = +_elementEnd || null
       //validate money
       const _elementAmount = element.Amount!=null?''+element.Amount:null
-      console.log('_elementAmount', _elementAmount)
+      //console.log('_elementAmount', _elementAmount)
       const checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercent(_elementAmount):{status:true,case:3}
       if(!checkMoney1.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
@@ -190,14 +189,14 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
 
     var yearAmount = this.GetYearAmount(this.lengthYearAmountList);
-    console.log(yearAmount);
+    //console.log(yearAmount);
 
     for (let i = 0; i < yearAmount.length; i++) {
       const before = yearAmount[i - 1] ? yearAmount[i - 1].Year : 0;
       const after = yearAmount[i].Year;
       if (before == after) {
         let errorText: string = this.translateService.instant(
-          "POLICY_DETAIL.ALERT_ERROR_YEAR"
+          "POLICY_DETAIL.DUPLICATE_YEAR"
         );
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
@@ -237,6 +236,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
 
     if (IsSubmit) {
+      this.lengthYearAmountList.sort((a, b) => (a.Start > b.Start ? 1 : -1));
       var date = {
         lengthYearAmountList: this.lengthYearAmountList,
         name: this.name,
@@ -281,7 +281,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     let result = Math.floor(input.replace('-',""))
     const patten = /[.]/g;
     const dot = patten.test(input)
-    console.log('result', result)
+    //console.log('result', result)
     if (isStart ) {
       if (result > 0 && !dot) { 
        this.lengthYearAmountList[index].Start = Math.floor(+result);   
