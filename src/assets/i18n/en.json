@@ -226,7 +226,8 @@
     "ERROR_TEXT_3": "Please complete all information.",
     "ERROR_TEXT_4": "Please fill in correct the death benefit percentage",
     "ERROR_TEXT_5": "The time period must not exceed the premium payment period.",
-    "ERROR_TEXT_6": "Please fill in the death benefit percentage"
+    "ERROR_TEXT_6": "Please fill in the death benefit percentage",
+    "PROTECT_CHECK_SUM": "The time period must be equal to the coverage period of the life insurance plan"
   },
   "POLICY_SEARCH": {
     "TITLE": "Sorting Criterion",
