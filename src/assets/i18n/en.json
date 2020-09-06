@@ -260,7 +260,7 @@
   "CHANGE_PASSWORD": {
     "TITLE": "Change passcode",
     "PASSWORD_ERROR_TEXT_1": "Please fill out all information.",
-    "PASSWORD_ERROR_TEXT_2": "Please enter a passcode of at least 6 characters.",
+    "PASSWORD_ERROR_TEXT_2": "Please enter 6 digits passcode.",
     "PASSWORD_ERROR_TEXT_3": "The new passcode and confirm passcode do not match.",
     "PASSWORD_SUCCESS_TEXT": "Passcode changed successfully.",
     "PASSWORD_OLD_PASSWORD_IS_WORNG":"The passcode is invalid"
