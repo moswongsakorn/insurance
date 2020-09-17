@@ -49,6 +49,13 @@ export class EditChangePasswordPage implements OnInit {
       return;
     }
 
+    if(!this.validatePassword(this.currentPassword)){
+      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
+      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
+
     if (this.newPassword != this.confirmNewPassword) {
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_3');
       // this.UiService.presentAlert("รหัสผ่านใหม่ไม่ตรงกัน");
