@@ -109,8 +109,13 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       element.End = +_elementEnd || null
       //validate money
       const _elementAmount = element.Amount!=null?''+element.Amount:null
-      //console.log('_elementAmount', _elementAmount)
-      const checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercent(_elementAmount):{status:true,case:3}
+      let checkMoney1
+      if(this.name == "ProtectList"){
+         checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercentZero(_elementAmount):{status:true,case:3}
+      }else{
+         checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercentNoneZero(_elementAmount):{status:true,case:3}
+      }
+
       if(!checkMoney1.status){
         const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
         !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
@@ -121,8 +126,8 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
-      element.Amount = +_elementAmount || null
-
+      element.Amount = +_elementAmount
+      console.log(' element.Amount',  element.Amount)
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;
 

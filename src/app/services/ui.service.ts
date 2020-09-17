@@ -181,6 +181,41 @@ export class UiService {
     return  {status:check?true:false,case:2}
   }
 
+  checkInputMoneyPercentNoneZero(input){
+    console.log("input ",input)
+    let numbers = /^[.0-9]+$/
+    let checkRex = input.match(numbers)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
+    }
+    let check = parseFloat(input)
+    if(check <= 0){
+      return {status:false,case:1}
+    }else{
+      return  {status:check?true:false,case:2}
+    }
+   
+  }
+
+  checkInputMoneyPercentZero(input){
+    console.log("input ",input)
+    let numbers = /^[.0-9]+$/
+    let checkRex = input.match(numbers)
+    if(!checkRex){
+      return {status:checkRex?true:false,case:2}
+    }
+    let check = parseFloat(input)
+    if(check < 0){
+      return {status:false,case:1}
+    }else{
+      if(check===0){
+        return  {status:true,case:4}
+      }
+      return  {status:check?true:false,case:2}
+    }
+    
+  }
+
   checkInputMoneyZero(input){
     console.log('input money zero', input)
     let numbers = /^[.0-9]+$/
