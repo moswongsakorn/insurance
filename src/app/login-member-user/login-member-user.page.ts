@@ -27,8 +27,13 @@ export class LoginMemberUserPage implements OnInit {
 
 
   public async Login() {
-    this.UiService.presentLoading() //Present Loading
 
+    if(!this.validatePassword(this.user.Password)){
+      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
+      this.UiService.presentAlert(resultText)
+      return;
+    }
+    this.UiService.presentLoading() //Present Loading
     var isCanLoginMaster = await this.userService.IsCanLogin(this.user.Email, MagicNumber.master);
     var isCanLoginUser = await this.userService.IsCanLogin(this.user.Email, MagicNumber.user);
 
@@ -73,6 +78,11 @@ export class LoginMemberUserPage implements OnInit {
     this.showPassword
       ? (this.passwordType = "text")
       : (this.passwordType = "password");
+  }
+
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 
 }

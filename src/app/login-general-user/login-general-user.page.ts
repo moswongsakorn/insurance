@@ -30,6 +30,15 @@ export class LoginGeneralUserPage implements OnInit {
   }
 
   public async Login() {
+    console.log('MagicNumber.quest', this.user.Password)
+
+    if(!this.validatePassword(this.user.Password)){
+      console.log("case 1")
+      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
+      this.UiService.presentAlert(resultText)
+      return;
+    }
+
     this.UiService.presentLoading() //Present Loading
     var isCanLogin = await this.userService.IsCanLogin(this.user.Email, MagicNumber.quest);
     if (!isCanLogin) {
@@ -38,6 +47,7 @@ export class LoginGeneralUserPage implements OnInit {
       this.UiService.presentAlert(resultText)
       return;
     }
+    
 
     var result = await this.userService.Login(this.user);
     if (result.status) {
@@ -68,6 +78,11 @@ export class LoginGeneralUserPage implements OnInit {
     this.showPassword
       ? (this.passwordType = "text")
       : (this.passwordType = "password");
+  }
+
+  validatePassword(inputText){
+    const re = /^[0-9]+$/;
+    return re.test(inputText)
   }
 
 }
