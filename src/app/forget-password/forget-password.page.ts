@@ -3,6 +3,7 @@ import { NavController } from "@ionic/angular";
 import { UserServiceService } from "../services/user-service.service";
 import { UiService } from "../services/ui.service";
 import { TranslateService } from "@ngx-translate/core";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-forget-password",
@@ -14,8 +15,16 @@ export class ForgetPasswordPage implements OnInit {
     private NavController: NavController,
     private UserService: UserServiceService,
     private UiService: UiService,
-    private translateService: TranslateService
-  ) {}
+    private translateService: TranslateService,
+    private route: ActivatedRoute,
+
+  ) {
+    this.route.queryParamMap.subscribe(params => {
+      this.role = params.get('role')
+    })
+  }
+
+  public role = "";
 
   public email: string;
 
@@ -31,6 +40,14 @@ export class ForgetPasswordPage implements OnInit {
         "FORGOT_PASSWORD.ERROR_EMPTY_TEXT"
       );
       this.UiService.presentAlert(resultText);
+      return;
+    }
+
+    var isCanLogin = await this.UserService.IsCanLogin(this.email, this.role);
+    if (!isCanLogin) {
+      this.UiService.dismissLoading() //Dismiss Loading
+      const resultText: string = this.translateService.instant('GENERAL_LOGIN.FORGOT_PASSWORD');
+      this.UiService.presentAlert(resultText)
       return;
     }
 

@@ -42,19 +42,26 @@ export class EditChangePasswordPage implements OnInit {
       return;
     }
 
-    if(!this.validatePassword(this.newPassword)){
+    if (this.currentPassword.length < 6) {
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
-      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
-      this.UiService.presentAlert(resultText);
+      // this.UiService.presentAlert("กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร");
+      await this.UiService.presentAlert(resultText);
       return;
     }
 
-    if(!this.validatePassword(this.currentPassword)){
-      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
-      // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
-      this.UiService.presentAlert(resultText);
-      return;
-    }
+    // if(!this.validatePassword(this.newPassword)){
+    //   const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
+    //   // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+    //   this.UiService.presentAlert(resultText);
+    //   return;
+    // }
+
+    // if(!this.validatePassword(this.currentPassword)){
+    //   const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
+    //   // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
+    //   this.UiService.presentAlert(resultText);
+    //   return;
+    // }
 
     if (this.newPassword != this.confirmNewPassword) {
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_3');

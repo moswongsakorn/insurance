@@ -120,8 +120,6 @@
           <ion-input
             [type]="passwordType"
             [(ngModel)]="user.Password"
-            maxlength="6"
-            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon class="ion-align-items-center" size="small" *ngIf="!showPassword" name="eye"></ion-icon>
@@ -142,8 +140,6 @@
           <ion-input
             [type]="confirmPasswordType"
             [(ngModel)]="user.ConfirmPassword"
-            maxlength="6"
-            inputmode="tel"
           ></ion-input>
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon

@@ -17,7 +17,8 @@ export class LoginMemberUserPage implements OnInit {
     public navController: NavController,
     public UiService: UiService,
     private userService: UserServiceService,
-    private translateService: TranslateService
+    private NavController: NavController,
+    private translateService: TranslateService,
   ) { }
 
   public user: UserModel = new UserModel();
@@ -81,8 +82,12 @@ export class LoginMemberUserPage implements OnInit {
   }
 
   validatePassword(inputText){
-    const re = /^[0-9]+$/;
-    return re.test(inputText)
+    // const re = /^[0-9]+$/;
+    // return re.test(inputText)
+    return (inputText != null && inputText.length >= 6);
+  }
+  ForgotPassword(){
+    this.NavController.navigateForward('forget-password', { queryParams: { role: MagicNumber.master } })
   }
 
 }

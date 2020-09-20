@@ -16,14 +16,14 @@
     "MISS": "Miss",
     "MONTH_NAME": "January,February,March,April,May,June,July,August,September,October,November,December",
     "DELETE_USER_TITLE": "Delete your account?",
-    "DELETE_USER_TEXT": " Please enter your passcode to confirm deletion.",
+    "DELETE_USER_TEXT": " Please enter your password to confirm deletion.",
     "ADD_SUCCESS": "Add data completed",
     "EDIT_SUCCESS": "Edit completed"
   },
   "HOME": {
     "TITLE": "",
     "SUB_TITLE1": " Mobile Application for",
-    "SUB_TITLE2": "Selection of Life Insurance Plans ",
+    "SUB_TITLE2": "Life Insurance Plan Selection ",
     "SUB_TITLE3": "",
     "BUTTON_1": "For Public Use",
     "BUTTON_2": "FOR AGENT USE ",
@@ -32,8 +32,8 @@
   "LOGIN_GENERAL": {
     "TITLE": "Login",
     "EMAIL": "Enter Email Address",
-    "PASSWORD": "Enter passcode",
-    "FORGET_PASSWORD": "Re-enter passcode",
+    "PASSWORD": "Enter password",
+    "FORGET_PASSWORD": "Re-enter password",
     "LOGIN_BUTTON": "Login",
     "NO_ACCOUNT": "No account?",
     "REGISTER": "Register"
@@ -53,23 +53,23 @@
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
-    "PASSWORD": "passcode",
-    "PASSWORD_INFO": "Please enter only 6 digits to create your passcode",
-    "RE_PASSWORD": "Please confirm the passcode",
+    "PASSWORD": "Password",
+    "PASSWORD_INFO": "Please enter at least 6 characters password",
+    "RE_PASSWORD": "Please confirm the password",
     "GENERATE_PIN": "Set up a PIN",
     "FILL_PIN": "Enter PIN",
     "ERROR_TEXT_1": "Please fill out the form completely.",
     "ERROR_TEXT_2": "Invalid ID card number",
-    "ERROR_TEXT_3": "Passcodes do not match.",
+    "ERROR_TEXT_3": "Passwords do not match.",
     "ERROR_TEXT_4": "The PIN does not exist",
-    "ERROR_TEXT_5": "Incorrect passcode",
+    "ERROR_TEXT_5": "Incorrect password",
     "ID_CARD_TEXT": "ID Card",
     "ALERT_TEXT_1": "Has been used",
     "ALERT_TEXT_2": "Please enter a name prefix.",
-    "ALERT_TEXT_3": "Please enter 6 digits passcode.",
+    "ALERT_TEXT_3": "Please enter 6 digits password.",
     "ALERT_TEXT_4": "Invalid email format.",
     "ALERT_TEXT_5": "Invalid first name & last name format",
-    "ALERT_TEXT_6": "Please enter a passcode only numbers.",
+    "ALERT_TEXT_6": "Please enter a password only numbers.",
     "PHONE_NUMBER_ERROR": "Please enter 10 digits phone number.",
     "PHONE_NUMBER_ERROR_2": "Please enter 10 digits phone number."
   },
@@ -82,7 +82,7 @@
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
-    "PASSWORD": "passcode",
+    "PASSWORD": "Password",
     "CONFIRM_TEXT": "Confirm the information?",
     "result_text_1": "Already registered",
     "result_text_2": "Unsuccessful  This email has been registered. Please log in.",
@@ -91,19 +91,20 @@
   "GENERAL_LOGIN": {
     "TITLE": "Login",
     "EMAIL": "Email",
-    "PASSWORD": "passcode",
-    "FORGET_PASSWORD": "Forgot passcode",
+    "PASSWORD": "Password",
+    "FORGET_PASSWORD": "Forgot password",
     "LOGIN": "Login",
     "NO_ACCOUNT": "No account?",
     "REGISTER": "Register",
     "SUCCESS_LOGIN": "Login Successful",
-    "FAIL_LOGIN": " Please register or check your email and passcode."
+    "FAIL_LOGIN": " Please register or check your email and password.",
+    "FORGOT_PASSWORD": "Please register or check your email."
   },
   "FORGOT_PASSWORD": {
-    "TITLE": "Forgot passcode",
-    "RESET_PASSWORD": "The system will send you a link to your Email address where you can reset your passcode",
+    "TITLE": "Forgot password",
+    "RESET_PASSWORD": "The system will send you a link to your Email address where you can reset your password",
     "EMAIL": "Email",
-    "SUCCESS_TEXT": "Please check and reset the passcode via email.",
+    "SUCCESS_TEXT": "Please check and reset the password via email.",
     "FAIL_TEXT": " Please register or check your email.",
     "ERROR_EMPTY_TEXT": "Please enter email in the space."
   },
@@ -124,8 +125,8 @@
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
     "PIN": "PIN",
-    "PASSWORD": "passcode",
-    "CHANGE_PASSWORD": "Change passcode"
+    "PASSWORD": "password",
+    "CHANGE_PASSWORD": "Change password"
   },
   "EDIT_PERSONAL_INFORMATION": {
     "TITLE": "Edit Personal Profile",
@@ -136,11 +137,11 @@
     "BIRTH_DATE": "Date of Birth",
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
-    "PASSWORD": "New passcode",
+    "PASSWORD": "New password",
     "PIN": "PIN",
-    "RE_PASSWORD": "Confirm new passcode",
-    "ERROR_RESPONSE_TEXT": "Passcodes do not match.",
-    "CURRENT_PASSWORD": "Current passcode"
+    "RE_PASSWORD": "Confirm new password",
+    "ERROR_RESPONSE_TEXT": "Passwords do not match.",
+    "CURRENT_PASSWORD": "Current password"
   },
   "POLICY_DETAIL": {
     "TITLE": "Life Insurance Plan",
@@ -260,12 +261,12 @@
     "EMPLOYEE": "Agent"
   },
   "CHANGE_PASSWORD": {
-    "TITLE": "Change passcode",
+    "TITLE": "Change password",
     "PASSWORD_ERROR_TEXT_1": "Please fill out all information.",
-    "PASSWORD_ERROR_TEXT_2": "Please enter 6 digits passcode.",
-    "PASSWORD_ERROR_TEXT_3": "The new passcode and confirm passcode do not match.",
-    "PASSWORD_SUCCESS_TEXT": "Passcode changed successfully.",
-    "PASSWORD_OLD_PASSWORD_IS_WORNG":"The passcode is invalid"
+    "PASSWORD_ERROR_TEXT_2": "Please enter at least 6 characters password",
+    "PASSWORD_ERROR_TEXT_3": "The new password and confirm password do not match.",
+    "PASSWORD_SUCCESS_TEXT": "Password changed successfully.",
+    "PASSWORD_OLD_PASSWORD_IS_WORNG":"The password is invalid"
   },
   "COMPANY_DATA": {
     "Bangkok_Life_Assurance": "Bangkok Life Assurance",

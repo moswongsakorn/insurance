@@ -88,14 +88,14 @@ export class RegisterLeaderMemberUserPage implements OnInit {
        return;
     }
 
-    if (this.user.Password.length < 6) {
-      // กรุณากรอกรหัสผ่านอย่างน้อย  6 ตัวอักษร
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');
-      this.UiService.presentAlert(resultText);
-      return;
-    }
+    // if (this.user.Password.length < 6) {
+    //   // กรุณากรอกรหัสผ่านอย่างน้อย  6 ตัวอักษร
+    //   const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');
+    //   this.UiService.presentAlert(resultText);
+    //   return;
+    // }
     if(!this.validatePassword(this.user.Password)){
-      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ALERT_TEXT_3');
+      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
       // "รหัสผ่านต้องเป็นตัวเลขเท่านั้น"
       this.UiService.presentAlert(resultText);
       return;
@@ -148,7 +148,8 @@ export class RegisterLeaderMemberUserPage implements OnInit {
     return re.test(inputText);
   }
   validatePassword(inputText){
-    const re = /^[0-9]+$/;
-    return re.test(inputText)
+    // const re = /^[0-9]+$/;
+    // return re.test(inputText)
+    return (inputText!=null && inputText.length >=6)
   }
 }

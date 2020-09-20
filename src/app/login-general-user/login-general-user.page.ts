@@ -21,7 +21,9 @@ export class LoginGeneralUserPage implements OnInit {
     private dataCenter: DataCenterService,
     public navController: NavController,
     public UiService: UiService,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    private NavController: NavController,
+
   ) { }
 
   async ngOnInit() {
@@ -81,8 +83,13 @@ export class LoginGeneralUserPage implements OnInit {
   }
 
   validatePassword(inputText){
-    const re = /^[0-9]+$/;
-    return re.test(inputText)
+    // const re = /^[0-9]+$/;
+    // return re.test(inputText)
+    return (inputText != null && inputText.length >= 6);
+  }
+
+  ForgotPassword(){
+    this.NavController.navigateForward('forget-password', { queryParams: { role: MagicNumber.quest } })
   }
 
 }
