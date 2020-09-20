@@ -4,6 +4,7 @@ import { UserServiceService } from "../services/user-service.service";
 import { UiService } from "../services/ui.service";
 import { TranslateService } from "@ngx-translate/core";
 import { ActivatedRoute } from '@angular/router';
+import { MagicNumber } from '../interfaces/MagicNumber';
 
 @Component({
   selector: "app-forget-password",
@@ -43,12 +44,26 @@ export class ForgetPasswordPage implements OnInit {
       return;
     }
 
-    var isCanLogin = await this.UserService.IsCanLogin(this.email, this.role);
-    if (!isCanLogin) {
-      this.UiService.dismissLoading() //Dismiss Loading
-      const resultText: string = this.translateService.instant('GENERAL_LOGIN.FORGOT_PASSWORD');
-      this.UiService.presentAlert(resultText)
-      return;
+    if(this.role == MagicNumber.quest)
+    {
+      var isCanLogin = await this.UserService.IsCanLogin(this.email, this.role);
+      if (!isCanLogin) {
+        this.UiService.dismissLoading() //Dismiss Loading
+        const resultText: string = this.translateService.instant('GENERAL_LOGIN.FORGOT_PASSWORD');
+        this.UiService.presentAlert(resultText)
+        return;
+      }
+    }
+    else
+    {
+      var isCanLoginMaster = await this.UserService.IsCanLogin(this.email, this.role);
+      var isCanLoginUser = await this.UserService.IsCanLogin(this.email, this.role);
+      if (!isCanLoginMaster && !isCanLoginUser) {
+        this.UiService.dismissLoading() //Dismiss Loading
+        const resultText: string = this.translateService.instant('GENERAL_LOGIN.FORGOT_PASSWORD');
+        this.UiService.presentAlert(resultText)
+        return;
+      }
     }
 
     var result = await this.UserService.SendMailResetPassword(this.email);
