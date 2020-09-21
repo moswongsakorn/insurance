@@ -15,3 +15,13 @@
 .input-toggle{
     text-align: start;
 }
+
+.num-pad{
+    position:fixed;
+    width: 100%;
+    bottom: 0%;
+    height: 200px;
+    background: #fff;
+    z-index: 1000000;
+    font-size: 24px;
+}

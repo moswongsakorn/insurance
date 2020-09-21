@@ -65,7 +65,7 @@
       </ion-col>
       <ion-col size="3">
         <input 
-        class="year-input" id="YEAR_OF_PAID"  mask="0*"  type="tel" [(ngModel)]="policy.YearToPaid">
+        class="year-input" id="YEAR_OF_PAID"  mask="0*"  type="tel" [(ngModel)]="policy.YearToPaid" >
       </ion-col>
       <ion-col class="ion-align-self-center" size="2">
         <div>{{ 'CODE.YEAR' | translate }}</div>
@@ -81,7 +81,7 @@
       <!-- currencyMask 
         [options]="{ prefix: '', thousands: ',', decimal: '.' }"
       -->
-      <ion-col size="5">
+      <ion-col size="5" (click)="openNumPad()">
         <input 
         class="money-input" 
         type="tel"

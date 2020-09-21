@@ -273,7 +273,8 @@ const routes: Routes = [
       ),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin }
-  },  {
+  },
+  {
     path: 'verify',
     loadChildren: () => import('./verify/verify.module').then( m => m.VerifyPageModule)
   },

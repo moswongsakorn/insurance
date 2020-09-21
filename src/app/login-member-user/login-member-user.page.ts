@@ -28,7 +28,13 @@ export class LoginMemberUserPage implements OnInit {
 
 
   public async Login() {
-
+    if(!this.user.Email && !this.user.Password){
+      console.log("case 1")
+      const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_1');
+      this.UiService.presentAlert(resultText)
+      return;
+    }
+    
     if(!this.validatePassword(this.user.Password)){
       const resultText: string = this.translateService.instant('CHANGE_PASSWORD.PASSWORD_ERROR_TEXT_2');
       this.UiService.presentAlert(resultText)

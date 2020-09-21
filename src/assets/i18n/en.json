@@ -125,8 +125,8 @@
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
     "PIN": "PIN",
-    "PASSWORD": "password",
-    "CHANGE_PASSWORD": "Change password"
+    "PASSWORD": "Password",
+    "CHANGE_PASSWORD": "Change Password"
   },
   "EDIT_PERSONAL_INFORMATION": {
     "TITLE": "Edit Personal Profile",
