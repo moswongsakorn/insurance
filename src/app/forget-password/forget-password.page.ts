@@ -38,7 +38,7 @@ export class ForgetPasswordPage implements OnInit {
   async sendEmail() {
     if (!this.email) {
       const resultText: string = this.translateService.instant(
-        "FORGOT_PASSWORD.ERROR_EMPTY_TEXT"
+        "FORGOT_PASSWORD.ERROR_EMPTY_TEXT_EMAIL"
       );
       this.UiService.presentAlert(resultText);
       return;

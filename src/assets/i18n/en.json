@@ -102,11 +102,12 @@
   },
   "FORGOT_PASSWORD": {
     "TITLE": "Forgot password",
-    "RESET_PASSWORD": "The system will send you a link to your Email address where you can reset your password",
+    "RESET_PASSWORD": "The system will send you a link to your email address where you can reset your password",
     "EMAIL": "Email",
     "SUCCESS_TEXT": "Please check and reset the password via email.",
     "FAIL_TEXT": " Please register or check your email.",
-    "ERROR_EMPTY_TEXT": "Please enter email in the space."
+    "ERROR_EMPTY_TEXT": "Please enter email in the space.",
+    "ERROR_EMPTY_TEXT_EMAIL": "Please fill in the email"
   },
   "POLICY_LIST_PAGE": {
     "TITLE": "Life of Insurance Plans",
@@ -300,5 +301,8 @@
   },
   "AGENT_INFORMATION": {
     "ALERT_TEXT": "Do you want to delete this account?"
+  },
+  "CALCULATE_POLICY":{
+    "ERROR_CALCULATE_INPUT": "Please fill up all the information"
   }
 }

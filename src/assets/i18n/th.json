@@ -106,7 +106,8 @@
     "EMAIL": "อีเมล",
     "SUCCESS_TEXT": "กรุณาตรวจสอบ และ รีเซตรหัสผ่านใหม่ทางอีเมล ",
     "FAIL_TEXT": "กรุณาลงทะเบียนหรือตรวจสอบอีเมลให้ถูกต้อง",
-    "ERROR_EMPTY_TEXT": "กรุณากรอกอีเมลในช่องว่าง"
+    "ERROR_EMPTY_TEXT": "กรุณากรอกอีเมลในช่องว่าง",
+    "ERROR_EMPTY_TEXT_EMAIL": "กรุณากรอกอีเมล"
   },
   "POLICY_LIST_PAGE": {
     "TITLE": "รายการของแผนประกัน",
@@ -300,5 +301,8 @@
   },
   "AGENT_INFORMATION": {
     "ALERT_TEXT": "ยืนยันการลบบัญชี?"
+  },
+  "CALCULATE_POLICY":{
+    "ERROR_CALCULATE_INPUT": "กรุณากรอกข้อมูลให้ครบ"
   }
 }

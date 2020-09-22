@@ -269,17 +269,19 @@ export class UserServiceService {
       var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('Pin').equalTo(pin).once('value');
       return value.exists();
     } catch (error) {
+      console.log('error', error)
       return true;
     }
   }
 
   public GenerateCharacter(): string {
-    var character = "";
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < MagicNumber.pinLength; i++) {
-      var index = Math.floor((Math.random() * (characters.length)));
+    let character = "";
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < MagicNumber.pinLength; i++) {
+      let index = Math.floor((Math.random() * (characters.length)));
       character += characters[index];
     }
+    console.log('character', character)
     return character.toUpperCase();
   }
 
@@ -333,9 +335,11 @@ export class UserServiceService {
   public async IsCanLogin(email: string, role: string): Promise<boolean> {
     try {
       var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('Email').equalTo(email).once('value');
+      console.log('value', value.exists())
       if (!value.exists()) return false;
       var data = this.ValueChange(value.val());
       var userModel = data.map(data => data as UserCrudModel);
+      console.log('userModel', userModel)
       for (let i = 0; i < userModel.length; i++) {
         if (userModel[i].Role == role) return true;
       }

@@ -39,7 +39,7 @@ export class PolicyInputCalculatePage implements OnInit {
   async Save() {
 
     if (this.sumInsured == null || this.insurancePremium == null) {
-        let errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
+        let errorText: string = this.translateService.instant("CALCULATE_POLICY.ERROR_CALCULATE_INPUT");
         // var alertText = "กรุณากรอกข้อมูลให้ครบ";
       this.uiService.presentAlert(errorText);
     }
