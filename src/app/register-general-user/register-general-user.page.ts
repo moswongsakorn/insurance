@@ -35,6 +35,16 @@ export class RegisterGeneralUserPage implements OnInit {
     let date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
     const conDate = date.toLocaleString('th-TH')
     console.log('conDate', conDate)
+
+    this.user.IdCard = '3794706523484'
+    this.user.Email = 'aesd@asdd1.com'
+    this.user.Password = 'aesdaesd'
+    this.user.ConfirmPassword = 'aesdaesd'
+    this.user.FirstName = 'aesdaesd'
+    this.user.LastName = 'aesdaesd'
+    this.user.Telephone = '0947048434'
+    this.user.PrefixName =  "CODE.MR"
+    this.user.BirthDay =  "2020-09-22T23:21:42.703+07:00"
   }
 
   public async PinGenerate() {
@@ -44,8 +54,14 @@ export class RegisterGeneralUserPage implements OnInit {
   public async Register() {
     //add pin default 
     //this.user.Pin = "DEFAULT"
+    console.log('this.user', this.user)
     await this.PinGenerate();
     this.user.InitRole(MagicNumber.quest);
+    if(!this.validatePefixName()){
+      const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
+      this.UiService.presentAlert(resultText);
+      return;
+    }
     if (!this.user.IsValidModel()) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
       this.UiService.presentAlert(resultText);
@@ -141,7 +157,7 @@ export class RegisterGeneralUserPage implements OnInit {
   }
 
   validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
     return re.test(String(email).toLowerCase());
   }
 
@@ -154,5 +170,13 @@ export class RegisterGeneralUserPage implements OnInit {
     // const re = /^[0-9]+$/;
     // return re.test(inputText)
     return (inputText != null && inputText.length >= 6)
+  }
+
+  validatePefixName(){
+    if (this.user.PrefixName == 'REGISTER_GENERAL.Other' && (this.user.SpecificPrefixName == undefined || this.user.SpecificPrefixName == '' || this.user.SpecificPrefixName == null)){
+      return false
+    }else{
+      return true
+    }
   }
 }

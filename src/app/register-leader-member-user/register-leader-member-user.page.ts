@@ -39,7 +39,7 @@ export class RegisterLeaderMemberUserPage implements OnInit {
   public async Register() {
     this.user.InitRole(MagicNumber.master);
 
-    if (this.user.IsValidModel() == false) {
+    if (this.user.IsValidModel() == false || this.validatePefixName()===false) {
       const resultText: string = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_1');
       this.UiService.presentAlert(resultText);
       return;
@@ -137,8 +137,16 @@ export class RegisterLeaderMemberUserPage implements OnInit {
       : (this.confirmPasswordType = "password");
   }
 
+  validatePefixName(){
+    if (this.user.PrefixName == 'REGISTER_GENERAL.Other' && (this.user.SpecificPrefixName == undefined || this.user.SpecificPrefixName == '' || this.user.SpecificPrefixName == null)){
+      return false
+    }else{
+      return true
+    }
+  }
+
   validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
     return re.test(String(email).toLowerCase());
   }
   
