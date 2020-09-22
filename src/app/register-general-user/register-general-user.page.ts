@@ -35,16 +35,19 @@ export class RegisterGeneralUserPage implements OnInit {
     let date = new Date(Date.UTC(2020, 11, 20, 3, 0, 0));
     const conDate = date.toLocaleString('th-TH')
     console.log('conDate', conDate)
-
-    this.user.IdCard = '3794706523484'
-    this.user.Email = 'aesd@asdd1.com'
-    this.user.Password = 'aesdaesd'
-    this.user.ConfirmPassword = 'aesdaesd'
-    this.user.FirstName = 'aesdaesd'
-    this.user.LastName = 'aesdaesd'
-    this.user.Telephone = '0947048434'
-    this.user.PrefixName =  "CODE.MR"
-    this.user.BirthDay =  "2020-09-22T23:21:42.703+07:00"
+    const testMode = false
+    if(testMode){
+      this.user.IdCard = '3794706523484'
+      this.user.Email = 'aesd@asdd1.com'
+      this.user.Password = 'aesdaesd'
+      this.user.ConfirmPassword = 'aesdaesd'
+      this.user.FirstName = 'aesdaesd'
+      this.user.LastName = 'aesdaesd'
+      this.user.Telephone = '0947048434'
+      this.user.PrefixName =  "CODE.MR"
+      this.user.BirthDay =  "2020-09-22T23:21:42.703+07:00"
+    }
+   
   }
 
   public async PinGenerate() {
