@@ -11,7 +11,7 @@ export class UiService {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private translateService: TranslateService
-  ) {}
+  ) { }
 
   async presentLoading() {
     this.isLoading = true;
@@ -111,7 +111,7 @@ export class UiService {
     let alert = await this.alertController.create({
       header: headerText,
       message: message,
-      inputs: [       
+      inputs: [
         {
           name: 'password',
           placeholder: passwordText,
@@ -137,112 +137,112 @@ export class UiService {
     return await alert.present();
   }
 
-  checkInputYear(input){
+  checkInputYear(input) {
     let numbers = /^[0-9]+$/
     let checkRex = input.match(numbers)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(check<1){
-      return {status:false,case:1}
+    if (check < 1) {
+      return { status: false, case: 1 }
     }
-    return  {status:check?true:false,case:2}
+    return { status: check ? true : false, case: 2 }
   }
 
-  checkInputMoney(input){
+  checkInputMoney(input) {
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(+check<=0){
-      return {status:false,case:1}
+    if (+check <= 0) {
+      return { status: false, case: 1 }
     }
-    return  {status:check?true:false,case:2}
+    return { status: check ? true : false, case: 2 }
   }
 
-  checkInputMoneyPercent(input){
-    console.log("input ",input)
+  checkInputMoneyPercent(input) {
+    console.log("input ", input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(check < 0){
-      return {status:false,case:1}
-    }else{
-      if(check===0){
-        return  {status:true,case:4}
+    if (check < 0) {
+      return { status: false, case: 1 }
+    } else {
+      if (check === 0) {
+        return { status: true, case: 4 }
       }
     }
-    return  {status:check?true:false,case:2}
+    return { status: check ? true : false, case: 2 }
   }
 
-  checkInputMoneyPercentNoneZero(input){
-    console.log("input ",input)
+  checkInputMoneyPercentNoneZero(input) {
+    console.log("input ", input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(check <= 0){
-      return {status:false,case:1}
-    }else{
-      return  {status:check?true:false,case:2}
+    if (check <= 0) {
+      return { status: false, case: 1 }
+    } else {
+      return { status: check ? true : false, case: 2 }
     }
-   
+
   }
 
-  checkInputMoneyPercentZero(input){
-    console.log("input ",input)
+  checkInputMoneyPercentZero(input) {
+    console.log("input ", input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(check < 0){
-      return {status:false,case:1}
-    }else{
-      if(check===0){
-        return  {status:true,case:4}
+    if (check < 0) {
+      return { status: false, case: 1 }
+    } else {
+      if (check === 0) {
+        return { status: true, case: 4 }
       }
-      return  {status:check?true:false,case:2}
+      return { status: check ? true : false, case: 2 }
     }
-    
+
   }
 
-  checkInputMoneyZero(input){
+  checkInputMoneyZero(input) {
     console.log('input money zero', input)
     let numbers = /^[.0-9]+$/
     let checkRex = input.match(numbers)
     console.log('checkRex', checkRex)
-    if(!checkRex){
-      return {status:checkRex?true:false,case:2}
+    if (!checkRex) {
+      return { status: checkRex ? true : false, case: 2 }
     }
     let check = parseFloat(input)
-    if(check<0){
-      return {status:false,case:1}
-    }else{
-      if(check===0){
-        return  {status:true,case:4}
+    if (check < 0) {
+      return { status: false, case: 1 }
+    } else {
+      if (check === 0) {
+        return { status: true, case: 4 }
       }
-      return  {status:check?true:false,case:2}
+      return { status: check ? true : false, case: 2 }
     }
-    
+
   }
 
-  checkInputPhoneNumber(input){
-    if(input.length<10){
+  checkInputPhoneNumber(input) {
+    if (input.length < 10) {
       return false
     }
     let numbers = /^[0-9]+$/
-    input = ''+input
+    input = '' + input
     let check = input.match(numbers)
-    return  check?true:false
+    return check ? true : false
   }
 }

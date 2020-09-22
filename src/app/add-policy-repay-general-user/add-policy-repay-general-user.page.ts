@@ -20,7 +20,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     private NavController: NavController,
     private uiService: UiService,
     private modalController: ModalController
-  ) {}
+  ) { }
 
   @ViewChild("content", { static: true }) private content: any;
   @Input("name") name: string;
@@ -34,7 +34,7 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
   public SubTitle: String = "";
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ionViewDidEnter() {
     this.lengthYearAmountList = JSON.parse(
@@ -71,32 +71,25 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   async submit() {
-    var IsSubmit = true;   
-
-
+    var IsSubmit = true;
     var checkSumOfProtect = 0;
+
     for (let i = this.lengthYearAmountList.length - 1; i >= 0; i--) {
       var element = this.lengthYearAmountList[i];
-      if (
-        element.Start == null &&
-        element.End == null &&
-        element.Amount == null
-        
-      ) {
+      if (element.Start == null && element.End == null && element.Amount == null) {
         this.delete(i);
         continue;
       }
-      //console.log('element', element)
-      // VAlidate Year
-      const _elementStart = ''+element.Start
-      const  _elementEnd = ''+element.End
-      const checkYear1 =element.Start!=null?this.uiService.checkInputYear(_elementStart):{status:true,case:3}
-      const checkYear2 =element.End!=null?this.uiService.checkInputYear(_elementEnd):{status:true,case:3}
-      if(!checkYear1.status || !checkYear2.status){
-        const text = !checkYear1.status&&checkYear1.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
-        !checkYear1.status&&checkYear1.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":
-        !checkYear2.status&&checkYear2.case===1?"POLICY_DETAIL.ALERT_YEAR_INPUT":
-        !checkYear2.status&&checkYear2.case===2?"POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2":""
+      const _elementStart = '' + element.Start
+      const _elementEnd = '' + element.End
+
+      const checkYear1 = element.Start != null ? this.uiService.checkInputYear(_elementStart) : { status: true, case: 3 }
+      const checkYear2 = element.End != null ? this.uiService.checkInputYear(_elementEnd) : { status: true, case: 3 }
+      if (!checkYear1.status || !checkYear2.status) {
+        const text = !checkYear1.status && checkYear1.case === 1 ? "POLICY_DETAIL.ALERT_YEAR_INPUT" :
+          !checkYear1.status && checkYear1.case === 2 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2" :
+            !checkYear2.status && checkYear2.case === 1 ? "POLICY_DETAIL.ALERT_YEAR_INPUT" :
+              !checkYear2.status && checkYear2.case === 2 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2" : ""
         let errorText: string = this.translateService.instant(text);
 
         const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
@@ -107,18 +100,19 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
 
       element.Start = +_elementStart || null
       element.End = +_elementEnd || null
-      //validate money
-      const _elementAmount = element.Amount!=null?''+element.Amount:null
+
+      const _elementAmount = element.Amount != null ? '' + element.Amount : null     
+     
       let checkMoney1
-      if(this.name == "ProtectList"){
-         checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercentZero(_elementAmount):{status:true,case:3}
-      }else{
-         checkMoney1 = element.Amount!=null?this.uiService.checkInputMoneyPercentNoneZero(_elementAmount):{status:true,case:3}
+      if (this.name == "ProtectList") {
+        checkMoney1 = element.Amount != null ? this.uiService.checkInputMoneyPercentZero(_elementAmount) : { status: true, case: 3 }
+      } else {
+        checkMoney1 = element.Amount != null ? this.uiService.checkInputMoneyPercentNoneZero(_elementAmount) : { status: true, case: 3 }
       }
 
-      if(!checkMoney1.status){
-        const text = !checkMoney1.status&&checkMoney1.case===1?"POLICY_DETAIL.ALERT_MONEY_INPUT":
-        !checkMoney1.status&&checkMoney1.case===2?"POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT":""
+      if (!checkMoney1.status) {
+        const text = !checkMoney1.status && checkMoney1.case === 1 ? "POLICY_DETAIL.ALERT_MONEY_INPUT" :
+          !checkMoney1.status && checkMoney1.case === 2 ? "POLICY_DETAIL.ALERT_MONEY_INPUT_FORMAT" : ""
         let errorText: string = this.translateService.instant(text);
 
         const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
@@ -126,67 +120,49 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
         IsSubmit = false;
         return;
       }
-      element.Amount = +_elementAmount
-      console.log(' element.Amount',  element.Amount)
+      //element.Amount = +_elementAmount
+      if(_elementAmount == null || _elementAmount == '')
+      {
+        const errorTextLase = this.translateService.instant("POLICY_DETAIL.AMOUNT_NULL")
+        await this.uiService.presentAlert(errorTextLase);
+        IsSubmit = false;
+        return;
+      }
+
+      console.log(' element.Amount', element.Amount)
       if (element.IsRange == false) element.End = element.Start;
       if (element.End == element.Start) element.IsRange = false;
 
       if (element.End < element.Start) {
-        let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.ERROR_TEXT_1"
-        );
-        // errorText = "กรุณากรอกข้อมูลให้ถูกต้อง";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_1");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
       if (this.name == "ReturnList" && element.End > this.yearOfProtect) {
-        let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.END_MORE_YEAR_PROTECT"
-        );
-        // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาคุ้มครอง";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.END_MORE_YEAR_PROTECT");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
       if (this.name == "ComissionList" && element.End > this.yearToPaid) {
-        let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.END_MORE_YEAR_PAID"
-        );
-        // let errorText = "จำนวนปีต้องไม่เกินระยะเวลาชำระเบี้ยประกัน";
+        let errorText: string = this.translateService.instant("POLICY_REPAY.END_MORE_YEAR_PAID");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
 
       checkSumOfProtect = checkSumOfProtect + this.SumNumber(element.Start, element.End)
-      // if (this.name == "ProtectList" && element.End == this.yearOfProtect)      
-      //   isProtectAllYear = true;
 
-      
-
-      if (
-        element.Start == null &&
-        element.End == null &&
-        element.Amount == null
-      ) {
+      if (element.Start == null && element.End == null && element.Amount == null) {
         this.delete(i);
         continue;
       }
 
-      if (
-        element.Start == null ||
-        element.Start == 0 ||
-        element.End == null ||
-        element.End == 0 ||
-        element.Amount == null
-      ) {
-        let errorText: string = this.translateService.instant(
-          "POLICY_REPAY.ERROR_TEXT_3"
-        );
-        // errorText = "กรุณากรอกข้อมูลให้ครบถ้วน";
+      if (element.Start == null || element.Start == 0 || element.End == null || element.End == 0 || element.Amount == null) {
+        let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_3");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
@@ -194,30 +170,36 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
 
     var yearAmount = this.GetYearAmount(this.lengthYearAmountList);
-    //console.log(yearAmount);
 
     for (let i = 0; i < yearAmount.length; i++) {
       const before = yearAmount[i - 1] ? yearAmount[i - 1].Year : 0;
       const after = yearAmount[i].Year;
       if (before == after) {
-        let errorText: string = this.translateService.instant(
-          "POLICY_DETAIL.DUPLICATE_YEAR"
-        );
+        let errorText: string = this.translateService.instant("POLICY_DETAIL.DUPLICATE_YEAR");
         await this.uiService.presentAlert(errorText);
         IsSubmit = false;
         return;
       }
-    } 
-    
-    if(this.name == "ComissionList" && this.lengthYearAmountList.length < 1){
+    }
+
+    if (this.name == "ComissionList" && this.lengthYearAmountList.length < 1) {
       let errorText: string = this.translateService.instant("ADD_POLICY.COMMISSION_ERROR");
+      if (this.lengthYearAmountList.length == 0) {
+        var lengthYearAmount1 = new LengthYearAmount();
+        lengthYearAmount1.IsRange = false;
+        this.lengthYearAmountList.push(lengthYearAmount1);
+
+        var lengthYearAmount2 = new LengthYearAmount();
+        lengthYearAmount2.IsRange = true;
+        this.lengthYearAmountList.push(lengthYearAmount2);
+      }
       await this.uiService.presentAlert(errorText);
       IsSubmit = false;
       return;
     }
 
     var totalProtectSum = this.SumNumber(1, this.yearOfProtect);
-    
+
 
     if (this.name == "ProtectList" && this.lengthYearAmountList.length == 0) {
       let errorText: string = this.translateService.instant(
@@ -225,6 +207,16 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
       );
       // let errorText = "กรุณากรอกจำนวนปีคุ้มครองให้ครบ";
       //  errorText = "จำนวนปีของค่าคอมต้องไม่เกิน " + this.yearToPaid + " ปี";
+      if (this.lengthYearAmountList.length == 0) {
+        var lengthYearAmount1 = new LengthYearAmount();
+        lengthYearAmount1.IsRange = false;
+        this.lengthYearAmountList.push(lengthYearAmount1);
+
+        var lengthYearAmount2 = new LengthYearAmount();
+        lengthYearAmount2.IsRange = true;
+        this.lengthYearAmountList.push(lengthYearAmount2);
+      }
+
       await this.uiService.presentAlert(errorText);
       IsSubmit = false;
       return;
@@ -283,13 +275,13 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
   }
 
   yearInputValidate(input, index, isStart) {
-    let result = Math.floor(input.replace('-',""))
+    let result = Math.floor(input.replace('-', ""))
     const patten = /[.]/g;
     const dot = patten.test(input)
     //console.log('result', result)
-    if (isStart ) {
-      if (result > 0 && !dot) { 
-       this.lengthYearAmountList[index].Start = Math.floor(+result);   
+    if (isStart) {
+      if (result > 0 && !dot) {
+        this.lengthYearAmountList[index].Start = Math.floor(+result);
       } else {
         this.lengthYearAmountList[index].Start = 1;
       }
@@ -302,21 +294,21 @@ export class AddPolicyRepayGeneralUserPage implements OnInit {
     }
   }
 
-  moneyInputValidate(input,index){
+  moneyInputValidate(input, index) {
     let result = +input
-      if (result >= 0) {
-        this.lengthYearAmountList[index].Amount = +result;
-      } else {
-        this.lengthYearAmountList[index].Amount = 1;
-      }
+    if (result >= 0) {
+      this.lengthYearAmountList[index].Amount = +result;
+    } else {
+      this.lengthYearAmountList[index].Amount = 1;
+    }
   }
 
-  SumNumber(start:number,end:number): number{
+  SumNumber(start: number, end: number): number {
     var sum = 0;
     for (let index = start; index <= end; index++) {
-      sum = sum + index;     
+      sum = sum + index;
     }
     return sum;
-}
+  }
 
 }

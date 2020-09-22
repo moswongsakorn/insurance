@@ -56,8 +56,8 @@ export class ForgetPasswordPage implements OnInit {
     }
     else
     {
-      var isCanLoginMaster = await this.UserService.IsCanLogin(this.email, this.role);
-      var isCanLoginUser = await this.UserService.IsCanLogin(this.email, this.role);
+      var isCanLoginMaster = await this.UserService.IsCanLogin(this.email, MagicNumber.master);
+      var isCanLoginUser = await this.UserService.IsCanLogin(this.email, MagicNumber.user);
       if (!isCanLoginMaster && !isCanLoginUser) {
         this.UiService.dismissLoading() //Dismiss Loading
         const resultText: string = this.translateService.instant('GENERAL_LOGIN.FORGOT_PASSWORD');

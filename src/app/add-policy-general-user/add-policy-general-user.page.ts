@@ -244,6 +244,11 @@ export class AddPolicyGeneralUserPage implements OnInit {
       await this.uiService.presentAlert(errorText);
       return;
     }
+    else if (this.policy.YearToPaid > this.policy.YearOfProtect) {
+      const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
     else {
       if (lengthYearAmount == null) lengthYearAmount = new Array<LengthYearAmount>();
       var oldData = lengthYearAmount;
