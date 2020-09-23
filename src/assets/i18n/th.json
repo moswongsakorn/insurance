@@ -180,7 +180,9 @@
     "WRONG_FORMAT": "รูปแบบไม่ถูกต้อง",
     "ALERT_YEAR_INPUT": "กรุณากรอกระยะเวลาตั้งแต่ 1 ปีขึ้นไป",
     "ALERT_MONEY_INPUT": "กรุณากรอกจำนวนที่มากว่า 0",
-    "ALERT_MONEY_INPUT_FORMAT": "กรุณากรอกเป็นตัวเลขเท่านั้น"
+    "ALERT_MONEY_INPUT_FORMAT": "กรุณากรอกเป็นตัวเลขเท่านั้น",
+    "ALERT_SUM_INSURANCE_MORE_THAN_ANNUAL_PREMIUM":"เบี้ยประกันรายปีต้องไม่เกินทุนประกัน",
+    "ALERT_ERROR_EMPTY_INPUT":"กรุณากรอกข้อมูลให้ครบ"
   },
   "ADD_POLICY": {
     "SUB_TITLE_RETURN": "กรุณากรอกเงินคืนระหว่างสัญญา ณ สิ้นปีกรมธรรม์",

@@ -112,6 +112,14 @@ export class AddPolicyGeneralUserPage implements OnInit {
       return;
     }
 
+    if (this.policy.SumInsured < this.policy.InsurancePremium) {
+      const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_SUM_INSURANCE_MORE_THAN_ANNUAL_PREMIUM");
+      // “เบี้ยประกันรายปีต้องไม่เกินทุนประกัน
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+
+
     
     if (this.policy.ProtectList == null || this.policy.ProtectList.length == 0) {
       let errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_6");
@@ -195,7 +203,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       const text = checkYear1.case === 1 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT" :
         checkYear2.case === 1 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT" : ""
       const text2 = checkYear1.case === 2 || checkYear2.case === 2 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2" : ""
-      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_EMPTY_INPUT")
       const sumText = text || text2
       const errorText: string = this.translateService.instant(errorTextLase);
 
@@ -228,7 +236,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       const errorTextCase: string = this.translateService.instant(text.case);
       const errorTextCaseBaht: string = text.baht ? this.translateService.instant('CODE.BATH') : ""
 
-      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_EMPTY_INPUT")
       const sumText = errorText + errorTextName + errorTextCase + errorTextCaseBaht
       this.uiService.presentAlert(errorTextLase);
       return;

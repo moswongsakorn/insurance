@@ -180,7 +180,9 @@
     "WRONG_FORMAT": "Incorrect format",
     "ALERT_YEAR_INPUT": "Please enter a period of 1 year or more.",
     "ALERT_MONEY_INPUT": "Please enter a number greater than 0.",
-    "ALERT_MONEY_INPUT_FORMAT": "Please fill in numbers only."
+    "ALERT_MONEY_INPUT_FORMAT": "Please fill in numbers only.",
+    "ALERT_SUM_INSURANCE_MORE_THAN_ANNUAL_PREMIUM":"Annual premium must not exceed the sum insured",
+    "ALERT_ERROR_EMPTY_INPUT":"Please fill up all the information"
   },
   "ADD_POLICY": {
     "SUB_TITLE_RETURN": "Please enter the cash return at the end of the year",

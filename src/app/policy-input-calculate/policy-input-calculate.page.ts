@@ -70,6 +70,14 @@ export class PolicyInputCalculatePage implements OnInit {
     this.sumInsured = +_sumInsured
     this.insurancePremium = +_insurancePremium
 
+    if (this.sumInsured < this.insurancePremium) {
+      const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_SUM_INSURANCE_MORE_THAN_ANNUAL_PREMIUM");
+      // “เบี้ยประกันรายปีต้องไม่เกินทุนประกัน
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+
+
       await this.uiService.presentLoading();
       var policy = new PolicyCrudModel();
       policy.MapData(this.policy);
