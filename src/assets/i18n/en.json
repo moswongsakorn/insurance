@@ -161,6 +161,7 @@
     "DEATH_COVERAGE": "Death Benefit",
     "REMARK_TEXT": "Rate of Coverage and Worth rate are IRR dependent",
     "ALERT_ERROR_YEAR": "Premium payment period must not exceed the coverage period",
+    "ALERT_ERROR_INSURED": "Annual premium must not exceed the sum insured",
     "DUPLICATE_YEAR": "Please check the information you have entered carefully",
     "IRR_TEXT_1": "Internal Return of Rate (IRR)",
     "IRR_TEXT_2": "Internal Return of Rate (IRR) of Agent",
@@ -218,6 +219,7 @@
     "RANGE_YEAR_ADD": "Continuous Year"
   },
   "POLICY_REPAY": {
+    "ERROR_COMMISSION":"The time period of the commission must not exceed the premium payment period",
     "END_MORE_YEAR_PROTECT":"The time period must not exceed the coverage period",
     "END_MORE_YEAR_PAID":"The time period must not exceed the premium period",
     "TITLE": "Cash Return",
@@ -231,6 +233,7 @@
     "ERROR_TEXT_2": "The number of years cannot exceed.",
     "ERROR_TEXT_3": "Please complete all information.",
     "ERROR_TEXT_4": "Please fill in correct the death benefit percentage",
+    "ERROR_PROTECT": "The time period of the death benefit must be equal to the coverage period",
     "ERROR_TEXT_5": "The time period must not exceed the premium payment period.",
     "ERROR_TEXT_6": "Please fill in the death benefit percentage",
     "PROTECT_CHECK_SUM": "The time period must be equal to the coverage period of the life insurance plan"

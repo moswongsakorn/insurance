@@ -144,7 +144,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       // }
     }
     if (sumOfYearOfProtect != checkSum) {
-      const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_4");
+      const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_PROTECT");
       await this.uiService.presentAlert(errorText);
       return;
     }
@@ -161,7 +161,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
     for (let i = 0; i < this.policy.ComissionList.length; i++) {
       let data = this.policy.ComissionList[i];
       if (data.End > this.policy.YearToPaid) {
-        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_TEXT_5");
+        const errorText: string = this.translateService.instant("POLICY_REPAY.ERROR_COMMISSION");
         await this.uiService.presentAlert(errorText);
         return;
       }
@@ -249,6 +249,11 @@ export class AddPolicyGeneralUserPage implements OnInit {
     var isValid = this.policy.ValidateData();
     if (!isValid.status) {
       const errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+    else if(this.policy.InsurancePremium > this.policy.SumInsured ){
+      const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_INSURED");
       await this.uiService.presentAlert(errorText);
       return;
     }
