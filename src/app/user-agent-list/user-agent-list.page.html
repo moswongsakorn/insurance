@@ -21,7 +21,7 @@
   <ion-list>
     <ion-item *ngFor="let user of userAgentList;index as i; " detail="true" button="true" (click)="userAgentInformation(user?.Uid)">
       <ion-label>
-        {{i+1}}. {{user?.FirstName}} {{user?.LastName}}
+        {{i+1}}.{{user.PrefixName=='REGISTER_GENERAL.Other'? user.SpecificPrefixName : (user.PrefixName| translate)}} {{user?.FirstName}} {{user?.LastName}}
       </ion-label>
     </ion-item>
   </ion-list>

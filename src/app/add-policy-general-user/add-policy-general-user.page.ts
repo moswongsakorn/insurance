@@ -52,6 +52,22 @@ export class AddPolicyGeneralUserPage implements OnInit {
   }
 
   public async Save() {
+    // check empty
+    var isValid = this.policy.ValidateData();
+    if(!isValid.status){
+      const errorTextLase = this.translateService.instant("CALCULATE_POLICY.ERROR_CALCULATE_INPUT")
+      //กรอกข้อมูลให้ครบ
+      this.uiService.presentAlert(errorTextLase);
+      return;
+    }
+    //validate custom
+    if(this.checkOtherCompany()){
+      const errorTextLase = this.translateService.instant("CALCULATE_POLICY.ERROR_CALCULATE_INPUT")
+      //บริษัทประกันอื่นๆๆ
+      this.uiService.presentAlert(errorTextLase);
+      return;
+    }
+
     const _YearOfProtect = '' + this.policy.YearOfProtect
     const _YearToPaid = '' + this.policy.YearToPaid
     // validate number input
@@ -64,7 +80,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
       const sumText = text || text2
       const errorText: string = this.translateService.instant(errorTextLase);
-
+      console.log('this year', )
       await this.uiService.presentAlert(errorTextLase);
       return;
     }
@@ -194,6 +210,20 @@ export class AddPolicyGeneralUserPage implements OnInit {
 
 
   public async ModalOfPolicy(name: string, lengthYearAmount: LengthYearAmount[]) {
+    var isValid = this.policy.ValidateData();
+    if (!isValid.status) {
+      const errorText: string = this.translateService.instant("CALCULATE_POLICY.ERROR_CALCULATE_INPUT");
+      await this.uiService.presentAlert(errorText);
+      return;
+    }
+    //validate custom
+    if(this.checkOtherCompany()){
+      const errorTextLase = this.translateService.instant("CALCULATE_POLICY.ERROR_CALCULATE_INPUT")
+        //บริษัทประกันอื่นๆๆ
+      this.uiService.presentAlert(errorTextLase);
+      return;
+    }
+
     const _YearOfProtect = '' + this.policy.YearOfProtect
     const _YearToPaid = '' + this.policy.YearToPaid
     // validate number input
@@ -203,7 +233,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       const text = checkYear1.case === 1 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_PROTECT_INPUT" :
         checkYear2.case === 1 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_TOPAID_INPUT" : ""
       const text2 = checkYear1.case === 2 || checkYear2.case === 2 ? "POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2" : ""
-      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_EMPTY_INPUT")
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
       const sumText = text || text2
       const errorText: string = this.translateService.instant(errorTextLase);
 
@@ -236,7 +266,7 @@ export class AddPolicyGeneralUserPage implements OnInit {
       const errorTextCase: string = this.translateService.instant(text.case);
       const errorTextCaseBaht: string = text.baht ? this.translateService.instant('CODE.BATH') : ""
 
-      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_EMPTY_INPUT")
+      const errorTextLase = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR_INPUT_CASE2")
       const sumText = errorText + errorTextName + errorTextCase + errorTextCaseBaht
       this.uiService.presentAlert(errorTextLase);
       return;
@@ -246,13 +276,8 @@ export class AddPolicyGeneralUserPage implements OnInit {
     this.policy.DueMoney = +_DueMoney
     //end validate input number
 
-    var isValid = this.policy.ValidateData();
-    if (!isValid.status) {
-      const errorText: string = this.translateService.instant("ADD_POLICY.ERROR_RESPONSE_TEXT");
-      await this.uiService.presentAlert(errorText);
-      return;
-    }
-    else if (this.policy.YearToPaid > this.policy.YearOfProtect) {
+ 
+    if (this.policy.YearToPaid > this.policy.YearOfProtect) {
       const errorText: string = this.translateService.instant("POLICY_DETAIL.ALERT_ERROR_YEAR");
       await this.uiService.presentAlert(errorText);
       return;
@@ -351,6 +376,15 @@ export class AddPolicyGeneralUserPage implements OnInit {
         this.policy.InsurancePremium = 0
       }
     }
+  }
+
+   checkOtherCompany(){
+    if(this.policy.CompanyName=='specific' && (this.policy.SpecificCampany==='' || 
+    this.policy.SpecificCampany===undefined || 
+    this.policy.SpecificCampany===null)){
+     return true
+    }
+    return false
   }
 
 

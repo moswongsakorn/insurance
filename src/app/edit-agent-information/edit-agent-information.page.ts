@@ -45,6 +45,13 @@ export class EditAgentInformationPage implements OnInit {
       this.UiService.presentAlert(resultText);
       return;
     }
+
+    if(this.user.PrefixName==='REGISTER_GENERAL.Other' &&(this.user.SpecificPrefixName==='' || this.user.SpecificPrefixName===undefined || this.user.SpecificPrefixName===null)){
+      const resultText: string = this.translateService.instant('CALCULATE_POLICY.ERROR_CALCULATE_INPUT');
+      // "กรุณากรอกคำหน้าชื่ออื่น"
+      this.UiService.presentAlert(resultText);
+      return;
+    }
     
     
     if((!this.validateName(this.user.FirstName)) ||( !this.validateName(this.user.LastName))){

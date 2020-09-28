@@ -35,7 +35,7 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.PREFIX_NAME' | translate }}</ion-label
           >
-          <ion-select [(ngModel)]="user.PrefixName">
+          <ion-select [(ngModel)]="user.PrefixName" okText="{{ 'CODE.OK'  | translate }}"  cancelText="{{ 'CODE.CANCEL'  | translate }}">
             <ion-select-option value="CODE.MR"
               >{{ 'CODE.MR' | translate }}
             </ion-select-option>
