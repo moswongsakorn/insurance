@@ -73,7 +73,7 @@ export class PolicyService {
     return new Promise(async (resolve) => {
       var policyList = await this.GetPolicyListByPin(pin);
       policyList.forEach(policy => {
-        this.RemovePolicy(policy.Key);
+        var result = this.RemovePolicy(policy.Key);
       });
       resolve(new ResponseModel().Success(null))
     })

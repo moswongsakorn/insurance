@@ -8,6 +8,7 @@ import { EditChangePasswordPage } from '../edit-change-password/edit-change-pass
 import { UiService } from '../services/ui.service';
 import { async } from '@angular/core/testing';
 import { PolicyService } from '../services/policy.service';
+import { MagicNumber } from '../interfaces/MagicNumber';
 
 @Component({
   selector: 'app-personal-information-general-user',
@@ -25,7 +26,7 @@ export class PersonalInformationGeneralUserPage implements OnInit {
     public modalController: ModalController,
     public uiService: UiService,
     private policyService: PolicyService,
-    private NavController:NavController
+    private NavController: NavController
   ) { }
 
   ngOnInit() {
@@ -59,22 +60,26 @@ export class PersonalInformationGeneralUserPage implements OnInit {
   public async RemoveUser() {
     this.uiService.ConfirmedRemove(async (password) => {
       this.uiService.presentLoading();
-      console.log(password)
-      var result = await this.UserService.RemoveAccount(password);
-      if (result.status) {
-        var status = this.policyService.RemovePolicyByPin(this.user.Pin);
+      if (this.user.Role != MagicNumber.user) {
+        var policyList = await this.policyService.GetPolicyListByPin(this.user.Pin);
+        policyList.forEach(po => {
+          var result = this.policyService.RemovePolicy(po.Key);
+          console.log("Remove==> ",result )
+        });
 
         var agentList = await this.UserService.GetUserAgentListByPin(this.user.Pin);
         agentList.forEach(user => {
           user.Pin = "";
           this.UserService.UpdateAgentUser(user);
         });
+      }
 
+      var result = await this.UserService.RemoveAccount(password);
+      if (result.status) {       
         this.uiService.dismissLoading();
         this.NavController.navigateRoot(['home']);
       }
       else {
-        // รหัสผ่านไม่ถูกต้อง
         const resultText = this.translateService.instant('REGISTER_GENERAL.ERROR_TEXT_5')
         this.uiService.dismissLoading();
         this.uiService.presentAlert(resultText);
