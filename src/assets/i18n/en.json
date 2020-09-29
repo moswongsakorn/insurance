@@ -54,8 +54,8 @@
     "PHONE_NUMBER": "Phone Number",
     "EMAIL": "Email",
     "PASSWORD": "Password",
-    "PASSWORD_INFO": "Please Enter at Least 6 Characters Password",
-    "RE_PASSWORD": "Please Confirm the Password",
+    "PASSWORD_INFO": "Please enter at least 6 characters password",
+    "RE_PASSWORD": "Please confirm the password",
     "GENERATE_PIN": "Set up a PIN",
     "FILL_PIN": "Enter PIN",
     "ERROR_TEXT_1": "Please fill out the form completely.",
@@ -270,7 +270,7 @@
   "CHANGE_PASSWORD": {
     "TITLE": "Change password",
     "PASSWORD_ERROR_TEXT_1": "Please fill out all the information.",
-    "PASSWORD_ERROR_TEXT_2": "Please Enter at Least 6 Characters Password.",
+    "PASSWORD_ERROR_TEXT_2": "Please enter at least 6 characters password.",
     "PASSWORD_ERROR_TEXT_3": "The new password and confirm password do not match.",
     "PASSWORD_SUCCESS_TEXT": "Password changed successfully.",
     "PASSWORD_OLD_PASSWORD_IS_WORNG":"The password is invalid."
