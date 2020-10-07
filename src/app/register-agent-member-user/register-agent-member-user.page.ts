@@ -105,7 +105,7 @@ export class RegisterAgentMemberUserPage implements OnInit {
       return;
     }
 
-    var pinIsExist = await this.userService.PinIsExist(this.user.Pin);
+    var pinIsExist = await this.userService.PinIsExistForUser(this.user.Pin);
     var passwordIsMatch = this.user.PasswordIsMatch();
     if (passwordIsMatch && pinIsExist) {
       this.dataCenter.SetUserCrudModel(this.user);

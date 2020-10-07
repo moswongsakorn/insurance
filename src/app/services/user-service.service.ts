@@ -15,10 +15,10 @@ export class UserServiceService {
     public AngularFireDatabase: AngularFireDatabase,
     public AngularFireAuth: AngularFireAuth,
     public DataCenterService: DataCenterService
-  ) { 
+  ) {
     const languageCheck = localStorage.getItem("language")
-    if(!languageCheck){
-      localStorage.setItem("language","th")
+    if (!languageCheck) {
+      localStorage.setItem("language", "th")
     }
   }
 
@@ -35,7 +35,7 @@ export class UserServiceService {
     })
   }
 
-  public async RemoveAccount(password: string){
+  public async RemoveAccount(password: string) {
     try {
       var user = this.DataCenterService.GetThisUserProfile();
       var result = await this.AngularFireAuth.auth.signInWithEmailAndPassword(user.Email, password);
@@ -54,7 +54,7 @@ export class UserServiceService {
     }
   }
 
-  public async GetThisUser() :Promise<UserCrudModel>{
+  public async GetThisUser(): Promise<UserCrudModel> {
     return new Promise((resolve) => {
       this.AngularFireAuth.authState.subscribe(async (user) => {
         var response = new ResponseModel();
@@ -205,8 +205,8 @@ export class UserServiceService {
       //   return new ResponseModel().Success(result, MagicNumber.ReEntry);
       // }
       // else {
-      
-        var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
+
+      var result = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).child(input.Key).set(input);
       return new ResponseModel().Success(result);
       // }
     } catch (error) {
@@ -274,6 +274,22 @@ export class UserServiceService {
     }
   }
 
+  public async PinIsExistForUser(pin: string): Promise<boolean> {
+    try {
+      var value = await this.AngularFireDatabase.database.ref(MagicNumber.UserTable).orderByChild('Pin').equalTo(pin).once('value');
+      if (value.exists()) {
+        var data = this.ValueChange(value.val())[0] as UserCrudModel;
+        console.log("----> ", data);
+        if (data.Role == MagicNumber.quest) return false;
+        else return true;
+      }
+      return false;
+    } catch (error) {
+      console.log('error', error)
+      return true;
+    }
+  }
+
   public GenerateCharacter(): string {
     let character = "";
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -314,7 +330,7 @@ export class UserServiceService {
       var data = this.ValueChange(value.val());
       var userModel = data.map(data => data as UserCrudModel);
 
-      console.log("IdCardIsExist ",userModel);
+      console.log("IdCardIsExist ", userModel);
 
       for (let i = 0; i < userModel.length; i++) {
         if (userModel[i].Role == role) return true;
