@@ -36,7 +36,7 @@ export class EditAgentInformationPage implements OnInit {
   }
 
   public async Save() {
-    var pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
+    var pinIsExist = await this.UserService.PinIsExistForUser(this.user.Pin);
 
     const checkPhone = this.UiService.checkInputPhoneNumber(this.user.Telephone)
     if(!checkPhone){
