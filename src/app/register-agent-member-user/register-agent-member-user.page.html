@@ -117,10 +117,11 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.PASSWORD_INFO' | translate }}</ion-label
           >
-          <ion-input
+          <!-- <ion-input
             [type]="passwordType"
             [(ngModel)]="user.Password"
-          ></ion-input>
+          ></ion-input> -->
+          <input class="register-password-input" [type]="passwordType" [(ngModel)]="user.Password">
           <span class="eye-button" (click)="togglePassword()">
             <ion-icon size="small" *ngIf="!showPassword" name="eye"></ion-icon>
             <ion-icon
@@ -136,10 +137,11 @@
           <ion-label color="light" position="stacked"
             >{{ 'REGISTER_GENERAL.RE_PASSWORD' | translate }}</ion-label
           >
-          <ion-input
+          <!-- <ion-input
             [type]="confirmPasswordType"
             [(ngModel)]="user.ConfirmPassword"
-          ></ion-input>
+          ></ion-input> -->
+          <input class="register-password-input" [type]="confirmPasswordType" [(ngModel)]="user.ConfirmPassword">
           <span class="eye-button" (click)="toggleConfirmPassword()">
             <ion-icon class="ion-align-items-center"
               size="small"
