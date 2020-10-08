@@ -124,3 +124,11 @@ ion-select::part(text) {
   outline: none;
   padding: 10px;
 }
+
+.password-input-edit{
+  width: 100%;
+  border: none;  
+  border-bottom: solid 1px;
+  outline: none;
+  padding: 4px;
+}

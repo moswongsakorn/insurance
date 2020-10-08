@@ -59,7 +59,13 @@ export class EditPersonalInformationGeneralUserPage implements OnInit {
       this.uiService.presentAlert(resultText);
       return;
     }
-    var pinIsExist = await this.UserService.PinIsExistForUser(this.user.Pin);
+    var pinIsExist
+    if(this.user.Role===MagicNumber.quest){
+     pinIsExist = await this.UserService.PinIsExist(this.user.Pin);
+    }else{
+      pinIsExist = await this.UserService.PinIsExistForUser(this.user.Pin);
+    }
+    console.log('pinIsExist', pinIsExist)
     if (pinIsExist) {
       var result = await this.UserService.UpdateUser(this.user);
       if (result.message == MagicNumber.ReEntry) {
